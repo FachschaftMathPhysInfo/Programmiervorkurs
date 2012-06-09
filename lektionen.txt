@@ -1,0 +1,12 @@
+1  - Hello world
+2  - gdb1; Breakpoints, Durchsteppen
+3  - Variablen, initialisierung
+4  - gdb2; Anzeigen von Variablen
+5  - Eingabe; Begrüßung mit Namen
+6  - Arithmetik (+, -, *, /, %); Einfacher Rechner, gibt alles von (a+b), (a-b), (a*b), (a/b), (a%b) aus
+7  - if; Teilbarkeit
+8? - switch; Gezielter Rechner, fragt Operator ab
+9  - while; Alle Vielfachheiten kleiner als feste Zahl
+10 - for; Schreibe Lektion 8 um
+11 - arrays; Fülle ein Array mit aufsteigenden Zahlen, schaue sie an.
+12 - Sieb des Erathostenes
