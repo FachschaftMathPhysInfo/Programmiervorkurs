@@ -1,0 +1,47 @@
+\lesson{Input und Output}
+
+Nachdem wir ein bisschen Vertrauen in die shell entwickelt haben und zumindest
+bereits unser erstes Programm kompiliert, wollen wir nun etwas spannendere
+Dinge tun. Nach wie vor müsst ihr nicht jede Zeile eures Programmes verstehen.
+Sollte euch bei einer bestimmten Zeile trotzdem interessieren, was genau sie
+tut, versucht doch eventuell sie zu entfernen, das Programm zu kompilieren und
+schaut, was sich ändert.
+
+Wir wollen uns nun mit grundlegendem input und output vertraut machen, denn
+erst wenn euer Programm mit einem Benutzer interagiert, wird es wirklich
+nützlich. Wir haben in der ersten Lektion bereits \texttt{cout} (für
+\emph{console out}) kennengelernt, um Dinge auszugeben. Nun nutzen wir
+\texttt{cin}, um Eingaben des Benutzers entgegen zu nehmen.
+Jedes Programm unter Linux (und übrigens auch Mac OS oder Windows) kann auf
+diese Weise Eingaben vom Nutzer entgegen nehmen und Ausgaben liefern. Das ist
+auch der Grund, warum die Konsole so wichtig ist und es viele Dinge gibt, die
+nur mittels einer Konsole gelöst werden können: Während es viele Stunden
+dauert, ein grafisches Interface zu programmieren, über die man mit dem
+Programm mit der Maus kommunizieren kann, kann praktisch jede\_r ein
+textbasiertes Konsoleninterface schreiben. Linux ist ein Ökosystem mit einer
+gewaltigen Anzahl tools für jeden denkbaren Zweck und bei den meisten haben die
+Autoren sich nicht die Mühe gemacht, extra eine grafische Oberfläche zu
+entwickeln.
+
+Nun aber direkt zur Praxis:
+
+\textbf{Praxis:}
+\begin{enumerate}
+    \item Öffnet die Datei \texttt{vorkurs/lektion3/helloyou.cpp} in eurem Texteditor
+    \item Öffnet ein Terminal und wechselt in das Verzeichnis \texttt{vorkurs/lektion3}
+    \item Kompiliert im Terminal die Datei (\texttt{g++ -o helloyou
+        helloyou.cpp}) und führt sie aus (\texttt{./helloyou})
+    \item Versucht verschiedene Eingaben an das Programm und beobachtet, was passiert
+\end{enumerate}
+
+\inputcpp{helloyou.cpp}
+
+\textbf{Spiel:}
+
+\begin{enumerate}
+    \item Versucht, zu verstehen, was die einzelnen Teile des Programms tun. An
+        welcher Stelle erfolgt die Eingabe? Was passiert dann damit?
+    \item Erweitert das Programm um eigene Fragen und Ausgaben. Vergesst nicht,
+        dass ihr das Programm nach jeder Änderung neu kompilieren und testen
+        müsst.
+\end{enumerate}
