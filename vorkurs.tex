@@ -1,0 +1,69 @@
+\documentclass{vorkurs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{xspace}
+\usepackage[pass]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.footprints,fadings,calc,trees,mindmap,shadows,decorations.text,patterns,positioning,shapes,matrix,fit}
+
+\newcommand{\swname}[1]{\texttt{#1}\xspace}
+\newcommand{\Cpp}{\swname{C++}}
+\newcommand{\file}[1]{\texttt{#1}\xspace}
+\newcommand{\param}[1]{\texttt{#1}\xspace}
+
+\begin{document}
+
+\chapter*{Vorwort}
+\pagestyle{empty}
+
+Vorliegend ist der Programmier-Einführungskurs der Fachschaft MathPhys.
+
+Gedacht ist dieser für Menschen, die ihren Computer bisher eher zum Spielen, als zum Arbeiten benutzt haben, die vielleicht noch nicht wissen, dass es andere Betriebssysteme als DasBekannteVonDerRedmonderFirma™ oder DasMitDemApfelDrauf (You probably never heard of it) gibt, geschweige denn, dass sie mal eine Shell benutzt haben - oder auch nur wissen, was zur Hölle das sein soll.
+Die schon mal gehört haben, dass man „Programmieren“ kann, sich darunter aber einen magischen Prozess vorstellen, der nur Eingeweihte beherrschen und von dem man eigentlich lieber die Finger lässt, wenn man nicht will, dass einem der Computer um die Ohren fliegt.
+Kurzum: Dieser Kurs richtet sich an blutigste Anfänger.
+
+Wir wollen zeigen, dass Programmieren eigentlich gar nicht so schwer ist, dass eine Shell ein mächtiges Werkzeug ist und dass einem der Computer eigentlich viel mehr Spaß bringt, wenn man mit dem nötigen Spieltrieb herangeht.
+Am Ende dieses Kurses sollte die Angst vor dem Computer verflogen sein. Ihr solltet gesehen haben, dass es keinen Grund gibt, ewig zu rätseln, ob ein Algorithmus nun korrekt ist und was die richtige Syntax für eine Operation ist, statt einfach etwas hinzuschreiben und zu sehen, ob es kompiliert.
+Die wichtigste Kompetenz, die wir euch vermitteln wollen ist, programmieren zu lernen, also zu wissen, wie man eine Fehlermeldung liest, wo man bei Wissenslücken nachschauen kann und wen man fragen kann, wenn man mal nicht weiter weiß.
+
+Um diese Ziele zu erreichen, haben wir den Kurs aufgeteilt in viele kleine Lektionen. Jede Lektion stellt im Wesentlichen eine abgeschlossene Einheit da, die eigenständig (mit bedarfsorientierter Hilfestellung) bearbeitet werden sollen. Primär geht es dabei nicht um den dargestellten Inhalt, sondern darum, mit diesem herumzuspielen und selbst die cornercases zu entdecken.
+Insbesondere solltet ihr die Lektionen also \emph{nicht} unter künstlichem Zeitdruck bearbeiten, das Ziel ist nicht, jede Lektion bearbeitet zu haben, sondern jede Lektion entdeckt zu haben.
+Selbstverantwortliches Lernen ist tragender Gedanke des Kurses und sollte entsprechend ernst genommen werden; entscheidet selbst, wie viel Zeit ihr in welche Lektionen stecken wollt.
+
+Jede Lektion gliedert sich wiederum in drei Teile:
+\begin{enumerate}
+    \item Ein theoretischer, in dem ein Unterbau für die Lektion gegeben werden soll.
+        Ein tiefes Verständnis sollte für die Bearbeitung der Lektion nicht notwendig sein, es geht mehr darum, dass sich ein grober Wiedererkennungseffekt einstellt, wenn die theoretischen Kenntnisse im nächsten Teil vertieft werden.
+
+        Wenn du einen eher passiven Lernstil pflegst, kannst du dir hier auch einen Tutor zur Seite stellen lassen, der dich kurz in das Thema einführt.
+    \item Dem Theorieteil schließt sich der Praxisteil an.
+        Hier soll selbstständig das eben hoffentlich oberflächlich verstandene in einer kurzen Fingerübung angewendet werden.
+
+        Bei Fragen kann man aber natürlich auch hier einen Tutor zu Rate ziehen.
+    \item Zuletzt steht dann ein Spielteil. Hier soll mit das Gelernte vertieft und bespielt werden.
+        Tiefer gehende Informationen werden vermittelt und Möglichkeiten, mit dem Code zu interagieren aufgezeigt.
+
+        Von diesem Teil sollte man sich am Wenigsten aufhalten, verunsichern oder deprimieren lassen.
+\end{enumerate}
+
+Als Sprache für den Kurs haben wir \Cpp gewählt.
+Diese Sprache stellt vergleichsweise hohe Anforderungen an Anfänger, da sie relativ maschinennah ist, nicht „garbage-collected“ ist (was auch immer das heißen mag) und high-level Konstrukte wie Listen oder Hashtables keine Repräsentation in der Syntax haben.
+Es muss also viel manuell gemacht werden und das Ganze in einer verhältnismäßig strikten Syntax.
+
+Der Grund, aus dem wir trotzdem \Cpp gewählt haben, ist, dass in den Anfängervorlesungen der Universität Heidelberg \Cpp verwendet wird und wir euch die Verwirrung ersparen wollen, direkt zu Beginn des Lernprozesses mit zwei verschiedenen Sprachen konfrontiert zu werden.
+Ausserdem gibt es uns Gelegenheit, direkt wichtige Sprachidiome einzuführen, den Aufprall des ersten Kontaktes abzufedern und durch Demonstration sprachspezifischer Hilfswerkzeuge (wie zum Beispiel dem \swname{gdb}) zu verhindern, dass ihr bei typischen Problemen der Sprache im späteren Studienverlauf in Verzweifelung versinkt.
+
+Der gesamte Kurs ist aufgeteilt in mehrere Kapitel. Dies dient dem Zweck, verschiedenste Bedürfnisse und Lerntempi zu befriedigen.
+Wer sich ganz auf die Grundlagen konzentrieren und sich mit diesen intensiv auseinandersetzen möchte, findet in den ersten Kapiteln Material, spielerisch die Sprache zu entdecken.
+Wer sich im ersten Kapitel relativ wohl fühlt, ist bereits bestens auf die Einführung in die praktische Informatik vorbereitet.
+Wer schneller lernt, oder einen tieferen Einblick wünscht, findet in späteren Kapiteln genug Material, um sich trotzdem für zwei Wochen zu beschäftigen und voll in die Sprache einzusteigen.
+
+Insgesamt sollte noch einmal betont werden, dass der Selbstanspruch, den gesamten Kurs in vorgegebener Zeit durchzuarbeiten, dem Lernprozess schadet.
+Der Kurs wird nicht benotet, gibt keine Creditpoints und ihr könnt ihn auch nicht auf eurer Bewerbung angeben - für wen hetzt ihr euch also ab?
+
+\tableofcontents
+
+\input{basics/intro.tex}
+
+\end{document}
