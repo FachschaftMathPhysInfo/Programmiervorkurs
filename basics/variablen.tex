@@ -1,0 +1,62 @@
+\lesson{Variablen}
+
+Wir wollen uns jetzt Zeilen 7 bis 10 von \texttt{helloyou.cpp} anschauen:
+\cppsect{helloyou.cpp}{7}{10}
+
+Bisher haben wir uns nicht sehr darum gekümmert, wie genau dieser Teil
+funktioniert. Das wollen wir nun korrigieren. Beginnen wir mit Zeile 7.
+
+Was hier passiert ist, dass eine Variable definiert wird. Eine Variable ist im
+Wesentlichen ein reservierter Bereich im \emph{Hauptspeicher}, in dem ihr Daten
+ablegen könnt und der einen bestimmten Namen (in diesem Fall \texttt{eingabe})
+hat. Damit der Computer weiß, wie dieser Speicherbereich zu interpretieren ist
+(wir erinnern uns: Der Computer kennt keine Buchstaben oder Zahlen, nur „an“
+und „aus“), hat jede Variable einen Typ (in diesen Fall \texttt{std::string},
+was einfach eine Folge von Buchstaben ist).
+
+Um einen string anzulegen gibt es noch eine andere Methode: So genannte
+\emph{String-literals}. Das ist z.B. das \texttt{\"Hallo \"} in Zeile 10.
+Überall, wo ihr ein String-literal benutzen könnt, könnt ihr auch eine
+String-Variable benutzen (und umgekehrt)
+
+Um Zeile 10 in Gänze zu verstehen, stellt euch die Pfeile (\verb|<<|) am Besten
+als „Schiebeoperatoren“ vor, die das, was auf der Rechten Seite steht in das,
+was auf der linken Seite steht „Schieben“. \texttt{std::cout} ist selbst eine
+Variable, die bestimmte Dinge tut, wenn etwas „in sie hineingeschoben wird“,
+nämlich, es auf der Konsole auszugeben.
+
+Wir schieben also zunächst den String \texttt{\"Hallo \"} auf die Konsole,
+anschließend den String, der in der Variable \texttt{eingabe} gespeichert ist,
+anschließend ein \texttt{std::endl}, was ein (Betriebssystem abhängiger)
+Zeilenumbruch ist.
+
+Was jetzt noch fehlt ist offensichtlich Zeile 8. Das ist, wo wir tatsächlich
+eine Usereingabe holen. Wieder stellen wir uns die Pfeile als Schiebeoperatoren
+vor, sie schieben jetzt etwas aus \texttt{std::cin} nach \texttt{eingabe}.
+Genauso, wie \texttt{std::cout} etwas formatiert auf die Konsole schiebt, zieht
+\texttt{std::cin} etwas formatiert aus der Konsole, je nachdem, wo man es
+hinschiebt. In diesen Fall schieben wir es in einen String, es wird also ein
+String (separiert durch Leerzeichen oder Zeilenumbrüche) gelesen und in die
+Variable eingabe geschoben.
+
+Statt uns Strings aus der Konsole zu ziehen, können wir ihnen auch direkt
+String-Literals \emph{zuweisen}, wie es hier passiert:
+\inputcpp{strings.cpp}
+
+\textbf{Praxis:}
+\begin{enumerate}
+    \item Was passiert, wenn ihr in Zeile 8 eine weitere Zuweisung an
+        \texttt{hallo} macht?
+    \item Definiert euch eine weiter \texttt{std::string} Variable und lest ein
+        weiteres Wort darin ein (vielleicht ein Nachname?)
+\end{enumerate}
+
+\textbf{Spiel:}
+\begin{enumerate}
+    \item Was passiert, wenn ihr euch im Namen einer Variable „vertippt“?
+    \item Definiert euch zwei \texttt{std::string} Variablen, weißt ihnen
+        irgendwelche String-literals zu und versucht, die Summe von beiden
+        Strings auszugeben.
+    \item Was passiert, wenn ihr eine \texttt{std::string} Variable definiert,
+        ihr aber nichts zuweist und dann versucht, sie auszugeben?
+\end{enumerate}
