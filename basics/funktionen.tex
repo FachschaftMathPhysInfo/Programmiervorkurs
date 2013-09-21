@@ -1,0 +1,90 @@
+\lesson{Funktionen}
+
+Wir haben den Begriff schon ein paarmal genannt und auch, wenn ihr es
+vielleicht nicht gemerkt habt, sie waren schon die ganze Zeit vor eurer Nase:
+Funktionen.
+
+Eine Funktion ist im Wesentlichen eine Möglichkeit, eine Folge von Anweisungen
+zu bündeln und isolieren. Wir haben schon einmal ein Programm gesehen, mit dem
+wir testen können, ob eine Zahl eine Primzahl ist, oder nicht. Viele Vorteile
+von Funktionen, lassen sich an diesem Beispiel illustrieren. Stellt euch vor,
+ihr braucht in eurem Programm an vielen Stellen einen solchen Primzahltest. Ihr
+könntet jedes mal den gesamten benötigten Code hinschreiben, aber das wäre doch
+eine Menge Arbeit. Eine Funktion ermöglicht es euch, den Code zum Testen
+auszulagern in eine eigene Funktion z.B. \texttt{istprim}. Immer, wenn ihr dann
+testen wollt, ob eine Zahl \texttt{n} eine Primzahl ist, könnt ihr dann einfach
+schreiben \texttt{istprim(n)} und ruft damit die Funktion auf. Das spart
+Schreibarbeit.
+
+Stellt euch vor, irgendwann ist euch dann ein Test mittels Probedivision nicht
+mehr schnell genug (weil ihr z.B. immer größere Zahlen testen wollt) und ihr
+wollt auf einen schnelleren Test umsteigen. Ohne Funktionen müsstet ihr jedes
+Vorkommen eines Primzahltests in eurem Code einzeln durch den neuen Test
+ersetzen. Mit Funktionen gibt es genau eine Stelle, an der ihr den Code
+austauschen müsst und all die Stellen, an denen ihr ihn benutzt, übernehmen
+automatisch die neue Implementation.
+
+Zuletzt haben wir in der letzten Lektion einiges über Lesbarkeit von Quellcode
+gelernt. Lesbarkeit erhöht Wartbarkeit und reduziert die Möglichkeiten, Fehler
+zu machen. Was stellt ihr euch lesbarer vor, eine Datei, in der einige tausend
+Zeilen Code stehen, ohne sichtbare Struktur und einfach nur als Folge von
+Anweisungen, oder mehrere kleine Datein, mit beschreibenden, verständlichen
+Namen, in denen jeweils mehrere Fun¡tionen, ebenfalls mit verständlichen Namen
+stehen, das alles schön aufgeteilt nach Themengebiet? Funktionen erhöhen
+Lesbarkeit und helfen, den Code zu strukturieren, was ihn verständlicher macht.
+
+Das wohl wichtigste Beispiel für eine Funktion habt ihr bereits kennengelernt:
+Die \texttt{main}-Funktion. Diese spezielle Funktion ist der Eintrittspunkt für
+euer Programm. Der Code der \texttt{main}-Funktion ist der erste, der läuft,
+sobald die \texttt{main} fertig abgearbeitet ist, beendet sich euer Programm.
+Damit haben wir auch schon die Wesentlichen Eckpunkte, wie eine Funktion
+syntaktisch auszusehen hat.
+
+Das \texttt{int main()} heißt die \emph{Signatur} der Funktion. Die Signatur
+enthält immer den Datentyp, den die Funktion ausgeben soll (in diesem Fall
+\texttt{int}, also eine ganze Zahl), einen Namen (in diesem Fall der spezielle
+Name \texttt{main}) sowie Parameter, die Eingabewerte (in diesem Fall gibt es
+keine Parameter, wir werden aber gleich sehen, wie eine Funktion auszusehen
+hat, die Parameter entgegennimmt). An die Signatur schließt sich direkt eine
+öffnende geschweifte Klammer, dann kommen alle Anweisungen, aus denen die
+Funktion bestehen soll, dann eine schließende geschweifte Klammer.
+
+Um das Ergebnis einer Funktion zurückzugeben, benutzen wir \texttt{return}. Wir
+haben das bereits einmal gesehen, wo wir es benutzt haben, um unser Programm zu
+beenden -- das funktionierte in dem Fall, weil wir uns in der \texttt{main}
+befanden und wie gesagt beendet sich das Programm, sobald die \texttt{main}
+fertig ist. Mit Funktionen könnte ein Programm, was eine Zahl darauf testet,
+eine Primzahl zu sein, so aussehen:
+\inputcpp{funktion.cpp}
+
+Parameter geben wir also in den Klammern an, jeweils so, wie wenn wir eine
+Variable erstellen würden, mit einem Typ und einem Namen. Wenn wir mehrere
+Parameter brauchen, können wir sie mit Kommata trennen. Dann müssen wir auch,
+wenn wir die Funktion benutzen, die einzelnen Eingaben mit Kommata trennen.
+
+\textbf{Praxis:}
+\begin{enumerate}
+    \item Schreibt eine Funktion, die einen \texttt{std::string} entgegen nimmt
+        und einen \texttt{int} zurück gibt. Die Funktion soll -- so wie wir es
+        bisher schon in zig Programmen gemacht haben -- den eingegebenen String
+        ausgeben und dann einen String von der Nutzerin einlesen. Denkt euch
+        einen sprechenden Namen für sie aus.
+    \item Passt \texttt{funktion.cpp} so an, dass es eure Funktion benutzt.
+    \item Kompiliert das angepasste Programm und lasst es im debugger Schritt
+        für Schritt durchlaufen.
+\end{enumerate}
+
+\textbf{Spiel:}
+\begin{enumerate}
+    \item Vertauscht in \texttt{funktion.cpp} die Funktion \texttt{istprim} mit
+        der Funktion \texttt{main} (verschiebt also die gesamte Funktion
+        \texttt{istprim} an das Ende der Datei). Versucht, die Datei zu
+        kompilieren. Was ist die Fehlermeldung des Compilers?
+    \item Verschiebt die Funktion \texttt{istprim} \emph{in} die
+        \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften
+        Klammern, aber vor die dazu gehörige schließende). Versucht, die Datei
+        zu kompilieren. Was ist die Fehlermeldung des Compilers?
+    \item Schaut euch eure bisherigen Lösungen an. Findet ihr noch häufiger
+        Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern
+        könnt?
+\end{enumerate}
