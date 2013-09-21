@@ -1,0 +1,96 @@
+\lesson{Coding style}
+
+Wir haben mitlerweile hinreichend viele verschiedene Verschachtelungen im
+Quellcode kennen gelernt, dass es sich lohnt, ein paar Worte über coding styĺe
+zu sprechen.
+
+Schon wenn ihr euch während dieses Kurses an einen von uns wendet und um Hilfe
+bittet, ergibt sich das Problem der Lesbarkeit von Quellcode. Um euch zu
+helfen, sollte man möglichst mit einem Blick erfassen können, was euer Code
+tut, wie er strukturiert ist, welche Variable was bedeutet. Um dies zu
+unterstützen, gibt es mehrere Dinge, auf die man achten kann.
+
+\begin{description}
+    \item[Einrückung]
+        Wie euch vermutlich aufgefallen ist, sind an verschiedenen Stellen im
+        Code einzelne Zeilen ein wenig eingerückt. Dies ist vermutlich das
+        wichtigste Werkzeug, welches zur Verfügung steht, um die Lesbarkeit von
+        Code zu unterstützen (auch, wenn es nicht nötig ist, um formal korrekte
+        Programme zu schreiben). Die einzelnen Einheiten des Kontrollflusss
+        werden dadurch visuell voneinander abgegrenzt, was es einfacher macht,
+        den Programmverlauf zu verfolgen.
+
+        Wie genau eingerückt werden sollte, darüber scheiden sich die Geister.
+        Man kann mit mehreren Leerzeichen oder durch Tabulatoren einrücken.
+        Empfehlenswert ist auf jeden Fall, mehrere gleichförmige „Ebenen“ zu
+        haben (z.B. 4,8,12,\dots Leerzeichen zu Beginn der Zeile). Eine
+        Faustregel für gut lesbare Einrückung ist, immer wenn man eine
+        geschweifte Klammer öffnet, eine Ebene tiefer einzurücken und immer,
+        wenn man eine geschweifte Klammer schließt, wieder eine Ebene zurück zu
+        nehmen.
+    \item[Klammern]
+        Aus der Schule kennt ihr das Prinzip „Punkt- vor Strichrechnung“. Dies
+        ist eine Regel, die so genannte \emph{Präzedenz} ausdrückt, also die
+        Reihenfolge, in der Operatoren ausgewertet werden. Punkt vor Strich ist
+        allerdings nicht aussreichend, um vollständig zu beschreiben, wie sich
+        Operatoren in Gruppen verhalten. Schaut euch z.B. den Ausdruck
+        \texttt{2 * 3 / 2} an. Da der Computer Ganzzahldivision benutzt, kommen
+        hier unterschiedliche Ergebniss raus, je nachdem, ob zunächst das
+        \texttt{*} oder das \texttt{/} ausgewertet wird. Im ersten Fall
+        erhalten wir \texttt{6 / 2 == 3}, wie wir erwarten würden. Im zweiten
+        Fall wird aber abgerundet, sodass wir \texttt{2 * 0 == 0} erhalten.
+
+        Um solche und ähnliche Uneindeutigkeiten zu vermeiden, bietet es sich
+        an, Klammerung zu verwenden. Selbst wenn wir im obigen Fall
+        \emph{wissen} in welcher Reihenfolge die Operatoren ausgewertet werden,
+        jemand der unseren Code liest weiß das vielleicht nicht. Einfach von
+        vornherein die gewollte Reihenfolge der Auswertung zu klammern
+        verhindert Verwirrung bei uns über das Verhalten des Computers, als
+        auch bei Menschen, die später wissen wollen, was wir meinten.
+    \item[Kommentare]
+        Wir haben schon in mehreren Quellcodedateien Kommentare verwendet, um
+        einzelne Dinge zu erklären. Insgesamt bietet es sich an, dies selbst
+        ebenfalls zu tun, um den Programmfluss dem Leser von Quellcode klar zu
+        machen. Das heißt nicht, dass man jede Anweisung noch einmal mit einem
+        Kommantar versehen sollte, der sie ausführlich erklärt, aber an
+        wichtigen Punkten können einem kurze Kommentare das Leben enorm
+        vereinfachen. Und ihr dürft nicht vergessen, dass ihr euch vielleicht
+        selbst in ein oder zwei Jahren noch einmal euren eigenen Quellcode
+        anschauen müsst und ihr werdet wirklich überrascht sein, wie wenig ihr
+        von dem Zeug, welches ihr selbst geschrieben habt verstehen werdet.
+    \item[Leerzeichen]
+        Weniger wichtig als die ersten drei Punkte können trotzdem gezielte
+        Leerzeichen (z.B. zwischen Operatoren und Operanden in arithmetischen
+        Ausdrücken) die Lesbarkeit enorm erhöhen. Gerade in arithmetischen
+        Ausdrücken ist es eine gute Angewohnheit.
+\end{description}
+
+Es gibt sicher noch viele Regeln, über die ihr im Laufe eures Lebens stolpern
+werdet, wenn ihr euch entschließen solltet, regelmäßig zu programmieren. Häufig
+werdet ihr euch darüber ärgern, manchmal zu recht. Aber versucht im Zweifel
+einen halbwegs sauberen Stil auch als euren eigenen Verbündeten zu sehen, denn
+ob es nun vergessene Klammern, Semikolons oder versteckte Fehler in der
+Operatorpräzedenz sind, ein sauberer Stil kann euch bei allen enorm helfen, sie
+aufzuspüren.
+
+\textbf{Praxis:}
+\begin{enumerate}
+    \item Eine weit verbreitete einfache Aufgabe, die in Bewerbungsgesprächen
+        auf Stellen als Programmiererin häufig gestellt wird, ist
+        \emph{FizzBuzz}. In \texttt{fizzbuzz.cpp} ist eine möglich Lösung für
+        diese Aufgabe gegeben. Könnt ih r (nur mittels des Quellcodes) sagen,
+        was das Programm tut?
+    \item Nutzt die oben gegebenen Faustregeln, um den Quellcode lesbarer zu
+        machen. Ihr müsst nicht alles bis aufs Wort befolgen, macht einfach so
+        lange weiter, bis ihr findet, man kann hinreichend schnell verstehen,
+        was hier passieren soll.
+\end{enumerate}
+
+\inputcpp{fizzbuzz.cpp}
+
+\textbf{Spiel:}
+\begin{enumerate}
+    \item Entfernt in eurem veränderten Quellcode eine geschweifte Klammer
+        eurer Wahl. Lasst eure Sitznachbarin über den Quellcode schauen und die
+        fehlende Klammer finden.
+\end{enumerate}
