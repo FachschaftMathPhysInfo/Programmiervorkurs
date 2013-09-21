@@ -1,23 +1,45 @@
 \lesson{Hello world}
 
-Die erste Lektion beschäftigt sich alleine mit der Frage, was eigentlich eine Programmiersprache überhaupt ist und wie wir den Computer dazu bringen können, daraus etwas zu machen, was er ausführen kann.
-In guter alter Programmiertradition tun wir das an dem simpelsten aller Programme: Einem, was einfach nur ein „Hallo Welt!“ ausgibt.
+Die erste Lektion beschäftigt sich alleine mit der Frage, was eigentlich eine
+Programmiersprache überhaupt ist und wie wir den Computer dazu bringen können,
+daraus etwas zu machen, was er ausführen kann.  In guter alter
+Programmiertradition tun wir das an dem simpelsten aller Programme: Einem, was
+einfach nur ein „Hallo Welt!“ ausgibt.
 
-Wie bringen wir also den Computer dazu, diese Ausgabe zu generieren? Dass er keine natürliche Sprache versteht, sollte klar sein - intern besteht er aus lauter Transistoren (wenn ihr nicht wisst, was das ist, denkt an winzige Schalter), die nur die Zustände „an“ und „aus“ kennen, wir müssen also die Anweisung „gebe Hallo Welt aus“ in ein Format übersetzen, was nur „an“ und „aus“ benutzt.
+Wie bringen wir also den Computer dazu, diese Ausgabe zu generieren? Dass er
+keine natürliche Sprache versteht, sollte klar sein - intern besteht er aus
+lauter Transistoren (wenn ihr nicht wisst, was das ist, denkt an winzige
+Schalter), die nur die Zustände „an“ und „aus“ kennen, wir müssen also die
+Anweisung „gebe Hallo Welt aus“ in ein Format übersetzen, was nur „an“ und
+„aus“ benutzt.
 
-Früher wurde genau dies benutzt - meistens über Lochkarten, die vom Computer gelesen wurden, „ein Loch“ war dann zum Beispiel ein „an“ und „kein Loch“ war „aus“, so wurde dann das Programm in Reihen angeordnet und jede Reihe entsprach einem Befehl oder einem Parameter für diesen Befehl.
-Dieses Format nennt sich „Maschinensprache“ und ist immer noch das, was wir heute dem Computer übergeben, nur, dass wir keine Lochkarten mehr benutzen, sondern Dateien, in denen lange Ströme von codierten 0en und 1en stehen.
+Früher wurde genau dies benutzt - meistens über Lochkarten, die vom Computer
+gelesen wurden, „ein Loch“ war dann zum Beispiel ein „an“ und „kein Loch“ war
+„aus“, so wurde dann das Programm in Reihen angeordnet und jede Reihe entsprach
+einem Befehl oder einem Parameter für diesen Befehl.  Dieses Format nennt sich
+„Maschinensprache“ und ist immer noch das, was wir heute dem Computer
+übergeben, nur, dass wir keine Lochkarten mehr benutzen, sondern Dateien, in
+denen lange Ströme von codierten 0en und 1en stehen.
 
-Nun kann man sich vorstellen, dass es ganz schön anstrengend ist, ein umfangreiches Programm in 0en und 1en zu beschreiben. Deswegen benutzt man heutzutage so genannte Hochsprachen, um Programme zu beschreiben.
-Wir beschreiben also den Programmablauf in einer von Menschen lesbaren und verstehbaren Sprache - wir benutzen hier \Cpp.
-Die Programmbeschreibung in \Cpp legen wir dabei in einer Textdatei ab, meistens hat diese die Endung \texttt{.cpp}.
+Nun kann man sich vorstellen, dass es ganz schön anstrengend ist, ein
+umfangreiches Programm in 0en und 1en zu beschreiben. Deswegen benutzt man
+heutzutage so genannte Hochsprachen, um Programme zu beschreiben. Wir
+beschreiben also den Programmablauf in einer von Menschen lesbaren und
+verstehbaren Sprache -- wir benutzen hier \Cpp.  Die Programmbeschreibung in
+\Cpp legen wir dabei in einer Textdatei ab, meistens hat diese die Endung
+\texttt{.cpp}.
 
-Diese Beschreibung des Programms übergeben wir dann an einen \emph{Compiler}, der daraus dann Maschinencode generiert, den wir wiederum dem Computer zur Ausführung geben können.
-Der Compiler für \Cpp, den wir in diesem Kurs benutzen wollen, heißt \swname{g++}.
+Diese Beschreibung des Programms übergeben wir dann an einen \emph{Compiler},
+der daraus dann Maschinencode generiert, den wir wiederum dem Computer zur
+Ausführung geben können.  Der Compiler für \Cpp, den wir in diesem Kurs
+benutzen wollen, heißt \texttt{g++}.
 
-Dem Compiler übergeben wir die zu kompilierende Datei als Parameter, sowie den Namen der Ausgabedatei (mit einem \param{-o} davor).
+Dem Compiler übergeben wir die zu kompilierende Datei als Parameter, sowie den
+Namen der Ausgabedatei (mit einem \texttt{-o} davor).
 
-Nachdem \swname{g++} uns also ein Maschinencodefile \file{datei} erzeugt hat, können wir es zur Ausführung bringen. Wir tun das, indem wir auf einer shell \file{./datei} eingeben, also einen Punkt, ein Slash und dann den Dateinamen.
+Nachdem \texttt{g++} uns also ein Maschinencodefile \texttt{datei} erzeugt hat,
+können wir es zur Ausführung bringen. Wir tun das, indem wir in einem Terminal
+\texttt{./datei} eingeben, also einen Punkt, ein Slash und dann den Dateinamen.
 
 % TODO: Buttugly, but well...
 \begin{center}
@@ -38,9 +60,9 @@ Nachdem \swname{g++} uns also ein Maschinencodefile \file{datei} erzeugt hat, k�
     \item Wechselt in das Verzeichnis \texttt{vorkurs/lektion1}, indem ihr
         \texttt{cd vorkurs/lektion1} eingebt und enter drückt.
     \item In diesem Verzeichnis liegt eine Datei \texttt{helloworld.cpp}.
-        Benutzt \swname{g++}, um diese zu einer Datei \file{hello} zu
+        Benutzt \texttt{g++}, um diese zu einer Datei \texttt{hello} zu
         kompilieren.
-    \item Führt die Datei \file{hello} aus.
+    \item Führt die Datei \texttt{hello} aus.
 \end{enumerate}
 
 \inputcpp{helloworld.cpp}
