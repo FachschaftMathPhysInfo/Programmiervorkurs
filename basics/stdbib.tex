@@ -1,0 +1,55 @@
+\lesson{Die \Cpp Standardbibliothek}
+
+Vielleicht habt ihr euch irgendwann gewundert, was eigentlich das
+\texttt{std::} ist, was wir vor so viele Dinge schreiben. Warum müssen wir es
+z.B. vor \texttt{string} schreiben, aber nicht vor \texttt{int}?
+
+Die Antwort auf die Frage ist die \Cpp Standardbibliothek. So wie eigentlich
+jede Programmiersprache, definiert sich \Cpp nicht nur durch die \emph{Syntax}
+-- also die genaue Spezifikation, wie ein Quellcodeprogramm aufgebaut ist, wie
+eine Anweisung aussieht und ob wir z.B. ein Semikolon am Ende jeder Anweisung
+brauchen -- sondern auch über die im Sprachumfang enthaltene
+Standardbibliothek, die einem nützliche Funktionen und Objekte für Ein- und
+Ausgabe, komplexe Datentypen oder zur Interaktion mit dem Betriebssystem gibt.
+
+\Cpp nutzt das Prinzip von so genannten \emph{Namespaces}. Das ist eine
+Möglichkeit, eine Gruppe von Datentypen, Funktionen und Variablen unter einem
+gemeinsamen Namen zu verpacken. Stellt euch vor, ihr wollt in eurem Programm
+eine Funktion \texttt{random} definieren. Ihr hättet ganz schön große Problem,
+denn der Compiler wüsste dann, wenn ihr \texttt{random} schreibt nicht, ob ihr
+eure eigene Funktion meint, oder ob ihr die Standard-\Cpp Funktion meint.
+
+Aus diesem Grund leben alle Funktionen und Objekte der \Cpp Standardbibliothek
+im Namespace \texttt{std}. Um auf sie zuzugreifen, müsst ihr dem Compiler
+sagen, aus welchen Namespace ihr sie haben wollt, dazu schreibt ihr eben den
+Namen des Namespaces und zwei Doppenpunkte vor den Namen der Variablen (oder
+Funktion), also ist \texttt{std::cout} „Die Variable \texttt{cout} aus dem
+Namespace \texttt{std}“.
+
+\inputcpp{namespaces.cpp}
+
+\textbf{Praxis:}
+\begin{enumerate}
+    \item Was gibt dieses Programm aus, wenn man es kompiliert und ausführt?
+        Überlegt es euch zuerst selbst, dann probiert es aus.
+\end{enumerate}
+
+Wenn ihr wissen wollt, was die Standardbibliothek alles so für euch bereit
+stellt, könnt ihr euch in der Referenz der Standardbibliothek unter
+
+\url{http://www.cplusplus.com/reference/}
+
+umschauen. Es ist nicht ganz einfach, zu wissen, wo man dort findet, was man
+sucht, in dem Fall kann Google ein im Regelfall ganz gut helfen. Wenn man
+einmal weiß, \emph{was} man sucht, findet man in der Referenz vor allem,
+\emph{wie} man es benutzt.
+
+Die Standardbibliothek ist aufgeteilt auf so genannt \emph{Headerdateien}, die
+wir mittels \texttt{\#include} benutzen können. Diese Header sind, worunter ihr
+zuerst wählt, wenn ihr auf obige url geht. Jeder Header definiert dann eine
+Menge an Funktionen, Typen und Klassen (was genau eine Klasse ist, lernt ihr
+spätestens in der Vorlesung).
+
+\textbf{Praxis:}
+\begin{enumerate}
+    \item Findet Funktione

@@ -46,10 +46,10 @@ g++ -O0 -g3 -o debugger debugger.cpp
 \begin{enumerate}
     \item Kompiliert das Programm mit den neuen Optionen für den debugger. Ihr
         könnt es dann mittels \verb|gdb ./debugger| im gdb starten. Ihr solltet
-        nun ein wenig Text ausgegeben bekommen und einen anderen prompt. Ihr
-        könnt den debugger jederzeit wieder verlassen, indem ihr \texttt{quit}
-        eingebt (falls ihr gefragt werdet, ob ihr euch sicher seid, gebt
-        \texttt{y} ein und drückt enter)
+        nun ein wenig Text ausgegeben bekommen und einen anderen prompt
+        (\texttt{(gdb)}). Ihr könnt den debugger jederzeit wieder verlassen,
+        indem ihr \texttt{quit} eingebt (falls ihr gefragt werdet, ob ihr euch
+        sicher seid, gebt \texttt{y} ein und drückt enter)
     \item Zu allererst müssen wir einen so genannten \emph{breakpoint} setzen,
         das ist ein Punkt im Programmablauf, an dem es stoppen soll, damit wir
         entscheiden können, was wir tun wollen. \texttt{main} ist für die

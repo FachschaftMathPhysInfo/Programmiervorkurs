@@ -1,0 +1,96 @@
+\lesson{Der Kontrollfluss}
+
+Nachdem wir ein bisschen etwas über den Debugger verstanden haben (wir werden
+ihn noch häufiger benutzen), können wir uns nun wieder unserem Problem mit der
+Division durch 0 zuwenden.
+
+\inputcpp{arith4.cpp}
+
+Wenn wir dieses Programm kompilieren und als zweite Zahl eine 0 eingeben,
+werden wir auf der Konsole ausgegeben bekommen:
+\begin{minted}{text}
+Gebe eine Zahl ein: 5
+Gebe noch eine Zahl ein: 0
+Floating point exception
+\end{minted}
+(Gegebenenfalls ist die letzte Zeile bei euch auch in einer anderen Sprache)
+
+Wir können das Programm auch einmal im debugger ausführen und werden wenig
+überraschend feststellen, dass die Anweisung, an der diese floating point
+exception auftritt die ist, in der die Division steht.
+
+Wenn wir diesen Fehler beheben wollen, haben wir eigentlich nur zwei
+Möglichkeiten: Die erste ist, die Schuld auf den Benutzer zu schieben, warum
+versucht er auch, eine 0 einzugeben? Ich hoffe, ihr stimmt zu, dass das nicht
+seht Benutzerfreundlich wäre. Stellt euch vor, jedes mal, wenn ihr in einem
+Programm einen Wert eingibt, auf den das Programm nicht vorbereitet ist, würde
+es direkt abstürzen. Das fändet ihr vermutlich nicht so gut, es sollte doch
+zumindest mal eine Fehlermeldung ausgeben und den Benutzen informieren, dass er
+was falsch gemacht hat.
+
+Und das ist der zweite Weg, den wir jetzt einschlagen wollen. Unser Programm
+sollte am Besten, nachdem es die Eingabe vom Benutzer entgegen genommen hat,
+einfach überprüfen, ob die Division erlaubt ist oder nicht. Sollte der Benutzer
+eine 0 eingegeben haben, sollte es den Benutzer auf seinen Fehler hinweisen und
+sich beenden, sonst sollte es den Quotienten ausgeben. Diese Abhängigkeit des
+Verhaltens eines Programms von den Eingaben, bezeichnen wir als
+\emph{Kontrollfluss}, man kann das mit einem Diagramm verdeutlichen:
+
+\begin{center}
+    \begin{tikzpicture}[auto, node distance=3cm,>=latex']
+        \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
+
+        \node [block] (start) {Input};
+        \node [block, right of=start] (if) { $a=0$? };
+        \node [block, right of=if, node distance=4cm] (fehler) { Gib Fehler aus };
+        \node [block, below of=fehler,node distance =  2cm] (quotient) { Gib Quotient aus };
+        \node [block, right of=fehler, node distance = 3.5cm] (ende) { Ende };
+
+        \draw [->] (start) -- node {} (if);
+        \draw [->] (if) -- node {\texttt{ja}} (fehler);
+        \draw [->] (if.south) |- node [above, near end] {\texttt{nein}} (quotient);
+        \draw [->] (quotient) -| node {} (ende);
+        \draw [->] (fehler) -- node {} (ende);
+    \end{tikzpicture}
+\end{center}
+
+Die einfachste Möglichkeit, den Kontrollfluss zu ändern, besteht in so
+genannten „bedingten Anweisungen“:
+\inputcpp{if.cpp}
+
+In den Zeilen 12 bis 20 sehen wir, wie eine solche Bedingte Anweisung in \Cpp
+aussieht. Wir erkennen relativ direkt unser Diagramm hier wieder: In Zeile 12
+steht der „$a=0$?“ Block, in den Zeilen 13 bis 17 steht der „Gib Fehler aus“
+Block und in Zeile 19 der „Gib den Quotienten aus“ Block.
+
+Beachtet allerding die doppelten Gleichheitszeichen in Zeile 12. \Cpp hat
+getrennte Operatoren für Vergleiche und Zuweisungen - Doppelte
+Gleichheitszeichen bedeuten Vergleich („sind diese beiden gleich?“), ein
+einfaches Gleichheitszeichen bedeutet Zuweisung („mache diese beiden gleich!“).
+
+\textbf{Praxis:}
+\begin{enumerate}
+    \item Kompiliert \texttt{if.cpp} für den debugger und lasst das Programm im
+        gdb laufen. Geht Schritt für Schritt durch das Programm, mit
+        verschiedenen Eingaben (wenn ihr am Ende des Programms angekommen seid,
+        könnt ihr es mit einem erneuten „run“ neu starten)
+    \item Nutzt Google, um herauszufinden, welche anderen Vergleichsoperatoren
+        es in \Cpp noch gibt. Versucht, das Programm so zu verändern, dass es
+        auf Ungleichheit testet, statt auf Gleichheit (sich sonst aber genauso
+        verhält).
+    \item Wie würdet ihr testen, ob zwei Zahlen durch einander teilbar sind
+        (Tipp: Ihr kennt bereits die Division mit Rest in \Cpp)? Schreibt ein
+        Programm, welches zwei Zahlen vom Benutzer entgegen nimmt und ausgibt,
+        ob die zweite Zahl die erste teilt.
+\end{enumerate}
+
+\textbf{Spiel:}
+\begin{enumerate}
+    \item Testet mit verschiedenen Eingaben, was passiert, wenn ihr in
+        \texttt{if.cpp} statt zwei Gleichheitszeichen nur eines benutzt.
+        Benutzt den debugger, um euch den Inhalt von \texttt{b} vor und nach
+        dem Test anzuschauen.
+    \item Schreibt ein Programm, welches den Benutzer fragt, wie er heißt. Gibt
+        der Benutzer euren eigenen Namen ein, soll das Programm begeistert über
+        die Namensgleichheit sein, sonst ihn einfach begrüßen.
+\end{enumerate}
