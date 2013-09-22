@@ -10,6 +10,7 @@ int main() {
     int i = 0;
     while (i < 100) {
         einarray[i] = rand();
+        i = i + 1;
     }
 
     std::cout << "An Index 0 steht " << einarray[0] << std::endl;
