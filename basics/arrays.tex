@@ -1,0 +1,83 @@
+\lesson{Arrays}
+
+Als nächstes wichtiges Konzept in \Cpp werden wir uns \emph{Arrays} anschauen.
+Arrays sind eine Möglichkeit, mehrere Elemente des gleichen Typs zusammen zu
+fassen. Statt also einer Stelle im Speicher, an der ein \texttt{int} liegt,
+habt ihr einen ganzen Speicherbereich, in dem 100 (oder eine beliebige andere
+Anzahl) an \texttt{int}s liegt.
+
+Die Elemente in einem Array sind durchnummeriert, man nennt die Nummer eines
+Arrayelements seinen \emph{Index}. Das erste Element hat den Index 0, das
+zweite den Index 1 und das 100te hat den Index 99 -- Vorsicht also, der höchste
+Index in einem Array mit 100 Elementen ist 99, nicht 100! Um ein Array zu
+definieren, schreibt ihr hinter seinen Namen eine eckige Klammer auf, die
+Anzahl an Elementen, die es enthalten soll, und eine eckige Klammer zu. Auf ein
+bestimmtes Arrayelement zuzugreifen könnt ihr tun, indem ihr seinen Index in
+eckigen Klammern hinter den Namen schreibt. Folgendes Programm macht
+hoffentlich die Syntax klar:
+\inputcpp{array.cpp}
+
+Es gibt einige Dinge, zu beachnten, wenn ihr mit Arrays arbeitet. Das
+wichtigste ist oben schon genannt -- sich davon verwirren zu lassen, dass
+Indizes bei 0 anfangen und aus Versehen über das Array hinaus schreiben oder
+lesen ist ein so häufiger Fehler, dass er seinen eigenen Namen bekommen hat:
+„Off-by-one error“. Wichtig ist, dass der Compiler diesen Zugriff nicht
+verhindern wird! Das ist von daher eine sehr fiese Sache, als dass dieser
+Fehler auch beim Ausführen nicht immer Probleme machen wird -- aber manchmal
+lässt er auch euer Programm spontan abstürzen in einem so genannten
+\emph{segmentation fault}.
+
+Eine Limitation von Arrays, die ihr beachten solltet, ist, dass bereits zur
+Compilezeit fest stehen muss, wie viele Elemente sie enthalten sollen. Ihr
+könnt also z.B. nicht die Nutzerin fragen, wie viele Elemente in das Array
+passen soll, denn dies würde erst zur Laufzeit feststehen (wir werden später
+noch Wege um diese Limitation kennen lernen).
+
+Ihr könnt auch Arrays von Arrays (so genannte zweidimensionale Arrays)
+erstellen, indem ihr zweimal in eckigen Klammern die Größe des Arrays
+hinschreibt. Die erste Größe gibt dann die Anzahl der Zeilen an, die zweite die
+Anzahl der Spalten. Auch beim Zugriff auf Arrayelemente müsst ihr dann zwei
+Indizes angeben. Wir werden dies später noch nutzen, hier sei erst einmal nur
+die generelle Möglichkeit genannt.
+
+\textbf{Praxis:}
+Wir wollen die Seite \url{http://www.ich-kann-mich-nicht-entscheiden.de/}
+nachmachen und eine Entscheidungshilfe programmieren, die aus mehreren von der
+Nutzerin gegebenen Möglichkeiten eine per Zufall auswählt.
+
+\begin{enumerate}
+    \item Schreibt zunächst ein Programm, welches ein Array aus 10 Strings
+        erstellt und die Nutzerin 10 mal nach einer Antwortmöglichkeit fragt
+        und die gegebenen Antworten nacheinander in das Array schreibt.
+    \item Fügt nun die Möglichkeit zu, weniger Antworten anzugeben. Dazu könnt
+        ihr zum Beispiel zuerst fragen, wie viele Antwortmöglichkeiten es geben
+        soll und dann so oft fragen (und natürlich einen Fehler ausgeben, wenn
+        es mehr als 10 Antworten geben soll).
+    \item Ihr könnt dann (so wie in dem Programm oben) eine Zufallszahl
+        erzeugen. Um sicher zu gehen, dass sie nicht zu groß wird, könnt ihr
+        den Rest bei Teilung durch Anzahl der eingegebenen Antworten nehmen
+        (sind z.B. 7 Antworten angegeben und die Zufallszahl ist 25778, so wäre
+        der resultierende Index \texttt{25778 \% 7 == 4}). Gebt dann die
+        Antwortmöglichkeit aus, die dem zufallsgeneriertem Index
+        entspricht.
+\end{enumerate}
+
+Sollte euer Programm einmal nicht korrekt kompilieren, denkt daran die
+Fehlermeldung sorgfältig zu lesen, damit sie euch Aufschluss über die
+Fehlerursache gibt. Sollte euer Programm zwar kompilieren, sich dann aber
+komisch verhalten, denkt daran, den debugger zu benutzen und es Schritt für
+Schritt durchzugehen, um die Fehlerquelle zu finden. Solltet ihr trotz alledem
+nicht weiter kommen, oder nicht wissen, was von euch erwartet wird, fragt einen
+von uns.
+
+\textbf{Spiel:}
+\begin{enumerate}
+    \item Schreibt ein Progamm, welches ein Array beliebiger Größe erstellt und
+        dann auf einen Index weit ausserhalb des erlaubten Bereichs schreibt.
+        Was beobachtet ihr?
+    \item Implementiert das \emph{Sieb des Eratosthenes}
+        \footnote{\url{https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes}},
+        wenn ihr noch nicht ausgelastet seid.
+        Denkt daran, es initial zu befüllen und denkt euch eine clevere
+        Möglichkeit auf, das „Streichen“ zu realisieren.
+\end{enumerate}
