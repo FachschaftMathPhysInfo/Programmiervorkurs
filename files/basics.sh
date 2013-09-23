@@ -1,3 +1,4 @@
+cd
 pwd
 ls
 ls vorkurs
