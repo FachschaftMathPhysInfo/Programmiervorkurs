@@ -10,3 +10,4 @@ int main() {
     } else {
         std::cout << "Nicht Null!" << std::endl;
     }
+}
