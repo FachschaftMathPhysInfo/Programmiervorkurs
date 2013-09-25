@@ -71,10 +71,13 @@ Sicherheitsgründen allerdings Administratorin sein.
 \textbf{Spiel:}
 \begin{enumerate}
     \item Versucht, \texttt{/etc/shadow} in einem Editor zu öffnen.
-    \item Legt (z.B. mit dem Texteditor) eine Datei in eurem Homeverzeichnis an
-        und schreibt etwas hinein. Macht sie dann mit \texttt{chmod a+r}
-        world-readable (\texttt{a+r} heißt „füge das Recht Lesbarkeit für alle
-        Nutzerinnen hinzu“). Lasst eure Sitznachbarin die Datei an ihrem Rechner
-        öffnen (ihr könnt mittels \texttt{pwd} herausfinden, in welchem Ordner
-        sie suchen muss).
+    \item Legt (z.B. mit dem Texteditor) eine Datei (Es geht nicht um
+        Kompilierung, also muss das keine \texttt{.cpp}-Datei sein. Gebt der
+        Datei am Besten die Erweiterung \texttt{.txt}) in Eurem Homeverzeichnis
+        an und macht sie dann mit \texttt{chmod a+w} world-writable
+        (\texttt{a+w} heißt „füge das Recht Schreibbarkeit für alle Nutzerinnen
+        hinzu“).  Lasst eure Sitznachbarin die Datei an ihrem Rechner öffnen
+        (ihr könnt mittels \texttt{pwd} herausfinden, in welchem Ordner sie
+        suchen muss) und euch eine Nachricht hinein schreiben. Schaut nach
+        (indem ihr die Datei neu öffnet) ob ihr die Nachricht lesen köntt.
 \end{enumerate}
