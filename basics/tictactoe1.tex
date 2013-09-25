@@ -52,7 +52,8 @@ voranstellen. In \texttt{tictactoe.cpp} ist dies am Beispiel von
         Prüft, ob in diesem Zustand des Feldes bereits einer der Spielerinnen
         gewonnen hat. Die Funktion gibt 0 zurück, wenn noch niemand gewonnen
         hat, 1, wenn die Spielerin X gewonnen hat und 2, wenn die Spielerin O
-        gewonnen hat.
+        gewonnen hat. Sollte das Spiel unentschieden ausgegangen sein, wird
+        eine 3 zurück gegeben.
 \end{description}
 
 Der zweite Teil, den ihr zur Benutzung der Funktionen braucht ist das Linken
@@ -84,7 +85,8 @@ einfach: Ihr gebt einfach dem \texttt{g++} Befehl zusätzlich zu eurer
     \item Nun müssen wir noch den Update-Teil ergänzen. Hier solltet ihr in das
         von der aktuellen Spielerin gewählte Feld mit deren Nummer füllen,
         testen, ob jemand gewonnen hat und wenn ja, die Siegerin ausgeben und
-        euer Programm beenden.
+        euer Programm beenden. Sonst sollte die aktuelle Spielerin gewechselt
+        werden.
 \end{enumerate}
 
 \textbf{Spiel:}

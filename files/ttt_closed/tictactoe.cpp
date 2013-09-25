@@ -33,7 +33,7 @@ int frage_feld_nummer(int feld[9]) {
 }
 
 void gebe_feld_aus(int feld[9]) {
-    std::cout << "    |    |   " << std::endl;
+    std::cout << "   |    |   " << std::endl;
     std::cout << " " << fts(feld[0]) << " | " << fts(feld[1]) << " | " << fts(feld[2]) << " " << std::endl;
     std::cout << "   |   |   " << std::endl;
     std::cout << "---+---+---" << std::endl;
@@ -76,5 +76,10 @@ int gewinnerin(int feld[9]) {
         return feld[2];
     }
 
-    return 0;
+    for (int i = 0; i < 9; i++) {
+        if (feld[i] == 0) {
+            return 0;
+        }
+    }
+    return 3;
 }
