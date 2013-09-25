@@ -33,7 +33,7 @@ int frage_feld_nummer(int feld[9]) {
 }
 
 void gebe_feld_aus(int feld[9]) {
-    std::cout << "   |    |   " << std::endl;
+    std::cout << "   |   |   " << std::endl;
     std::cout << " " << fts(feld[0]) << " | " << fts(feld[1]) << " | " << fts(feld[2]) << " " << std::endl;
     std::cout << "   |   |   " << std::endl;
     std::cout << "---+---+---" << std::endl;
