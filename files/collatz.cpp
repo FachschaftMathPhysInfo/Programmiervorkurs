@@ -16,5 +16,5 @@ int main() {
         std::cout << ", " << n;
         i = i + 1;
     }
-    std::cout << std::endl << "Nach " << i << " Schritten erhalten wir 1" << std::endl;
+    std::cout << std::endl << i << " Schritte bis 1" << std::endl;
 }
