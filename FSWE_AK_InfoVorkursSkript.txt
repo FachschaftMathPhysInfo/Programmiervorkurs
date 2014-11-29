@@ -1,0 +1,155 @@
+Protokoll vom AK InfoVorkurs vom FSWE am 29.11.2014
+---------------------------------------------------
+Anwesend: Patrick, Marit, Friedrich, Koebi
+
+Heutige TOPs:
+	+ Verbesserungsideen
+	+ Wie macht man weiter?
+	+ Wer machts?
+
+===
+Verbesserungsideen Vorkurs-Skript
+===
+
++ Debugger weiter nach hinten, um ihn an einem komplizierteren, sinnvoll
+  debugbaren Programm anzuwenden
+  -> Schleife, die erst im 3. oder 4. Durchlauf Fehler wirft
+  -> Sideeffects, die den Zähler resetten
+  -> Division durch Null, irgendwas…
+  -> ansonsten nutzt man den nicht, weils bei ersten Mal langweilig war
+  -> der tut ja nix, was irgendwie sinnvoll ist
+
++ Formulierungen überarbeiten
+  -> Aufgabenstellung war in der Wall of Text versteckt
+     (Kap 5??)
+  -> Aufgaben sollen gut beantwortbar sein
+  -> Man hat es gelesen, versucht es zu verstehen und scheitert dann an der
+     Aufgabenstellung
+
++ Kompilieren sollte auch per Kommandozeile da sein, Grafik dann drunter, um
+  das klarer zu machen.
+
+===
+Konkretes:
+===
+Einleitung:
+ + Auf alle Geschlechter
+
+Lektion 1:
+ + "Führt die Datei hello aus" muss deutlicher erklärt werden.
+   Gerne im Text darüber, aber dann in der Aufgabe darauf verweisen.
+   Hier sollte genauer erklärt werden, was -o tut,…
+
+Lektion 2:
+ + Wichtigste Befehle kurz erklären (Liste mit knappem Kommentar)
+ + Für Details auf manpages verweisen.
+ + Eventuell Manpage-Syntax verwenden und diese Syntax erklären.
+ + Eventuell einen Account reservieren und eine Datei verstecken/Schnitzeljagd
+   um Terminalzeug sinnvoll anzuwenden.
+ + Hier auf Kapitel 6 verweisen. (Fühlst du dich überfordert? -> Kap 6, kein
+   Stress^^)
+ + . und .. erklären
+
+Lektion 3:
+
+Lektion 4:
+ + Eventuell ein Programm, das einen interessanteren Fehler hat, der am Anfang
+   ist, aber erst am Ende bemerkt wird
+ + LMGTFY-Link in der "c++ math"-Zeile??
+ + Die kompilierten Dateien landen im gleichen ordner wie euer quellcode
+
+Lektion 5:
+
+Lektion 6:
+ + manpages sind auf Englisch, also englische Begriffe verwenden (long listing,
+   sort by, …)
+ + ls -a/ls -A kann man schon nicht verstehen, im Zweifel fragen.
+ + Auflistung anpassen, tar rausnehmen
+ + Das muss man auch nicht alles im Kopf haben.
+
+Lektion 7:
+ + eventuell modulo erwähnen
+
+Lektion 8:
+ + erst bei einem Programm lernen, wo es sinn macht.
+
+Lektion 9:
+ + Modulo-Operator statt Div mit Rest
+ + Gendern in Aufgabe 3
+ + Debugger hier ganz ok…, kommt man aber auch so drauf
+
+Lektion 10:
+ + Rechtschreibung in Spiel 2
+ + Da geht zeugs mit gedit-einstellungen kaputt
+
+Lektion 11:
+ + Debugger-Conflicts?
+ + Danach den Debugger einführen
+ + Praxis 3: Besser: und dann alle zahlen bis zur zahl der Nutzerin ausgibt
+
+Lektion 12:
+ + Vielleicht früher einführen, damit Leute dann schönen Code schreiben.
+
+Lektion 13:
+ + Kleines Schaubild, um Signatur zu erklären
+ + Praxis: Welchen Datentyp gibt istprim zurück, welche Parameter,…
+ + […] der übergebene String […]
+ + Die Funktion übernimmt also Quasi Die Funktion von Zeilen 21+22, und der
+   übergebene String ist variabel, ihr könnt also nach allen möglichen Zahlen
+   fragen.
+ + Eventuell andere funktion, oder die Funktionsweise erklären.
+ + Spiel 3: Ein, zwei Beispiele wo das klappen könnte
+
+Lektion 14:
+ + Praxis 1: […] den aktuellen unix-timestamp\footnote{explanation} […]
+
+Lektion 15:
+ + Spiel 1: Eventuell klar machen, dass man hier quark tut.
+ + Spiel 2: eine clevere Möglichkeit _aus_
+
+Lektion 16:
+ + footnote, um alias zu erklären.
+ + drauf hinweisen, dass man dsa exakt abtippen muss
+
+Lektion 17:
+
+Lektion 18:
+ + Schaut euch das res. .S-file in eurem Editor an
+
+Lektion 19:
+
+
+Generelle Anmerkungen:
+ + Code sollte nicht über zwei Seiten gehen.
+
+===
+Wie macht man weiter?
+===
+Eventuell könnte man Kapitel 1 um Pointer erweitern und eine Lektion 20
+schreiben.
+-> Aufgabe, die Eigenheiten von pointern zeigt und wenig fehleranfällig ist und
+   erklärt was passiert (funktion, die sideeffects über pointer hat oder so)
+-> Aufgabe, die fehler zeigt, wo man von pointern verwirrt ist und so…
+-> Arrays sind pointer, pointerarithmetik, speichergrenzen->spiel
+-> eventuell mit sizeof() arbeiten? (scoping and shit)
+-> Referenzen? eher nicht, lieber pointer
+
+Dann müsste man vielleicht nach Lektion 20 noch mal ein cooles Programm
+schreiben, das einen allumfassenden abschluss macht
+
+
+Ursprüngliche Idee:
+Kapitel 2 macht C++-Spezifische Dinge, bisher war schon vieles eher c als c++
+Kapitel 3 macht Systemprogrammierung
+
+Sachen, die in Kapitel 2 getan werden könnte:
+ + Objektorientierung
+ + Datentypen, die man so braucht
+ + structs, klassen, …
+ + -> programmiere ein 4 gewinnt als abschluss
+
+am covis gibts wohl nen gutes oop-skript
+
+
+
+
