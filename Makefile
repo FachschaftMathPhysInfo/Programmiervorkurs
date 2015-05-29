@@ -11,6 +11,7 @@ clean:
 	rm vorkurs.out
 	rm vorkurs.pyg
 	rm vorkurs.toc
+	rm basics/*.aux
 
 # Die Dateien in "files" werden ins Skript eingebunden und müssen den Erstis
 # im Verzeichnis "vorkurs" zur Verfügung gestellt werden.
