@@ -1,10 +1,9 @@
 
-all: script
+all: script clean
 
 script: vorkurs.tex vorkurs.cls
 	pdflatex -shell-escape vorkurs.tex
 	pdflatex -shell-escape vorkurs.tex
-	make clean
 
 clean:
 	rm vorkurs.aux
@@ -16,7 +15,7 @@ clean:
 # Die Dateien in "files" werden ins Skript eingebunden und müssen den Erstis
 # im Verzeichnis "vorkurs" zur Verfügung gestellt werden.
 # Diese Aufgabe übernimmt "make dir".
-dir: files
+dir: files/*
 	@echo "Verzeichnis erstellen…"
 	@mkdir vorkurs > /dev/null
 	@mkdir vorkurs/lektion01 > /dev/null
