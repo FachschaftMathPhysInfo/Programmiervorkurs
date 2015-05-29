@@ -4,6 +4,9 @@ all: script
 script: vorkurs.tex vorkurs.cls
 	pdflatex -shell-escape vorkurs.tex
 	pdflatex -shell-escape vorkurs.tex
+	make clean
+
+clean:
 	rm vorkurs.aux
 	rm vorkurs.log
 	rm vorkurs.out
