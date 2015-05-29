@@ -55,7 +55,7 @@ Lektion 3:
 Lektion 4:
  + Eventuell ein Programm, das einen interessanteren Fehler hat, der am Anfang
    ist, aber erst am Ende bemerkt wird
- + LMGTFY-Link in der "c++ math"-Zeile??
+ ✓ LMGTFY-Link in der "c++ math"-Zeile??
  + Die kompilierten Dateien landen im gleichen ordner wie euer quellcode
 
 Lektion 5:
