@@ -6,12 +6,15 @@ script: vorkurs.tex vorkurs.cls
 	pdflatex -shell-escape vorkurs.tex
 
 clean:
-	rm vorkurs.aux
-	rm vorkurs.log
-	rm vorkurs.out
-	rm vorkurs.pyg
-	rm vorkurs.toc
-	rm basics/*.aux
+	rm -f vorkurs.aux
+	rm -f vorkurs.log
+	rm -f vorkurs.out
+	rm -f vorkurs.pyg
+	rm -f vorkurs.toc
+	rm -f basics/*.aux
+	rm -f basics/*.log
+	rm -rf _minted-vorkurs
+	rm -f vorkurs.cls
 
 # Die Dateien in "files" werden ins Skript eingebunden und müssen den Erstis
 # im Verzeichnis "vorkurs" zur Verfügung gestellt werden.
