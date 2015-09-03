@@ -34,12 +34,27 @@ der daraus dann Maschinencode generiert, den wir wiederum dem Computer zur
 Ausführung geben können.  Der Compiler für \Cpp, den wir in diesem Kurs
 benutzen wollen, heißt \texttt{g++}.
 
-Dem Compiler übergeben wir die zu kompilierende Datei als Parameter, sowie den
-Namen der Ausgabedatei (mit einem \texttt{-o} davor).
+Dem Compiler übergeben wir die zu kompilierende Datei als Parameter, indem wir
+sie im Terminal dahinter schreiben:
+\begin{center}
+\texttt{g++ zukompilierendedatei.cpp}
+\end{center}
+Wir können zusätzlich den Namen der Ausgabedatei festlegen, indem wir vor diese
+ein \texttt{-o} (o für output) schreiben:
+\begin{center}
+\texttt{g++ -o outputdatei zukompilierendedatei.cpp}
+\end{center}
 
-Nachdem \texttt{g++} uns also ein Maschinencodefile \texttt{datei} erzeugt hat,
-können wir es zur Ausführung bringen. Wir tun das, indem wir in einem Terminal
-\texttt{./datei} eingeben, also einen Punkt, ein Slash und dann den Dateinamen.
+Nachdem \texttt{g++} uns also ein Maschinencodefile \texttt{outputdatei}
+erzeugt hat, können wir es zur Ausführung bringen. Wir tun das, indem wir in
+einem Terminal
+\begin{center}
+	\texttt{./outputdatei}
+\end{center}
+eingeben, also einen Punkt, ein Slash und dann den Dateinamen.
+
+Zur besseren Übersichtlichkeit hier der ganze Vorgang noch mal in einem
+Diagramm:
 
 % TODO: Buttugly, but well...
 \begin{center}
