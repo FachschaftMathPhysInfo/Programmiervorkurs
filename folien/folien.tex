@@ -1,26 +1,16 @@
-\documentclass{beamer}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usetheme{Warsaw}
-%\usecolortheme{albatross}
-\usepackage{amsmath,nicefrac,amsthm,txfonts,amssymb}
-\usepackage{graphicx}
-\usepackage[overlay,absolute]{textpos}
-\setlength{\TPHorizModule}{1mm}
-\setlength{\TPVertModule}{1mm}
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
 
-\newcommand{\Ra}{\Rightarrow}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Enc}{\mathrm{Enc}}
+\input{header}
 
 \begin{document}
-
-\title{Willkommen beim Vorkurs}
-\author{Patrick Dammann, Friedrich Schwedler und Johannes Visintini}
-\date{\today}
-
-\begin{frame}
-\titlepage
+\begin{frame}[plain]
+	   \bookmark[level=0, page=1]{Titel}
+	   \titlepage
+  		\tikz[,overlay]
+     \node at
+        (current page.south) 
+        {\includegraphics[width=5cm]{fs-logo-big}};
 \end{frame}
 
 \begin{frame}
@@ -28,7 +18,8 @@
         \Huge Eine kurze Einführung
     \end{center}
     \begin{center}
-        \pause\Huge Weil das doch ein bisschen anders laufen wird, als ihr es gewohnt seid\dots
+		\pause\Huge Weil das doch ein bisschen anders laufen wird, als ihr es
+		gewohnt seid\dots
     \end{center}
 \end{frame}
 
