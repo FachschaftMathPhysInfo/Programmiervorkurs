@@ -14,7 +14,6 @@ clean:
 	rm -f basics/*.aux
 	rm -f basics/*.log
 	rm -rf _minted-vorkurs
-	rm -f vorkurs.cls
 
 # Die Dateien in "files" werden ins Skript eingebunden und müssen den Erstis
 # im Verzeichnis "vorkurs" zur Verfügung gestellt werden.
