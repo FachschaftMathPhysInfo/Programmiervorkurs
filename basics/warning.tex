@@ -56,7 +56,12 @@ Compiler anzeigt und wie er damit umgeht. Wir wollen hier nur drei nennen:
 
 Wenn ihr bei jedem Compilerlauf nun warnings anschalten wollt -- und am Besten auch noch für den debugger, falls ihr ihn braucht -- wird der Befehl zum Kompilieren langsam sehr lang. Für die Dauer des Vorkurses könnt ihr euch mittels
 
-\texttt{alias compile="g++ -Wall -Wextra -Werror -O0 -g3"}
+\texttt{alias\footnote{alias ist ein shell-befehl, der euch eine Reihe von
+Anweisungen und Befehlen neu benennen lässt. In diesem Fall ist danach zum
+Beispiel der noch nicht existente Befehl \texttt{compile} ein neuer Name für
+\texttt{g++ -Vall -Wextra -Werror -O0 -g3}. Beachtet, dass ihr hier genau das
+abtippen müsst, was da steht, mit Leerzeichen und allem} compile="g++ -Wall
+-Wextra -Werror -O0 -g3"}
 
 ein bisschen Arbeit ersparen. Ein einfaches \texttt{compile -o foo foo.cpp}
 wird dann automatisch den Compiler mit allen angegebenen Optionen aufrufen. Den
