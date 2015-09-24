@@ -1,4 +1,3 @@
-
 all: folien clear
 
 folien: folien.tex
@@ -12,7 +11,6 @@ clear:
 	@rm folien.log
 	@rm folien.aux
 	@rm folien.nav
-	@rm folien.out
 	@rm folien.snm
 	@rm folien.toc
 	@echo "Überflüssiger Scheiß gelöscht"

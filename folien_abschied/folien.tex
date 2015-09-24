@@ -1,23 +1,17 @@
-\documentclass{beamer}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usetheme{Warsaw}
-%\usecolortheme{albatross}
-\usepackage{amsmath,nicefrac,amsthm,txfonts,amssymb}
-\usepackage{graphicx}
-\usepackage[overlay,absolute]{textpos}
-\setlength{\TPHorizModule}{1mm}
-\setlength{\TPVertModule}{1mm}
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
 
-\newcommand{\Ra}{\Rightarrow}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Enc}{\mathrm{Enc}}
+\input header
 
 \begin{document}
-
-\title{Programmiervorkurs - Abschlussworte}
-\author{Jakob Schnell \& Friedrich Schwedler \& Patrick Dammann}
-\date{\today}
+\begin{frame}[plain]
+	\bookmark[level=0, page=1]{Titel}
+	\titlepage
+	\tikz[,overlay]
+	\node at
+		(current page.south)
+		{\includegraphics[width=5cm]{fs-logo-big}};
+\end{frame}
 
 \begin{frame}
 \titlepage
@@ -28,12 +22,12 @@
         \Huge Ein paar Worte zum Abschied
     \end{center}
     \pause\begin{center}
-        \Huge Zuerst: Danke fürs Teilnehmen, bitte gebt feedback!
+        \Huge Zuerst: Danke fürs Teilnehmen, bitte gebt Feedback!
     \end{center}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Das würden wir uns wünschen, habt ihr „gelernt“}
+    \frametitle{Das, würden wir uns wünschen, habt ihr „gelernt“}
     \begin{itemize}
         \pause\item Ein Computer ist keine schwarze Magie
         \pause\item Eine Konsole ist keine schwarze Magie
@@ -46,8 +40,7 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Where do we go, from here?}
-
+    \frametitle{Where do we go from here?}
     \begin{itemize}
         \pause\item Der Vorkurs ist nicht dazu gedacht, unbedingt abgeschlossen
             zu werden
