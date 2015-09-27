@@ -1,16 +1,16 @@
 all: folien clear
 
-folien: folien.tex
+folien: folien_abschied.tex
 	@echo "Folien werden gebaut..."
-	@pdflatex folien.tex > /dev/null
+	@pdflatex folien_abschied.tex > /dev/null
 	@echo "...Zweiter duchlauf..."
-	@pdflatex folien.tex > /dev/null
+	@pdflatex folien_abschied.tex > /dev/null
 	@echo "...Folien fertig"
 
 clear:
-	@rm folien.log
-	@rm folien.aux
-	@rm folien.nav
-	@rm folien.snm
-	@rm folien.toc
+	@rm folien_abschied.log
+	@rm folien_abschied.aux
+	@rm folien_abschied.nav
+	@rm folien_abschied.snm
+	@rm folien_abschied.toc
 	@echo "Überflüssiger Scheiß gelöscht"
