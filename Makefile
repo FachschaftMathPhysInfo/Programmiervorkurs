@@ -62,5 +62,10 @@ nodir: vorkurs
 	@rm -rf vorkurs > /dev/null
 	@echo "Verzeichnis erfolgreich entfernt"
 
+zip: vorkurs vorkurs.pdf folien/folien.pdf folien_abschied/folien_abschied.pdf
+	@echo "Lass vorher einmal "make dir" laufen, um das vorkurs-verzeichnis in der benötigten Form zu erstellen."
+	@echo "Zip-File wird erstellt…"
+	@zip vorkurs.zip vorkurs vorkurs.pdf folien/folien.pdf folien_abschied/folien_abschied.pdf
+	@echo "Zip-File erstellt. Fertig zum hochladen."
 
 
