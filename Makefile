@@ -21,25 +21,7 @@ clean:
 dir: files/*
 	@echo "Verzeichnis erstellen…"
 	@mkdir vorkurs > /dev/null
-	@mkdir vorkurs/lektion01 > /dev/null
-	@mkdir vorkurs/lektion02 > /dev/null
-	@mkdir vorkurs/lektion03 > /dev/null
-	@mkdir vorkurs/lektion04 > /dev/null
-	@mkdir vorkurs/lektion05 > /dev/null
-	@mkdir vorkurs/lektion06 > /dev/null
-	@mkdir vorkurs/lektion07 > /dev/null
-	@mkdir vorkurs/lektion08 > /dev/null
-	@mkdir vorkurs/lektion09 > /dev/null
-	@mkdir vorkurs/lektion10 > /dev/null
-	@mkdir vorkurs/lektion11 > /dev/null
-	@mkdir vorkurs/lektion12 > /dev/null
-	@mkdir vorkurs/lektion13 > /dev/null
-	@mkdir vorkurs/lektion14 > /dev/null
-	@mkdir vorkurs/lektion15 > /dev/null
-	@mkdir vorkurs/lektion16 > /dev/null
-	@mkdir vorkurs/lektion17 > /dev/null
-	@mkdir vorkurs/lektion18 > /dev/null
-	@mkdir vorkurs/lektion19 > /dev/null
+	@for i in $(shell seq -w 1 19); do mkdir vorkurs/lektion$$i; done;
 	@echo "Dateien kopieren…"
 	@cp files/helloworld.cpp vorkurs/lektion01/. > /dev/null
 	@cp files/basics.sh      vorkurs/lektion02/. > /dev/null
