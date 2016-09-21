@@ -1,4 +1,4 @@
-all: folien clear
+all: folien clean
 
 folien: folien.tex
 	@echo "Folien werden gebaut..."
@@ -7,7 +7,7 @@ folien: folien.tex
 	@pdflatex folien.tex > /dev/null
 	@echo "...Folien fertig"
 
-clear:
+clean:
 	@rm folien.log
 	@rm folien.aux
 	@rm folien.nav
