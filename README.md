@@ -39,3 +39,9 @@ Für den Vorkurs werden die folgenden Dinge benötigt:
 * Genügend Rechner mit beliebiger Linux-Distribution für alle Teilnehmenden
 * Der Ordner `vorkurs` auf sämtlichen diesen Rechnern
 * Die aktualisierten Folien für den Begrüßungs- und Abschiedsvortrag
+
+Lizenz
+------
+Dieses Skript ist lizensiert unter einer Creative Commons
+Namensnenung - Weitergabe unter gleichen Bedingungen 4.0 International
+Lizenz. Der Lizenztext findet sich in der [LICENSE](https://github.com/FachschaftMathPhys/Programmiervorkurs/blob/master/LICENSE.md)-Datei.
