@@ -1,0 +1,30 @@
+\lesson{Struct und Konstruktor} % Anderer Name?
+
+Wir sind bisher dazu in der Lage Variablen von vielen, verschiedenen Typen anzulegen.
+Wir wollen uns jetzt damit beschäftigen wie wir dreidimensionale Vektoren in \Cpp implementieren können.
+
+Unsere bisherigen Datentypen sind dafür leider eher ungeeignet.
+Wir könnten zwar einen Vektor simulieren indem wir drei \texttt{double} benutzen, allerdings haben wir bisher keine Möglichkeit, eine Funktion zu schreiben, die mehrere Zahlen auf einmal zurück gibt.
+
+Um Datentypen zu bündeln, gibt es die sogenannten \emph{Structs}.
+Diese besitzen verschiedene \emph{Attribute}, zum Beispiel würde ein Vektor drei verschiedene Attribute vom Typ \texttt{double} besitzen.
+Das könnte zum Beispiel so aussehen:
+
+\includecpp{struct.cpp}
+
+Jetzt ist es immer noch umständlich einen neuen Vektor zu initialisieren, da man einzeln $x$, $y$ und $z$ festlegen muss.
+An dieser Stelle wäre eine Möglichkeit, diesen Teil in eine eigene Funktion auszulagern.
+Da das Initialisieren von Attributen eine häufige Aufgabe ist, gibt es sogenannte \emph{Konstruktoren}, die vordefinierte Parameter entgegen nehmen und damit den Vektor initialisieren können. % Diesen Struct initialisieren?
+Das sieht dann zum Beispiel so aus:
+
+\includecpp{konst.cpp}
+
+\textbf{Praxis:}
+\begin{enumerate}
+	\item Hm...
+\end{enumerate}
+
+\textbf{Spiel:}
+\begin{enumerate}
+	\item ??
+\end{enumerate}
