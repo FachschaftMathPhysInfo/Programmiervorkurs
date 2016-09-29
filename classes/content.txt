@@ -1,0 +1,9 @@
+Planung Kapitel 2
+
+Enums, Casting + ANSI-Esc
+for-Schleifen
+Structs
+Code-Snippets
+C++11 (Funktionen), Aliase(Bash)
+Klassen (Methoden, Private-Public)
+STL (Vector, Array)
