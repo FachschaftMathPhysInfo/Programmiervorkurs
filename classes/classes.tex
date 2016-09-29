@@ -1,0 +1,22 @@
+\lesson{Klassen}
+
+Eine komplexere Art von Datentypen als Enums sind die sogenannten Klassen. Diese lassen sich als eine Art Gegenstand vorstellen, der verschiedene Eigenschaften hat.
+
+Wenn zum Beispiel eine Videothek ihre DVD-Sammlung verwalten möchte, wäre eine Möglichkeit, zu implementieren, jede DVD durch eine Klasse darzustellen. Dabei ist die Klasse dann ein Baupaln für die spären Datentypen, die erstell werden. Diese DVD-Klasse könnte dann Attribute für den Titel, ob sie zurzeit ausgeliehen ist, eine Möglichkeit, zu speichern, wann sie zurück gegeben werden muss, und einen Zähler, um zu speichern, wie oft die DVD schon ausgeliehen wird.
+
+Nun wird es irgendwann passieren, dass jemand eine DVD ausleihen möchte. Dafür sollte es also eine leichte Möglichkeit geben, um den Ausleihstatus zu ändern und automatisch das Rückgabedatum auf einen sinnvollen Wert zu setzen.
+Eine erfahrerne Benutzerin wird jetzt natürlich an Funktionen denken. Für die Übersichtlichkeit des Programmes ist es sehr vorteilhaft, die Funktionen einer Klasse zu bündeln. Dafür werden diese speziell für die Klasse definiert und erhalten dann einen speziellen Pointer \emph{this}. % POINTER????
+
+Was genau ein Pointer ist, wird an dieser Stelle nicht erklärt, da, dies den Rahmen des Programmierkurses sprengen würde. Diesen speziellen Pointer könnt ihr benutzen indem ihr ... % blabla pointer erklären... Wie Quellcode in der Zeile?
+
+Eine Klasse kann Information haben, die für alle zugänglich sein sollten, und Informationen, die nicht oder nur eingeschränkt zugreifbar sein sollten. Zum Beispiel ist es sinnvoll, dass jede Benutzerin die Möglichkeit hat DVDs auszuleihen, deshalb wird die Methode ausleihen als \emph{public} definiert. Wohingegen es nicht möglich sein sollte, dass eine beliebige Benutzerin den Zähler für die Ausleihzahl verändert, dafür wird der Zähler als \emph{private} definiert.
+
+Jetzt gibt es auch noch weitere Attribute wie den Titel, der nicht so ganz in beide Kategorien passt. Da benutzerinnen den Titel zwar auslesen müssen, aber den Titel nicht einfach verändern sollen. Dafür ist die übliche Vorgehensweise, \emph{getter}- bzw \emph{setter}-Methoden zu definieren. Eine getter-Methode sollte das entsprechende Attribut (zum Beispiel den Titel) zurückgeben. Wohingegen eine setter-Methode einen Parameter des Types des entsprechenden Attributes entgegen nimmt und dann den Wert intern ändert.
+
+%Die Klassendefinition sieht jetzt so aus
+
+%Snippet von "void Dvd::ausleihen()"
+
+
+
+
