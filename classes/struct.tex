@@ -12,16 +12,25 @@ Das könnte zum Beispiel so aussehen:
 
 \includecpp{struct.cpp}
 
-Jetzt ist es immer noch umständlich einen neuen Vektor zu initialisieren, da man einzeln $x$, $y$ und $z$ festlegen muss.
-An dieser Stelle wäre eine Möglichkeit, diesen Teil in eine eigene Funktion auszulagern.
-Da das Initialisieren von Attributen eine häufige Aufgabe ist, gibt es sogenannte \emph{Konstruktoren}, die vordefinierte Parameter entgegen nehmen und damit den Vektor initialisieren können. % Diesen Struct initialisieren?
-Das sieht dann zum Beispiel so aus:
-
-\includecpp{konst.cpp}
+%Jetzt ist es immer noch umständlich einen neuen Vektor zu initialisieren, da man einzeln $x$, $y$ und $z$ festlegen muss.
+%An dieser Stelle wäre eine Möglichkeit, diesen Teil in eine eigene Funktion auszulagern.
+%Da das Initialisieren von Attributen eine häufige Aufgabe ist, gibt es sogenannte \emph{Konstruktoren}, die vordefinierte Parameter entgegen nehmen und damit einen bestimmten Struct initialisieren können.
+%Das sieht dann zum Beispiel so aus:
+%
+%\includecpp{konst.cpp}
 
 \textbf{Praxis:}
 \begin{enumerate}
-	\item Hm...
+	\item Schreibt ein neues Struct, um ein Datum zu repräsentieren.
+Dieser Struct sollte also drei Attribute haben:
+	ein \texttt{int}, um das Jahr zu speichern,
+	ein \texttt{std::string} für den Monat
+	und ein weiterer \texttt{int} für den Tag.
+
+	\item Erstellt eine Funktion, die einen \texttt{std::string} als Parameter entgegen nimmt, die Nutzerin mit der Ausgabe des Strings nach einem Datum fragt und dann das Datum mit eurem erstellten Struct zurück gibt.
+	
+	\item Fragt mit dieser Funktion die Benutzerin nach ihrem Geburtsdatum. Überprüft, ob ihr am gleichen Tag Geburtstag habt.
+Außerdem solltet ihr überprüfen, ob ihr im gleichen Jahr geboren seid.
 \end{enumerate}
 
 \textbf{Spiel:}
