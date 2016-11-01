@@ -1,32 +1,33 @@
 #include <iostream>
 
-// bool ist ein neuer Datentyp. Ein Boolean kann genau zwei Werte
-// annehmen, „true“ und „false“, repräsentiert also ein einziges
-// Bit, beziehungsweise einen Wahrheitswert. In unserem Fall geben
-// wir true zurück, wenn die Eingabe eine Primzahl ist und false,
-// wenn sie keine ist.
-bool istprim(int n) {
-    int i = 2;
-    while (i < n) {
-        if ((n % i) == 0) {
-            return false;
-        }
-        i = i + 1;
+int collatz(int x){
+    int erg;
+    
+    if (x % 2 == 0){
+        erg = x / 2;
     }
-    return true;
+    else {
+        erg = 3*x + 1;
+    }
+    
+    return erg;
 }
-
-int main() {
-    int m;
-    std::cout << "Gib eine Zahl ein: ";
-    std::cin >> m;
-
-    // Da istprim einen bool zurück gibt, müssen wir nicht
-    // "istprim(n) == true" schreiben. Diese Schreibweise bedeutet
-    // das Gleiche
-    if (istprim(m)) {
-        std::cout << m << " ist eine Primzahl" << std::endl;
-    } else {
-        std::cout << m << " ist keine Primzahl" << std::endl;
-    }
+	
+int main(){
+	int x;
+	
+	std::cout << "Mit welcher Zahl moechtest du starten? ";
+	std::cin >> x;
+	
+	int x1 = collatz(x);
+	int x2 = collatz(x1);
+	int x3 = collatz(x2);
+	//bis hierin haben keine Ausgaben statt gefunden, aber collatz wurde
+	//dreimal aufgerufen. Die Zahlen x1, x2 und x3 sind die naechsten
+	//drei Glieder von x (der von der Nutzerin eingegebenen Zahl) aus
+	//gesehen.
+	
+	//Hier werden der Nutzerin nun die Ergebnisse angezeigt:
+	std::cout << x << " -> " << x1 << " -> "
+	    << x2 << " -> " << x3 << std::endl;
 }

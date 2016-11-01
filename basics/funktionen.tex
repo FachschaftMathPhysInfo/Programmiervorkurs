@@ -1,97 +1,50 @@
 \lesson{Funktionen}
 
-Wir haben den Begriff schon ein paarmal genannt und auch, wenn ihr es
-vielleicht nicht gemerkt habt, sie waren schon die ganze Zeit vor eurer Nase:
-Funktionen.
+Aus der Mathematik kennt ihr bereits Funktionen, wie zum Beispiel $f(x) = 4x^3 - 8x^2 + 16x - 12$.
+Eine wichtige Idee dahinter ist es einfach $f(3)$ zu schreiben, wenn man eigentlich $4 \cdot 3^3 - 8 \cdot 3^2 + 16 \cdot 3 - 12$ meint.
+Da dies häufig vorteilhaft ist, wurde diese Funktionalität in die meisten Programmiersprachen übernommen.
 
-Eine Funktion ist im Wesentlichen eine Möglichkeit, eine Folge von Anweisungen
-zu bündeln und isolieren. Wir haben schon einmal ein Programm gesehen, mit dem
-wir testen können, ob eine Zahl eine Primzahl ist, oder nicht. Viele Vorteile
-von Funktionen, lassen sich an diesem Beispiel illustrieren. Stellt euch vor,
-ihr braucht in eurem Programm an vielen Stellen einen solchen Primzahltest. Ihr
-könntet jedes mal den gesamten benötigten Code hinschreiben, aber das wäre doch
-eine Menge Arbeit. Eine Funktion ermöglicht es euch, den Code zum Testen
-auszulagern in eine eigene Funktion z.B. \texttt{istprim}. Immer, wenn ihr dann
-testen wollt, ob eine Zahl \texttt{n} eine Primzahl ist, könnt ihr dann einfach
-schreiben \texttt{istprim(n)} und ruft damit die Funktion auf. Das spart
-Schreibarbeit.
+In \Cpp können Funktionen Daten, die sogenannten \emph{Parameter}, entgegen nehmen, diese werden wie ganz normale Variablen behandelt, und in Abhängigkeit dieser verschiedene Ergebnisse zurückgeben, der sogenannte \emph{Rückgabewert}.
 
-Stellt euch vor, irgendwann ist euch dann ein Test mittels Probedivision nicht
-mehr schnell genug (weil ihr z.B. immer größere Zahlen testen wollt) und ihr
-wollt auf einen schnelleren Test umsteigen. Ohne Funktionen müsstet ihr jedes
-Vorkommen eines Primzahltests in eurem Code einzeln durch den neuen Test
-ersetzen. Mit Funktionen gibt es genau eine Stelle, an der ihr den Code
-austauschen müsst und all die Stellen, an denen ihr ihn benutzt, übernehmen
-automatisch die neue Implementation.
+An dieser Stelle ist der Unterschied zwischen Rückgabe und Ausgabe wichtig: Eine Ausgabe (gekennzeichnet durch \texttt{std::cout}) gibt Informationen auf dem Bildschirm für die Nutzerin aus, eine Rückgabe (gekennzeichnet durch \texttt{return}) gibt hingegen ein bestimmtes Ergebnis an einen anderen Teil des Programmes zurück, damit dieser dort in einer Variable gespeichert oder direkt weiter verarbeitet werden kann.
+Dabei kann man sich vorstellen, dass der Funktionsaufruf nach dem die Funktion ausgeführt wurde durch den Rückgabewert ersetzt wird.
+Die Kombination von Parametertypen und Rückgabetyp bildet die \emph{Signatur} einer Funktion.
 
-Zuletzt haben wir in der letzten Lektion einiges über Lesbarkeit von Quellcode
-gelernt. Lesbarkeit erhöht Wartbarkeit und reduziert die Möglichkeiten, Fehler
-zu machen. Was stellt ihr euch lesbarer vor, eine Datei, in der einige tausend
-Zeilen Code stehen, ohne sichtbare Struktur und einfach nur als Folge von
-Anweisungen, oder mehrere kleine Datein, mit beschreibenden, verständlichen
-Namen, in denen jeweils mehrere Fun¡tionen, ebenfalls mit verständlichen Namen
-stehen, das alles schön aufgeteilt nach Themengebiet? Funktionen erhöhen
-Lesbarkeit und helfen, den Code zu strukturieren, was ihn verständlicher macht.
+%Signatur Diagramm von Koebi?
 
-Das wohl wichtigste Beispiel für eine Funktion habt ihr bereits kennengelernt:
-Die \texttt{main}-Funktion. Diese spezielle Funktion ist der Eintrittspunkt für
-euer Programm. Der Code der \texttt{main}-Funktion ist der erste, der läuft,
-sobald die \texttt{main} fertig abgearbeitet ist, beendet sich euer Programm.
-Damit haben wir auch schon die Wesentlichen Eckpunkte, wie eine Funktion
-syntaktisch auszusehen hat.
+Funktionen werden beispielsweise benötigt, wenn bestimmte Programmteile häufiger mit verschiedenen Startwerten ausgeführt werden sollen.
+Die Collatz-Vermutung\footnote{\url{https://de.wikipedia.org/wiki/Collatz-Vermutung}} besagt für die rekusiv definierte Folge,
+\[
+	x_n =
+	\begin{cases}
+		\frac{x_{n-1}}{2} & x_{n-1} \text{ ist gerade} \\
+		3 \cdot x_{n-1} + 1 & x_{n-1} \text{ ist ungerade}
+	\end{cases}
+\]
+dass jeder Startwert $x_1$ aus den natürlichen Zahlen nach endlich vielen Schritten bei der $1$ angelangt. %Ich frage mich ob 1 und $1$ anders aussehen...
+Wenn nun die Frage aufkommt was die nächsten Folgenglieder von verschiedenen Zahlen sind, wäre ein möglicher Lösungsweg eine Funktion zu schreiben, die der Nutzerin die nächste Zahl in dieser Folge zurückgibt.
 
-Das \texttt{int main()} heißt die \emph{Signatur} der Funktion. Die Signatur
-enthält immer den Datentyp, den die Funktion ausgeben soll (in diesem Fall
-\texttt{int}, also eine ganze Zahl), einen Namen (in diesem Fall der spezielle
-Name \texttt{main}) sowie Parameter, die Eingabewerte (in diesem Fall gibt es
-keine Parameter, wir werden aber gleich sehen, wie eine Funktion auszusehen
-hat, die Parameter entgegennimmt). An die Signatur schließt sich direkt eine
-öffnende geschweifte Klammer, dann kommen alle Anweisungen, aus denen die
-Funktion bestehen soll, dann eine schließende geschweifte Klammer.
-
-Um das Ergebnis einer Funktion zurückzugeben, benutzen wir \texttt{return}. Wir
-haben das bereits einmal gesehen, wo wir es benutzt haben, um unser Programm zu
-beenden -- das funktionierte in dem Fall, weil wir uns in der \texttt{main}
-befanden und wie gesagt beendet sich das Programm, sobald die \texttt{main}
-fertig ist. Mit Funktionen könnte ein Programm, was eine Zahl darauf testet,
-eine Primzahl zu sein, so aussehen:
 \inputcpp{funktion.cpp}
-
-Parameter geben wir also in den Klammern an, jeweils so, wie wenn wir eine
-Variable erstellen würden, mit einem Typ und einem Namen. Wenn wir mehrere
-Parameter brauchen, können wir sie mit Kommata trennen. Dann müssen wir auch,
-wenn wir die Funktion benutzen, die einzelnen Eingaben mit Kommata trennen.
 
 \textbf{Praxis:}
 \begin{enumerate}
-    \item Schreibt eine Funktion, die einen Parameter vom Typ
-        \texttt{std::string} hat und einen Rückgabewert vom Typ \texttt{int}.
-        Die Funktion soll -- so wie wir es bisher schon in vielen Programmen
-        gemacht haben -- den eingegebenen String (der z.B. die Aufforderung
-        enthält, eine Zahl einzugeben) auf die Konsole ausgeben und einen
-        \texttt{int} von der Nutzerin einlesen. Dieser eingelesene \texttt{int}
-        soll dann von der Funktion zurückgegeben werden.
-        Denkt euch einen sprechenden Namen für diese Funktion aus.
-    \item Passt \texttt{funktion.cpp} so an, dass es eure Funktion benutzt.
-    \item Kompiliert das angepasste Programm und lasst es im debugger Schritt
-        für Schritt durchlaufen. Um die Funktion durchlaufen zu lassen, habt
-        ihr zwei Möglichkeiten: Ihr könnt einen neuen breakpoint in der
-        Funktion erstellen, oder ihr könnt, sobald der debugger euch anzeigt,
-        als nächstes die Funktion aufrufen zu wollen, \texttt{step} statt
-        \texttt{next} aufrufen, sodass er in die Funktion hineinspringt.
+	\item Verändert das Programm in \texttt{funktion.cpp} so, dass es nicht die einzelnen Zahlen \texttt{x1}, \texttt{x2} und \texttt{x3}, sondern die Summe dieser ausgibt.
+%Wirkt wie Kinderkram nicht zum Funktionskapitel, möchte aber nochmal den Unterschied zwischen Ausgabe und Rückgabe dadurch nochmal klarer machen
+	\item Kompiliert das angepasste Programm und lasst es im debugger Schritt für Schritt durchlaufen, setzt dafür wieder einen breakpoint für die \texttt{main}-Funktion.
+	    Sobald der debugger euch anzeigt, als nächstes die Funktion ausführen zu wollen, \texttt{step} statt \texttt{next} aufrufen, sodass der debugger in die Funktion hineinspringt.
+	\item Schreibt eine Funktion (nach der Funktion \texttt{collatz} und vor \texttt{main}), die einen \texttt{int} entgegen nimmt und die Anzahl der Schritte bestimmt bis die Folge bei der 1 angekommen ist und diese als \texttt{int} zurückgibt.
+	    Benutzt dafür die bereits vorhandene Funktion \texttt{collatz}.
+	\item Schreibt euer Programm so um, dass es eine Zahl von der Nutzerin entgegen nimmt und die Anzahl der Schritte ausgibt, bis diese Zahl zu einer 1 wird.
 \end{enumerate}
 
 \textbf{Spiel:}
 \begin{enumerate}
-    \item Vertauscht in \texttt{funktion.cpp} die Funktion \texttt{istprim} mit
-        der Funktion \texttt{main} (verschiebt also die gesamte Funktion
-        \texttt{istprim} an das Ende der Datei). Versucht, die Datei zu
-        kompilieren. Was ist die Fehlermeldung des Compilers?
-    \item Verschiebt die Funktion \texttt{istprim} \emph{in} die
-        \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften
-        Klammern, aber vor die dazu gehörige schließende). Versucht, die Datei
-        zu kompilieren. Was ist die Fehlermeldung des Compilers?
-    \item Schaut euch eure bisherigen Lösungen an. Findet ihr noch häufiger
-        Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern
-        könnt?
+    \item Was passiert, wenn ihr in einer Funktion den \texttt{return}-Ausdruck vor dem Ende eurer Funktion benutzt?
+    \item Vertauscht in \texttt{funktion.cpp} die Funktion \texttt{collatz} mit der Funktion \texttt{main} (verschiebt also die gesamte Funktion \texttt{collatz} an das Ende der Datei).
+        Versucht, die Datei zu kompilieren.
+        Was ist die Fehlermeldung des Compilers?
+    \item Verschiebt die Funktion \texttt{collatz} \emph{in} die \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften Klammern, aber vor die dazu gehörige schließende).
+        Versucht, die Datei zu kompilieren. Was ist die Fehlermeldung des Compilers?
+    \item Schaut euch eure bisherigen Lösungen an.
+        Findet ihr noch häufiger Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern könnt?
 \end{enumerate}
