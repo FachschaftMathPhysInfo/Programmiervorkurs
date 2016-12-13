@@ -1,19 +1,17 @@
 #include <iostream>
 
-int collatz(int x){
+int collatz(int x) {
     int erg;
     
-    if (x % 2 == 0){
+    if (x % 2 == 0) {
         erg = x / 2;
-    }
-    else {
+    } else {
         erg = 3*x + 1;
     }
-    
     return erg;
 }
 	
-int main(){
+int main() {
 	int x;
 	
 	std::cout << "Mit welcher Zahl moechtest du starten? ";
