@@ -13,12 +13,12 @@ int collatz(int x) {
 }
     
 int main() {
-    int x;
+    int eingabe;
     
     std::cout << "Mit welcher Zahl moechtest du starten? ";
-    std::cin >> x;
+    std::cin >> eingabe;
     
-    int x1 = collatz(x);
+    int x1 = collatz(eingabe);
     int x2 = collatz(x1);
     int x3 = collatz(x2);
     //bis hierin haben keine Ausgaben statt gefunden, aber collatz wurde
@@ -27,6 +27,6 @@ int main() {
     //gesehen.
     
     //Hier werden der Nutzerin nun die Ergebnisse angezeigt:
-    std::cout << x << " -> " << x1 << " -> "
+    std::cout << eingabe << " -> " << x1 << " -> "
         << x2 << " -> " << x3 << std::endl;
 }
