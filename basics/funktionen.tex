@@ -10,7 +10,7 @@ Parameter sind Werte, die der Funktion übergeben werden, zum Beispiel das $x$ i
 Für eine Funktion \texttt{my\_func}, die  $x^n$ berechnen soll, könnte eine Signatur so aussehen:
 
 \begin{center}
-	\cppinline{double my_func(double x, int n)}
+%	\cppinline{double my_func(double x, int n)}
 \end{center}
 
 %Signatur Diagramm von Koebi? Ich kriege nichts schönes hin
@@ -29,9 +29,13 @@ Dies könnte für die Funktion \texttt{my\_func} folendermaßen aussehen:
 \end{center}
 
 
-Der Funktionsrumpf beinhaltet den Code, der beim Funktionsaufruf tatsächlich ausgeführt hat und beginnt mit \{ und endet mit \}.
-In diesem kann auf die Parameter einfach mit dem in der Signatur definierten Namen zugegriffen werden.
+Der Funktionsrumpf beinhaltet den Code, der beim Funktionsaufruf tatsächlich ausgeführt wird.
+Dieser wird wie in einer Schleife von \texttt{\{} und \texttt{\}} umschlossen.
+Innerhalb dieser Klammern kann dann beliebiger Code ausgeführt werden, wie auch in der \texttt{main}-Funktion.
+Dabei kann auf die Parameter einfach mit dem in der Signatur definierten Namen zugegriffen werden.
 Also in unserem Beispiel mit \texttt{x} und \texttt{n}.
+Vor dem Ende des Funktionsrumpfes muss eine Rückgabe mit \texttt{return} ausgeführt werden.
+Das kann zum Beispiel so \texttt{return x;} oder so \texttt{return 5;} aussehen.
 
 Funktionen werden beispielsweise benötigt, wenn bestimmte Programmteile häufiger mit verschiedenen Parametern ausgeführt werden sollen.
 Die Collatz-Vermutung\footnote{\url{https://de.wikipedia.org/wiki/Collatz-Vermutung}} besagt für die Folge:
@@ -43,6 +47,12 @@ Die Collatz-Vermutung\footnote{\url{https://de.wikipedia.org/wiki/Collatz-Vermut
 	\end{cases}
 \]
 dass jeder Startwert $x_1$ aus den natürlichen Zahlen nach endlich vielen Schritten bei der $1$ angelangt.
+Zum Beispiel für den Startwert $x_1 = 42$:
+
+\[
+    42 \mapsto 21 \mapsto 64 \mapsto 32 \mapsto 16 \mapsto 8 \mapsto 4 \mapsto 2 \mapsto 1 \mapsto 4 \mapsto 2 \mapsto 1 \mapsto \ldots
+\]
+
 Wenn nun die Frage aufkommt was die nächsten Folgenglieder von verschiedenen Zahlen sind, wäre ein möglicher Lösungsweg eine Funktion zu schreiben, die der Nutzerin die nächste Zahl in dieser Folge zurückgibt.
 
 \inputcpp{funktion.cpp}
@@ -66,6 +76,9 @@ Wenn nun die Frage aufkommt was die nächsten Folgenglieder von verschiedenen Za
         Was ist die Fehlermeldung des Compilers?
     \item Verschiebt die Funktion \texttt{collatz} \emph{in} die \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften Klammern, aber vor die dazu gehörige schließende).
         Versucht, die Datei zu kompilieren. Was ist die Fehlermeldung des Compilers?
+    \item Implementiert die Funktion, die $x^n$ umsetzt, ignoriert dabei zunächst negative Exponenten. \\
+        (\emph{Tipp:} Die Signatur ist bereits oben gegeben, für den Funktionsrumpf könnten sich Schleifen eignen.)
+    \item Ihr könnt eure Funktion von innerhalb wieder aufrufen. Versucht eure Funktion auf negative Exponenten zu erweitern, indem ihr benutzt, dass gilt $x^{-n} = \frac{1.0}{x^n}$.
     \item Schaut euch eure bisherigen Lösungen an.
         Findet ihr noch häufiger Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern könnt?
 \end{enumerate}
