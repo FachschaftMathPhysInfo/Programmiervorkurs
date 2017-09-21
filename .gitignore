@@ -1,7 +1,9 @@
 *.aux
 *.log
 *.toc
+*.out
 vorkurs.pdf
 folien/folien.pdf
 folien/passwort.tex
 folien_abschied/folien.pdf
+_minted-vorkurs/
