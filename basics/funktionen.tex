@@ -7,7 +7,7 @@ Da dies häufig vorteilhaft ist, wurde diese Funktionalität in die meisten Prog
 Eine Funktion in \Cpp besteht aus zwei Teilen: der \emph{Signatur} und dem \emph{Funktionsrumpf}.
 Die Kombination von Parametertypen und Rückgabetyp bildet die Signatur einer Funktion.
 Parameter sind Werte, die der Funktion übergeben werden, zum Beispiel das $x$ in $f(x)$.
-Für eine Funktion \texttt{my\_func}, die  $x^n$ berechnen soll, könnte eine Signatur so aussehen:
+Für eine Funktion \cppinline{my_func}, die  $x^n$ berechnen soll, könnte eine Signatur so aussehen:
 
 \begin{center}
 	\cppinline{double my_func(double x, int n)}
@@ -17,23 +17,23 @@ Für eine Funktion \texttt{my\_func}, die  $x^n$ berechnen soll, könnte eine Si
 
 Diese Signatur besteht also aus einem Datentypen, der den Rückgabetypen der Funktion bestimmt, direkt gefolgt von dem Namen der Funktion, der beliebig gewählt werden kann.
 Und dahinter in Klammern werden die einzelnen Paramter durch Komma getrennt angeben, wobei ein Paramter immer aus dem Datentyp des Paramters und einem beliebigen Namen für den Paramter besteht.
-In diesem Fall ist also \texttt{double} der Rückgabewert, \texttt{my\_func} der Name, \texttt{x} ein Parameter mit dem Typ \texttt{double} und \texttt{n} ein Paramter mit dem Typ \texttt{int}.
-Damit können dann Werte an die Funktion in der Form \texttt{my\_func(1.41, 2)} übergeben werden.
+In diesem Fall ist also \texttt{double} der Rückgabewert, \cppinline{my_func} der Name, \cppinline{x} ein Parameter mit dem Typ \texttt{double} und \cppinline{n} ein Paramter mit dem Typ \texttt{int}.
+Damit können dann Werte an die Funktion in der Form \cppinline{my_func(1.41, 2)} übergeben werden.
 
-An dieser Stelle ist der Unterschied zwischen Rückgabe und Ausgabe wichtig: Eine Ausgabe (gekennzeichnet durch \texttt{std::cout}) gibt Informationen auf dem Bildschirm für die Nutzerin aus, eine Rückgabe (gekennzeichnet durch \texttt{return}) gibt hingegen ein bestimmtes Ergebnis an einen anderen Teil des Programmes zurück, damit dieser dort in einer Variable gespeichert oder direkt weiter verarbeitet werden kann.
+An dieser Stelle ist der Unterschied zwischen Rückgabe und Ausgabe wichtig: Eine Ausgabe (gekennzeichnet durch \cppinline{std::cout}) gibt Informationen auf dem Bildschirm für die Nutzerin aus, eine Rückgabe (gekennzeichnet durch \texttt{return}) gibt hingegen ein bestimmtes Ergebnis an einen anderen Teil des Programmes zurück, damit dieser dort in einer Variable gespeichert oder direkt weiter verarbeitet werden kann.
 Dabei kann man sich vorstellen, dass der Funktionsaufruf nach dem die Funktion ausgeführt wurde durch den Rückgabewert ersetzt wird.
-Dies könnte für die Funktion \texttt{my\_func} folendermaßen aussehen:
+Dies könnte für die Funktion \cppinline{my_func} folendermaßen aussehen:
 
 \begin{center}
-	\texttt{f(5.0 + f(3.0, 2), 3)} $\mapsto$ \texttt{f(5.0 + 9.0, 3)} $\mapsto$ \texttt{f(14.0, 3)} $\mapsto$ \texttt{2744}
+	\cppinline{f(5.0 + f(3.0, 2), 3)} $\mapsto$ \cppinline{f(5.0 + 9.0, 3)} $\mapsto$ \cppinline{f(14.0, 3)} $\mapsto$ \cppinline{2744}
 \end{center}
 
 
 Der Funktionsrumpf beinhaltet den Code, der beim Funktionsaufruf tatsächlich ausgeführt wird.
-Dieser wird wie in einer Schleife von \texttt{\{} und \texttt{\}} umschlossen.
+Dieser wird wie in einer Schleife von \mintinline{c++}|{| und \mintinline{c++}|}| umschlossen.
 Innerhalb dieser Klammern kann dann beliebiger Code ausgeführt werden, wie auch in der \texttt{main}-Funktion.
 Dabei kann auf die Parameter einfach mit dem in der Signatur definierten Namen zugegriffen werden.
-Also in unserem Beispiel mit \texttt{x} und \texttt{n}.
+Also in unserem Beispiel mit \cppinline{x} und \cppinline{n}.
 Vor dem Ende des Funktionsrumpfes muss eine Rückgabe mit \texttt{return} ausgeführt werden.
 Das kann zum Beispiel so \texttt{return x;} oder so \texttt{return 5;} aussehen.
 
