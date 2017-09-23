@@ -6,9 +6,11 @@ int main() {
     std::cin >> n;
 
     if (n = 0) {
-        std::cout << "n = " << n << ", also ist n Null!" << std::endl;
+        std::cout << "n = " << n
+            << ", also ist n Null!" << std::endl;
     } else {
-        std::cout << "n = " << n << ", also ist n nicht Null!" << std::endl;
+        std::cout << "n = " << n
+            << ", also ist n nicht Null!" << std::endl;
     }
     return 0;
 }
