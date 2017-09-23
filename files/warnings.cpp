@@ -6,8 +6,8 @@ int main() {
     std::cin >> n;
 
     if (n = 0) {
-        std::cout << "Null!" << std::endl;
+        std::cout << "n = " << n << ", also ist n Null!" << std::endl;
     } else {
-        std::cout << "Nicht Null!" << std::endl;
+        std::cout << "n = " << n << ", also ist n nicht Null!" << std::endl;
     }
 }
