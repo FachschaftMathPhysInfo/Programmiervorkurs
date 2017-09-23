@@ -17,7 +17,7 @@ möglicherweise zu unerwartetem Verhalten führen können.
 \inputcpp{warnings.cpp}
 
 Fehler wie diese können nicht mehr auftreten, wenn ihr \emph{warnings}
-anschaltet. Dies passiert über weiter Optionen, die wir dem Compiler mitgeben.
+anschaltet. Dies passiert über weitere Optionen, die wir dem Compiler mitgeben.
 
 \textbf{Praxis:}
 \begin{enumerate}[resume]
@@ -54,14 +54,19 @@ Compiler anzeigt und wie er damit umgeht. Wir wollen hier nur drei nennen:
         sie nicht einfach zu ignorieren.
 \end{description}
 
-Wenn ihr bei jedem Compilerlauf nun warnings anschalten wollt -- und am Besten auch noch für den debugger, falls ihr ihn braucht -- wird der Befehl zum Kompilieren langsam sehr lang. Für die Dauer des Vorkurses könnt ihr euch mittels
+Wenn ihr bei jedem Compilerlauf nun warnings anschalten wollt -- und am Besten
+auch noch für den debugger, falls ihr ihn braucht -- wird der Befehl zum
+Kompilieren langsam sehr lang. Für die Dauer des Vorkurses könnt ihr euch
+mittels
 
+\begin{center}
 \texttt{alias\footnote{alias ist ein shell-befehl, der euch eine Reihe von
 Anweisungen und Befehlen neu benennen lässt. In diesem Fall ist danach zum
 Beispiel der noch nicht existente Befehl \texttt{compile} ein neuer Name für
 \texttt{g++ -Vall -Wextra -Werror -O0 -g3}. Beachtet, dass ihr hier genau das
 abtippen müsst, was da steht, mit Leerzeichen und allem} compile="g++ -Wall
 -Wextra -Werror -O0 -g3"}
+\end{center}
 
 ein bisschen Arbeit ersparen. Ein einfaches \texttt{compile -o foo foo.cpp}
 wird dann automatisch den Compiler mit allen angegebenen Optionen aufrufen. Den
@@ -73,7 +78,10 @@ Terminals verloren!
 \begin{enumerate}[resume]
     \item Mit der warning in \texttt{warnings.cpp} möchte euch der Compiler
         darauf hinweisen, dass ihr hier eine Zuweisung macht, obwohl ein
-        Wahrheitswert erwartet wird. Es gibt zwei Möglichkeiten, die warning zu
+        Wahrheitswert\footnote{Ein Wahrheitswert (\cppinline{bool}) ist ein
+        Variablentyp, der die Werte wahr (\cppinline{true}) und falsch (
+        \cppinline{false}) annehmen kann.}
+        erwartet wird. Es gibt zwei Möglichkeiten, die warning zu
         beheben: Ihr könnt Klammern um die Zuweisung machen (und dem Compiler
         so sagen, dass ihr euch sicher seid, dass hier eine Zuweisung hinsoll),
         oder ihr könnt aus der Zuweisung einen Vergleich machen. Welche
@@ -94,7 +102,7 @@ Terminals verloren!
         er sich gleich verhält, aber schneller läuft. \texttt{-O2} würde
         bedeuten, dass relativ stark optimiert wird.
 
-        \texttt{zaehlen.cpp} enthält ein Programm, um bei einem von der Nutzerin eingegebenen Wort zu zählen, wie oft ein bestimmter Buchstabe (zurzeit \texttt{a} vorkommt).
+        \texttt{zaehlen.cpp} enthält ein Programm, um bei einem von der Nutzerin eingegebenen Wort zu zählen, wie oft der Buchstabe a vorkommt.
         Kompiliert es mit \texttt{g++ -Wall -O2 -o zaehlen zaehlen.cpp} (probiert es auch einmal ohne \texttt{-O2} oder ohne \texttt{-Wall}) und schaut euch die resultierende Warning an.
         Benutzt gegebenenfalls Google, um heraus zu finden, was sie bedeutet und wie ihr sie beheben könnt.
 \end{enumerate}
