@@ -46,7 +46,7 @@ dir: files/*
 	@cp files/array.cpp      vorkurs/lektion15/. > /dev/null
 	@cp files/warnings.cpp   vorkurs/lektion16/. > /dev/null
 	@cp files/warnprim.cpp   vorkurs/lektion16/. > /dev/null
-	@cp files/collatz.cpp    vorkurs/lektion16/. > /dev/null
+	@cp files//zaehlen.cpp   vorkurs/lektion16/. > /dev/null
 	@cp files/tictactoe.cpp  vorkurs/lektion17/. > /dev/null
 	@cp files/assemble.cpp   vorkurs/lektion18/. > /dev/null
 	@echo "TTT-Dateien kompilieren…"

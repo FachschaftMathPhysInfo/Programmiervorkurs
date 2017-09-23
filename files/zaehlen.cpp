@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-int zaehlen(std::string str, char c) {
+int zaehle_a(std::string str) {
     int erg;
 
     unsigned i = 0;
@@ -9,7 +9,7 @@ int zaehlen(std::string str, char c) {
     // kann allerdings keine negativen
     // Werte speichern.
     while (i < str.length()) {
-        if (str[i] == c) {
+        if (str[i] == 'a') {
             erg = erg + 1;
         }
         i = i + 1;
@@ -24,7 +24,7 @@ int main() {
     std::cout << "Gib ein Wort ein: ";
     std::cin >> wort;
 
-    std::cout << "In deinem Wort kommt " << zaehlen(wort, 'a')
+    std::cout << "In deinem Wort kommt " << zaehle_a(wort)
         << "-mal der Buchstabe a vor." << std::endl;
     return 0;
 }
