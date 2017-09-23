@@ -43,10 +43,10 @@ dir: files/*
 	@cp files/fizzbuzz.cpp   vorkurs/lektion12/. > /dev/null
 	@cp files/funktion.cpp   vorkurs/lektion13/. > /dev/null
 	@cp files/namespaces.cpp vorkurs/lektion14/. > /dev/null
-	@cp files/array.cpp      vorkurs/lektion15/. > /dev/null
+	@cp files/vector.cpp     vorkurs/lektion15/. > /dev/null
 	@cp files/warnings.cpp   vorkurs/lektion16/. > /dev/null
 	@cp files/warnprim.cpp   vorkurs/lektion16/. > /dev/null
-	@cp files/collatz.cpp    vorkurs/lektion16/. > /dev/null
+	#@cp files/collatz.cpp    vorkurs/lektion16/. > /dev/null
 	@cp files/tictactoe.cpp  vorkurs/lektion17/. > /dev/null
 	@cp files/assemble.cpp   vorkurs/lektion18/. > /dev/null
 	@echo "TTT-Dateien kompilieren…"
