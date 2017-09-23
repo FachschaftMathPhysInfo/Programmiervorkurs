@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 
 int main() {
-    int einarray[100];
+    std::vector<int> einarray = std::vector<int>(100);
 
     srand(time(NULL));
 
