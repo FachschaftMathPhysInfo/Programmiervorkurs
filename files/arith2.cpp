@@ -6,5 +6,5 @@ int main() {
     a = a + 19;
     std::cout << a << std::endl;
 
-		return 0;
+    return 0;
 }
