@@ -1,4 +1,3 @@
-#pragma once
 #include <vector>
 int gewinnerin(std::vector<int> feld) {
     // Prüfe reihen und Spalten
