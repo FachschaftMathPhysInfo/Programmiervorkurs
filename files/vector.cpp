@@ -4,7 +4,7 @@
 #include <vector>
 
 int main() {
-    std::vector<int> einvector= std::vector<int>(100);
+    std::vector<int> einvector = std::vector<int>(100);
 
     srand(time(NULL));
 
