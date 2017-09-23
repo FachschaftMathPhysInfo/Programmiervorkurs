@@ -5,7 +5,8 @@ Vektoren sind eine Möglichkeit, mehrere Elemente des gleichen Typs zusammen zu 
 Statt also einer Stelle im Speicher, an der ein \texttt{int} liegt, habt ihr einen ganzen Speicherbereich, in dem 100 (oder eine beliebige andere Anzahl an) \texttt{int}s liegen.
 
 Die Elemente in einem Vektor sind durchnummeriert, man nennt die Nummer eines Vektorelements seinen \emph{Index}.
-Das erste Element hat den Index 0, das zweite den Index 1 und das 100te hat den Index 99 -- Vorsicht also, der höchste Index in einem Vektor mit 100 Elementen ist 99, nicht 100! Um einen Vektor zu definieren, schreibt ihr:
+Das erste Element hat den Index 0, das zweite den Index 1 und das 100te hat den Index 99 -- Vorsicht also, der höchste Index in einem Vektor mit 100 Elementen ist 99, nicht 100!
+Um einen Vektor zu definieren, schreibt ihr:
 \begin{center}
 \cppinline{std::vector<}\emph{Datentyp}\cppinline{> einvektor;}
 \end{center}
@@ -14,13 +15,13 @@ Um ein Element am Ende einzufügen gibt es
 \begin{center}
 \cppinline{einvektor.push_back(}\emph{Element}\cppinline{);}
 \end{center}
-Und auf ein bestimmtes Arrayelement zuzugreifen könnt ihr tun, indem ihr seinen Index in eckigen Klammern hinter den Namen schreibt.
+und auf ein bestimmtes Vektorelement zugreifen könnt ihr indem ihr seinen Index in eckigen Klammern hinter den Namen schreibt.
 \begin{center}
-\cppinline{einvektor[}\emph{Index}\cppinline{];}
+\cppinline{einvektor[}\emph{Index}\cppinline{]}
 \end{center}
 Wenn ihr die Größe eines Vektors wissen wollt könnt ihr
 \begin{center}
-\cppinline{einvektor.size();}
+\cppinline{einvektor.size()}
 \end{center}
 verwenden.
 
@@ -29,7 +30,8 @@ Folgendes Programm macht hoffentlich die Syntax klar:
 \inputcpp{vector.cpp}
 
 Es gibt einige Dinge, zu beachten, wenn ihr mit Vektoren arbeitet.
-Das wichtigste ist oben schon genannt -- sich davon verwirren zu lassen, dass Indizes bei 0 anfangen und aus Versehen über das Array hinaus schreiben oder lesen ist ein so häufiger Fehler, dass er seinen eigenen Namen bekommen hat: „Off-by-one error“.
+Das wichtigste ist oben schon genannt -- lasst euch nicht davon verwirren, dass Indizes bei 0 anfangen.
+Aus Versehen über das Array hinaus zu schreiben oder zu lesen ist ein so häufiger Fehler, dass er seinen eigenen Namen bekommen hat: \emph{Off-by-one} error.
 Wichtig ist, dass der Compiler diesen Zugriff nicht verhindern wird!
 Das ist von daher eine sehr fiese Sache, als dass dieser Fehler auch beim Ausführen nicht immer Probleme machen wird -- aber manchmal lässt er auch euer Programm spontan abstürzen in einem so genannten \emph{segmentation fault}.
 
