@@ -17,5 +17,5 @@ int main() {
     std::cout << "An Index 42 steht " << einarray[42] << std::endl;
     std::cout << "An Index 99 steht " << einarray[99] << std::endl;
 
-		return 0;
+    return 0;
 }

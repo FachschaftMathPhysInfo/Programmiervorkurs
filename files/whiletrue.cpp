@@ -5,5 +5,5 @@ int main() {
     while (j > 0) {
         std::cout << j << std::endl;
     }
-		return 0;
+    return 0;
 }

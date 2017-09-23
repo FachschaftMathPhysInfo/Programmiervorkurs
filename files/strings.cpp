@@ -12,5 +12,5 @@ int main() {
 
     std::cout << hallo << eingabe << std::endl;
 
-		return 0;
+    return 0;
 }

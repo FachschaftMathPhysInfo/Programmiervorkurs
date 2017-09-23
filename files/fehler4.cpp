@@ -9,5 +9,5 @@ int main() {
 
     std::cout << "Hallo " << eingabe << std::endl;
 
-		return 0;
+    return 0;
 }

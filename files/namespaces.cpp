@@ -12,5 +12,5 @@ int main () {
     std::cout << eins::x << std::endl;
     std::cout << zwei::x << std::endl;
 
-		return 0;
+    return 0;
 }

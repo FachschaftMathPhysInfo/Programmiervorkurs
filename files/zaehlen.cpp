@@ -26,5 +26,5 @@ int main() {
 
     std::cout << "In deinem Wort kommt " << zaehlen(wort, 'a')
         << "-mal der Buchstabe a vor." << std::endl;
-		return 0;
+    return 0;
 }

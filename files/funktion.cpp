@@ -29,5 +29,5 @@ int main() {
     //Hier werden der Nutzerin nun die Ergebnisse angezeigt:
     std::cout << eingabe << " -> " << x1 << " -> "
         << x2 << " -> " << x3 << std::endl;
-		return 0;
+    return 0;
 }

@@ -10,5 +10,5 @@ int main() {
     } else {
         std::cout << "Nicht Null!" << std::endl;
     }
-		return 0;
+    return 0;
 }

@@ -23,5 +23,5 @@ int main() {
     }
     std::cout << n << " ist eine Primzahl" << std::endl;
 
-		return 0;
+    return 0;
 }
