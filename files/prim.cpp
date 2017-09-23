@@ -22,4 +22,6 @@ int main() {
         i = i + 1;
     }
     std::cout << n << " ist eine Primzahl" << std::endl;
+
+    return 0;
 }

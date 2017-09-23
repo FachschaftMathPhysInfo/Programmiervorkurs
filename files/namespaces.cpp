@@ -11,4 +11,6 @@ namespace zwei {
 int main () {
     std::cout << eins::x << std::endl;
     std::cout << zwei::x << std::endl;
+
+    return 0;
 }

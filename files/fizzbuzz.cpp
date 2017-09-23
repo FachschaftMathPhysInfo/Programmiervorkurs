@@ -17,4 +17,4 @@ std::cout<<"Buzz"<<std::endl;
 std::cout<<i<<std::endl;
 }
 i=i+1;
-}}
+}return 0;}

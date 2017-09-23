@@ -8,4 +8,6 @@ int main() {
     std::cin << eingabe;
 
     std::cout << "Hallo " << eingabe << std::endl;
+
+    return 0;
 }

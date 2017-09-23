@@ -10,4 +10,6 @@ int main() {
     std::cin >> b;
 
     std::cout << "Ihre Summe ist " << a + b << std::endl;
+
+    return 0;
 }

@@ -20,10 +20,11 @@ int zaehlen(std::string str, char c) {
 
 int main() {
     std::string wort;
-    
+
     std::cout << "Gib ein Wort ein: ";
     std::cin >> wort;
 
     std::cout << "In deinem Wort kommt " << zaehlen(wort, 'a')
         << "-mal der Buchstabe a vor." << std::endl;
+    return 0;
 }

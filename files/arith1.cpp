@@ -15,4 +15,5 @@ int main() {
     // Dies wird benutzt, um Menschen lesbar
     // Informationen dem Quelltext beizufügen,
     // wie zum Beispiel "c ist jetzt -13"
+    return 0;
 }
