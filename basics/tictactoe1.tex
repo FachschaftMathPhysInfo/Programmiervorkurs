@@ -1,14 +1,13 @@
 \lesson{Tic Tac Toe - Teil 1}
 
-Nachdem wir jetzt lange dröge und unspannende -- und zum Teil einfach
-un\emph{sinnige} -- Lektionen und Beispiele hatten, wollen wir uns als Ende von
+Nachdem wir jetzt lange dröge und unspannende Lektionen und Beispiele hatten, wollen wir uns als Ende von
 Kapitel 1 einer ein wenig spannenderen Aufgabe widmen -- wir wollen ein
 einfaches Spiel programmieren. Wir haben dazu Tic Tac Toe ausgewählt, da es
 relativ überschaubare Spiellogik besitzt. Ein- und Ausgabe, werden wir über die
 Konsole machen.
 
 In \texttt{vorkurs/lektion17} findet ihr eine Datei \texttt{tictactoe.o}. Diese
-könnt ihr nicht in eurem Editor öffnen - sie enthält von uns bereitgestellte,
+könnt ihr nicht in eurem Editor öffnen -- sie enthält von uns bereitgestellte,
 bereits vorkompilierte Funktionen, die ihr nutzen könnt, um einen Anfang zu
 haben. Wir werden sie später Stück für Stück ersetzen.
 
@@ -35,11 +34,11 @@ voranstellen. In \texttt{tictactoe.cpp} ist dies am Beispiel von
 		Nimmt einen Vektor mit 9 \texttt{int}s entgegen und hat als Rückgabetyp \texttt{void} (was für „keine Rückgabe“ steht).
 
 		Gibt das gegebene Feld auf der Konsole aus. Dabei werden die 9 Felder von oben links nach unten rechts von 0 beginnend durchnummeriert.
-		Das 9-elementige Array stellt also das Feld dar.
+		Der 9-elementige Vektor stellt also das Feld dar.
 		Eine 0 in einem Vektorelement bedeutet, dass das Feld leer ist, eine 1 bedeutet, dass sich dort ein \textbf{X} befindet und eine 2 bedeutet, dass sich ein \textbf{O} dort befindet.
 		Andere Werte werden mit einem \textbf{?} dargestellt.
 	\item[gewinnerin]
-		Nimmt ein Array von \texttt{int}s der Länge 9 entgegen und hat als Rückgabetyp \texttt{int}.
+		Nimmt einen Vektor mit 9 \texttt{int}s entgegen und hat als Rückgabetyp \texttt{int}.
 
 		Prüft, ob in diesem Zustand des Feldes bereits eine der Spielerinnen gewonnen hat.
 		Die Funktion gibt 0 zurück, wenn noch niemand gewonnen hat, 1, wenn die Spielerin \textbf{X} gewonnen hat und 2, wenn die Spielerin \textbf{O} gewonnen hat.
