@@ -1,6 +1,7 @@
 #include <iostream>
+#include <vector>
 
-extern int frage_feld_nummer(int feld[9]);
+extern int frage_feld_nummer(std::vector<int> feld);
 // Fügt hier die anderen Funktionen ein
 
 int main() {
