@@ -1,13 +1,13 @@
-int gewinnerin(int feld[9]) {
-    int a, b;
+#pragma once
+#include <vector>
+int gewinnerin(std::vector<int> feld) {
     // Prüfe reihen und Spalten
     for (int i = 0; i < 3; i++) {
-        a = feld[3*i] & feld[3*i+1] & feld[3*i+2];
-        b = feld[3*i] | feld[3*i+1] | feld[3*i+2];
+        int a = feld[3*i] & feld[3*i+1] & feld[3*i+2];
+        int b = feld[3*i] | feld[3*i+1] | feld[3*i+2];
         if (a == b && a != 0) {
             return feld[3*i];
         }
-
         a = feld[i] & feld[i+3] & feld[i+6];
         b = feld[i] | feld[i+3] | feld[i+6];
         if (a == b && a != 0) {
@@ -15,8 +15,8 @@ int gewinnerin(int feld[9]) {
         }
     }
     // Prüfe Diagonale 1
-    a = feld[0] & feld[4] & feld[8];
-    b = feld[0] | feld[4] | feld[8];
+    int a = feld[0] & feld[4] & feld[8];
+    int b = feld[0] | feld[4] | feld[8];
     if (a == b && a != 0) {
         return feld[0];
     }

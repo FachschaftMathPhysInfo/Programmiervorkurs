@@ -1,5 +1,7 @@
+#pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 
 static std::string fts(int feld) {
     switch (feld) {
@@ -14,7 +16,7 @@ static std::string fts(int feld) {
     }
 }
 
-void gebe_feld_aus(int feld[9]) {
+void gebe_feld_aus(std::vector<int> feld) {
     std::cout << "   |   |   " << std::endl;
     std::cout << " " << fts(feld[0]) << " | " << fts(feld[1]) << " | " << fts(feld[2]) << " " << std::endl;
     std::cout << "   |   |   " << std::endl;
