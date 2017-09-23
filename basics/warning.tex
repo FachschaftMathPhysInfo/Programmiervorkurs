@@ -54,7 +54,10 @@ Compiler anzeigt und wie er damit umgeht. Wir wollen hier nur drei nennen:
         sie nicht einfach zu ignorieren.
 \end{description}
 
-Wenn ihr bei jedem Compilerlauf nun warnings anschalten wollt -- und am Besten auch noch für den debugger, falls ihr ihn braucht -- wird der Befehl zum Kompilieren langsam sehr lang. Für die Dauer des Vorkurses könnt ihr euch mittels
+Wenn ihr bei jedem Compilerlauf nun warnings anschalten wollt -- und am Besten
+auch noch für den debugger, falls ihr ihn braucht -- wird der Befehl zum
+Kompilieren langsam sehr lang. Für die Dauer des Vorkurses könnt ihr euch
+mittels
 
 \begin{center}
 \texttt{alias\footnote{alias ist ein shell-befehl, der euch eine Reihe von
@@ -75,7 +78,10 @@ Terminals verloren!
 \begin{enumerate}[resume]
     \item Mit der warning in \texttt{warnings.cpp} möchte euch der Compiler
         darauf hinweisen, dass ihr hier eine Zuweisung macht, obwohl ein
-        Wahrheitswert erwartet wird. Es gibt zwei Möglichkeiten, die warning zu
+        Wahrheitswert\footnote{Ein Wahrheitswert (\cppinline{bool}) ist ein
+        Variablentyp, der die Werte wahr (\cppinline{true}) und falsch (
+        \cppinline{false}) annehmen kann.}
+        erwartet wird. Es gibt zwei Möglichkeiten, die warning zu
         beheben: Ihr könnt Klammern um die Zuweisung machen (und dem Compiler
         so sagen, dass ihr euch sicher seid, dass hier eine Zuweisung hinsoll),
         oder ihr könnt aus der Zuweisung einen Vergleich machen. Welche
@@ -101,7 +107,7 @@ Terminals verloren!
         zu testen. Kompiliert es mit \texttt{g++ -Wall -O2 -o collatz
         collatz.cpp} (probiert es auch einmal ohne \texttt{-O2} oder ohne
         \texttt{-Wall}) und schaut euch die resultierende Warning an. Benutzt
-        gegebenenfalls Google, um heraus zu finden, was sie bedeutet und wie
+        gegebenenfalls Google, um herauszufinden, was sie bedeutet und wie
         ihr sie beheben könnt.
 \end{enumerate}
 
