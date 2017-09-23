@@ -31,7 +31,7 @@ dir: files/*
 	@cp files/fehler3.cpp    vorkurs/lektion04/. > /dev/null
 	@cp files/fehler4.cpp    vorkurs/lektion04/. > /dev/null
 	@cp files/fehler5.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/strings.cpp    vorkurs/lektion05/. > /dev/null
+	@cp files/variablen.cpp  vorkurs/lektion05/. > /dev/null
 	@cp files/arith1.cpp     vorkurs/lektion07/. > /dev/null
 	@cp files/arith2.cpp     vorkurs/lektion07/. > /dev/null
 	@cp files/arith3.cpp     vorkurs/lektion07/. > /dev/null
