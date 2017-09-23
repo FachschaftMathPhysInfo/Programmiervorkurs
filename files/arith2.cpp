@@ -5,4 +5,6 @@ int main() {
     a = 23;
     a = a + 19;
     std::cout << a << std::endl;
+
+		return 0;
 }

@@ -11,4 +11,6 @@ int main() {
     std::cin >> eingabe;
 
     std::cout << hallo << eingabe << std::endl;
+
+		return 0;
 }

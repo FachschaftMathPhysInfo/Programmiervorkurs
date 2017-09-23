@@ -18,4 +18,5 @@ int main() {
     } else {
         std::cout << "Ihr Quotient ist " << a / b << std::endl;
     }
+		return 0;
 }

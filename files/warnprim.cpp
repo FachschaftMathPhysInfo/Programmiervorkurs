@@ -28,4 +28,5 @@ int main() {
     } else {
         std::cout << n << " ist nicht prim" << std::endl;
     }
+		return 0;
 }

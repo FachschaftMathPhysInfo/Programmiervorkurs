@@ -14,4 +14,6 @@ int main() {
     c = 2 * a + b;
 
     std::cout << "c ist jetzt " << c << std::endl;
+
+		return 0;
 }
