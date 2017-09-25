@@ -2,6 +2,8 @@
 *.log
 *.toc
 *.out
+*.nav
+*.snm
 vorkurs.pdf
 folien/folien.pdf
 folien/passwort.tex
