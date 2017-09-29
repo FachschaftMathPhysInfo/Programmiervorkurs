@@ -24,7 +24,6 @@ dir: files/*
 	@for i in $(shell seq -w 1 19); do mkdir vorkurs/lektion$$i; done;
 	@echo "Dateien kopieren…"
 	@cp files/helloworld.cpp vorkurs/lektion01/. > /dev/null
-	@cp files/basics.sh      vorkurs/lektion02/. > /dev/null
 	@cp files/helloyou.cpp   vorkurs/lektion03/. > /dev/null
 	@cp files/fehler1.cpp    vorkurs/lektion04/. > /dev/null
 	@cp files/fehler2.cpp    vorkurs/lektion04/. > /dev/null
