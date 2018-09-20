@@ -9,6 +9,7 @@
 \RequirePackage[explicit,clearempty]{titlesec}
 \RequirePackage{titletoc}
 \RequirePackage{amsmath}
+\RequirePackage{mathtools}
 \RequirePackage[ngerman]{babel}
 \RequirePackage{microtype}
 \RequirePackage{minted}

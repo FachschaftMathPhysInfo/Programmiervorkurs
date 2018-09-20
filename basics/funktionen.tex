@@ -8,12 +8,13 @@ Eine Funktion in \Cpp besteht aus zwei Teilen: der \emph{Signatur} und dem \emph
 Die Kombination von Parametertypen und Rückgabetyp bildet die Signatur einer Funktion.
 Parameter sind Werte, die der Funktion übergeben werden, zum Beispiel das $x$ in $f(x)$.
 Für eine Funktion \cppinline{my_func}, die  $x^n$ berechnen soll, könnte eine Signatur so aussehen:
-
-\begin{center}
-	\cppinline{double my_func(double x, int n)}
-\end{center}
-
-%Signatur Diagramm von Koebi? Ich kriege nichts schönes hin
+\[
+	\smashoperator{\mathop{\underbrace{\text{\cppinline{double}}}}_{\text{Rückgabetyp}}}\quad
+	\smashoperator{\mathop{\overbrace{\text{\cppinline{my_func}}}}^{\text{Name}}}
+	(\smashoperator{\mathop{\underbrace{\text{\cppinline{double x}}}}_{\text{Paramter 1}}},\ 
+	\smashoperator{\mathop{\overbrace{\text{\cppinline{int n}}}^{\text{Paramter 2}}}})
+\]
+%sorry etwas hässlich
 
 Diese Signatur besteht also aus einem Datentypen, der den Rückgabetypen der Funktion bestimmt, direkt gefolgt von dem Namen der Funktion, der beliebig gewählt werden kann.
 Und dahinter in Klammern werden die einzelnen Paramter durch Komma getrennt angeben, wobei ein Paramter immer aus dem Datentyp des Paramters und einem beliebigen Namen für den Paramter besteht.
@@ -57,21 +58,22 @@ Wenn nun die Frage aufkommt was die nächsten Folgenglieder von verschiedenen Za
 
 \inputcpp{funktion.cpp}
 
-\textbf{Praxis:}
+\textbf{Praxis:}\footnote{In dieser Lektion gibt es ein paar mehr Aufgaben als in anderen Lektionen, lasst euch davon nicht entmutigen!}
 \begin{enumerate}
 	\item Verändert das Programm in \texttt{funktion.cpp} so, dass es nicht die einzelnen Zahlen \texttt{x1}, \texttt{x2} und \texttt{x3}, sondern die Summe dieser ausgibt.
 %Wirkt wie Kinderkram nicht zum Funktionskapitel, möchte aber nochmal den Unterschied zwischen Ausgabe und Rückgabe dadurch nochmal klarer machen
 	\item Kompiliert das angepasste Programm und lasst es im debugger Schritt für Schritt durchlaufen, setzt dafür wieder einen breakpoint für die \texttt{main}-Funktion.
 	    Sobald der debugger euch anzeigt, als nächstes die Funktion ausführen zu wollen, \texttt{step} statt \texttt{next} aufrufen, sodass der debugger in die Funktion hineinspringt.
 	\item Schreibt eine Funktion die ein \texttt{double} entgegen nimmt und das Quadrat davon zurück gibt.
+	(Hierbei sollt ihr keine Pakete wie \texttt{math.h} oder \texttt{cmath} benutzen.)
 \end{enumerate}
 
 \textbf{Spiel:}
 \begin{enumerate}
 	\item Schreibt eine Funktion (nach der Funktion \texttt{collatz} und vor \texttt{main}), die einen \texttt{int} entgegen nimmt und die Anzahl der Schritte bestimmt bis die Folge bei der 1 angekommen ist und diese als \texttt{int} zurückgibt.
-	(Die Funktion sollte also die Signatur \cppinline{int schritte(int x)}.)
-	    Benutzt dafür die bereits vorhandene Funktion \texttt{collatz}.
-	\item Schreibt euer Programm so um, dass es eine Zahl von der Nutzerin entgegen nimmt und die Anzahl der Schritte ausgibt, bis diese Zahl zu einer 1 wird.
+	(Die Funktion sollte also die Signatur \cppinline{int schritte(int x)} haben.)
+	Probiert die Funktion aus.
+	\item Versucht jetzt zwei Zahlen von der Nutzerin entgegen zu nehmen und vergleicht mithilfe von der gerade geschriebenen Funktion, welche Zahl mehr Schritte bis zur 1 braucht.
     \item Was passiert, wenn ihr in einer Funktion den \texttt{return}-Ausdruck vor dem Ende eurer Funktion benutzt?
     \item Vertauscht in \texttt{funktion.cpp} die Funktion \texttt{collatz} mit der Funktion \texttt{main} (verschiebt also die gesamte Funktion \texttt{collatz} an das Ende der Datei).
         Versucht, die Datei zu kompilieren.
@@ -79,8 +81,8 @@ Wenn nun die Frage aufkommt was die nächsten Folgenglieder von verschiedenen Za
     \item Verschiebt die Funktion \texttt{collatz} \emph{in} die \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften Klammern, aber vor die dazu gehörige schließende).
         Versucht, die Datei zu kompilieren. Was ist die Fehlermeldung des Compilers?
     \item Implementiert die Funktion, die $x^n$ umsetzt, ignoriert dabei zunächst negative Exponenten. \\
-        (\emph{Tipp:} Die Signatur ist bereits oben gegeben, für den Funktionsrumpf könnten sich Schleifen eignen.)
-    \item Eure Funktion kann sich auch selbst aufrufen. Versucht damit eure Funktion auf negative Exponenten zu erweitern, indem ihr benutzt, dass gilt $x^{-n} = \frac{1.0}{x^n}$.
+        (Wie in Praxis 3, sollt ihr auch hier keine vorgefertigten Pakete benutzen. \emph{Tipp:} Die Signatur ist bereits oben gegeben, für den Funktionsrumpf könnten sich Schleifen eignen.)
+    \item Eure Funktion kann sich auch selbst aufrufen. Versucht damit eure Funktion auf negative Exponenten zu erweitern, indem ihr benutzt, dass gilt $x^{-n} = \Bigl(\frac{1.0}{x}\Bigr)^n$.
     \item Schaut euch eure bisherigen Lösungen an.
         Findet ihr noch häufiger Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern könnt?
 \end{enumerate}
