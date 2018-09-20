@@ -18,29 +18,41 @@ Menge von Anweisungen häufig auszuführen, solange eine von uns fest gelegte
 Bedingung erfüllt ist. Wenn wir zum Beispiel testen wollen, ob eine Zahl eine
 Primzahl ist, wäre ein einfacher Algorithmus die so genannte Probedivision:
 Gehe von 2 aufwärts alle Zahlen (die kleiner sind, als die Eingabe) durch,
-teste, ob sie die Eingabe teilen -- wenn ja, dann handelt es sich nicht um eine
-Primzahl. Haben wir alle Zahlen durchprobiert ohne Erfolg, muss es sich um eine
-Primzahl handeln.  Wir können das wieder in einem Kontrollflussdiagramm
-ausdrücken ($n$ ist dabei die zu testende Zahl, $i$ ist der Teiler, den wir
-gerade testen wollen):
+teste, ob sie die Eingabe teilen -- wenn ja, merken wir uns, dass die Zahl
+einen Teiler hat. Haben wir alle Zahlen durchprobiert handelt es sich um
+eine Primzahl genau dann, wenn wir keinen Teiler gefunden haben. Dafür
+benötigen wir einen neuen Datentyp nämlich \texttt{bool}, dieser hat genau
+zwei Zustände \texttt{true} und \texttt{false}. Damit können wir uns also
+merken, ob wir einen Teiler gefunden haben. Wir können die Probedivision wieder in einem Kontrollflussdiagramm ausdrücken ($n$ ist dabei die zu testende Zahl, $i$
+ist der Teiler, den wir gerade testen wollen und \texttt{hat\_teiler} gibt
+an, ob wir schon einen Teiler gefunden haben):
 
 \begin{center}
     \begin{tikzpicture}[auto, node distance=3cm,>=latex']
-        \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
-
-        \node [block] (start) {$i = 2$};
-        \node [block, right of=start] (cond) {$i < n$?};
-        \node [block, right of=cond, node distance=3.5cm] (if) {$i\mid n$?};
-        \node [block, right of=if, node distance=4cm] (nope) {$n$ keine Primzahl};
-        \node [block, below of=if, node distance=2cm] (incr) {$i \leftarrow i+1$};
-        \node [block, above of=nope, node distance=2cm] (yipp) {$n$ Primzahl};
-
-        \draw [->] (start) -- node {} (cond);
-        \draw [->] (cond) -- node {ja} (if);
-        \draw [->] (cond) |- node [near end] {nein} (yipp);
-        \draw [->] (if) -- node {ja} (nope);
-        \draw [->] (if) -- node {nein} (incr);
-        \draw [->] (incr) -| node {} (cond);
+    \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
+    \tikzstyle{border} = [very thick, dashed, red]
+    
+    \node [block, align=center] (start) {$i = 2$ \\ \texttt{hat\_teiler} $=$ \texttt{false}};
+    \node [block, right of=start, node distance=4cm] (cond) {$i < n$?};
+    \node [block, right of=cond, node distance=3.5cm] (if) {$i\mid n$?};
+    \node [block, right of=if, node distance=4cm] (teiler) {\texttt{hat\_teiler} $\leftarrow$ \texttt{true}};
+    \node [block, above of=if, node distance=2cm] (incr) {$i \leftarrow i+1$};
+    \node [block, below of=cond, node distance=3cm] (prim?) {\texttt{hat\_teiler}?};
+    \node [block, below of=teiler, node distance=3cm] (yipp) {$n$ Primzahl};
+    \node [block, below of=yipp, node distance=1.5cm] (nope) {$n$ keine Primzahl};
+    
+    \draw [border] ($(cond) + (-1.5, 0)$) |- ($(if) + (0, -1)$) -| ($(teiler) + (2, 0)$) |- ($(incr) + (0, 1)$) -| cycle;
+    \node [border] at ($(cond) + (-.8, 3.3)$) {Schleife};
+    
+    \draw [->] (start) -- node {} (cond);
+    \draw [->] (cond) -- node {ja} (if);
+    \draw [->] (cond) -- node [near end] {nein} (prim?);
+    \draw [->] (prim?) -- node {nein} (yipp);
+    \draw [->] (if) -- node {ja} (teiler);
+    \draw [->] (if) -- node {nein} (incr);
+    \draw [->] (incr) -| node {} (cond);
+    \draw [->] (teiler) |- (incr);
+    \draw [->] (prim?) |- node [near end] {ja} (nope);
     \end{tikzpicture}
 \end{center}
 Das Besondere an Schleifen ist, dass sie geschlossene Kreise zum

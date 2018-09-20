@@ -14,14 +14,19 @@ int main() {
     }
 
     int i = 2;
+    bool hat_teiler = false;
     while (i < n) {
         if ((n % i) == 0) {
-            std::cout << n << " ist keine Primzahl" << std::endl;
-            return 0;
+            hat_teiler = true;
         }
         i = i + 1;
     }
-    std::cout << n << " ist eine Primzahl" << std::endl;
 
+    if (hat_teiler) {
+        std::cout << n << " ist keine Primzahl" << std::endl;
+    }
+    else {
+        std::cout << n << " ist eine Primzahl" << std::endl;
+    }
     return 0;
 }
