@@ -2,9 +2,9 @@ all: folien clean
 
 folien: folien.tex
 	@echo "Folien werden gebaut..."
-	@pdflatex folien.tex > /dev/null
+	@pdflatex folien.tex
 	@echo "...Zweiter duchlauf..."
-	@pdflatex folien.tex > /dev/null
+	@pdflatex folien.tex
 	@echo "...Folien fertig"
 
 clean:
