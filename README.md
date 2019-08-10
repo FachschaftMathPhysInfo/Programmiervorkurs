@@ -9,11 +9,11 @@ Makefile
 --------
 
 Das Makefile stellt die folgenden Befehle bereit:
-    make script - Erstellt das Skript
-    make clean - räumt mit allen temporären Dateien auf
-    make dir - erstellt das Vorkurs-Verzeichnis
-    make nodir - löscht das Vorkurs-Verzeichnis
-    make zip - erstellt ein zip-file um es online zu stellen
+    `make script` - Erstellt das Skript  
+    `make clean` - räumt mit allen temporären Dateien auf  
+    `make dir` - erstellt das Vorkurs-Verzeichnis  
+    `make nodir` - löscht das Vorkurs-Verzeichnis  
+    `make zip` - erstellt ein zip-file um es online zu stellen  
 
 Skript
 ------
