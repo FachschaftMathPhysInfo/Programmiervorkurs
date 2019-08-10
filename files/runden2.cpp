@@ -1,15 +1,15 @@
 #include <iostream>
 
-enum Runden{
+enum Runden {
     kaufmaennisch,
     ab,
     auf
 };
 
-int runden(double d, Runden mode){
+int runden(double d, Runden mode) {
     // speichert Double als Integer -> schneidet Kommastellen ab
     int i = d;
-    if(mode == kaufmaennisch){
+    if(mode == kaufmaennisch) {
         if(d - i < 0.5){
             return i;
         }
@@ -17,15 +17,15 @@ int runden(double d, Runden mode){
             return i + 1;
         }
     }
-    else if (mode == ab){
+    else if (mode == ab) {
         return i;
     }
-    else if (mode == auf){
+    else if (mode == auf) {
         return i + 1;
     }
 }
 
-int main(){
+int main() {
     // hier lässt sich sehr(!) intuitiv erkennen, was das Programm tut
     std::cout << runden(2.7, kaufmaennisch) << std::endl;
     std::cout << runden(2.3, kaufmaennisch) << std::endl;

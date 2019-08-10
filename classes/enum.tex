@@ -1,9 +1,9 @@
 \lesson{Enums \& Ansi}
 
-Da die Basics der \Cpp-Programmierung nur verinnerlicht sind, fangen wir an uns eigene Datentypen zu definieren.
+Da die Basics der \Cpp-Programmierung nun verinnerlicht sind, fangen wir an uns eigene Datentypen zu definieren.
 Eine der einfachsten Kategorien von Datentypen sind \emph{Enum}s. Der Hauptzweck von Enums ist das Zuordnen von Bedeutungen zu Nummerierungen.
 Sie ermöglichen z.B. das Verwenden von leicht lesbaren Begriffen an Stellen, die eigentlich ganze Zahlen erfordern. \\
-in folgendem Codebeispiel existiert eine Funktion \emph{runden}, die abhängig vom angegebenen \emph{mode} entweder mathematisch rundet oder ab- bzw. aufrundet.
+in folgendem Codebeispiel existiert eine Funktion \texttt{runden}, die abhängig der als \emph{mode} angegebenen Zahl entweder kaufmännnisch rundet, bzw. ab- oder aufrundet.
 
 \inputcpp{runden.cpp}
 
@@ -15,7 +15,7 @@ Besser lässt sich das mit einem Enum lösen:
 
 In den geschweiften Klammer wird angegeben, welche Zustände der Datentyp annehmen kann.
 Intern werden diese von 0 beginnend durchnummeriert, was jedoch für viele Zwecke unwichtig ist.
-Mit einem =-Zeichen hinter dem Zustand kann diesem explizit eine Zahl zugeweisen werden, die dieser repräsentiert.
-Dies kann in manchen Fällen sinnvoll sein, da Enums einfach in Integer verwandelt werden können.
+Mit einem '='-Zeichen hinter dem Zustand kann diesem explizit eine Zahl zugeweisen werden, die dieser repräsentiert.
+Dies kann in manchen Fällen sinnvoll sein, da Enums einfach in Integer verwandelt werden können (und anders herum).
 
 \textbf{Praxis:}
