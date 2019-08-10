@@ -23,11 +23,6 @@ int runden(double d, Runden mode){
     else if (mode == auf){
         return i + 1;
     }
-    else {
-        // Hier sollte ein Fehler geworfen werden.
-        // Das könnt ihr aber leider noch nicht :(
-        return 0;
-    }
 }
 
 int main(){

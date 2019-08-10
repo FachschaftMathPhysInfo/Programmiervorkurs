@@ -38,7 +38,6 @@
 \renewcommand*\thesection{\arabic{section}}
 
 \titlecontents{chapter}[0pt]{\vspace{1em}\large}{\makebox[60pt][l]{\textbf{Kapitel \thecontentslabel:}}\hspace*{10pt}}{}{\titlerule*[1pc]{ }\contentspage}
-%\titlecontents{chapter}[0pt]{\vspace{1em}\large\textbf}{}{}{}
 \titlecontents{section}[10pt]{}{\makebox[50pt][l]{Lektion \thecontentslabel:}\hspace*{10pt}}{}{\titlerule*[1pc]{ }\contentspage}
 
 \newcommand{\inputcpp}[1]{\usemintedstyle{vs}\inputminted[label=#1,linenos=true,frame=single]{c++}{files/#1}}
