@@ -1,0 +1,85 @@
+\documentclass[11pt, fachschaft=mathphys,twosided=true]{mathphys-article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{eurosym}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{etoolbox}
+\DeclareUnicodeCharacter{20AC}{\euro}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\usepackage{longtable}
+
+\date{\vspace{-3em}23. September 2019\vspace{-1em}} % Datum ersetzen
+\title{\vspace{-3em}Namensliste Programmiervorkurs}
+\author{}
+
+\preto\tabular{\setcounter{magicrownumbers}{0}}
+\newcounter{magicrownumbers}
+\def\rownumber{}
+
+\begin{document}
+\maketitle
+
+\Huge
+\begin{longtable}{|>{\rownumber\space} l | C{0.22\textwidth}|C{0.22\textwidth}|C{0.35\textwidth}| }
+    PC & Vorname & Name & Unterschrift \gdef\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}} \\ \toprule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+       &         &      & \\ \midrule
+\end{longtable}
+\end{document}
