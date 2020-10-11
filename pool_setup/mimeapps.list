@@ -1,0 +1,8 @@
+[Added Associations]
+text/x-c++src=org.gnome.gedit.desktop;vim.desktop;
+application/pdf=org.gnome.Evince.desktop;
+application/x-sharedlib=exo-terminal-emulator.desktop;
+
+[Default Applications]
+text/x-c++src=org.gnome.gedit.desktop
+application/pdf=org.gnome.Evince.desktop
