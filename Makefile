@@ -13,6 +13,8 @@ clean:
 	rm -f vorkurs.toc
 	rm -f basics/*.aux
 	rm -f basics/*.log
+	rm -f classes/*.aux
+	rm -f classes/*.log
 	rm -rf _minted-vorkurs
 
 # Die Dateien in "files" werden ins Skript eingebunden und müssen den Erstis
