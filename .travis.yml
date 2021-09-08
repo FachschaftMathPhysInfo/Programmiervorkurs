@@ -1,6 +1,10 @@
 sudo: required
 dist: trusty
 
+# Dependency of the minted package
+before_install:
+  - sudo apt-get install python-pygments
+
 addons:
   apt:
     packages:
