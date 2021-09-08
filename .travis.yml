@@ -2,8 +2,12 @@ sudo: required
 dist: trusty
 
 # Dependency of the minted package
+# before_install:
+# - sudo apt-get install python-pygments Version 1.6
+# - echo "Pygmentsversion"
+# - pygmentize -V
 before_install:
-  - sudo apt-get install python-pygments
+  - "pip3 install Pygments==2.7.4"
 
 addons:
   apt:
@@ -15,5 +19,9 @@ addons:
       - texlive-lang-german
       - texlive-science
       - latex-xcolor
+      - texlive-pictures
+      - texlive-full
+      - "python3"
+      - "python3-pip"
 script:
   - make script
