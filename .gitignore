@@ -4,6 +4,8 @@
 *.out
 *.nav
 *.snm
+*.fls 
+*.fdb_latexmk
 vorkurs.pdf
 vorkurs.zip
 **/vorkurs/
