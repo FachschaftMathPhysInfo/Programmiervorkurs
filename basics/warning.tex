@@ -92,19 +92,3 @@ Terminals verloren!
 \end{enumerate}
 
 \inputcpp{warnprim.cpp}
-
-\textbf{Spiel:}
-\begin{enumerate}
-    \item Die Auswirkungen von warning-Parametern hängen stark von anderen
-        Parametern ab. Wir benutzen z.B. häufiger einmal den Parameter
-        \texttt{-O0}. Dieser legt das Level an \emph{Optimierung} fest, also
-        wie sehr euer Compiler versucht, euren Code umzustrukturieren, sodass
-        er sich gleich verhält, aber schneller läuft. \texttt{-O2} würde
-        bedeuten, dass relativ stark optimiert wird.
-
-        \texttt{zaehlen.cpp} enthält ein Programm, um bei einem von der Nutzerin eingegebenen Wort zu zählen, wie oft der Buchstabe a vorkommt.
-        Kompiliert es mit \texttt{g++ -Wall -O2 -o zaehlen zaehlen.cpp} (probiert es auch einmal ohne \texttt{-O2} oder ohne \texttt{-Wall}) und schaut euch die resultierende Warning an.
-        Benutzt gegebenenfalls Google, um heraus zu finden, was sie bedeutet und wie ihr sie beheben könnt.
-\end{enumerate}
-
-\inputcpp{zaehlen.cpp}
