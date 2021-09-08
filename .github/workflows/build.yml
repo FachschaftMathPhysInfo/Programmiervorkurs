@@ -11,9 +11,16 @@ jobs:
         with:
           run: |
             apk add make
-            make script
+            make script zip
       - uses: actions/upload-artifact@v2
         with:
           name: PDF
           path: vorkurs.pdf
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            vorkurs.pdf
+            vorkurs.zip
       
