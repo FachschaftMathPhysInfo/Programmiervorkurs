@@ -12,4 +12,8 @@ jobs:
           run: |
             apk add make
             make script
+      - uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: vorkurs.pdf
       
