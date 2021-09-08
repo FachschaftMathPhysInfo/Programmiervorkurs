@@ -10,5 +10,6 @@ addons:
       - texlive-latex-recommended
       - texlive-lang-german
       - texlive-science
+      - latex-xcolor
 script:
   - make script
