@@ -3,6 +3,8 @@ all: script clean
 
 script: vorkurs.tex vorkurs.cls
 	pdflatex -shell-escape vorkurs.tex
+	makeglossaries vorkurs
+	pdflatex -shell-escape vorkurs.tex
 	pdflatex -shell-escape vorkurs.tex
 
 clean:
@@ -11,6 +13,10 @@ clean:
 	rm -f vorkurs.out
 	rm -f vorkurs.pyg
 	rm -f vorkurs.toc
+	rm -f vorkurs.glg
+	rm -f vorkurs.glo
+	rm -f vorkurs.gls
+	rm -f vorkurs.ist
 	rm -f basics/*.aux
 	rm -f basics/*.log
 	rm -rf _minted-vorkurs

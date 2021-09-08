@@ -25,11 +25,16 @@
     pdftitle={Programmiervorkurs der Fachschaft MathPhysInfo},
     setpagesize=false,pdfauthor={Fachschaft MathPhysInfo}
 ]{hyperref}
+\usepackage[toc]{glossaries}
 
 \newcommand{\swname}[1]{\texttt{#1}\xspace}
 \newcommand{\Cpp}{\swname{C++}}
 \newcommand{\file}[1]{\texttt{#1}\xspace}
 \newcommand{\param}[1]{\texttt{#1}\xspace}
+
+% Glossar
+\makeglossaries
+\input{glossar.tex}
 
 \begin{document}
 
@@ -151,4 +156,8 @@ nicht auf eurer Bewerbung angeben - für wen hetzt ihr euch also ab?
 \input{basics/intro.tex}
 \input{classes/intro.tex}
 
+% Füge Glossar ein
+\clearpage
+\setglossarystyle{altlist}
+\printglossary[type=main, title=Glossar, toctitle=\textbf{Glossar}, nonumberlist]
 \end{document}

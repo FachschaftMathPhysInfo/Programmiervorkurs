@@ -6,6 +6,10 @@
 *.snm
 *.fls 
 *.fdb_latexmk
+*.glg
+*.glo
+*.gls
+*.ist
 vorkurs.pdf
 vorkurs.zip
 **/vorkurs/

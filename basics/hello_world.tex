@@ -35,21 +35,21 @@ Ausführung geben können.  Der Compiler für \Cpp, den wir in diesem Kurs
 benutzen wollen, heißt \texttt{g++}.
 
 Dem Compiler übergeben wir die zu kompilierende Datei als Parameter, indem wir
-sie im Terminal dahinter schreiben:
+sie im \Gls{terminal} dahinter schreiben:
 \begin{center}
-\texttt{g++ zuKompilierendeDatei.cpp}
+    \texttt{g++ zuKompilierendeDatei.cpp}
 \end{center}
 Wir können zusätzlich den Namen der Ausgabedatei festlegen, indem wir vor diese
 ein \texttt{-o} (o für output) schreiben:
 \begin{center}
-\texttt{g++ -o outputDatei zuKompilierendeDatei.cpp}
+    \texttt{g++ -o outputDatei zuKompilierendeDatei.cpp}
 \end{center}
 
 Nachdem \texttt{g++} uns also ein Maschinencodefile \texttt{outputDatei}
 erzeugt hat, können wir es zur Ausführung bringen. Wir tun das, indem wir in
-einem Terminal
+einem \Gls{terminal}
 \begin{center}
-	\texttt{./outputDatei}
+    \texttt{./outputDatei}
 \end{center}
 eingeben, also einen Punkt, ein Slash und dann den Dateinamen.
 
@@ -71,12 +71,12 @@ Diagramm:
 
 \textbf{Praxis:}
 \begin{enumerate}
-	\item Öffnet ein Terminal (Konsole), ihr findet dies oben links unter „Applications“ als „Terminal Emulator“ oder mittig unten als das zweite Symbol von links.
+    \item Öffnet ein \Gls{terminal} (Konsole), ihr findet dies oben links unter „Applications“ als „Terminal Emulator“ oder mittig unten als das zweite Symbol von links.
     \item Wechselt in das Verzeichnis \texttt{vorkurs/lektion01}, indem ihr
-		\texttt{cd vorkurs/lektion01}\footnote{was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2} eingebt und enter drückt.
+          \texttt{cd vorkurs/lektion01}\footnote{was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2} eingebt und enter drückt.
     \item In diesem Verzeichnis liegt eine Datei \texttt{helloworld.cpp}.
-        Benutzt \texttt{g++}, um diese zu einer Datei \texttt{hello} zu
-        kompilieren. Orientiert euch dazu an den Befehlen von oben.
+          Benutzt \texttt{g++}, um diese zu einer Datei \texttt{hello} zu
+          kompilieren. Orientiert euch dazu an den Befehlen von oben.
     \item Führt die Datei \texttt{hello} aus.
 \end{enumerate}
 
@@ -88,17 +88,17 @@ Ihr könnt nun versuchen, den Quellcode selbst zu verändern und damit ein wenig
 herumzuspielen. Öffnet dazu einen Editor (in den Anwendungen findet ihr z.B.
 unter „Zubehör“ den Editor gedit) und öffnet die Datei
 \texttt{vorkurs/lektion01/helloworld.cpp}\footnote{entweder mittels
-\glqq{}Datei/Öffnen\grqq{} in gedit oder über das Terminal mittels \texttt{gedit
-helloworld.cpp}}. Denkt daran, nach jeder Änderung die Datei zu speichern und
-im Terminal neu zu kompilieren und auszuführen.
+    \glqq{}Datei/Öffnen\grqq{} in gedit oder über das \Gls{terminal} mittels \texttt{gedit
+        helloworld.cpp}}. Denkt daran, nach jeder Änderung die Datei zu speichern und
+im \Gls{terminal} neu zu kompilieren und auszuführen.
 
 Dinge, die ihr ausprobieren könntet sind zum Beispiel:
 \begin{enumerate}
     \item Was passiert, wenn ihr „Hello world!“ in etwas anderes ändert?
     \item Was passiert, wenn ihr die erste Zeile löscht (der Originalquellcode
-        ist in diesem pdf enthalten, ihr könnt sie also später wieder
-        herstellen)?
+          ist in diesem pdf enthalten, ihr könnt sie also später wieder
+          herstellen)?
     \item Was passiert, wenn ihr das „\verb|<< std::endl|“ löscht?
     \item Wie könnte man mehrere Sätze ausgeben? Wie könnte man mehrere Zeilen
-        ausgeben?
+          ausgeben?
 \end{enumerate}
