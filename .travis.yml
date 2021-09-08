@@ -1,0 +1,14 @@
+sudo: required
+dist: trusty
+
+addons:
+  apt:
+    packages:
+      - texlive-fonts-recommended
+      - texlive-latex-extra
+      - texlive-fonts-extra
+      - texlive-latex-recommended
+      - texlive-lang-german
+      - texlive-science
+script:
+  - make script
