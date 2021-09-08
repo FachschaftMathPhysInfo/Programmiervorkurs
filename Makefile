@@ -1,7 +1,10 @@
 
 all: script clean
 
-script: vorkurs.tex vorkurs.cls
+title: title.tex
+	pdflatex title.tex
+
+script: title vorkurs.tex vorkurs.cls
 	pdflatex -shell-escape vorkurs.tex
 	pdflatex -shell-escape vorkurs.tex
 
@@ -14,6 +17,8 @@ clean:
 	rm -f basics/*.aux
 	rm -f basics/*.log
 	rm -rf _minted-vorkurs
+	rm -f title.aux
+	rm -f title.log
 
 # Die Dateien in "files" werden ins Skript eingebunden und müssen den Erstis
 # im Verzeichnis "vorkurs" zur Verfügung gestellt werden.
