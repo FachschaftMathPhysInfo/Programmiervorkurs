@@ -3,7 +3,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
 \ProcessOptions\relax
-\LoadClass[a4paper,oneside]{scrbook}
+\LoadClass[a4paper,oneside,headings=optiontohead]{scrbook}
 
 \RequirePackage{fancyhdr}
 \RequirePackage[explicit,clearempty]{titlesec}
