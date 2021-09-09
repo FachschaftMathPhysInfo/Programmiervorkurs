@@ -3,7 +3,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
 \ProcessOptions\relax
-\LoadClass[a4paper,oneside]{scrbook}
+\LoadClass[a4paper,oneside,headings=optiontohead]{scrbook}
 
 \RequirePackage{fancyhdr}
 \RequirePackage[explicit,clearempty]{titlesec}
@@ -15,7 +15,7 @@
 \RequirePackage{minted}
 
 %\setcounter{secnumdepth}{-1}
-
+\pagestyle{fancy}
 \setlength{\parskip}{0.5em}
 \setlength{\parindent}{0pt}
 \addtolength{\headheight}{\baselineskip}
