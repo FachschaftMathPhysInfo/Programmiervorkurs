@@ -15,7 +15,7 @@
 \RequirePackage{minted}
 
 %\setcounter{secnumdepth}{-1}
-
+\pagestyle{fancy}
 \setlength{\parskip}{0.5em}
 \setlength{\parindent}{0pt}
 \addtolength{\headheight}{\baselineskip}
