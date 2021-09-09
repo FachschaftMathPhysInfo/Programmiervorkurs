@@ -7,9 +7,7 @@ in folgendem Codebeispiel existiert eine Funktion \texttt{runden}, die abhängig
 
 \inputcpp{runden.cpp}
 
-Das ist relativ unschön und unintuitiv zu benutzen. Natürlich könnte man für den \emph{mode} auch den Typ String wählen,
-diese Verbrauchen aber sehr viel Platz und sind damit völlige Verschwendung für diese Aufgabe.
-Besser lässt sich das mit einem Enum lösen:
+Das ist relativ unschön und unintuitiv zu benutzen. Man weiß zum Beispiel nicht, wie viele modes es überhaupt gibt, wenn man den Code nicht genau ließt. Dies kann zu unnötigen Fehlern führen, wie man beim letzten Aufruf von \texttt{runden} sieht. Natürlich könnte man für den \emph{mode} auch den Typ String wählen, diese Verbrauchen aber sehr viel Platz und sind damit völlige Verschwendung für diese Aufgabe. Besser lässt sich das mit einem Enum lösen:
 
 \inputcpp{runden2.cpp}
 
@@ -19,3 +17,7 @@ Mit einem '='-Zeichen hinter dem Zustand kann diesem explizit eine Zahl zugeweis
 Dies kann in manchen Fällen sinnvoll sein, da Enums einfach in Integer verwandelt werden können (und anders herum).
 
 \textbf{Praxis:}
+\begin{enumerate}
+    \item Erweitere \texttt{runden2.cpp} so, dass auch negative Eingaben richtig gerundet werden. Bei Abrunden sollte die Eingabe -1.4 also auf 2 und bei Aufrunden auf 1 gerundet werden.
+    \item Füge zwei weitere modes hinzu, die jeweils zur Null und von der Null weg runden.
+\end{enumerate}
