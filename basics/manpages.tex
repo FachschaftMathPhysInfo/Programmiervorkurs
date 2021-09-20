@@ -9,89 +9,90 @@ page am Besten konsumiert.
 Wir schauen uns das am Beispiel der Manpage \texttt{man cp} an (\texttt{cp} ist
 der Befehl zum Kopieren von Dateien).
 
-\textbf{Praxis:}
-\begin{enumerate}
-    \item Öffnet eine Konsole und gebt \texttt{man cp} ein.
-\end{enumerate}
+\begin{praxis}
+    \begin{enumerate}
+        \item Öffnet eine Konsole und gebt \texttt{man cp} ein.
+    \end{enumerate}
 
-Die man page besteht aus mehreren \emph{Sections}. Welche sections genau es
-gibt, hängt von der man page ab, aber meistens gibt es mindestens die folgenden
-sections:
-\begin{description}
-    \item[\texttt{NAME}]
-        Gibt euch den Namen des Befehls und eine Einzeilige Beschreibung an
-    \item[\texttt{SYNOPSIS}]
-        Gibt euch die generelle Benutzung des Befehls an. In diesem Fall gibt
-        es drei mögliche Formen. Allen gemein ist, dass man zunächst
-        \texttt{cp} eingibt, darauf folgen Optionen. Wie der Rest interpretiert
-        wird, hängt dann vom Rest ab. Werden zwei weitere Parameter angegeben,
-        wird der erste als Quelle, der zweite als Ziel interpretiert (erste
-        Form). Werden mehr Parameter angegeben, wird das letzte als
-        Verzeichnis, in das man alle anderen kopieren will interpretiert
-        (zweite Form). In der dritten Form (wenn \texttt{-t} angegeben wird)
-        wird hingegen der \emph{erste} Parameter als das Zielverzeichnis
-        interpretiert, in das alle anderen Dateien kopiert wird.
+    Die man page besteht aus mehreren \emph{Sections}. Welche sections genau es
+    gibt, hängt von der man page ab, aber meistens gibt es mindestens die folgenden
+    sections:
+    \begin{description}
+        \item[\texttt{NAME}]
+              Gibt euch den Namen des Befehls und eine Einzeilige Beschreibung an
+        \item[\texttt{SYNOPSIS}]
+              Gibt euch die generelle Benutzung des Befehls an. In diesem Fall gibt
+              es drei mögliche Formen. Allen gemein ist, dass man zunächst
+              \texttt{cp} eingibt, darauf folgen Optionen. Wie der Rest interpretiert
+              wird, hängt dann vom Rest ab. Werden zwei weitere Parameter angegeben,
+              wird der erste als Quelle, der zweite als Ziel interpretiert (erste
+              Form). Werden mehr Parameter angegeben, wird das letzte als
+              Verzeichnis, in das man alle anderen kopieren will interpretiert
+              (zweite Form). In der dritten Form (wenn \texttt{-t} angegeben wird)
+              wird hingegen der \emph{erste} Parameter als das Zielverzeichnis
+              interpretiert, in das alle anderen Dateien kopiert wird.
 
-        Es gibt eine Vielzahl von Konventionen für diesen Bereich, eckige
-        Klammern bedeuten z.B. dass dieser Teil auch weggelassen werden darf,
-        drei Punkte bedeuten, dass hier mehrere solche Dinge stehen können.
+              Es gibt eine Vielzahl von Konventionen für diesen Bereich, eckige
+              Klammern bedeuten z.B. dass dieser Teil auch weggelassen werden darf,
+              drei Punkte bedeuten, dass hier mehrere solche Dinge stehen können.
 
-        Dieser Bereich ist der, der am Interessantesten für euch ist, wenn ihr
-        „einfach schnell wissen wollt, wie es funktioniert“.
-    \item[\texttt{DESCRIPTION}]
-        Hier wird ausführlicher beschrieben, was der Befehl tut. Hier werden
-        auch alle möglichen Optionen beschrieben, die wir dem Befehl bei
-        \texttt{[OPTION]...} mitgeben können. Die wichtigen Informationen
-        stehen meistens irgendwo in diesem Bereich.
-    \item[\texttt{AUTHOR}, \texttt{REPORTING BUGS}, \dots]
-        Hier stehen weitere Hintergrundinformationen, die meistens eher für
-        Entwicklerinnen interessant sind.
-    \item[\texttt{SEE ALSO}]
-        Auch eine wichtige section für euch: Wenn ihr die gewünschte
-        Information nicht gefunden habt, oder ihr nicht den richtigen Befehl
-        gefunden habt, stehen hier manchmal verwandte Befehle oder Quellen
-        weiterer Informationen.
-\end{description}
+              Dieser Bereich ist der, der am Interessantesten für euch ist, wenn ihr
+              „einfach schnell wissen wollt, wie es funktioniert“.
+        \item[\texttt{DESCRIPTION}]
+              Hier wird ausführlicher beschrieben, was der Befehl tut. Hier werden
+              auch alle möglichen Optionen beschrieben, die wir dem Befehl bei
+              \texttt{[OPTION]...} mitgeben können. Die wichtigen Informationen
+              stehen meistens irgendwo in diesem Bereich.
+        \item[\texttt{AUTHOR}, \texttt{REPORTING BUGS}, \dots]
+              Hier stehen weitere Hintergrundinformationen, die meistens eher für
+              Entwicklerinnen interessant sind.
+        \item[\texttt{SEE ALSO}]
+              Auch eine wichtige section für euch: Wenn ihr die gewünschte
+              Information nicht gefunden habt, oder ihr nicht den richtigen Befehl
+              gefunden habt, stehen hier manchmal verwandte Befehle oder Quellen
+              weiterer Informationen.
+    \end{description}
 
-Man pages sind häufig sehr umfangreich und enthalten viel mehr Informationen,
-als ihr euch gerade wünscht. Es ist nicht immer einfach, die gerade relevanten
-Informationen heraus zu filtern und es gibt nichts frustrierenderes, als einen
-Befehl gerade dringend zu brauchen, aber nicht zu kennen und sich erst durch
-eine lange man page lesen zu müssen.
+    Man pages sind häufig sehr umfangreich und enthalten viel mehr Informationen,
+    als ihr euch gerade wünscht. Es ist nicht immer einfach, die gerade relevanten
+    Informationen heraus zu filtern und es gibt nichts frustrierenderes, als einen
+    Befehl gerade dringend zu brauchen, aber nicht zu kennen und sich erst durch
+    eine lange man page lesen zu müssen.
 
-Dennoch ist es eine sehr hilfreiche Fähigkeit, zu wissen, wie man man pages
-liest und sich einfach in einem ruhigen Moment mal durch die ein oder andere
-man page durch zu lesen. Häufig lernt man dabei neue Dinge, manchmal macht es
-einem das Leben irgendwann sehr viel leichter, sie zu wissen.
+    Dennoch ist es eine sehr hilfreiche Fähigkeit, zu wissen, wie man man pages
+    liest und sich einfach in einem ruhigen Moment mal durch die ein oder andere
+    man page durch zu lesen. Häufig lernt man dabei neue Dinge, manchmal macht es
+    einem das Leben irgendwann sehr viel leichter, sie zu wissen.
 
-Habt von daher Geduld, wenn euch eine wirsche Linux-Expertin auf die Frage, wie
-ihr unter Linux euren Laptop in den Ruhemodus versetzt ein schnelles „man
-pm-suspend“ antwortet. Mit ein bisschen Übung wird euch das tatsächlich
-hinreichend schnell zur richtigen Lösung verhelfen.
+    Habt von daher Geduld, wenn euch eine wirsche Linux-Expertin auf die Frage, wie
+    ihr unter Linux euren Laptop in den Ruhemodus versetzt ein schnelles „man
+    pm-suspend“ antwortet. Mit ein bisschen Übung wird euch das tatsächlich
+    hinreichend schnell zur richtigen Lösung verhelfen.
 
-\textbf{Praxis:}
-\begin{enumerate}[resume]
-    \item Öffnet die man page von \texttt{ls}. Findet die Optionen fürs Lange
-				Listenformat (long listing format), zum Sortieren nach Dateigröße
-				und um auch versteckte Dateien (unter Linux sind das alle, die mit
-				\texttt{.} anfangen) anzuzeigen und probiert sie aus.
-    \item Was ist der Unterschied zwischen \texttt{ls -a} und \texttt{ls -A}?
-        Probiert beides aus. Das ist auf den ersten Blick nicht so leicht zu sehen
-				Fragt uns im einfach wenn ihr es nicht findest.
-    \item Nutzt \texttt{cp} um eine Datei zu kopieren. Sucht euch dafür
-        irgendeine \texttt{.cpp}-Datei aus dem Vorkurs-Programm und kopiert sie
-        in euer Homeverzeichnis (ihr könnt dafür eine Tilde (\texttt{\~})
-        benutzen).
-\end{enumerate}
+    \begin{enumerate}[resume]
+        \item Öffnet die man page von \texttt{ls}. Findet die Optionen fürs Lange
+              Listenformat (long listing format), zum Sortieren nach Dateigröße
+              und um auch versteckte Dateien (unter Linux sind das alle, die mit
+              \texttt{.} anfangen) anzuzeigen und probiert sie aus.
+        \item Was ist der Unterschied zwischen \texttt{ls -a} und \texttt{ls -A}?
+              Probiert beides aus. Das ist auf den ersten Blick nicht so leicht zu sehen
+              Fragt uns im einfach wenn ihr es nicht findest.
+        \item Nutzt \texttt{cp} um eine Datei zu kopieren. Sucht euch dafür
+              irgendeine \texttt{.cpp}-Datei aus dem Vorkurs-Programm und kopiert sie
+              in euer Homeverzeichnis (ihr könnt dafür eine Tilde (\texttt{\~})
+              benutzen).
+    \end{enumerate}
+\end{praxis}
 
-\textbf{Spiel:}
-\begin{enumerate}
-    \item Wie über so gut wie jeden Befehl gibt es auch über \texttt{man} eine
-        manpage. Schaut euch mal \texttt{man man} an.
-    \item Befehle, die für euch im späteren Leben interessant sein könnten sind
-        z.B. \texttt{ls}, \texttt{cp}, \texttt{mkdir}, \texttt{grep}, \texttt{cat},
-        \texttt{echo}, \texttt{mv}, \dots. Ihr könnt ja schon einmal in ein
-        oder zwei dieser manpages hinein schauen, und ein oder zwei Befehle
-        ausprobieren. Aber ihr müsst das jetzt auf keinen fall alles im Kopf
-				behalten.
-\end{enumerate}
+\begin{spiel}
+    \begin{enumerate}
+        \item Wie über so gut wie jeden Befehl gibt es auch über \texttt{man} eine
+              manpage. Schaut euch mal \texttt{man man} an.
+        \item Befehle, die für euch im späteren Leben interessant sein könnten sind
+              z.B. \texttt{ls}, \texttt{cp}, \texttt{mkdir}, \texttt{grep}, \texttt{cat},
+              \texttt{echo}, \texttt{mv}, \dots. Ihr könnt ja schon einmal in ein
+              oder zwei dieser manpages hinein schauen, und ein oder zwei Befehle
+              ausprobieren. Aber ihr müsst das jetzt auf keinen fall alles im Kopf
+              behalten.
+    \end{enumerate}
+\end{spiel}

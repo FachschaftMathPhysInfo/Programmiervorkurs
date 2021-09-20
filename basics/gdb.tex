@@ -42,34 +42,37 @@ g++ -O0 -g3 -o debugger debugger.cpp
 \end{minted}
 (Beachtet, dass im ersten Parameter erst ein großer Buchstabe o, dann eine 0 stehen)
 \inputcpp{debugger.cpp}
-\textbf{Praxis:}
-\begin{enumerate}
-    \item Kompiliert das Programm mit den neuen Optionen für den debugger. Ihr
-        könnt es dann mittels \verb|gdb ./debugger| im gdb starten. Ihr solltet
-        nun ein wenig Text ausgegeben bekommen und einen anderen prompt
-        (\texttt{(gdb)}). Ihr könnt den debugger jederzeit wieder verlassen,
-        indem ihr \texttt{quit} eingebt (falls ihr gefragt werdet, ob ihr euch
-        sicher seid, gebt \texttt{y} ein und drückt enter)
-    \item Zu allererst müssen wir einen so genannten \emph{breakpoint} setzen,
-        das ist ein Punkt im Programmablauf, an dem es stoppen soll, damit wir
-        entscheiden können, was wir tun wollen. \texttt{main} ist für die
-        meisten unserer Programme eine sichere Wahl:
-        \mint{text}|break main|
-        Dann können wir das Programm mit \texttt{run} starten. Wir sollten die
-        erste Anweisung unseres Programmes angezeigt bekommen.
-    \item Der Debugger wird euch jetzt immer sagen, welches die nächste
-        Anweisung ist, die er ausführen möchte. Mit \texttt{next} könnt ihr sie
-        ausführen lassen, mit \texttt{print a} könnt ihr euch den Inhalt von
-        \texttt{a} zu diesem Zeitpunkt anschauen, mit \texttt{print b} den von
-        \texttt{b} und so weiter. Geht das Programm Schritt für Schritt durch
-        und lasst euch die Werte von \texttt{a}, \texttt{b} und \texttt{c} in
-        jedem Schritt ausgeben. Wenn der debugger euch sagt, dass euer Programm
-        beendet wurde, gebt \texttt{quit} ein und beendet ihn.
-\end{enumerate}
 
-\textbf{Spiel:}
-\begin{enumerate}
-    \item Ihr habt nun schon einige Programme kennen gelernt. Kompiliert sie
-        für den Debugger neu und untersucht sie genauso wie obiges Programm,
-        solange ihr Lust habt.
-\end{enumerate}
+\begin{praxis}
+    \begin{enumerate}
+        \item Kompiliert das Programm mit den neuen Optionen für den debugger. Ihr
+              könnt es dann mittels \verb|gdb ./debugger| im gdb starten. Ihr solltet
+              nun ein wenig Text ausgegeben bekommen und einen anderen prompt
+              (\texttt{(gdb)}). Ihr könnt den debugger jederzeit wieder verlassen,
+              indem ihr \texttt{quit} eingebt (falls ihr gefragt werdet, ob ihr euch
+              sicher seid, gebt \texttt{y} ein und drückt enter)
+        \item Zu allererst müssen wir einen so genannten \emph{breakpoint} setzen,
+              das ist ein Punkt im Programmablauf, an dem es stoppen soll, damit wir
+              entscheiden können, was wir tun wollen. \texttt{main} ist für die
+              meisten unserer Programme eine sichere Wahl:
+              \mint{text}|break main|
+              Dann können wir das Programm mit \texttt{run} starten. Wir sollten die
+              erste Anweisung unseres Programmes angezeigt bekommen.
+        \item Der Debugger wird euch jetzt immer sagen, welches die nächste
+              Anweisung ist, die er ausführen möchte. Mit \texttt{next} könnt ihr sie
+              ausführen lassen, mit \texttt{print a} könnt ihr euch den Inhalt von
+              \texttt{a} zu diesem Zeitpunkt anschauen, mit \texttt{print b} den von
+              \texttt{b} und so weiter. Geht das Programm Schritt für Schritt durch
+              und lasst euch die Werte von \texttt{a}, \texttt{b} und \texttt{c} in
+              jedem Schritt ausgeben. Wenn der debugger euch sagt, dass euer Programm
+              beendet wurde, gebt \texttt{quit} ein und beendet ihn.
+    \end{enumerate}
+\end{praxis}
+
+\begin{spiel}
+    \begin{enumerate}
+        \item Ihr habt nun schon einige Programme kennen gelernt. Kompiliert sie
+              für den Debugger neu und untersucht sie genauso wie obiges Programm,
+              solange ihr Lust habt.
+    \end{enumerate}
+\end{spiel}
