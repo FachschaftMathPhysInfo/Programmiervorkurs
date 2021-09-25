@@ -1,9 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{vorkurs}[2012/06/08 MathPhys Info-vorkurs]
+\ProvidesClass{vorkurs}[2012/06/08 MathPhysInfo Info-vorkurs]
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrbook}}
 \ProcessOptions\relax
-\LoadClass[a4paper,oneside]{scrbook}
+\LoadClass[a4paper,oneside,headings=optiontohead]{scrbook}
 
 \RequirePackage{fancyhdr}
 \RequirePackage[explicit,clearempty]{titlesec}
@@ -15,7 +15,7 @@
 \RequirePackage{minted}
 
 %\setcounter{secnumdepth}{-1}
-
+\pagestyle{fancy}
 \setlength{\parskip}{0.5em}
 \setlength{\parindent}{0pt}
 \addtolength{\headheight}{\baselineskip}
@@ -24,8 +24,8 @@
 \renewcommand{\sectionmark}[1]{\renewcommand{\myrightmark}{batz}}
 \renewcommand{\chaptermark}[1]{\renewcommand{\leftmark}{#1}}
 \lhead{\textsc{\leftmark}}
-%\chead{\small{Programmiervorkurs der Fachschaft MathPhys} \\ \vspace{0.5em}\textbf{\large Lektion \thesection: \rightmark}}
-\chead{\small{Programmiervorkurs der Fachschaft MathPhys} \\ \vspace{0.5em}\textbf{\large Lektion \thesection: \myrightmark}}
+%\chead{\small{Programmiervorkurs der Fachschaft MathPhysInfo} \\ \vspace{0.5em}\textbf{\large Lektion \thesection: \rightmark}}
+\chead{\small{Programmiervorkurs der Fachschaft MathPhysInfo} \\ \vspace{0.5em}\textbf{\large Lektion \thesection: \myrightmark}}
 \rhead{\small Seite \thepage}
 \lfoot{}
 \cfoot{}

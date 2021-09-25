@@ -4,6 +4,8 @@
 *.out
 *.nav
 *.snm
+*.fls 
+*.fdb_latexmk
 vorkurs.pdf
 vorkurs.zip
 **/vorkurs/
@@ -13,3 +15,5 @@ folien_abschied/folien.pdf
 _minted-vorkurs/
 vorkurs/
 vorkurs.zip
+pool_setup/poolpw
+title.pdf

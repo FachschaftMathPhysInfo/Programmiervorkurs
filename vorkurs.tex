@@ -33,8 +33,14 @@
 
 \begin{document}
 
+% Titelseite
 \includepdf{title.pdf}
-\chapter{Präambel}
+
+% Präambel
+
+\chapter*{Präambel}
+\addcontentsline{toc}{chapter}{\textbf{Präambel}}
+\thispagestyle{empty}
 Um Lesbarkeit zu gewährleisten, nutzt dieses Schriftstück das generische
 Femininum.
 
@@ -43,7 +49,10 @@ beziehen sie sich auf alle Geschlechter in gleicher Weise.
 
 \clearpage
 
-\chapter{Vorwort}
+% Vorwort
+\chapter*{Vorwort}
+\addcontentsline{toc}{chapter}{\textbf{Vorwort}}
+\thispagestyle{empty}
 \pagestyle{empty}
 
 Vorliegend ist der Programmier-Einführungskurs der Fachschaft MathPhysInfo.
@@ -84,26 +93,26 @@ entscheidet selbst, wie viel Zeit ihr in welche Lektionen stecken wollt.
 Jede Lektion gliedert sich wiederum in drei Teile:
 \begin{enumerate}
     \item Ein theoretischer, in dem ein Unterbau für die Lektion gegeben werden
-        soll.  Ein tiefes Verständnis sollte für die Bearbeitung der Lektion
-        nicht notwendig sein, es geht mehr darum, dass sich ein grober
-        Wiedererkennungseffekt einstellt, wenn die theoretischen Kenntnisse im
-        nächsten Teil vertieft werden.
+          soll.  Ein tiefes Verständnis sollte für die Bearbeitung der Lektion
+          nicht notwendig sein, es geht mehr darum, dass sich ein grober
+          Wiedererkennungseffekt einstellt, wenn die theoretischen Kenntnisse im
+          nächsten Teil vertieft werden.
 
-        Wenn du einen eher passiven Lernstil pflegst, kannst du dir hier auch
-        einen Tutor zur Seite stellen lassen, der dich kurz in das Thema
-        einführt.
+          Wenn du einen eher passiven Lernstil pflegst, kannst du dir hier auch
+          einen Tutor zur Seite stellen lassen, der dich kurz in das Thema
+          einführt.
     \item Dem Theorieteil schließt sich der Praxisteil an.
-        Hier soll selbstständig das eben hoffentlich oberflächlich verstandene
-        in einer kurzen Fingerübung angewendet werden.
+          Hier soll selbstständig das eben hoffentlich oberflächlich verstandene
+          in einer kurzen Fingerübung angewendet werden.
 
-        Bei Fragen kann man aber natürlich auch hier einen Tutor zu Rate
-        ziehen.
+          Bei Fragen kann man aber natürlich auch hier einen Tutor zu Rate
+          ziehen.
     \item Zuletzt steht dann ein Spielteil. Hier soll mit das Gelernte vertieft und bespielt werden.
-        Tiefer gehende Informationen werden vermittelt und Möglichkeiten, mit
-        dem Code zu interagieren aufgezeigt.
+          Tiefer gehende Informationen werden vermittelt und Möglichkeiten, mit
+          dem Code zu interagieren aufgezeigt.
 
-        Von diesem Teil sollte man sich am Wenigsten aufhalten, verunsichern
-        oder deprimieren lassen.
+          Von diesem Teil sollte man sich am Wenigsten aufhalten, verunsichern
+          oder deprimieren lassen.
 \end{enumerate}
 
 Als Sprache für den Kurs haben wir \Cpp gewählt.  Diese Sprache stellt
