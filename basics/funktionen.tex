@@ -11,7 +11,7 @@ Für eine Funktion \cppinline{my_func}, die  $x^n$ berechnen soll, könnte eine 
 \[
 	\smashoperator{\mathop{\underbrace{\text{\cppinline{double}}}}_{\text{Rückgabetyp}}}\quad
 	\smashoperator{\mathop{\overbrace{\text{\cppinline{my_func}}}}^{\text{Name}}}
-	(\smashoperator{\mathop{\underbrace{\text{\cppinline{double x}}}}_{\text{Paramter 1}}},\ 
+	(\smashoperator{\mathop{\underbrace{\text{\cppinline{double x}}}}_{\text{Paramter 1}}},\
 	\smashoperator{\mathop{\overbrace{\text{\cppinline{int n}}}^{\text{Paramter 2}}}})
 \]
 %sorry etwas hässlich
@@ -43,7 +43,7 @@ Die Collatz-Vermutung\footnote{\url{https://de.wikipedia.org/wiki/Collatz-Vermut
 \[
 	x_n =
 	\begin{cases}
-		\frac{x_{n-1}}{2} & x_{n-1} \text{ ist gerade} \\
+		\frac{x_{n-1}}{2}   & x_{n-1} \text{ ist gerade}   \\
 		3 \cdot x_{n-1} + 1 & x_{n-1} \text{ ist ungerade}
 	\end{cases}
 \]
@@ -51,38 +51,40 @@ dass jeder Startwert $x_1$ aus den natürlichen Zahlen nach endlich vielen Schri
 Zum Beispiel für den Startwert $x_1 = 42$:
 
 \[
-    42 \mapsto 21 \mapsto 64 \mapsto 32 \mapsto 16 \mapsto 8 \mapsto 4 \mapsto 2 \mapsto 1 \mapsto 4 \mapsto 2 \mapsto 1 \mapsto \ldots
+	42 \mapsto 21 \mapsto 64 \mapsto 32 \mapsto 16 \mapsto 8 \mapsto 4 \mapsto 2 \mapsto 1 \mapsto 4 \mapsto 2 \mapsto 1 \mapsto \ldots
 \]
 
 Wenn nun die Frage aufkommt was die nächsten Folgenglieder von verschiedenen Zahlen sind, wäre ein möglicher Lösungsweg eine Funktion zu schreiben, die der Nutzerin die nächste Zahl in dieser Folge zurückgibt.
 
 \inputcpp{funktion.cpp}
 
-\textbf{Praxis:}\footnote{In dieser Lektion gibt es ein paar mehr Aufgaben als in anderen Lektionen, lasst euch davon nicht entmutigen!}
-\begin{enumerate}
-	\item Verändert das Programm in \texttt{funktion.cpp} so, dass es nicht die einzelnen Zahlen \texttt{x1}, \texttt{x2} und \texttt{x3}, sondern die Summe dieser ausgibt.
-%Wirkt wie Kinderkram nicht zum Funktionskapitel, möchte aber nochmal den Unterschied zwischen Ausgabe und Rückgabe dadurch nochmal klarer machen
-	\item Kompiliert das angepasste Programm und lasst es im debugger Schritt für Schritt durchlaufen, setzt dafür wieder einen breakpoint für die \texttt{main}-Funktion.
-	    Sobald der debugger euch anzeigt, als nächstes die Funktion ausführen zu wollen, \texttt{step} statt \texttt{next} aufrufen, sodass der debugger in die Funktion hineinspringt.
-	\item Schreibt eine Funktion die ein \texttt{double} entgegen nimmt und das Quadrat davon zurück gibt.
-	(Hierbei sollt ihr keine Pakete wie \texttt{math.h} oder \texttt{cmath} benutzen.)
-\end{enumerate}
+\begin{praxis}\footnote{In dieser Lektion gibt es ein paar mehr Aufgaben als in anderen Lektionen, lasst euch davon nicht entmutigen!}
+	\begin{enumerate}
+		\item Verändert das Programm in \texttt{funktion.cpp} so, dass es nicht die einzelnen Zahlen \texttt{x1}, \texttt{x2} und \texttt{x3}, sondern die Summe dieser ausgibt.
+		      %Wirkt wie Kinderkram nicht zum Funktionskapitel, möchte aber nochmal den Unterschied zwischen Ausgabe und Rückgabe dadurch nochmal klarer machen
+		\item Kompiliert das angepasste Programm und lasst es im debugger Schritt für Schritt durchlaufen, setzt dafür wieder einen breakpoint für die \texttt{main}-Funktion.
+		      Sobald der debugger euch anzeigt, als nächstes die Funktion ausführen zu wollen, \texttt{step} statt \texttt{next} aufrufen, sodass der debugger in die Funktion hineinspringt.
+		\item Schreibt eine Funktion die ein \texttt{double} entgegen nimmt und das Quadrat davon zurück gibt.
+		      (Hierbei sollt ihr keine Pakete wie \texttt{math.h} oder \texttt{cmath} benutzen.)
+	\end{enumerate}
+\end{praxis}
 
-\textbf{Spiel:}
-\begin{enumerate}
-	\item Schreibt eine Funktion (nach der Funktion \texttt{collatz} und vor \texttt{main}), die einen \texttt{int} entgegen nimmt und die Anzahl der Schritte bestimmt bis die Folge bei der 1 angekommen ist und diese als \texttt{int} zurückgibt.
-	(Die Funktion sollte also die Signatur \cppinline{int schritte(int x)} haben.)
-	Probiert die Funktion aus.
-	\item Versucht jetzt zwei Zahlen von der Nutzerin entgegen zu nehmen und vergleicht mithilfe von der gerade geschriebenen Funktion, welche Zahl mehr Schritte bis zur 1 braucht.
-    \item Was passiert, wenn ihr in einer Funktion den \texttt{return}-Ausdruck vor dem Ende eurer Funktion benutzt?
-    \item Vertauscht in \texttt{funktion.cpp} die Funktion \texttt{collatz} mit der Funktion \texttt{main} (verschiebt also die gesamte Funktion \texttt{collatz} an das Ende der Datei).
-        Versucht, die Datei zu kompilieren.
-        Was ist die Fehlermeldung des Compilers?
-    \item Verschiebt die Funktion \texttt{collatz} \emph{in} die \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften Klammern, aber vor die dazu gehörige schließende).
-        Versucht, die Datei zu kompilieren. Was ist die Fehlermeldung des Compilers?
-    \item Implementiert die Funktion, die $x^n$ umsetzt, ignoriert dabei zunächst negative Exponenten. \\
-        (Wie in Praxis 3, sollt ihr auch hier keine vorgefertigten Pakete benutzen. \emph{Tipp:} Die Signatur ist bereits oben gegeben, für den Funktionsrumpf könnten sich Schleifen eignen.)
-    \item Eure Funktion kann sich auch selbst aufrufen. Versucht damit eure Funktion auf negative Exponenten zu erweitern, indem ihr benutzt, dass gilt $x^{-n} = \Bigl(\frac{1.0}{x}\Bigr)^n$.
-    \item Schaut euch eure bisherigen Lösungen an.
-        Findet ihr noch häufiger Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern könnt?
-\end{enumerate}
+\begin{spiel}
+	\begin{enumerate}
+		\item Schreibt eine Funktion (nach der Funktion \texttt{collatz} und vor \texttt{main}), die einen \texttt{int} entgegen nimmt und die Anzahl der Schritte bestimmt bis die Folge bei der 1 angekommen ist und diese als \texttt{int} zurückgibt.
+		      (Die Funktion sollte also die Signatur \cppinline{int schritte(int x)} haben.)
+		      Probiert die Funktion aus.
+		\item Versucht jetzt zwei Zahlen von der Nutzerin entgegen zu nehmen und vergleicht mithilfe von der gerade geschriebenen Funktion, welche Zahl mehr Schritte bis zur 1 braucht.
+		\item Was passiert, wenn ihr in einer Funktion den \texttt{return}-Ausdruck vor dem Ende eurer Funktion benutzt?
+		\item Vertauscht in \texttt{funktion.cpp} die Funktion \texttt{collatz} mit der Funktion \texttt{main} (verschiebt also die gesamte Funktion \texttt{collatz} an das Ende der Datei).
+		      Versucht, die Datei zu kompilieren.
+		      Was ist die Fehlermeldung des Compilers?
+		\item Verschiebt die Funktion \texttt{collatz} \emph{in} die \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften Klammern, aber vor die dazu gehörige schließende).
+		      Versucht, die Datei zu kompilieren. Was ist die Fehlermeldung des Compilers?
+		\item Implementiert die Funktion, die $x^n$ umsetzt, ignoriert dabei zunächst negative Exponenten. \\
+		      (Wie in Praxis 3, sollt ihr auch hier keine vorgefertigten Pakete benutzen. \emph{Tipp:} Die Signatur ist bereits oben gegeben, für den Funktionsrumpf könnten sich Schleifen eignen.)
+		\item Eure Funktion kann sich auch selbst aufrufen. Versucht damit eure Funktion auf negative Exponenten zu erweitern, indem ihr benutzt, dass gilt $x^{-n} = \Bigl(\frac{1.0}{x}\Bigr)^n$.
+		\item Schaut euch eure bisherigen Lösungen an.
+		      Findet ihr noch häufiger Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern könnt?
+	\end{enumerate}
+\end{spiel}

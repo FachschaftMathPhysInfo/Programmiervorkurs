@@ -13,6 +13,7 @@
 \RequirePackage[ngerman]{babel}
 \RequirePackage{microtype}
 \RequirePackage{minted}
+\RequirePackage{needspace}
 
 %\setcounter{secnumdepth}{-1}
 \pagestyle{fancy}
@@ -37,6 +38,8 @@
 \newcommand{\lesson}[1]{\clearpage\vspace*{-42mm} \section{#1} \vspace*{30mm}\renewcommand{\myrightmark}{#1}}
 %\newcommand{\lesson}[1]{\section{#1}\vspace{5em}\markright{#1}}
 \renewcommand*\thesection{\arabic{section}}
+\newenvironment{praxis}[1][\unskip]{\Needspace{4\baselineskip}\textbf{Praxis: #1}}{\pagebreak[0]}
+\newenvironment{spiel}[1][\unskip]{\Needspace{4\baselineskip}\textbf{Spiel: #1}}{\pagebreak[0]}
 
 \titlecontents{chapter}[0pt]{\vspace{1em}\large}{\makebox[60pt][l]{\textbf{Kapitel \thecontentslabel:}}\hspace*{10pt}}{}{\titlerule*[1pc]{ }\contentspage}
 \titlecontents{section}[10pt]{}{\makebox[50pt][l]{Lektion \thecontentslabel:}\hspace*{10pt}}{}{\titlerule*[1pc]{ }\contentspage}

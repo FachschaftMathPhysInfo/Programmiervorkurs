@@ -27,22 +27,22 @@ mithilfe von \texttt{ls -l} anschauen. Der output von \texttt{ls -l} ist in
 mehreren Spalten angeordnet:
 \begin{enumerate}
     \item In der ersten Spalte stehen die Dateiberechtigungen in Form eines 10
-        Zeichen langen Strings. Jedes Zeichen steht dabei für ein permission
-        bit kann dabei entweder ein \texttt{-}, oder ein Buchstabe sein, wobei
-        \texttt{-} bedeutet, dass das entsprechende Bit nicht gesetzt ist. Die
-        Bits bedeuten (von links nach rechts gelesen)
-        \begin{itemize}
-            \item \texttt{\underline{d}irectory}
-            \item \texttt{\underline{r}eadable} für die Eigentümerin
-            \item \texttt{\underline{w}ritable} für die Eigentümerin
-            \item \texttt{e\underline{x}ecutable} für die Eigentümerin
-            \item \texttt{\underline{r}eadable} für die Gruppe
-            \item \texttt{\underline{w}ritable} für die Gruppe
-            \item \texttt{e\underline{x}ecutable} für die Gruppe
-            \item \texttt{\underline{r}eadable} für alle Nutzerinnen
-            \item \texttt{\underline{w}ritable} für alle Nutzerinnen
-            \item \texttt{e\underline{x}ecutable} für alle Nutzerinnen
-        \end{itemize}
+          Zeichen langen Strings. Jedes Zeichen steht dabei für ein permission
+          bit kann dabei entweder ein \texttt{-}, oder ein Buchstabe sein, wobei
+          \texttt{-} bedeutet, dass das entsprechende Bit nicht gesetzt ist. Die
+          Bits bedeuten (von links nach rechts gelesen)
+          \begin{itemize}
+              \item \texttt{\underline{d}irectory}
+              \item \texttt{\underline{r}eadable} für die Eigentümerin
+              \item \texttt{\underline{w}ritable} für die Eigentümerin
+              \item \texttt{e\underline{x}ecutable} für die Eigentümerin
+              \item \texttt{\underline{r}eadable} für die Gruppe
+              \item \texttt{\underline{w}ritable} für die Gruppe
+              \item \texttt{e\underline{x}ecutable} für die Gruppe
+              \item \texttt{\underline{r}eadable} für alle Nutzerinnen
+              \item \texttt{\underline{w}ritable} für alle Nutzerinnen
+              \item \texttt{e\underline{x}ecutable} für alle Nutzerinnen
+          \end{itemize}
     \item Nummer an hardlinks (das braucht euch nicht sonderlich interessieren)
     \item Nutzername der Eigentümerin
     \item Gruppe, der die Datei gehört
@@ -53,31 +53,33 @@ mehreren Spalten angeordnet:
 
 Wenn ihr die Berechtigungen von Dateien ändern wollt, könnt ihr dazu
 \texttt{chmod} benutzen (wenn ihr wissen wollt, wie man es benutzt: \texttt{man
-chmod}), dazu muss sie euch aber gehören. Wenn ihr die Eigentümerin einer Datei
+    chmod}), dazu muss sie euch aber gehören. Wenn ihr die Eigentümerin einer Datei
 ändern wollt, könnt ihr dazu \texttt{chown} nutzen -- dazu müsst ihr aus
 Sicherheitsgründen allerdings Administratorin sein.
 
-\textbf{Praxis:}
-\begin{enumerate}
-    \item Geht in ein Verzeichnis, in dem eine \texttt{.cpp}-Datei liegt und
-        kompiliert sie. Macht ein \texttt{ls -l} und vergleicht die Rechte der
-        \texttt{.cpp}-Datei mit der kompilierten Datei.
-    \item In der Datei \texttt{/etc/shadow} stehen in verschlüsselter Form
-        gespeichert die Kennwörter aller Benutzerinnen auf dem System. Macht ein
-        \texttt{ls -l /etc/shadow} und schaut euch die Dateirechte an. Welche
-        Bits sind gesetzt?
-\end{enumerate}
+\begin{praxis}
+    \begin{enumerate}
+        \item Geht in ein Verzeichnis, in dem eine \texttt{.cpp}-Datei liegt und
+              kompiliert sie. Macht ein \texttt{ls -l} und vergleicht die Rechte der
+              \texttt{.cpp}-Datei mit der kompilierten Datei.
+        \item In der Datei \texttt{/etc/shadow} stehen in verschlüsselter Form
+              gespeichert die Kennwörter aller Benutzerinnen auf dem System. Macht ein
+              \texttt{ls -l /etc/shadow} und schaut euch die Dateirechte an. Welche
+              Bits sind gesetzt?
+    \end{enumerate}
+\end{praxis}
 
-\textbf{Spiel:}
-\begin{enumerate}
-    \item Versucht, \texttt{/etc/shadow} in einem Editor zu öffnen.
-    \item Legt (z.B. mit dem Texteditor) eine Datei (Es geht nicht um
-        Kompilierung, also muss das keine \texttt{.cpp}-Datei sein. Gebt der
-        Datei am Besten die Erweiterung \texttt{.txt}) in Eurem Homeverzeichnis
-        an und macht sie dann mit \texttt{chmod a+w} world-writable
-        (\texttt{a+w} heißt „füge das Recht Schreibbarkeit für alle Nutzerinnen
-        hinzu“).  Lasst eure Sitznachbarin die Datei an ihrem Rechner öffnen
-        (ihr könnt mittels \texttt{pwd} herausfinden, in welchem Ordner sie
-        suchen muss) und euch eine Nachricht hinein schreiben. Schaut nach
-        (indem ihr die Datei neu öffnet) ob ihr die Nachricht lesen könnt.
-\end{enumerate}
+\begin{spiel}
+    \begin{enumerate}
+        \item Versucht, \texttt{/etc/shadow} in einem Editor zu öffnen.
+        \item Legt (z.B. mit dem Texteditor) eine Datei (Es geht nicht um
+              Kompilierung, also muss das keine \texttt{.cpp}-Datei sein. Gebt der
+              Datei am Besten die Erweiterung \texttt{.txt}) in Eurem Homeverzeichnis
+              an und macht sie dann mit \texttt{chmod a+w} world-writable
+              (\texttt{a+w} heißt „füge das Recht Schreibbarkeit für alle Nutzerinnen
+              hinzu“).  Lasst eure Sitznachbarin die Datei an ihrem Rechner öffnen
+              (ihr könnt mittels \texttt{pwd} herausfinden, in welchem Ordner sie
+              suchen muss) und euch eine Nachricht hinein schreiben. Schaut nach
+              (indem ihr die Datei neu öffnet) ob ihr die Nachricht lesen könnt.
+    \end{enumerate}
+\end{spiel}
