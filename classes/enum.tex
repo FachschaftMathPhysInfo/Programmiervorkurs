@@ -3,7 +3,7 @@
 Da die Basics der \Cpp-Programmierung nun verinnerlicht sind, fangen wir an uns eigene Datentypen zu definieren.
 Eine der einfachsten Kategorien von Datentypen sind \emph{Enum}s. Der Hauptzweck von Enums ist das Zuordnen von Bedeutungen zu Nummerierungen.
 Sie ermöglichen z.B. das Verwenden von leicht lesbaren Begriffen an Stellen, die eigentlich ganze Zahlen erfordern. \\
-in folgendem Codebeispiel existiert eine Funktion \texttt{runden}, die abhängig der als \emph{mode} angegebenen Zahl entweder kaufmännnisch rundet, bzw. ab- oder aufrundet.
+In folgendem Codebeispiel existiert eine Funktion \texttt{runden}, die abhängig der als \emph{mode} angegebenen Zahl entweder kaufmännnisch rundet, oder ab- bzw. aufrundet.
 
 \inputcpp{runden.cpp}
 
@@ -13,7 +13,7 @@ Das ist relativ unschön und unintuitiv zu benutzen. Man weiß zum Beispiel nich
 
 In den geschweiften Klammer wird angegeben, welche Zustände der Datentyp annehmen kann.
 Intern werden diese von 0 beginnend durchnummeriert, was jedoch für viele Zwecke unwichtig ist.
-Mit einem '='-Zeichen hinter dem Zustand kann diesem explizit eine Zahl zugeweisen werden, die dieser repräsentiert.
+Mit einem '='-Zeichen hinter dem Zustand kann diesem explizit eine Zahl zugewiesen werden, die dieser repräsentiert.
 Dies kann in manchen Fällen sinnvoll sein, da Enums einfach in Integer verwandelt werden können (und anders herum).
 
 \begin{praxis}
