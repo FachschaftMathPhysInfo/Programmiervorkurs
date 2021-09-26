@@ -85,35 +85,36 @@ dass wir eine ausführbare Datei wünschen (da wir weder \texttt{-c} noch
 \texttt{-S} angegeben haben) und dass er dafür kompilieren, assemblieren und
 linken muss (da wir ihm eine \texttt{.cpp} Datei gegeben haben). Genauso konnte
 er in der vorigen Lektion raten, dass \texttt{g++ -o tictactoe tictactoe.cpp
-tictactoe.o} heißt, dass wir eine ausführbare Datei wollen, die aus einem
+    tictactoe.o} heißt, dass wir eine ausführbare Datei wollen, die aus einem
 kompilierten und assemblierten \texttt{tictactoe.cpp} zusammen gelinkt mit
 \texttt{tictactoe.o} bestehen soll.
 
-\textbf{Praxis:}
-\begin{enumerate}
-    \item \texttt{assemble.cpp} enthält ein kleines (ziemlich nutzloses)
-        Programm, welches zwei Zahlen addiert und das Ergebnis ausgibt.
-        Kompiliert es (nun nur der erste Schritt in dem Diagramm, nicht so, wie
-        in den vergangenen Lektionen) und schaut euch das resultierende
-        \texttt{.S}-file in einem Editor an. Ihr müsst nicht verstehen,
-				was genau hier überall passiert, aber vielleicht findet ihr ja die
-				\texttt{main}-Funktion, die Definition der Variablen und die Addition?
+\begin{praxis}
+    \begin{enumerate}
+        \item \texttt{assemble.cpp} enthält ein kleines (ziemlich nutzloses)
+              Programm, welches zwei Zahlen addiert und das Ergebnis ausgibt.
+              Kompiliert es (nun nur der erste Schritt in dem Diagramm, nicht so, wie
+              in den vergangenen Lektionen) und schaut euch das resultierende
+              \texttt{.S}-file in einem Editor an. Ihr müsst nicht verstehen,
+              was genau hier überall passiert, aber vielleicht findet ihr ja die
+              \texttt{main}-Funktion, die Definition der Variablen und die Addition?
 
-        Wir können nun mal Optimierung anschalten -- gebt dazu zusätzlich den
-        Parameter \texttt{-O3} direkt nach dem \texttt{g++} an. Schaut euch das
-        \texttt{.S}-file nun wieder im Editor an. Was fällt euch
-				(im Vergleich zu vorher) auf?
-    \item Assembliert eines der im vorigen Schritt erzeugten \texttt{.S} files
-        in ein \texttt{.o}-File.
-    \item Benennt in einem eurer bisherigen Programme die
-        \texttt{main}-Funktion um und versucht, es zu kompilieren (wie in den
-        bisherigen Lektionen, also alle Schritte auf einmal). Schaut euch die
-        resultierenden Fehlermeldungen an. Wo wird euch der Linkerfehler
-        ausgegeben?
-    \item Macht die Umbenennung wieder rückgängig und kompiliert das Programm
-        erneut -- übergebt aber dieses mal den Quellcode doppelt (also z.B.
-        \texttt{g++ -o helloworld helloworld.cpp helloworld.cpp}). Was
-        beobachtet ihr? Könnt ihr die Beobachtung erklären?
-\end{enumerate}
+              Wir können nun mal Optimierung anschalten -- gebt dazu zusätzlich den
+              Parameter \texttt{-O3} direkt nach dem \texttt{g++} an. Schaut euch das
+              \texttt{.S}-file nun wieder im Editor an. Was fällt euch
+              (im Vergleich zu vorher) auf?
+        \item Assembliert eines der im vorigen Schritt erzeugten \texttt{.S} files
+              in ein \texttt{.o}-File.
+        \item Benennt in einem eurer bisherigen Programme die
+              \texttt{main}-Funktion um und versucht, es zu kompilieren (wie in den
+              bisherigen Lektionen, also alle Schritte auf einmal). Schaut euch die
+              resultierenden Fehlermeldungen an. Wo wird euch der Linkerfehler
+              ausgegeben?
+        \item Macht die Umbenennung wieder rückgängig und kompiliert das Programm
+              erneut -- übergebt aber dieses mal den Quellcode doppelt (also z.B.
+              \texttt{g++ -o helloworld helloworld.cpp helloworld.cpp}). Was
+              beobachtet ihr? Könnt ihr die Beobachtung erklären?
+    \end{enumerate}
 
-\inputcpp{assemble.cpp}
+    \inputcpp{assemble.cpp}
+\end{praxis}

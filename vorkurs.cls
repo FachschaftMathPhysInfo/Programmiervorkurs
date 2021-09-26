@@ -13,6 +13,7 @@
 \RequirePackage[ngerman]{babel}
 \RequirePackage{microtype}
 \RequirePackage{minted}
+\RequirePackage{needspace}
 
 %\setcounter{secnumdepth}{-1}
 \pagestyle{fancy}
@@ -33,9 +34,12 @@
 
 \titleformat{\section}[leftmargin]{}{}{0pt}{}%[\vspace{-5em}]
 %\newcommand{\sectionbreak}{\clearpage}
-\newcommand{\lesson}[1]{\clearpage\section{#1}\renewcommand{\myrightmark}{#1}}
+% gehe 42 mm hoch, setzte dort den section Anker und gehe wieder 30 mm runter
+\newcommand{\lesson}[1]{\clearpage\vspace*{-42mm} \section{#1} \vspace*{30mm}\renewcommand{\myrightmark}{#1}}
 %\newcommand{\lesson}[1]{\section{#1}\vspace{5em}\markright{#1}}
 \renewcommand*\thesection{\arabic{section}}
+\newenvironment{praxis}[1][\unskip]{\Needspace{4\baselineskip}\textbf{Praxis: #1}}{\pagebreak[0]}
+\newenvironment{spiel}[1][\unskip]{\Needspace{4\baselineskip}\textbf{Spiel: #1}}{\pagebreak[0]}
 
 \titlecontents{chapter}[0pt]{\vspace{1em}\large}{\makebox[60pt][l]{\textbf{Kapitel \thecontentslabel:}}\hspace*{10pt}}{}{\titlerule*[1pc]{ }\contentspage}
 \titlecontents{section}[10pt]{}{\makebox[50pt][l]{Lektion \thecontentslabel:}\hspace*{10pt}}{}{\titlerule*[1pc]{ }\contentspage}
@@ -43,6 +47,6 @@
 \newcommand{\inputcpp}[1]{\usemintedstyle{vs}\inputminted[label=#1,linenos=true,frame=single]{c++}{files/#1}}
 \newcommand{\inputshell}[1]{\usemintedstyle{vs}\inputminted[label=#1,linenos=true,frame=single]{bash}{files/#1}}
 \newcommand{\cppsect}[3]{\usemintedstyle{vs}\inputminted[label=#1,linenos=true,frame=single,firstline=#2,lastline=#3,firstnumber=#2]{c++}{files/#1}}
-\newcommand{\cppinline}[1]{\usemintedstyle{vs}\mintinline{c++}{#1}}
+\newcommand{\cppinline}[1]{\usemintedstyle{vs}\mintinline[breaklines]{c++}{#1}}
 
 \newminted{text}{frame=single}
