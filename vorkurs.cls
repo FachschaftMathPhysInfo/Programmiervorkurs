@@ -43,6 +43,6 @@
 \newcommand{\inputcpp}[1]{\usemintedstyle{vs}\inputminted[label=#1,linenos=true,frame=single]{c++}{files/#1}}
 \newcommand{\inputshell}[1]{\usemintedstyle{vs}\inputminted[label=#1,linenos=true,frame=single]{bash}{files/#1}}
 \newcommand{\cppsect}[3]{\usemintedstyle{vs}\inputminted[label=#1,linenos=true,frame=single,firstline=#2,lastline=#3,firstnumber=#2]{c++}{files/#1}}
-\newcommand{\cppinline}[1]{\usemintedstyle{vs}\mintinline{c++}{#1}}
+\newcommand{\cppinline}[1]{\usemintedstyle{vs}\mintinline[breaklines]{c++}{#1}}
 
 \newminted{text}{frame=single}
