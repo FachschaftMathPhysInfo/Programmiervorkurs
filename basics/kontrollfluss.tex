@@ -61,7 +61,7 @@ genannten „bedingten Anweisungen“:
 In den Zeilen 12 bis 20 sehen wir, wie eine solche Bedingte Anweisung in \Cpp
 aussieht. Wir erkennen relativ direkt unser Diagramm hier wieder: In Zeile 12
 steht der „$b=0$?“ Block, in den Zeilen 13 bis 17 steht der „Gib Fehler aus“
-Block und in Zeile 19 der „Gib den Quotienten aus“ Block.
+Block und in Zeile 19 der „Gib den Quotienten aus“ Block. Die Blöcke lassen sich auch gut anhand der geschweiften Klammern und der Einrückung erkennen. Wir empfehlen euch, solche logischen Blöcke einzurücken, um die Lesbarkeit des Codes zu verbessern. Eine ausführlichere Erklärung zum coding style gibt es in Lektion \ref{sec:codingstyle}.
 
 Beachtet allerding die doppelten Gleichheitszeichen in Zeile 12. \Cpp hat
 getrennte Operatoren für Vergleiche und Zuweisungen - Doppelte
@@ -71,26 +71,26 @@ einfaches Gleichheitszeichen bedeutet Zuweisung („mache diese beiden gleich!�
 \textbf{Praxis:}
 \begin{enumerate}
     \item Kompiliert \texttt{if.cpp} für den debugger und lasst das Programm im
-        gdb laufen. Geht Schritt für Schritt durch das Programm, mit
-        verschiedenen Eingaben (wenn ihr am Ende des Programms angekommen seid,
-        könnt ihr es mit einem erneuten „run“ neu starten)
+          gdb laufen. Geht Schritt für Schritt durch das Programm, mit
+          verschiedenen Eingaben (wenn ihr am Ende des Programms angekommen seid,
+          könnt ihr es mit einem erneuten „run“ neu starten)
     \item Nutzt Google, um herauszufinden, welche anderen Vergleichsoperatoren
-        es in \Cpp noch gibt. Versucht, das Programm so zu verändern, dass es
-        auf Ungleichheit testet, statt auf Gleichheit (sich sonst aber genauso
-        verhält).
-	\item Wie würdet ihr testen, ob zwei Zahlen durch einander teilbar sind
-		(Tipp: Ihr kennt bereits die Division mit Rest in \Cpp (modulo))?
-		Schreibt ein Programm, welches zwei Zahlen von der Nutzerin entgegen
-		nimmt und ausgibt, ob die zweite Zahl die erste teilt.
+          es in \Cpp noch gibt. Versucht, das Programm so zu verändern, dass es
+          auf Ungleichheit testet, statt auf Gleichheit (sich sonst aber genauso
+          verhält).
+    \item Wie würdet ihr testen, ob zwei Zahlen durch einander teilbar sind
+          (Tipp: Ihr kennt bereits die Division mit Rest in \Cpp (modulo))?
+          Schreibt ein Programm, welches zwei Zahlen von der Nutzerin entgegen
+          nimmt und ausgibt, ob die zweite Zahl die erste teilt.
 \end{enumerate}
 
 \textbf{Spiel:}
 \begin{enumerate}
     \item Testet mit verschiedenen Eingaben, was passiert, wenn ihr in
-        \texttt{if.cpp} statt zwei Gleichheitszeichen nur eines benutzt.
-        Benutzt den debugger, um euch den Inhalt von \texttt{b} vor und nach
-        dem Test anzuschauen.
+          \texttt{if.cpp} statt zwei Gleichheitszeichen nur eines benutzt.
+          Benutzt den debugger, um euch den Inhalt von \texttt{b} vor und nach
+          dem Test anzuschauen.
     \item Schreibt ein Programm, welches die Benutzerin fragt, wie sie heißt.
-        Gibt sie euren eigenen Namen ein, soll das Programm begeistert über die
-        Namensgleichheit sein, sonst sie einfach begrüßen.
+          Gibt sie euren eigenen Namen ein, soll das Programm begeistert über die
+          Namensgleichheit sein, sonst sie einfach begrüßen.
 \end{enumerate}
