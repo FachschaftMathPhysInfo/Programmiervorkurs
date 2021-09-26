@@ -33,7 +33,8 @@
 
 \titleformat{\section}[leftmargin]{}{}{0pt}{}%[\vspace{-5em}]
 %\newcommand{\sectionbreak}{\clearpage}
-\newcommand{\lesson}[1]{\clearpage\section{#1}\renewcommand{\myrightmark}{#1}}
+% gehe 42 mm hoch, setzte dort den section Anker und gehe wieder 30 mm runter
+\newcommand{\lesson}[1]{\clearpage\vspace*{-42mm} \section{#1} \vspace*{30mm}\renewcommand{\myrightmark}{#1}}
 %\newcommand{\lesson}[1]{\section{#1}\vspace{5em}\markright{#1}}
 \renewcommand*\thesection{\arabic{section}}
 
