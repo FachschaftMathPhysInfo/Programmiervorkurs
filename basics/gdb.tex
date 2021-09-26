@@ -41,9 +41,14 @@ dem Compiler dafür ein paar zusätzliche Optionen mitgeben:
 g++ -O0 -g3 -o debugger debugger.cpp
 \end{minted}
 (Beachtet, dass im ersten Parameter erst ein großer Buchstabe o, dann eine 0 stehen)
-\inputcpp{debugger.cpp}
+
+\newpage
 
 \begin{praxis}
+
+    Wir möchten uns nun den Ablauf des Programms \texttt{debugger.cpp} anschauen.
+    \inputcpp{debugger.cpp}
+
     \begin{enumerate}
         \item Kompiliert das Programm mit den neuen Optionen für den debugger. Ihr
               könnt es dann mittels \verb|gdb ./debugger| im gdb starten. Ihr solltet
@@ -71,6 +76,10 @@ g++ -O0 -g3 -o debugger debugger.cpp
 
 \begin{spiel}
     \begin{enumerate}
+        \item Im folgenden Programm \texttt{faculty.cpp} haben sich zwei Fehler eingeschlichen. Versucht diese mit \texttt{gdb} zu finden und zu beheben
+        
+        \inputcpp{faculty.cpp}
+        
         \item Ihr habt nun schon einige Programme kennen gelernt. Kompiliert sie
               für den Debugger neu und untersucht sie genauso wie obiges Programm,
               solange ihr Lust habt.
