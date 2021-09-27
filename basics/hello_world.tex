@@ -30,7 +30,7 @@ Vereinfacht sieht der Prozess zur Programmerstellung also wie folgt aus:
 
 \begin{tikzpicture}
     \node (1) at (0,0) [rectangle, draw] {Programmcode schreiben (Hochsprache)};
-    \node (2) at (6,0) [rectangle, draw] {Compilieren};
+    \node (2) at (6,0) [rectangle, draw] {Kompilieren};
     \node (3) at (9,0) [rectangle, draw] {Ausführen};
     \draw[->, blue!50, very thick] (1) to (2);
     \draw[->, blue!50, very thick] (2) to (3);
@@ -38,14 +38,14 @@ Vereinfacht sieht der Prozess zur Programmerstellung also wie folgt aus:
 
 \textbf{Wie gehe ich dabei vor?}
 
-Um den Programmcode in Textdatei zu schreiben verwenden wir einen Texteditor.
+Um den Programmcode in eine Textdatei zu schreiben verwenden wir einen Texteditor.
 Dies kann mit fast jedem einfachen Texteditor bewerkstelligt werden. Wir verwenden beispielsweise im Vokurs gedit unter Ubuntu.
 Unter Windows kannst du den Editor oder notepad++ verwenden, unter MacOS Textedit. 
 In der fortgeschrittenen Programmierung werden intelligente Programmierumgebungen verwendet, die jedoch in diesem Kurs vernachlässigt werden.
 
-Um dem Compiler zusagen, welche Textdatei er in ein Programm übersetzen soll, verwenden wird die sogenannte Shell. Vorerst reicht uns zu Wissen, dass die Shell
-ein Werkzeug ist, dem Computer spezifisch zusagen, was er machen soll (mehr dazu im Folgenden Kapitel). In Ubuntu verwenden wir hierzu das Terminal, ebenso in MacOS,
-unter Windows CMD oder Powershell. Die Befehle für \texttt{g++} (dem Compiler für \Cpp) sehen beispielsweise wie folgt aus.
+Um dem Compiler zusagen, welche Textdatei er in ein Programm übersetzen soll, verwenden wir die sogenannte Shell. Vorerst reicht uns zu wissen, dass die Shell
+ein Werkzeug ist, um dem Computer spezifisch zu sagen, was er machen soll (mehr dazu im folgenden Kapitel). In Ubuntu verwenden wir hierzu das Terminal, ebenso in MacOS,
+unter Windows CMD oder Powershell. Ein Befehl für \texttt{g++} (dem Compiler für \Cpp) sieht beispielsweise wie folgt aus:
 
 \begin{center}
     \texttt{g++ -o outputDatei zuKompilierendeDatei.cpp}
@@ -53,7 +53,7 @@ unter Windows CMD oder Powershell. Die Befehle für \texttt{g++} (dem Compiler f
 Hierbei legen wir mit dem Parameter \texttt{-o} (o für output) und dem ersten darauf folgenden Argument den Namen der Ausgabedatei fest.
 
 Nachdem \texttt{g++} uns also ein Maschinencodefile -- die \texttt{outputDatei} --
-erzeugt hat, können wir es zur Ausführung bringen. Die kann im Terminal mit einem Punkt und einem Slash vor dem Dateinamen geschehen. Also:
+erzeugt hat, können wir es zur Ausführung bringen. Dies kann im Terminal mit einem Punkt und einem Slash vor dem Dateinamen geschehen. Also:
 \begin{center}
     \texttt{./outputDatei}
 \end{center}
@@ -68,7 +68,7 @@ erzeugt hat, können wir es zur Ausführung bringen. Die kann im Terminal mit ei
         \item Öffne einen Texteditor (In Ubuntu unter „Zubehör“ den Editor gedit).
         
         \item Kopiere folgenden Programmcode in den Texteditor und speichere ihn in einer Datei mit dem Namen „helloworld.cpp“ ab. 
-        Ein näheres Verständnis, des Programmcodes ist an dieser Stelle nicht notwendig. 
+        Das nähere Verständnis des Programmcodes ist an dieser Stelle nicht notwendig. 
     \end{enumerate}    
 
     \inputcpp{helloworld.cpp}
@@ -76,10 +76,11 @@ erzeugt hat, können wir es zur Ausführung bringen. Die kann im Terminal mit ei
     \textbf{\Cpp-Code komplieren und Programm erstellen }
   
     \begin{enumerate}
-        \item Öffne ein Terminal (Konsole), ihr findet sie unter Ubuntu oben links unter „Applications“ als „Terminal Emulator“ oder mittig unten als das zweite Symbol von links.
-        \item Wechselt mit \textit{cd [PFAD]} in das Verzeichnis (Ordner), indem ihr eure Textdatei erstellt habt. Was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2.
+        \item Öffne ein Terminal (Konsole), ihr findet das Terminal unter Ubuntu oben links unter „Applications“ als „Terminal“ oder mittig unten als das zweite Symbol von links.
+        \item Wechselt mit dem Befehl \texttt{cd [PFAD]} in das Verzeichnis (Ordner), indem ihr eure Textdatei erstellt habt (\texttt{[PFAD]} muss hierbei durch den Speicherort der Datei ersetzt werden).
+              Was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2.
         \item In diesem Verzeichnis liegt nun eine Datei mit dem Namen \texttt{helloworld.cpp}.
-              Benutzt \texttt{g++}, um diese zu einer Datei \texttt{hello} zu
+              Benutzt \texttt{g++}, um diese zu einer Datei (in diesem Fall dem Programm) \texttt{hello} zu
               kompilieren. Orientiert euch dazu an den folgenden Befehlen. 
         \item Führt die Datei \texttt{hello} aus.
     \end{enumerate}
@@ -101,6 +102,8 @@ Diagramm:
         \end{tikzpicture}
     }
 \end{center}
+
+\newpage
 
 \begin{spiel}
 
