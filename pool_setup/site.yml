@@ -1,0 +1,8 @@
+---
+- hosts: poolrechner
+  roles:
+    - pool-setup
+  vars:
+    programmiervorkursskript: "/home/chris/Documents/shared_projects/Programmiervorkurs/vorkurs.pdf"
+    # hier keinen trailing slash haben!
+    programmordner: "/home/chris/Documents/shared_projects/Programmiervorkurs/vorkurs"
