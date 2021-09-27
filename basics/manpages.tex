@@ -13,6 +13,7 @@ der Befehl zum Kopieren von Dateien).
     \begin{enumerate}
         \item Öffnet eine Konsole und gebt \texttt{man cp} ein.
     \end{enumerate}
+\end{praxis}
 
     Die man page besteht aus mehreren \emph{Sections}. Welche sections genau es
     gibt, hängt von der man page ab, aber meistens gibt es mindestens die folgenden
@@ -68,12 +69,12 @@ der Befehl zum Kopieren von Dateien).
     ihr unter Linux euren Laptop in den Ruhemodus versetzt ein schnelles „man
     pm-suspend“ antwortet. Mit ein bisschen Übung wird euch das tatsächlich
     hinreichend schnell zur richtigen Lösung verhelfen.
-\end{praxis}
+
 
 Und wenn ihr mal wirklich keine Zeit habt, die ganze page zu lesen, könnt ihr mit \texttt{/} auch nach Begriffen innerhalb der page suchen: Zum Beispiel \texttt{/close}
 
 \begin{praxis}
-      \begin{enumerate}[resume]
+      \begin{enumerate}\addtocounter{enumi}{1}
       \item Öffnet die man page von \texttt{ls}. Findet die Optionen fürs Lange
                               Listenformat (long listing format), zum Sortieren nach Dateigröße
                               und um auch versteckte Dateien (unter Linux sind das alle, die mit
@@ -103,7 +104,7 @@ Und wenn ihr mal wirklich keine Zeit habt, die ganze page zu lesen, könnt ihr m
 
 \textbf{Quiz 6}\\
 \textit{Was findet man alles in einer Manpage?}
-\begin{enumerate}[label=\alph]
+\begin{enumerate}[label=\alph*)]
     \item Nützliche Informationen
     \item viel Text
     \item wie man einen Befehl verwendet
