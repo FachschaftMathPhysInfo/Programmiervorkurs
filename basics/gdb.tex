@@ -12,8 +12,8 @@ zum Beispiel ein vergessenes Semikolon, oder eine vergessene geschweifte
 Klammer), um fehlende header (wie die \verb|\#include <...>| heißen) oder um
 undefinierte Variablen.
 
-Eine andere, besonders fiese Klasse von Fehlern haben wir in der letzten
-Lektion kennengelernt. Wenn wir nämlich durch eine Variable teilen, und in
+Eine andere, besonders fiese Klasse von Fehlern haben wir in der Lektion des Kontrollflusses gelernt.
+Wenn wir nämlich durch eine Variable teilen, und in
 dieser Variable erst beim Programmlauf (zur \emph{Laufzeit}) eine 0 steht, so
 tritt eine so genannte \emph{floating point exception} auf. Der Compiler hat
 hier keine Chance, diesen Fehler zu erkennen - er weiß ja nicht, was der
@@ -24,18 +24,18 @@ es keine automatischen Tools gibt, die uns bei ihrer Suche helfen.
 
 \textbf{gdb}
 
-Wir werden (noch) nicht lernen, wie wir den Fehler aus der letzten Lektion
-beheben können, aber wir werden ein wichtiges Tool kennen lernen, um
-Laufzeitfehler aufzuspüren, damit wir wenigstens wissen, wo wir mit der Lösung
-anfangen können: Den \emph{GNU debugger}, oder kurz gdb.
+Wir haben zwar bereits bei einem so offensichtlichen Fehler bereits gelernt,
+wie wir diesen beheben können, dies ist allerdings nicht immer so einfach.
+Wir lernen nun ein wichtiges Tool kennen, um Laufzeitfehler auch bei komplexeren Programmen
+aufzuspüren, sodass wir wissen, wo wir mit der Lösung
+ansetzen müssen: Den \emph{GNU debugger}, oder kurz gdb.
 
 Der Debugger ist eine Möglichkeit, unser Programm in einer besonderen Umgebung
-laufen zu lassen, die es uns erlaubt es jederzeit anzuhalten, den Inhalt von
-Variablen zu untersuchen oder auch Anweisung für Anweisung unser Programm vom
-Computer durchgehen zu lassen.
+laufen zu lassen, die es uns erlaubt es jederzeit anzuhalten. So kann man den Inhalt von
+Variablen untersuchen oder auch Anweisung für Anweisung das Programm durchgehen.
 
-Damit er das tun kann, braucht er vom Compiler ein paar zusätzliche
-Informationen, über den Quellcode, die normalerweise verloren gehen. Wir müssen
+Damit wir das können, braucht der Compiler ein paar zusätzliche
+Informationen über den Quellcode, die normalerweise verloren gehen. Wir müssen
 dem Compiler dafür ein paar zusätzliche Optionen mitgeben:
 \begin{minted}{bash}
 g++ -O0 -g3 -o debugger debugger.cpp
@@ -76,7 +76,7 @@ g++ -O0 -g3 -o debugger debugger.cpp
 
 \begin{spiel}
 \begin{enumerate}
-        \item Im folgenden Programm \texttt{faculty.cpp} haben sich zwei Fehler eingeschlichen. Versucht diese mit \texttt{gdb} zu finden und zu beheben
+        \item Im folgenden Programm \texttt{faculty.cpp} haben sich zwei Fehler eingeschlichen. Versucht diese mit \texttt{gdb} zu finden und zu beheben.
         
         \inputcpp{faculty.cpp}
         

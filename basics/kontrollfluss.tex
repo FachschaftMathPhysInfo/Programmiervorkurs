@@ -1,23 +1,15 @@
 \lesson{Der Kontrollfluss}
 
-Nachdem wir ein bisschen etwas über den Debugger verstanden haben (wir werden
-ihn noch häufiger benutzen), können wir uns nun wieder unserem Problem mit der
-Division durch 0 zuwenden.
-
-\inputcpp{arith4.cpp}
-
-Wenn wir dieses Programm kompilieren und als zweite Zahl eine 0 eingeben,
-werden wir auf der Konsole ausgegeben bekommen:
+Wer versucht hat in der vergangenen Lektion Praxisaufgabe 5 zu lösen, wird auf der Konsole eine ähnliche Ausgabe wie folgt bekommen - einen Fehler:
 \begin{minted}{text}
 Gebe eine Zahl ein: 5
 Gebe noch eine Zahl ein: 0
 Floating point exception
 \end{minted}
-(Gegebenenfalls ist die letzte Zeile bei euch auch in einer anderen Sprache)
 
-Wir können das Programm auch einmal im debugger ausführen und werden wenig
-überraschend feststellen, dass die Anweisung, an der diese floating point
-exception auftritt die ist, in der die Division steht.
+Das Programmcode hierfür beispielsweise wie folgt aussehen.
+
+\inputcpp{arith4.cpp}
 
 Wenn wir diesen Fehler beheben wollen, haben wir eigentlich nur zwei
 Möglichkeiten: Die erste ist, die Schuld auf die Benutzerin zu schieben, warum
@@ -70,14 +62,11 @@ einfaches Gleichheitszeichen bedeutet Zuweisung („mache diese beiden gleich!�
 
 \begin{praxis}
       \begin{enumerate}
-            \item Kompiliert \texttt{if.cpp} für den debugger und lasst das Programm im
-                  gdb laufen. Geht Schritt für Schritt durch das Programm, mit
-                  verschiedenen Eingaben (wenn ihr am Ende des Programms angekommen seid,
-                  könnt ihr es mit einem erneuten „run“ neu starten)
             \item Nutzt Google, um herauszufinden, welche anderen Vergleichsoperatoren
                   es in \Cpp noch gibt. Versucht, das Programm so zu verändern, dass es
                   auf Ungleichheit testet, statt auf Gleichheit (sich sonst aber genauso
                   verhält).
+            
             \item Wie würdet ihr testen, ob zwei Zahlen durch einander teilbar sind
                   (Tipp: Ihr kennt bereits die Division mit Rest in \Cpp (modulo))?
                   Schreibt ein Programm, welches zwei Zahlen von der Nutzerin entgegen
@@ -89,8 +78,7 @@ einfaches Gleichheitszeichen bedeutet Zuweisung („mache diese beiden gleich!�
 \begin{enumerate}
     \item Testet mit verschiedenen Eingaben, was passiert, wenn ihr in
         \texttt{if.cpp} statt zwei Gleichheitszeichen nur eines benutzt.
-        Benutzt den debugger, um euch den Inhalt von \texttt{b} vor und nach
-        dem Test anzuschauen.
+
     \item Schreibt ein Programm, welches die Benutzerin fragt, wie sie heißt.
         Gibt sie euren eigenen Namen ein, soll das Programm begeistert über die
         Namensgleichheit sein, sonst sie einfach begrüßen.
