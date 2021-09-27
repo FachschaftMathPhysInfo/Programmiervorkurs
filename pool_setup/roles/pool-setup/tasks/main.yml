@@ -5,7 +5,6 @@
   ansible.builtin.file:
     path: "{{ (ansible_user_dir, item) | path_join }}"
     state: directory
-    mode: '0700'
   with_items:
     - "{{ ssh_config_dir }}"
     - "Desktop"
