@@ -17,11 +17,7 @@
     user: "{{ ansible_user }}"
     state: present
     key: '{{ item }}'
-  with_file:
-    - public-keys/blattsee@gmx.de
-    - public-keys/chris@meterpeter.pub
-    - public-keys/chris@x.pub
-    - public-keys/else@archlinux.pub
+  with_items: "{{ ssh_keys_tutoren }}"
 
 - name: kopiere das Programmiervorkursskript
   copy:
