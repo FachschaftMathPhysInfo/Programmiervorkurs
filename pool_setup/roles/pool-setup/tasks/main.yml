@@ -28,7 +28,7 @@
     src: "{{ programmiervorkursskript }}"
     dest: "{{ (ansible_user_dir, skript_remote_name) | path_join }}"
 
-- name: kopiere die Quelldateien für die Programmierdinge
+- name: kopiere die Quelldateien für die Programmierdinge (dauert ein Weilchen ...)
   copy:
     src: "{{ programmordner }}"
     dest: "{{ ansible_user_dir }}"
@@ -38,6 +38,7 @@
     src: "{{ (ansible_user_dir, item) | path_join }}"
     dest: "{{ (ansible_user_dir, 'Desktop', item) | path_join }}"
     state: link
+    force: yes
   with_items:
     - "vorkurs"
     - "vorkurs.pdf"
