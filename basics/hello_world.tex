@@ -2,56 +2,89 @@
 
 Die erste Lektion beschäftigt sich alleine mit der Frage, was eigentlich eine
 Programmiersprache überhaupt ist und wie wir den Computer dazu bringen können,
-daraus etwas zu machen, was er ausführen kann.  In guter alter
-Programmiertradition tun wir das an dem simpelsten aller Programme: Einem, was
-einfach nur ein „Hallo Welt!“ ausgibt.
+daraus etwas zu machen, was er ausführen kann.
+Traditionell wird hierfür ein Programm herangezogen, das „Hallo Welt!“ ausgibt. \\
 
-Wie bringen wir also den Computer dazu, diese Ausgabe zu generieren? Dass er
-keine natürliche Sprache versteht, sollte klar sein -- intern besteht er aus
-lauter Transistoren (wenn ihr nicht wisst, was das ist, denkt an winzige
-Schalter), die nur die Zustände „an“ und „aus“ kennen, wir müssen also die
-Anweisung „gebe Hallo Welt aus“ in ein Format übersetzen, was nur „an“ und
-„aus“ benutzt.
 
-Früher wurde genau dies benutzt - meistens über Lochkarten, die vom Computer
-gelesen wurden, „ein Loch“ war dann zum Beispiel ein „an“ und „kein Loch“ war
-„aus“, so wurde dann das Programm in Reihen angeordnet und jede Reihe entsprach
-einem Befehl oder einem Parameter für diesen Befehl.  Dieses Format nennt sich
-„Maschinensprache“ und ist immer noch das, was wir heute dem Computer
-übergeben, nur, dass wir keine Lochkarten mehr benutzen, sondern Dateien, in
-denen lange Ströme von codierten 0en und 1en stehen.
+\textbf{Wie entsteht ein Programm?}
 
-Nun kann man sich vorstellen, dass es ganz schön anstrengend ist, ein
-umfangreiches Programm in 0en und 1en zu beschreiben. Deswegen benutzt man
+Wie bringen wir also den Computer dazu, diese Ausgabe zu generieren? - intern besteht er aus
+vielen Transistoren (wenn ihr nicht wisst, was das ist, denkt an winzige
+Schalter - näheres folgt im späteren Studium), die nur die Zustände „an“ und „aus“ kennen.
+Wir müssen also die Anweisung „gebe Hallo Welt aus“ in ein Format übersetzen, was nur „an“ und
+„aus“ bzw. „0“ und „1“ benutzt.
+
+Nun ist es umständlich, ein umfangreiches Programm in 0en und 1en zu schreiben. Deswegen benutzt man
 heutzutage so genannte Hochsprachen, um Programme zu beschreiben. Wir
 beschreiben also den Programmablauf in einer von Menschen lesbaren und
-verstehbaren Sprache -- wir benutzen hier \Cpp.  Die Programmbeschreibung in
-\Cpp legen wir dabei in einer Textdatei ab, meistens hat diese die Endung
-\texttt{.cpp}.
+(leicht) verstehbaren Sprache, welche später in 0en und 1en übersetzt wird und anschließend vom Computer lesbar ist und ausgeführt werden kann.
+Wir benutzen die Hochsprache \Cpp. Die Programmbeschreibung in
+\Cpp legen wir dabei in einer einfachen Textdatei ab. Damit wir auf anhieb erkennen, um welche Hochsprache es sich handelt, hat es sich etabliert die Endung
+\texttt{.cpp} an den Dateinamen anzuhängen.
 
-Diese Beschreibung des Programms übergeben wir dann an einen \emph{Compiler},
-der daraus dann Maschinencode generiert, den wir wiederum dem Computer zur
-Ausführung geben können.  Der Compiler für \Cpp, den wir in diesem Kurs
+Die Übersetzung aus der von Menschen lesbarer Hochsprache in Maschinensprache erledigt für uns der \emph{Compiler}.
+Der Compiler generiert aus der Textdatei also Maschinencode generiert. Der Compiler für \Cpp, den wir in diesem Kurs
 benutzen wollen, heißt \texttt{g++}.
 
-Dem Compiler übergeben wir die zu kompilierende Datei als Parameter, indem wir
-sie im Terminal dahinter schreiben:
+Vereinfacht sieht der Prozess zur Programmerstellung also wie folgt aus:
+
+\begin{tikzpicture}
+    \node (1) at (0,0) [rectangle, draw] {Programmcode schreiben (Hochsprache)};
+    \node (2) at (6,0) [rectangle, draw] {Compilieren};
+    \node (3) at (9,0) [rectangle, draw] {Ausführen};
+    \draw[->, blue!50, very thick] (1) to (2);
+    \draw[->, blue!50, very thick] (2) to (3);
+\end{tikzpicture} \\
+
+\textbf{Wie gehe ich dabei vor?}
+
+Um den Programmcode in Textdatei zu schreiben verwenden wir einen Texteditor.
+Dies kann mit fast jedem einfachen Texteditor bewerkstelligt werden. Wir verwenden beispielsweise im Vokurs gedit unter Ubuntu.
+Unter Windows kannst du den Editor oder notepad++ verwenden, unter MacOS Textedit. 
+In der fortgeschrittenen Programmierung werden intelligente Programmierumgebungen verwendet, die jedoch in diesem Kurs vernachlässigt werden.
+
+Um dem Compiler zusagen, welche Textdatei er in ein Programm übersetzen soll, verwenden wird die sogenannte Shell. Vorerst reicht uns zu Wissen, dass die Shell
+ein Werkzeug ist, dem Computer spezifisch zusagen, was er machen soll (mehr dazu im Folgenden Kapitel). In Ubuntu verwenden wir hierzu das Terminal, ebenso in MacOS,
+unter Windows CMD oder Powershell. Die Befehle für \texttt{g++} (dem Compiler für \Cpp) sehen beispielsweise wie folgt aus.
+
 \begin{center}
-\texttt{g++ zuKompilierendeDatei.cpp}
+    \texttt{g++ -o outputDatei zuKompilierendeDatei.cpp}
 \end{center}
-Wir können zusätzlich den Namen der Ausgabedatei festlegen, indem wir vor diese
-ein \texttt{-o} (o für output) schreiben:
+Hierbei legen wir mit dem Parameter \texttt{-o} (o für output) und dem ersten darauf folgenden Argument den Namen der Ausgabedatei fest.
+
+Nachdem \texttt{g++} uns also ein Maschinencodefile -- die \texttt{outputDatei} --
+erzeugt hat, können wir es zur Ausführung bringen. Die kann im Terminal mit einem Punkt und einem Slash vor dem Dateinamen geschehen. Also:
 \begin{center}
-\texttt{g++ -o outputDatei zuKompilierendeDatei.cpp}
+    \texttt{./outputDatei}
 \end{center}
 
-Nachdem \texttt{g++} uns also ein Maschinencodefile \texttt{outputDatei}
-erzeugt hat, können wir es zur Ausführung bringen. Wir tun das, indem wir in
-einem Terminal
-\begin{center}
-	\texttt{./outputDatei}
-\end{center}
-eingeben, also einen Punkt, ein Slash und dann den Dateinamen.
+
+
+\begin{praxis}
+
+    \textbf{Erstes Programm in \Cpp schreiben}
+
+    \begin{enumerate}
+        \item Öffne einen Texteditor (In Ubuntu unter „Zubehör“ den Editor gedit).
+        
+        \item Kopiere folgenden Programmcode in den Texteditor und speichere ihn in einer Datei mit dem Namen „helloworld.cpp“ ab. 
+        Ein näheres Verständnis, des Programmcodes ist an dieser Stelle nicht notwendig. 
+    \end{enumerate}    
+
+    \inputcpp{helloworld.cpp}
+
+    \textbf{\Cpp-Code komplieren und Programm erstellen }
+  
+    \begin{enumerate}
+        \item Öffne ein Terminal (Konsole), ihr findet sie unter Ubuntu oben links unter „Applications“ als „Terminal Emulator“ oder mittig unten als das zweite Symbol von links.
+        \item Wechselt mit \textit{cd [PFAD]} in das Verzeichnis (Ordner), indem ihr eure Textdatei erstellt habt. Was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2.
+        \item In diesem Verzeichnis liegt nun eine Datei mit dem Namen \texttt{helloworld.cpp}.
+              Benutzt \texttt{g++}, um diese zu einer Datei \texttt{hello} zu
+              kompilieren. Orientiert euch dazu an den folgenden Befehlen. 
+        \item Führt die Datei \texttt{hello} aus.
+    \end{enumerate}
+\end{praxis}
+
 
 Zur besseren Übersichtlichkeit hier der ganze Vorgang noch mal in einem
 Diagramm:
@@ -69,20 +102,7 @@ Diagramm:
     }
 \end{center}
 
-\textbf{Praxis:}
-\begin{enumerate}
-	\item Öffnet ein Terminal (Konsole), ihr findet dies oben links unter „Applications“ als „Terminal Emulator“ oder mittig unten als das zweite Symbol von links.
-    \item Wechselt in das Verzeichnis \texttt{vorkurs/lektion01}, indem ihr
-		\texttt{cd vorkurs/lektion01}\footnote{was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2} eingebt und enter drückt.
-    \item In diesem Verzeichnis liegt eine Datei \texttt{helloworld.cpp}.
-        Benutzt \texttt{g++}, um diese zu einer Datei \texttt{hello} zu
-        kompilieren. Orientiert euch dazu an den Befehlen von oben.
-    \item Führt die Datei \texttt{hello} aus.
-\end{enumerate}
-
-\inputcpp{helloworld.cpp}
-
-\textbf{Spiel:}
+\begin{spiel}
 
 Ihr könnt nun versuchen, den Quellcode selbst zu verändern und damit ein wenig
 herumzuspielen. Öffnet dazu einen Editor (in den Anwendungen findet ihr z.B.
@@ -102,6 +122,7 @@ Dinge, die ihr ausprobieren könntet sind zum Beispiel:
     \item Wie könnte man mehrere Sätze ausgeben? Wie könnte man mehrere Zeilen
         ausgeben?
 \end{enumerate}
+\end{spiel}
 
 \textbf{Quiz 1}\\
 \textit{Was passiert, wenn ihr \texttt{Hello world} durch etwas anderes ersetzt?}

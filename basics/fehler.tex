@@ -23,9 +23,9 @@ Nehmen wir z.B. mal folgendes Programm:
 Wenn wir versuchen, dieses zu kompilieren, gibt uns \texttt{g++} folgendes aus:
 
 \begin{textcode*}{label=g++ -o fehler1 fehler1.cpp}
-fehler1.cpp: In function 'int main()':
-fehler1.cpp:2:5: error: 'cout' is not a member of 'std'
-fehler1.cpp:2:35: error: 'endl' is not a member of 'std'
+    fehler1.cpp: In function 'int main()':
+    fehler1.cpp:2:5: error: 'cout' is not a member of 'std'
+    fehler1.cpp:2:35: error: 'endl' is not a member of 'std'
 \end{textcode*}
 
 Wenn wir diese Fehlermeldung verstehen wollen, fangen wir immer ganz oben an,
@@ -56,15 +56,15 @@ Wenn wir versuchen, dies zu kompilieren, bekommen wir vom Compiler
 entgegengespuckt:
 
 \begin{textcode*}{label=g++ -o fehler2 fehler2.cpp}
-fehler2.cpp: In function 'int main()':
-fehler2.cpp:5:1: error: expected ';' before '}' token
+    fehler2.cpp: In function 'int main()':
+    fehler2.cpp:5:1: error: expected ';' before '}' token
 \end{textcode*}
 
 Wiederum sagt uns die erste Zeile, in welcher Datei und Funktion der Fehler
 aufgetreten ist. Die zweite Zeile sagt uns wo, nämlich in Zeile 5, direkt am
 Anfang. Die Beschwerde des Compilers ist, dass er ein Semikolon erwartet hat,
 aber eine geschlossene geschweifte Klammer gefunden hat. Der Grund dafür ist,
-dass in \Cpp erwartet wird, dass jede Anweisung mit einem Semikolon abgeslossen
+dass in \Cpp erwartet wird, dass jede Anweisung mit einem Semikolon abgeschlossen
 wird.  Wenn ihr euch die bisherigen Quellcodedateien anschaut, werdet ihr
 feststellen, dass hinter den allermeisten Zeilen ein solches Semikolon steht.
 Hier fehlt es allerdings nach der Ausgabe in Zeile 4. Sobald wir es hinzufügen,
@@ -91,7 +91,7 @@ wusste der Compiler es einfach nicht besser.
 \inputcpp{fehler3.cpp}
 \inputcpp{fehler4.cpp}
 
-\textbf{Spiel:}
+\begin{spiel}
 \begin{enumerate}
     \item Das folgende Programm enthält mehrere Fehler. Bekommt ihr trotzdem
         raus, welche das sind und könnt ihr sie beheben (Tipp: „c++ math“ zu
@@ -101,6 +101,7 @@ wusste der Compiler es einfach nicht besser.
         Fehlermeldungen begegnet sein, versucht, diese zu lesen und
         interpretiert, was euch der compiler hier sagen will.
 \end{enumerate}
+\end{spiel}
 
 \inputcpp{fehler5.cpp}
 

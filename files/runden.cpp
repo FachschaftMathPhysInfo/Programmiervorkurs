@@ -1,6 +1,13 @@
 #include <iostream>
 
 int runden(double d, int mode){
+    // Input checking: falls Eingabe negativ, Fehlermeldung ausgeben
+    if(d < 0){
+        std::cerr << "Die Eingabe (" << d << ") ist negativ, unser Pro"
+        "gramm rundet jedoch nur positive Zahlen korrekt." << std::endl;
+        return 0;
+    }
+    
     // speichert Double als Integer -> schneidet Kommastellen ab
     int i = d;
     if(mode == 0){ // kaufmaennisch runden
@@ -18,8 +25,11 @@ int runden(double d, int mode){
         return i + 1;
     }
     else {
-        // Hier sollte ein Fehler geworfen werden.
-        // Das könnt ihr aber leider noch nicht
+        std::cerr << "Beim Runden ist was schief gelaufen." << std::endl; 
+        // Der Fehler kann zum Beispiel gewesen sein, dass der angegebene 
+        // mode nicht verfügbar. Dies sollte idealerweise vom Programm 
+        // zu Beginn geprüft werden. Falls der mode nicht valide ist, 
+        // sollte eine Nachricht an den Nutzer ausgegeben werden.
         return 0;
     }
 }
@@ -30,4 +40,6 @@ int main(){
     std::cout << runden(2.3, 0) << std::endl;
     std::cout << runden(2.7, 1) << std::endl;
     std::cout << runden(2.7, 2) << std::endl;
+    std::cout << runden(-1.4, 0) << std::endl;
+    std::cout << runden(2.7, 3) << std::endl;
 }

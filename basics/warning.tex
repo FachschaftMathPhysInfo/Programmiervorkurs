@@ -9,102 +9,86 @@ anschauen, wie wir den Compiler in gewisser Weise „wachsam“ machen können,
 sodass er uns auch über Dinge informiert, die zwar keine Fehler sind, aber
 möglicherweise zu unerwartetem Verhalten führen können.
 
-\textbf{Praxis:}
-\begin{enumerate}
-    \item Kompiliert \texttt{warnings.cpp}. Testet das Program mit
-        verschiedenen Eingaben. Was beobachtet ihr?
-\end{enumerate}
-\inputcpp{warnings.cpp}
+\begin{praxis}
+    \begin{enumerate}
+        \item Kompiliert \texttt{warnings.cpp}. Testet das Program mit
+              verschiedenen Eingaben. Was beobachtet ihr?
+    \end{enumerate}
+    \inputcpp{warnings.cpp}
 
-Fehler wie diese können nicht mehr auftreten, wenn ihr \emph{warnings}
-anschaltet. Dies passiert über weitere Optionen, die wir dem Compiler mitgeben.
+    Fehler wie diese können nicht mehr auftreten, wenn ihr \emph{warnings}
+    anschaltet. Dies passiert über weitere Optionen, die wir dem Compiler mitgeben.
 
-\textbf{Praxis:}
-\begin{enumerate}[resume]
-    \item Kompiliert \texttt{warnings.cpp} mittels \texttt{g++ -Wall -o
-        warnings warnings.cpp}.
-\end{enumerate}
+    \begin{enumerate}[resume]
+        \item Kompiliert \texttt{warnings.cpp} mittels \texttt{g++ -Wall -o
+                  warnings warnings.cpp}.
+    \end{enumerate}
 
-Warnings sehen im Wesentlichen genauso aus, wie Fehler. Der einzige Unterschied
-ist, dass statt \texttt{error} in der Zeile ein \texttt{warning} steht und dass
-der Compiler zwar die Meldung ausgibt, aber trotzdem ganz normal das Programm
-erzeugt. Trotzdem solltet ihr warnings ernst nehmen. Die meisten „ernsthaften“
-Programmierer aktivieren warnings, da die meisten davon gefundenen Meldungen
-tatsächlich behoben werden sollten.
+    Warnings sehen im Wesentlichen genauso aus, wie Fehler. Der einzige Unterschied
+    ist, dass statt \texttt{error} in der Zeile ein \texttt{warning} steht und dass
+    der Compiler zwar die Meldung ausgibt, aber trotzdem ganz normal das Programm
+    erzeugt. Trotzdem solltet ihr warnings ernst nehmen. Die meisten „ernsthaften“
+    Programmierer aktivieren warnings, da die meisten davon gefundenen Meldungen
+    tatsächlich behoben werden sollten.
 
-Ihr könnt mit verschiedenen Parametern beeinflussen, welche warnings euch der
-Compiler anzeigt und wie er damit umgeht. Wir wollen hier nur drei nennen:
+    Ihr könnt mit verschiedenen Parametern beeinflussen, welche warnings euch der
+    Compiler anzeigt und wie er damit umgeht. Wir wollen hier nur drei nennen:
 
-\begin{description}
-    \item[-Wall]
-        Aktiviert „alle“ warnings. Tatsächlich stimmt das so nicht, aber wenn
-        ihr immer daran denkt, diesen Parameter anzugeben, solltet ihr bereits
-        den allergrößten Teil der vom Compiler entdeckbaren Probleme, die ihr
-        erzeugt, abfangen können.
-    \item[-Wextra]
-        Aktiviert noch ein paar warnings (ihr seht, warum „alle“ in
-        Anführungszeichen stand). In einigen Fällen sind auch die hier
-        aktivierten warnings für euch relevant.
-    \item[-Werror]
-        Dieser Parameter führt dazu, dass jede warning als Fehler behandelt
-        wird, d.h. der Compiler bricht ab, wenn er eine warning produzieren
-        würde. Dieser Parameter ist hochumstritten und in der Praxis sollte man
-        ihn eigentlich nicht einsetzen. Für Beginner kann er aber hilfreich
-        sein, da er von vornherein antrainiert, warnings ernst zu nehmen und
-        sie nicht einfach zu ignorieren.
-\end{description}
+    \begin{description}
+        \item[-Wall]
+              Aktiviert „alle“ warnings. Tatsächlich stimmt das so nicht, aber wenn
+              ihr immer daran denkt, diesen Parameter anzugeben, solltet ihr bereits
+              den allergrößten Teil der vom Compiler entdeckbaren Probleme, die ihr
+              erzeugt, abfangen können.
+        \item[-Wextra]
+              Aktiviert noch ein paar warnings (ihr seht, warum „alle“ in
+              Anführungszeichen stand). In einigen Fällen sind auch die hier
+              aktivierten warnings für euch relevant.
+        \item[-Werror]
+              Dieser Parameter führt dazu, dass jede warning als Fehler behandelt
+              wird, d.h. der Compiler bricht ab, wenn er eine warning produzieren
+              würde. Dieser Parameter ist hochumstritten und in der Praxis sollte man
+              ihn eigentlich nicht einsetzen. Für Beginner kann er aber hilfreich
+              sein, da er von vornherein antrainiert, warnings ernst zu nehmen und
+              sie nicht einfach zu ignorieren.
+    \end{description}
 
-Wenn ihr bei jedem Compilerlauf nun warnings anschalten wollt -- und am Besten
-auch noch für den debugger, falls ihr ihn braucht -- wird der Befehl zum
-Kompilieren langsam sehr lang. Für die Dauer des Vorkurses könnt ihr euch
-mittels
+    Wenn ihr bei jedem Compilerlauf nun warnings anschalten wollt -- und am Besten
+    auch noch für den debugger, falls ihr ihn braucht -- wird der Befehl zum
+    Kompilieren langsam sehr lang. Für die Dauer des Vorkurses könnt ihr euch
+    mittels
 
-\begin{center}
-\texttt{alias\footnote{alias ist ein shell-befehl, der euch eine Reihe von
-Anweisungen und Befehlen neu benennen lässt. In diesem Fall ist danach zum
-Beispiel der noch nicht existente Befehl \texttt{compile} ein neuer Name für
-\texttt{g++ -Vall -Wextra -Werror -O0 -g3}. Beachtet, dass ihr hier genau das
-abtippen müsst, was da steht, mit Leerzeichen und allem} compile="g++ -Wall
--Wextra -Werror -O0 -g3"}
-\end{center}
+    \begin{center}
+        \texttt{alias\footnote{alias ist ein shell-befehl, der euch eine Reihe von
+                Anweisungen und Befehlen neu benennen lässt. In diesem Fall ist danach zum
+                Beispiel der noch nicht existente Befehl \texttt{compile} ein neuer Name für
+                \texttt{g++ -Vall -Wextra -Werror -O0 -g3}. Beachtet, dass ihr hier genau das
+                abtippen müsst, was da steht, mit Leerzeichen und allem} compile="g++ -Wall
+            -Wextra -Werror -O0 -g3"}
+    \end{center}
 
-ein bisschen Arbeit ersparen. Ein einfaches \texttt{compile -o foo foo.cpp}
-wird dann automatisch den Compiler mit allen angegebenen Optionen aufrufen. Den
-\texttt{alias} müsst ihr allerdings jedes mal, wenn ihr in der Zwischenzeit ein
-Terminal geschlossen habt, neu ausführen, denn er geht bei Schließung eines
-Terminals verloren!
+    ein bisschen Arbeit ersparen. Ein einfaches \texttt{compile -o foo foo.cpp}
+    wird dann automatisch den Compiler mit allen angegebenen Optionen aufrufen. Den
+    \texttt{alias} müsst ihr allerdings jedes mal, wenn ihr in der Zwischenzeit ein
+    Terminal geschlossen habt, neu ausführen, denn er geht bei Schließung eines
+    Terminals verloren!
 
-\textbf{Praxis:}
-\begin{enumerate}[resume]
-    \item Mit der warning in \texttt{warnings.cpp} möchte euch der Compiler
-        darauf hinweisen, dass ihr hier eine Zuweisung macht, obwohl ein
-        Wahrheitswert\footnote{Ein Wahrheitswert (\cppinline{bool}) ist ein
-        Variablentyp, der die Werte wahr (\cppinline{true}) und falsch (
-        \cppinline{false}) annehmen kann.}
-        erwartet wird. Es gibt zwei Möglichkeiten, die warning zu
-        beheben: Ihr könnt Klammern um die Zuweisung machen (und dem Compiler
-        so sagen, dass ihr euch sicher seid, dass hier eine Zuweisung hinsoll),
-        oder ihr könnt aus der Zuweisung einen Vergleich machen. Welche
-        Möglichkeit erscheint euch angebracht? Setzt sie um und kompiliert das
-        Programm erneut (mit warnings).
-    \item In \texttt{warnprim.cpp} haben wir einen Fehler eingebaut. Kompiliert
-        das Programm mit warnings und korrigiert ihn.
-\end{enumerate}
+    \begin{enumerate}[resume]
+        \item Mit der warning in \texttt{warnings.cpp} möchte euch der Compiler
+              darauf hinweisen, dass ihr hier eine Zuweisung macht, obwohl ein
+              Wahrheitswert\footnote{Ein Wahrheitswert (\cppinline{bool}) ist ein
+                  Variablentyp, der die Werte wahr (\cppinline{true}) und falsch (
+                  \cppinline{false}) annehmen kann.}
+              erwartet wird. Es gibt zwei Möglichkeiten, die warning zu
+              beheben: Ihr könnt Klammern um die Zuweisung machen (und dem Compiler
+              so sagen, dass ihr euch sicher seid, dass hier eine Zuweisung hinsoll),
+              oder ihr könnt aus der Zuweisung einen Vergleich machen. Welche
+              Möglichkeit erscheint euch angebracht? Setzt sie um und kompiliert das
+              Programm erneut (mit warnings).
+        \item In \texttt{warnprim.cpp} haben wir einen Fehler eingebaut. Kompiliert
+              das Programm mit warnings und korrigiert ihn.
+    \end{enumerate}
 
-\inputcpp{warnprim.cpp}
+    \inputcpp{warnprim.cpp}
 
-\textbf{Spiel:}
-\begin{enumerate}
-    \item Die Auswirkungen von warning-Parametern hängen stark von anderen
-        Parametern ab. Wir benutzen z.B. häufiger einmal den Parameter
-        \texttt{-O0}. Dieser legt das Level an \emph{Optimierung} fest, also
-        wie sehr euer Compiler versucht, euren Code umzustrukturieren, sodass
-        er sich gleich verhält, aber schneller läuft. \texttt{-O2} würde
-        bedeuten, dass relativ stark optimiert wird.
-
-        \texttt{zaehlen.cpp} enthält ein Programm, um bei einem von der Nutzerin eingegebenen Wort zu zählen, wie oft der Buchstabe a vorkommt.
-        Kompiliert es mit \texttt{g++ -Wall -O2 -o zaehlen zaehlen.cpp} (probiert es auch einmal ohne \texttt{-O2} oder ohne \texttt{-Wall}) und schaut euch die resultierende Warning an.
-        Benutzt gegebenenfalls Google, um heraus zu finden, was sie bedeutet und wie ihr sie beheben könnt.
-\end{enumerate}
-
-\inputcpp{zaehlen.cpp}
+\end{praxis}

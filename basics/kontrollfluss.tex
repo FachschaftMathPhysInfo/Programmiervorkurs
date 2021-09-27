@@ -37,21 +37,21 @@ Verhaltens eines Programms von den Eingaben, bezeichnen wir als
 \emph{Kontrollfluss}, man kann das mit einem Diagramm verdeutlichen:
 
 \begin{center}
-    \begin{tikzpicture}[auto, node distance=3cm,>=latex']
-        \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
+      \begin{tikzpicture}[auto, node distance=3cm,>=latex']
+            \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
 
-        \node [block] (start) {Input};
-        \node [block, right of=start] (if) { $a=0$? };
-        \node [block, right of=if, node distance=4cm] (fehler) { Gib Fehler aus };
-        \node [block, below of=fehler,node distance =  2cm] (quotient) { Gib Quotient aus };
-        \node [block, right of=fehler, node distance = 3.5cm] (ende) { Ende };
+            \node [block] (start) {Input};
+            \node [block, right of=start] (if) { $a=0$? };
+            \node [block, right of=if, node distance=4cm] (fehler) { Gib Fehler aus };
+            \node [block, below of=fehler,node distance =  2cm] (quotient) { Gib Quotient aus };
+            \node [block, right of=fehler, node distance = 3.5cm] (ende) { Ende };
 
-        \draw [->] (start) -- node {} (if);
-        \draw [->] (if) -- node {\texttt{ja}} (fehler);
-        \draw [->] (if.south) |- node [above, near end] {\texttt{nein}} (quotient);
-        \draw [->] (quotient) -| node {} (ende);
-        \draw [->] (fehler) -- node {} (ende);
-    \end{tikzpicture}
+            \draw [->] (start) -- node {} (if);
+            \draw [->] (if) -- node {\texttt{ja}} (fehler);
+            \draw [->] (if.south) |- node [above, near end] {\texttt{nein}} (quotient);
+            \draw [->] (quotient) -| node {} (ende);
+            \draw [->] (fehler) -- node {} (ende);
+      \end{tikzpicture}
 \end{center}
 
 Die einfachste Möglichkeit, den Kontrollfluss zu ändern, besteht in so
@@ -61,30 +61,31 @@ genannten „bedingten Anweisungen“:
 In den Zeilen 12 bis 20 sehen wir, wie eine solche Bedingte Anweisung in \Cpp
 aussieht. Wir erkennen relativ direkt unser Diagramm hier wieder: In Zeile 12
 steht der „$b=0$?“ Block, in den Zeilen 13 bis 17 steht der „Gib Fehler aus“
-Block und in Zeile 19 der „Gib den Quotienten aus“ Block.
+Block und in Zeile 19 der „Gib den Quotienten aus“ Block. Die Blöcke lassen sich auch gut anhand der geschweiften Klammern und der Einrückung erkennen. Wir empfehlen euch, solche logischen Blöcke einzurücken, um die Lesbarkeit des Codes zu verbessern. Eine ausführlichere Erklärung zum coding style gibt es in Lektion \ref{sec:codingstyle}.
 
 Beachtet allerding die doppelten Gleichheitszeichen in Zeile 12. \Cpp hat
 getrennte Operatoren für Vergleiche und Zuweisungen - Doppelte
 Gleichheitszeichen bedeuten Vergleich („sind diese beiden gleich?“), ein
 einfaches Gleichheitszeichen bedeutet Zuweisung („mache diese beiden gleich!“).
 
-\textbf{Praxis:}
-\begin{enumerate}
-    \item Kompiliert \texttt{if.cpp} für den debugger und lasst das Programm im
-        gdb laufen. Geht Schritt für Schritt durch das Programm, mit
-        verschiedenen Eingaben (wenn ihr am Ende des Programms angekommen seid,
-        könnt ihr es mit einem erneuten „run“ neu starten)
-    \item Nutzt Google, um herauszufinden, welche anderen Vergleichsoperatoren
-        es in \Cpp noch gibt. Versucht, das Programm so zu verändern, dass es
-        auf Ungleichheit testet, statt auf Gleichheit (sich sonst aber genauso
-        verhält).
-	\item Wie würdet ihr testen, ob zwei Zahlen durch einander teilbar sind
-		(Tipp: Ihr kennt bereits die Division mit Rest in \Cpp (modulo))?
-		Schreibt ein Programm, welches zwei Zahlen von der Nutzerin entgegen
-		nimmt und ausgibt, ob die zweite Zahl die erste teilt.
-\end{enumerate}
+\begin{praxis}
+      \begin{enumerate}
+            \item Kompiliert \texttt{if.cpp} für den debugger und lasst das Programm im
+                  gdb laufen. Geht Schritt für Schritt durch das Programm, mit
+                  verschiedenen Eingaben (wenn ihr am Ende des Programms angekommen seid,
+                  könnt ihr es mit einem erneuten „run“ neu starten)
+            \item Nutzt Google, um herauszufinden, welche anderen Vergleichsoperatoren
+                  es in \Cpp noch gibt. Versucht, das Programm so zu verändern, dass es
+                  auf Ungleichheit testet, statt auf Gleichheit (sich sonst aber genauso
+                  verhält).
+            \item Wie würdet ihr testen, ob zwei Zahlen durch einander teilbar sind
+                  (Tipp: Ihr kennt bereits die Division mit Rest in \Cpp (modulo))?
+                  Schreibt ein Programm, welches zwei Zahlen von der Nutzerin entgegen
+                  nimmt und ausgibt, ob die zweite Zahl die erste teilt.
+      \end{enumerate}
+\end{praxis}
 
-\textbf{Spiel:}
+\begin{spiel}
 \begin{enumerate}
     \item Testet mit verschiedenen Eingaben, was passiert, wenn ihr in
         \texttt{if.cpp} statt zwei Gleichheitszeichen nur eines benutzt.
@@ -94,6 +95,7 @@ einfaches Gleichheitszeichen bedeutet Zuweisung („mache diese beiden gleich!�
         Gibt sie euren eigenen Namen ein, soll das Programm begeistert über die
         Namensgleichheit sein, sonst sie einfach begrüßen.
 \end{enumerate}
+\end{spiel}
 
 \textbf{Quiz 9}\\
 \textit{Welche Aussagen sind korrekt?}
@@ -103,3 +105,4 @@ einfaches Gleichheitszeichen bedeutet Zuweisung („mache diese beiden gleich!�
     \item Es darf nur ein else pro Fallunterscheidung geben
     \item Bei falscher Einrückung funktioniert das Programm nicht
 \end{enumerate}
+

@@ -1,5 +1,5 @@
 \lesson{Coding style}
-
+\label{sec:codingstyle}
 Wir haben mittlerweile hinreichend viele verschiedene Verschachtelungen im
 Quellcode kennen gelernt, dass es sich lohnt, ein paar Worte über coding styĺe
 zu sprechen.
@@ -12,57 +12,62 @@ unterstützen, gibt es mehrere Dinge, auf die man achten kann.
 
 \begin{description}
     \item[Einrückung]
-        Wie euch vermutlich aufgefallen ist, sind an verschiedenen Stellen im
-        Code einzelne Zeilen ein wenig eingerückt. Dies ist vermutlich das
-        wichtigste Werkzeug, welches zur Verfügung steht, um die Lesbarkeit von
-        Code zu unterstützen (auch, wenn es nicht nötig ist, um formal korrekte
-        Programme zu schreiben). Die einzelnen Einheiten des Kontrollflusss
-        werden dadurch visuell voneinander abgegrenzt, was es einfacher macht,
-        den Programmverlauf zu verfolgen.
+          Wie euch vermutlich aufgefallen ist, sind an verschiedenen Stellen im
+          Code einzelne Zeilen ein wenig eingerückt. Dies ist vermutlich das
+          wichtigste Werkzeug, welches zur Verfügung steht, um die Lesbarkeit von
+          Code zu unterstützen (auch, wenn es nicht nötig ist, um formal korrekte
+          Programme zu schreiben). Die einzelnen Einheiten des Kontrollflusss
+          werden dadurch visuell voneinander abgegrenzt, was es einfacher macht,
+          den Programmverlauf zu verfolgen.
 
-        Wie genau eingerückt werden sollte, darüber scheiden sich die Geister.
-        Man kann mit mehreren Leerzeichen oder durch Tabulatoren einrücken.
-        Empfehlenswert ist auf jeden Fall, mehrere gleichförmige „Ebenen“ zu
-        haben (z.B. 4,8,12,\dots Leerzeichen zu Beginn der Zeile). Eine
-        Faustregel für gut lesbare Einrückung ist, immer wenn man eine
-        geschweifte Klammer öffnet, eine Ebene tiefer einzurücken und immer,
-        wenn man eine geschweifte Klammer schließt, wieder eine Ebene zurück zu
-        nehmen.
+          Wie genau eingerückt werden sollte, darüber scheiden sich die Geister.
+          Man kann mit mehreren Leerzeichen oder durch Tabulatoren einrücken.
+          Empfehlenswert ist auf jeden Fall, mehrere gleichförmige „Ebenen“ zu
+          haben (z.B. 4, 8, 12, \dots\ Leerzeichen zu Beginn der Zeile). Eine
+          Faustregel für gut lesbare Einrückung ist, immer wenn man eine
+          geschweifte Klammer öffnet, eine Ebene tiefer einzurücken und immer,
+          wenn man eine geschweifte Klammer schließt, wieder eine Ebene zurück zu
+          nehmen.
     \item[Klammern]
-        Aus der Schule kennt ihr das Prinzip „Punkt- vor Strichrechnung“. Dies
-        ist eine Regel, die so genannte \emph{Präzedenz} ausdrückt, also die
-        Reihenfolge, in der Operatoren ausgewertet werden. Punkt vor Strich ist
-        allerdings nicht aussreichend, um vollständig zu beschreiben, wie sich
-        Operatoren in Gruppen verhalten. Schaut euch z.B. den Ausdruck
-        \texttt{3 * 2 / 3} an. Da der Computer Ganzzahldivision benutzt, kommen
-        hier unterschiedliche Ergebniss raus, je nachdem, ob zunächst das
-        \texttt{*} oder das \texttt{/} ausgewertet wird. Im ersten Fall
-        erhalten wir \texttt{6 / 3 == 2}, wie wir erwarten würden. Im zweiten
-        Fall wird aber abgerundet, sodass wir \texttt{3 * 0 == 0} erhalten.
+          Aus der Schule kennt ihr das Prinzip „Punkt- vor Strichrechnung“. Dies
+          ist eine Regel, die so genannte \emph{Präzedenz} ausdrückt, also die
+          Reihenfolge, in der Operatoren ausgewertet werden. Punkt vor Strich ist
+          allerdings nicht aussreichend, um vollständig zu beschreiben, wie sich
+          Operatoren in Gruppen verhalten. Schaut euch z.B. den Ausdruck
+          \texttt{3 * 2 / 3} an. Da der Computer Ganzzahldivision benutzt, kommen
+          hier unterschiedliche Ergebniss raus, je nachdem, ob zunächst das
+          \texttt{*} oder das \texttt{/} ausgewertet wird. Im ersten Fall
+          erhalten wir \texttt{6 / 3 == 2}, wie wir erwarten würden. Im zweiten
+          Fall wird aber abgerundet, sodass wir \texttt{3 * 0 == 0} erhalten.
 
-        Um solche und ähnliche Uneindeutigkeiten zu vermeiden, bietet es sich
-        an, Klammerung zu verwenden. Selbst wenn wir im obigen Fall
-        \emph{wissen} in welcher Reihenfolge die Operatoren ausgewertet werden,
-        jemand der unseren Code liest weiß das vielleicht nicht. Einfach von
-        vornherein die gewollte Reihenfolge der Auswertung zu klammern
-        verhindert Verwirrung bei uns über das Verhalten des Computers, als
-        auch bei Menschen, die später wissen wollen, was wir meinten.
+          Um solche und ähnliche Uneindeutigkeiten zu vermeiden, bietet es sich
+          an, Klammerung zu verwenden. Selbst wenn wir im obigen Fall
+          \emph{wissen} in welcher Reihenfolge die Operatoren ausgewertet werden,
+          jemand der unseren Code liest, weiß das vielleicht nicht. Einfach von
+          vornherein die gewollte Reihenfolge der Auswertung zu klammern,
+          verhindert Verwirrung bei uns über das Verhalten des Computers, als
+          auch bei Menschen, die später wissen wollen, was wir meinten.
+
+          Ihr könnt übrigens nicht nur einzeilige Kommentare erstellen, die mit \cppinline{//} beginnen, sondern auch mehrzeilige, und zwar so: \cppinline{/* Dies ist ein ganz langer mehrzeiliger Kommentar.  */} . Alles zwischen den Slashes und Sternchen ist dann ein Kommentar und wird vom Computer ignoriert. Dies könnt ihr als kleinen Trick verwenden, um euren Code zu debuggen, ohne ständig alles neu zu schreiben. Ihr könnt stattdessen einfach den nicht benötigten Code auskommentieren und wenn ihr ihn wieder verwenden wollt, die Kommentarzeichen am Anfang und Ende wieder entfernen.
     \item[Kommentare]
-        Wir haben schon in mehreren Quellcodedateien Kommentare verwendet, um
-        einzelne Dinge zu erklären. Insgesamt bietet es sich an, dies selbst
-        ebenfalls zu tun, um den Programmfluss dem Leser von Quellcode klar zu
-        machen. Das heißt nicht, dass man jede Anweisung noch einmal mit einem
-        Kommantar versehen sollte, der sie ausführlich erklärt, aber an
-        wichtigen Punkten können einem kurze Kommentare das Leben enorm
-        vereinfachen. Und ihr dürft nicht vergessen, dass ihr euch vielleicht
-        selbst in ein oder zwei Jahren noch einmal euren eigenen Quellcode
-        anschauen müsst und ihr werdet wirklich überrascht sein, wie wenig ihr
-        von dem Zeug, welches ihr selbst geschrieben habt, verstehen werdet.
-    \item[Leerzeichen]
-        Weniger wichtig als die ersten drei Punkte können trotzdem gezielte
-        Leerzeichen (z.B. zwischen Operatoren und Operanden in arithmetischen
-        Ausdrücken) die Lesbarkeit enorm erhöhen. Gerade in arithmetischen
-        Ausdrücken ist es eine gute Angewohnheit.
+          Wir haben schon in mehreren Quellcodedateien Kommentare verwendet, um
+          einzelne Dinge zu erklären. Insgesamt bietet es sich an, dies selbst
+          ebenfalls zu tun, um den Programmfluss der Leserin von Quellcode klar zu
+          machen. Das heißt nicht, dass man jede Anweisung noch einmal mit einem
+          Kommantar versehen sollte, der sie ausführlich erklärt, aber an
+          wichtigen Punkten können einem kurze Kommentare das Leben enorm
+          vereinfachen. Und ihr dürft nicht vergessen, dass ihr euch vielleicht
+          selbst in ein oder zwei Jahren noch einmal euren eigenen Quellcode
+          anschauen müsst und ihr werdet wirklich überrascht sein, wie wenig ihr
+          von dem Zeug, welches ihr selbst geschrieben habt, verstehen werdet.
+    \item [Benennungen]
+          Wenn ihr eure Variablen -- und später auch eure Funktionen und Klassen -- präzise benennt, dann vereinfacht ihr das Lesen eures Codes extrem. Durch Bezeichnungen, die für sich sprechen, könnt ihr euch außerdem Kommentare etwas ersparen, weil die Variablennamen dann schon viel erklären. Es ist zum Beispiel ungeschickt, seine Variablen wie in der Mathematik üblich einfach nur mit einzelnen Buchstaben zu benennen, statt \cppinline{int a = 42;} sollte man lieber \cppinline{int alter = 42;} verwenden, da die Leserin direkt weiß, dass in dieser Variablen das Alter gespeichert wird. Zu dieser coding style Richtlinie gibt es jedoch auch eine Ausnahme: Bei Zählervariablen, die einfach nur die Anzahl der Schleifeniterationen hochzählen, verwendet man meist einzelne Buchstaben, wie \cppinline{i} oder \cppinline{n}. Das ist schön kurz und praktisch, jedoch muss man etwas aufpassen, denn man kann schnell mit diesen Indices durcheinander kommen -- genau so wie in der Mathematik.
+    \item[Leerzeichen und -zeilen]
+          Weniger wichtig als die ersten vier Punkte können trotzdem gezielte
+          Leerzeichen (z.B. zwischen Operatoren und Operanden in arithmetischen
+          Ausdrücken) die Lesbarkeit enorm erhöhen. Gerade in arithmetischen
+          Ausdrücken ist es eine gute Angewohnheit.
+          Ebenso sind Leerzeilen zwischen logischen Abschnitten sehr hilfreich. Zu Beginn eines Abschnittes kann man dann noch einen kurzen Kommentar hinzufügen, was in dem Abschnitt passiert und schon fällt das Lesen des Codes deutlich leichter.
 \end{description}
 
 Es gibt sicher noch viele Regeln, über die ihr im Laufe eures Lebens stolpern
@@ -70,30 +75,32 @@ werdet, wenn ihr euch entschließen solltet, regelmäßig zu programmieren. Häu
 werdet ihr euch darüber ärgern, manchmal zu recht. Aber versucht im Zweifel
 einen halbwegs sauberen Stil auch als euren eigenen Verbündeten zu sehen, denn
 ob es nun vergessene Klammern, Semikolons oder versteckte Fehler in der
-Operatorpräzedenz sind, ein sauberer Stil kann euch bei allen enorm helfen sie
-aufzuspüren.
+Operatorpräzedenz sind, ein sauberer Stil kann euch bei allen enorm helfen, sie
+aufzuspüren. Auch wenn es coding style Richtlinien für verschiedene Programmiersprachen gibt, die größtenteils relativ ähnlich sind, gewöhnt man sich meist einen eigenen Stil mit der Zeit an. Es ist allerdings wichtig, früh auf guten Stil zu achten, denn wenn man erst einmal damit anfängt, unübersichtlichen Code zu schreiben, gewöhnt man sich diese Unart an und das will schließlich niemand.
 
-\textbf{Praxis:}
-\begin{enumerate}
-    \item Eine weit verbreitete einfache Aufgabe, die in Bewerbungsgesprächen
-        auf Stellen als Programmiererin häufig gestellt wird, ist
-        \emph{FizzBuzz}. In \texttt{fizzbuzz.cpp} ist eine möglich Lösung für
-        diese Aufgabe gegeben. Könnt ihr (nur mittels des Quellcodes) sagen,
-        was das Programm tut?
-    \item Nutzt die oben gegebenen Faustregeln, um den Quellcode lesbarer zu
-        machen. Ihr müsst nicht alles bis aufs Wort befolgen, macht einfach so
-        lange weiter, bis ihr findet, man kann hinreichend schnell verstehen,
-        was hier passieren soll.
-\end{enumerate}
+\begin{praxis}
+    \begin{enumerate}
+        \item Eine weit verbreitete einfache Aufgabe, die in Bewerbungsgesprächen
+              auf Stellen als Programmiererin häufig gestellt wird, ist
+              \emph{FizzBuzz}. In \texttt{fizzbuzz.cpp} ist eine möglich Lösung für
+              diese Aufgabe gegeben. Könnt ihr (nur mittels des Quellcodes) sagen,
+              was das Programm tut?
+        \item Nutzt die oben gegebenen Faustregeln, um den Quellcode lesbarer zu
+              machen. Ihr müsst nicht alles bis aufs Wort befolgen, macht einfach so
+              lange weiter, bis ihr findet, man kann hinreichend schnell verstehen,
+              was hier passieren soll.
+    \end{enumerate}
 
-\inputcpp{fizzbuzz.cpp}
+    \inputcpp{fizzbuzz.cpp}
+\end{praxis}
 
-\textbf{Spiel:}
-\begin{enumerate}
-    \item Entfernt in eurem veränderten Quellcode eine geschweifte Klammer
-        eurer Wahl. Lasst eure Sitznachbarin über den Quellcode schauen und die
-        fehlende Klammer finden.
-\end{enumerate}
+\begin{spiel}
+    \begin{enumerate}
+        \item Entfernt in eurem veränderten Quellcode eine geschweifte Klammer
+              eurer Wahl. Lasst eure Sitznachbarin über den Quellcode schauen und die
+              fehlende Klammer finden.
+    \end{enumerate}
+\end{spiel}
 
 \textbf{Quiz 12}\\
 \textit{Was gehört zu gutem Coding style?}

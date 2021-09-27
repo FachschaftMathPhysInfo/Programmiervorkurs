@@ -28,32 +28,32 @@ ist der Teiler, den wir gerade testen wollen und \texttt{hat\_teiler} gibt
 an, ob wir schon einen Teiler gefunden haben):
 
 \begin{center}
-    \begin{tikzpicture}[auto, node distance=3cm,>=latex']
-    \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
-    \tikzstyle{border} = [very thick, dashed, red]
-    
-    \node [block, align=center] (start) {$i = 2$ \\ \texttt{hat\_teiler} $=$ \texttt{false}};
-    \node [block, right of=start, node distance=4cm] (cond) {$i < n$?};
-    \node [block, right of=cond, node distance=3.5cm] (if) {$i\mid n$?};
-    \node [block, right of=if, node distance=4cm] (teiler) {\texttt{hat\_teiler} $\leftarrow$ \texttt{true}};
-    \node [block, above of=if, node distance=2cm] (incr) {$i \leftarrow i+1$};
-    \node [block, below of=cond, node distance=3cm] (prim?) {\texttt{hat\_teiler}?};
-    \node [block, below of=teiler, node distance=3cm] (yipp) {$n$ Primzahl};
-    \node [block, below of=yipp, node distance=1.5cm] (nope) {$n$ keine Primzahl};
-    
-    \draw [border] ($(cond) + (-1.5, 0)$) |- ($(if) + (0, -1)$) -| ($(teiler) + (2, 0)$) |- ($(incr) + (0, 1)$) -| cycle;
-    \node [border] at ($(cond) + (-.8, 3.3)$) {Schleife};
-    
-    \draw [->] (start) -- node {} (cond);
-    \draw [->] (cond) -- node {ja} (if);
-    \draw [->] (cond) -- node [near end] {nein} (prim?);
-    \draw [->] (prim?) -- node {nein} (yipp);
-    \draw [->] (if) -- node {ja} (teiler);
-    \draw [->] (if) -- node {nein} (incr);
-    \draw [->] (incr) -| node {} (cond);
-    \draw [->] (teiler) |- (incr);
-    \draw [->] (prim?) |- node [near end] {ja} (nope);
-    \end{tikzpicture}
+      \begin{tikzpicture}[auto, node distance=3cm,>=latex']
+            \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
+            \tikzstyle{border} = [very thick, dashed, red]
+
+            \node [block, align=center] (start) {$i = 2$ \\ \texttt{hat\_teiler} $=$ \texttt{false}};
+            \node [block, right of=start, node distance=4cm] (cond) {$i < n$?};
+            \node [block, right of=cond, node distance=3.5cm] (if) {$i\mid n$?};
+            \node [block, right of=if, node distance=4cm] (teiler) {\texttt{hat\_teiler} $\leftarrow$ \texttt{true}};
+            \node [block, above of=if, node distance=2cm] (incr) {$i \leftarrow i+1$};
+            \node [block, below of=cond, node distance=3cm] (prim?) {\texttt{hat\_teiler}?};
+            \node [block, below of=teiler, node distance=3cm] (yipp) {$n$ Primzahl};
+            \node [block, below of=yipp, node distance=1.5cm] (nope) {$n$ keine Primzahl};
+
+            \draw [border] ($(cond) + (-1.5, 0)$) |- ($(if) + (0, -1)$) -| ($(teiler) + (2, 0)$) |- ($(incr) + (0, 1)$) -| cycle;
+            \node [border] at ($(cond) + (-.8, 3.3)$) {Schleife};
+
+            \draw [->] (start) -- node {} (cond);
+            \draw [->] (cond) -- node {ja} (if);
+            \draw [->] (cond) -- node [near end] {nein} (prim?);
+            \draw [->] (prim?) -- node {nein} (yipp);
+            \draw [->] (if) -- node {ja} (teiler);
+            \draw [->] (if) -- node {nein} (incr);
+            \draw [->] (incr) -| node {} (cond);
+            \draw [->] (teiler) |- (incr);
+            \draw [->] (prim?) |- node [near end] {ja} (nope);
+      \end{tikzpicture}
 \end{center}
 Das Besondere an Schleifen ist, dass sie geschlossene Kreise zum
 Kontrollflussdiagramm hinzufügen. Das erlaubt es uns, die gleiche Anweisung
@@ -64,39 +64,40 @@ Wenn wir dieses Kontrollflussdiagramm in \Cpp gießen, sieht dies so aus:
 
 Wie wir sehen, sind Schleifen auch nicht viel schwieriger zu handhaben, als
 bedingte Anweisungen. Statt \texttt{if} schreiben wir nun \texttt{while}, sonst
-ändert sich am Quellcode nicht viel.
+ändert sich am Quellcode nicht viel. Ebenso wie bei bedingten Anweisungen sollte der Inhalt einer Schleife als logischer Block eingerückt werden, um sofort zu erkennen, dass dieser wiederholt ausgeführt wird, mehr dazu in Lektion \ref{sec:codingstyle}.
 
 Als kleine Nebenbemerkung sei hier gestattet, dass ihr hiermit nun alle Dinge
 kennengelernt habt, um \emph{Turing-vollständig} programmieren zu können, d.h.
 ihr könnt alleine mit den Mitteln, die ihr bisher kennen gelernt habt,
 \emph{jede} mögliche Berechnung anstellen!
 
-\textbf{Praxis:}
-\begin{enumerate}
-    \item Versucht, die Arbeitsweise eines debuggers zu simulieren. Geht selbst
-        den Quellcode Zeile für Zeile durch, überlegt euch, was die Zeile tut
-        und welchen Inhalt die Variablen haben. Überlegt euch dann, wohin der
-        Computer (bei Kontrollflussstrukturen) als nächstes springen würde.
-        Wenn ihr nicht weiter wisst, kompiliert das Programm für den debugger,
-        startet es im debugger und geht es durch.
-    \item Warum funktioniert das Programm für den Fall $n = 2$?
-    \item Schreibt selbst ein Programm, welches eine Zahl von der Nutzerin
-        entgegennimmt und dann alle Zahlen bis zu dieser Zahl ausgibt.
-    \item Modifiziert euer Programm, sodass es von dieser Zahl bis zu 0
-        hinunterzählt.
-\end{enumerate}
+\begin{praxis}
+      \begin{enumerate}
+            \item Versucht, die Arbeitsweise eines debuggers zu simulieren. Geht selbst
+                  den Quellcode Zeile für Zeile durch, überlegt euch, was die Zeile tut
+                  und welchen Inhalt die Variablen haben. Überlegt euch dann, wohin der
+                  Computer (bei Kontrollflussstrukturen) als nächstes springen würde.
+                  Wenn ihr nicht weiter wisst, kompiliert das Programm für den debugger,
+                  startet es im debugger und geht es durch.
+            \item Warum funktioniert das Programm für den Fall $n = 2$?
+            \item Schreibt selbst ein Programm, welches eine Zahl von der Nutzerin
+                  entgegennimmt und dann alle Zahlen bis zu dieser Zahl ausgibt.
+            \item Modifiziert euer Programm, sodass es von dieser Zahl bis zu 0
+                  hinunterzählt.
+      \end{enumerate}
+\end{praxis}
 
-\textbf{Spiel:}
-\begin{enumerate}
-    \item Das Programm funktioniert noch nicht korrekt, wenn man 1 eingibt
-        (denn 1 ist keine Primzahl). Modifiziert es, sodass es auch für 1
-        funktioniert.
-    \item Kompiliert \texttt{whiletrue.cpp} und führt es aus. Was beobachtet
-        ihr? Warum? (Ihr könnt das Programm abbrechen, indem ihr
-        \texttt{Strg+C} drückt)
-\end{enumerate}
-
-\inputcpp{whiletrue.cpp}
+\begin{spiel}
+      \begin{enumerate}
+            \item Das Programm funktioniert noch nicht korrekt, wenn man 1 eingibt
+                  (denn 1 ist keine Primzahl). Modifiziert es, sodass es auch für 1
+                  funktioniert.
+            \item Kompiliert \texttt{whiletrue.cpp} und führt es aus. Was beobachtet
+                  ihr? Warum? (Ihr könnt das Programm abbrechen, indem ihr
+                  \texttt{Strg+C} drückt)
+      \end{enumerate}
+      \inputcpp{whiletrue.cpp}
+  \end{spiel}
 
 \textbf{Quiz 11}\\
 \textit{Was kann bei der Verwendung von Schleifen passieren?}

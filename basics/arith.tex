@@ -28,42 +28,42 @@ diesem:
 
 \inputcpp{arith2.cpp}
 
-\textbf{Praxis:}
-\begin{enumerate}
-    \item Was gibt dieses Programm aus? Überlegt es euch zuerst und kompiliert
-        es dann, um es auszuprobieren.
-\end{enumerate}
+\begin{praxis}
+    \begin{enumerate}
+        \item Was gibt dieses Programm aus? Überlegt es euch zuerst und kompiliert
+              es dann, um es auszuprobieren.
+    \end{enumerate}
 
-Obwohl \texttt{a = a + 19} mathematisch überhaupt keinen Sinn ergibt, ist doch
-klar, was passiert, wenn man sich den Quellcode eben nicht als Reihe von
-Aussagen, sondern als Folge von \emph{Anweisungen} vorstellt. Das
-Gleichheitszeichen bedeutet dann nicht, dass beide Seiten gleich sein sollen,
-sondern dass der Wert auf der linken Seite den Wert auf der rechten Seite
-annehmen soll.
+    Obwohl \texttt{a = a + 19} mathematisch überhaupt keinen Sinn ergibt, ist doch
+    klar, was passiert, wenn man sich den Quellcode eben nicht als Reihe von
+    Aussagen, sondern als Folge von \emph{Anweisungen} vorstellt. Das
+    Gleichheitszeichen bedeutet dann nicht, dass beide Seiten gleich sein sollen,
+    sondern dass der Wert auf der linken Seite den Wert auf der rechten Seite
+    annehmen soll.
 
-Wie wir in diesem Beispiel ausserdem sehen, können wir nicht nur Strings
-ausgeben, sondern auch Zahlen. \texttt{std::cout} gibt sie in einer Form aus,
-in der wir etwas damit anfangen können. Genauso können wir auch über
-\texttt{std::cin} Zahlen vom Benutzer entgegen nehmen:
+    Wie wir in diesem Beispiel ausserdem sehen, können wir nicht nur Strings
+    ausgeben, sondern auch Zahlen. \texttt{std::cout} gibt sie in einer Form aus,
+    in der wir etwas damit anfangen können. Genauso können wir auch über
+    \texttt{std::cin} Zahlen vom Benutzer entgegen nehmen:
 
-\inputcpp{arith3.cpp}
+    \inputcpp{arith3.cpp}
 
-Langsam aber sicher tasten wir uns an nützliche Programme heran!
+    Langsam aber sicher tasten wir uns an nützliche Programme heran!
 
-\textbf{Praxis:}
-\begin{enumerate}[resume]
-    \item Schreibt ein Programm, welches von der Nutzerin zwei ganze Zahlen
-        entgegen nimmt und anschließend Summe, Differenz, Produkt und Quotient
-        ausspuckt.
-    \item Was fällt auf, wenn ihr z.B. 19 und 7 eingebt?
-	\item Findet heraus (Google ist euer Freund), wie man in \Cpp Division mit
-		Rest durchführt und gebt diese zusätzlich zu den bisherigen Operationen
-		mit aus\footnote{Falls ihr nicht weiterkommt, hilft euch vielleicht das
-		Stichwort „modulo“ oder „modulo-operator“ weiter.}.
-    \item Was passiert, wenn ihr als zweite Zahl eine 0 eingebt?
-\end{enumerate}
+    \begin{enumerate}[resume]
+        \item Schreibt ein Programm, welches von der Nutzerin zwei ganze Zahlen
+              entgegen nimmt und anschließend Summe, Differenz, Produkt und Quotient
+              ausspuckt.
+        \item Was fällt auf, wenn ihr z.B. 19 und 7 eingebt?
+        \item Findet heraus (Google ist euer Freund), wie man in \Cpp Division mit
+              Rest durchführt und gebt diese zusätzlich zu den bisherigen Operationen
+              mit aus\footnote{Falls ihr nicht weiterkommt, hilft euch vielleicht das
+                  Stichwort „modulo“ oder „modulo-operator“ weiter.}.
+        \item Was passiert, wenn ihr als zweite Zahl eine 0 eingebt?
+    \end{enumerate}
+\end{praxis}
 
-\textbf{Spiel:}
+\begin{spiel}
 \begin{enumerate}
     \item Findet heraus, was die größte positive (und was die kleinste
         negative) Zahl ist, die ihr in einem \texttt{int} speichern könnt.
@@ -76,6 +76,7 @@ Langsam aber sicher tasten wir uns an nützliche Programme heran!
         Achtet darauf, dass es Dezimalpunkte und Dezimalkommata gibt, wenn ihr
         überraschende Ergebnisse erhaltet.
 \end{enumerate}
+\end{spiel}
 
 \textbf{Quiz 7}\\
 \textit{Was passiert, wenn ihr \texttt{int} verwendet, aber eine Kommazahl eingebt?}
