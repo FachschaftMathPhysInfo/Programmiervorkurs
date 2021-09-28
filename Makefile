@@ -41,11 +41,12 @@ dir: files/*
 	@cp files/arith1.cpp     vorkurs/lektion07/. > /dev/null
 	@cp files/arith2.cpp     vorkurs/lektion07/. > /dev/null
 	@cp files/arith3.cpp     vorkurs/lektion07/. > /dev/null
-	@cp files/debugger.cpp   vorkurs/lektion08/. > /dev/null
-	@cp files/arith4.cpp     vorkurs/lektion09/. > /dev/null
-	@cp files/if.cpp         vorkurs/lektion09/. > /dev/null
-	@cp files/prim.cpp       vorkurs/lektion11/. > /dev/null
-	@cp files/whiletrue.cpp  vorkurs/lektion11/. > /dev/null
+	@cp files/arith4.cpp     vorkurs/lektion08/. > /dev/null
+	@cp files/if.cpp         vorkurs/lektion08/. > /dev/null
+	@cp files/prim.cpp       vorkurs/lektion10/. > /dev/null
+	@cp files/whiletrue.cpp  vorkurs/lektion10/. > /dev/null
+	@cp files/debugger.cpp   vorkurs/lektion11/. > /dev/null
+    @cp files/faculty.cpp    vorkurs/lektion11/. > /dev/null
 	@cp files/fizzbuzz.cpp   vorkurs/lektion12/. > /dev/null
 	@cp files/funktion.cpp   vorkurs/lektion13/. > /dev/null
 	@cp files/namespaces.cpp vorkurs/lektion14/. > /dev/null
