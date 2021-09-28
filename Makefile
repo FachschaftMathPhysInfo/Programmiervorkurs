@@ -46,7 +46,7 @@ dir: files/*
 	@cp files/prim.cpp       vorkurs/lektion10/. > /dev/null
 	@cp files/whiletrue.cpp  vorkurs/lektion10/. > /dev/null
 	@cp files/debugger.cpp   vorkurs/lektion11/. > /dev/null
-    @cp files/faculty.cpp    vorkurs/lektion11/. > /dev/null
+	@cp files/faculty.cpp    vorkurs/lektion11/. > /dev/null
 	@cp files/fizzbuzz.cpp   vorkurs/lektion12/. > /dev/null
 	@cp files/funktion.cpp   vorkurs/lektion13/. > /dev/null
 	@cp files/namespaces.cpp vorkurs/lektion14/. > /dev/null
