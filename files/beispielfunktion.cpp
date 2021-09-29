@@ -1,5 +1,5 @@
 double my_func(double x, int n) {
-    int ergebnis = x;
+    double ergebnis = x;
     int i = 1;
     while (i <= n) {
 	ergebnis = ergebnis * x ;
