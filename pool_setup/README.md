@@ -1,16 +1,28 @@
 # Pool aufsetzen:
 
-Wie jedes Jahr steht bestimmt auch dieses Jahr wieder ein Programmiervorkurs an! :party:
+Wie jedes Jahr steht bestimmt auch dieses Jahr wieder ein Programmiervorkurs an! :partying_face:
+
 Damit bei diesem alles Rund läuft muss man diesen _im Vorraus_ zum Stattfinden des Kurses aufsetzten und den fertigen Setup mal testen, dann spart man sich viel Stress!
 
 ## Folgende Dateien müssen vor dem Ausführen bearbeitet werden:
 
+- Erzeugen des Skripts und der Dateien
+  ```
+  make nodir  # Lösche die alten Dateien
+  make zip    # Erzeuge die neuen Filestruktur & den Ordner "vorkurs"
+              # & Baue das Zipfile für die Webseite
+  make script # Baue das Skript "vorkurs.pdf"
+  ```
 - `site.yml`:
     - Pfad zum Skript
     - Pfad zu den Source Files
-    - SSH-Keys
+    - Die SSH-Keys der Tutoren
 - Die Configdateien in `./roles/pool-setup/files/` bei Bedarf!
 - Die Hostsdatei in `inventory/hosts.ini`, s.d. dort das vergebene Präfix und die Anzahl der Nutzer stimmt
+
+### Häufige Fehler
+
+- Inkompatible Toolchains verwenden. In [Issue #118](https://github.com/FachschaftMathPhysInfo/Programmiervorkurs/issues/118) ist der Fall aufgetreten, dass auf dem Pool eine weit ältere Compilerversion lief als auf dem Rechner, mit dem `make zip` ausgeführt wurde. Dadurch konnten das Objectfile in Lektion 17 nicht richtig gelinkt werden.
 
 ## Erstes Ausführen:
 
