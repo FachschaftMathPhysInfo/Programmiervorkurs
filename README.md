@@ -12,6 +12,7 @@ Das Makefile stellt die folgenden Befehle bereit:
 
     make all - Erstellt das Skript und räumt die temporären Dateien auf
     make vorkurs.pdf - Erstellt das Skript  
+    make folien - Erstellt die Folien für den Anfang und Ende des Kurses
     make clean - räumt mit allen temporären Dateien auf  
     make dir - erstellt das Vorkurs-Verzeichnis  
     make nodir - löscht das Vorkurs-Verzeichnis  

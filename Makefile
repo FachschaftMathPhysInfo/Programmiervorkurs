@@ -1,6 +1,5 @@
-.PHONY: all clean dir nodir zip
-	
 all: vorkurs.pdf clean
+.PHONY: all clean dir nodir zip folien
 
 title.pdf: title.tex
 	pdflatex title.tex
@@ -22,6 +21,9 @@ clean:
 	rm -rf _minted-vorkurs
 	rm -f title.aux
 	rm -f title.log
+
+folien:
+	make -C folien/ all
 
 # Die Dateien in "files" werden ins Skript eingebunden und müssen den Erstis
 # im Verzeichnis "vorkurs" zur Verfügung gestellt werden.
