@@ -14,6 +14,8 @@
 \RequirePackage{microtype}
 \RequirePackage{minted}
 \RequirePackage{needspace}
+\RequirePackage{csquotes}
+\RequirePackage{graphicx}
 
 %\setcounter{secnumdepth}{-1}
 \pagestyle{fancy}

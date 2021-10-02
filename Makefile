@@ -1,10 +1,9 @@
-all: vorkurs.pdf clean
-.PHONY: all clean dir nodir zip folien
+all: script clean
+.PHONY: all clean dir nodir zip folien script
 
-title.pdf: title.tex
-	pdflatex title.tex
+script: vorkurs.pdf
 
-vorkurs.pdf: title.pdf vorkurs.tex vorkurs.cls kapitel/* files/*
+vorkurs.pdf: title.tex vorkurs.tex vorkurs.cls kapitel/* files/*
 	pdflatex -shell-escape vorkurs.tex
 	pdflatex -shell-escape vorkurs.tex
 
