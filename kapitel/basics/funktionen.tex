@@ -1,9 +1,11 @@
 \lesson{Funktionen}
 \registerfile{funktion.cpp}
+\registerfile{beispielfunktion.cpp}
 
-Aus der Mathematik kennt ihr bereits Funktionen, wie zum Beispiel $f(x) = 4x^3 - 8x^2 + 16x - 12$.
-Eine wichtige Idee dahinter ist es einfach $f(3)$ zu schreiben, wenn man eigentlich $4 \cdot 3^3 - 8 \cdot 3^2 + 16 \cdot 3 - 12$ meint.
-Da dies häufig vorteilhaft ist, wurde diese Funktionalität in die meisten Programmiersprachen übernommen.
+Aus der Mathematik kennt ihr bereits Funktionen, wie zum Beispiel $f(x) = x^2$.
+Eine wichtige Idee dahinter ist es, einfach $f(2.5)$ zu schreiben, wenn man eigentlich $2.5^2$ meint.
+In diesem simplen Beispiel bilden wir einfach eine reelle Zahl ab und erhalten als Ergebnis wieder eine reelle Zahl.
+So ähnlich findet sich das Konzept von Funktionen auch in Programmiersprachen wie \Cpp wieder.
 
 Eine Funktion in \Cpp besteht aus zwei Teilen: der \emph{Signatur} und dem \emph{Funktionsrumpf}.
 Die Kombination von Parametertypen und Rückgabetyp bildet die Signatur einer Funktion.
@@ -17,27 +19,41 @@ Für eine Funktion \cppinline{my_func}, die  $x^n$ berechnen soll, könnte eine 
 \]
 %sorry etwas hässlich
 
-Diese Signatur besteht also aus einem Datentypen, der den Rückgabetypen der Funktion bestimmt, direkt gefolgt von dem Namen der Funktion, der beliebig gewählt werden kann.
-Und dahinter in Klammern werden die einzelnen Paramter durch Komma getrennt angeben, wobei ein Paramter immer aus dem Datentyp des Paramters und einem beliebigen Namen für den Paramter besteht.
+\begin{itemize}
+	\item Rückgabetyp: Bestimmt welchen Datentyp die Rückgabe der Funktion hat
+	\item Name: Ein frei wählbarer Name für die Funktion 
+	\item Parameter: Besteht aus dem Datentype des Parameters und dem beliebig wählbaren Parameternamen. \\Mehrere Parameter können angegeben werden, indem man diese durch Kommata voneinander trennt.
+\end{itemize}
+
 In diesem Fall ist also \texttt{double} der Rückgabewert, \cppinline{my_func} der Name, \cppinline{x} ein Parameter mit dem Typ \texttt{double} und \cppinline{n} ein Paramter mit dem Typ \texttt{int}.
 Damit können dann Werte an die Funktion in der Form \cppinline{my_func(1.41, 2)} übergeben werden.
 
-An dieser Stelle ist der Unterschied zwischen Rückgabe und Ausgabe wichtig: Eine Ausgabe (gekennzeichnet durch \cppinline{std::cout}) gibt Informationen auf dem Bildschirm für die Nutzerin aus, eine Rückgabe (gekennzeichnet durch \texttt{return}) gibt hingegen ein bestimmtes Ergebnis an einen anderen Teil des Programmes zurück, damit dieser dort in einer Variable gespeichert oder direkt weiter verarbeitet werden kann.
-Dabei kann man sich vorstellen, dass der Funktionsaufruf nach dem die Funktion ausgeführt wurde durch den Rückgabewert ersetzt wird.
-Dies könnte für die Funktion \cppinline{my_func} folendermaßen aussehen:
-
-\begin{center}
-	\cppinline{f(5.0 + f(3.0, 2), 3)} $\mapsto$ \cppinline{f(5.0 + 9.0, 3)} $\mapsto$ \cppinline{f(14.0, 3)} $\mapsto$ \cppinline{2744}
-\end{center}
-
+An dieser Stelle ist der Unterschied zwischen Rückgabe und Ausgabe wichtig: Eine Ausgabe (gekennzeichnet durch \cppinline{std::cout}) gibt Informationen auf dem Bildschirm für die Nutzerin aus, eine Rückgabe (gekennzeichnet durch \texttt{return}) gibt hingegen ein bestimmtes Ergebnis an einen anderen Teil des Programms zurück, damit dieser dort in einer Variable gespeichert oder direkt weiter verarbeitet werden kann.
 
 Der Funktionsrumpf beinhaltet den Code, der beim Funktionsaufruf tatsächlich ausgeführt wird.
 Dieser wird wie in einer Schleife von \mintinline{c++}|{| und \mintinline{c++}|}| umschlossen.
 Innerhalb dieser Klammern kann dann beliebiger Code ausgeführt werden, wie auch in der \texttt{main}-Funktion.
 Dabei kann auf die Parameter einfach mit dem in der Signatur definierten Namen zugegriffen werden.
 Also in unserem Beispiel mit \cppinline{x} und \cppinline{n}.
-Vor dem Ende des Funktionsrumpfes muss eine Rückgabe mit \texttt{return} ausgeführt werden.
-Das kann zum Beispiel so \texttt{return x;} oder so \texttt{return 5;} aussehen.
+Vor dem Ende des Funktionsrumpfes muss eine Rückgabe mit \texttt{return} ausgeführt werden.\\
+\newpage
+Eine Funktion, die $ x^n $ berechnet und ein paar mal aufgerufen wird, könnte dann wie folgt aussehen:
+
+\inputcpp{beispielfunktion.cpp}
+
+Unsere Funktion wird in diesem Beispiel 4-mal aufgerufen.
+Das erste mal werden konkrete Werte als Parameter übergeben.\\
+Beim zweiten Aufruf übergeben wir eine Variable, anstelle eines konkreten Werts.\\
+Und dann? In Zeile 14 rufen wir \cppinline{my_func} mit dem Ergebnis eines weiteren Funktionsaufrufs auf, ohne dieses zuerst in einer Variablen zwischenzuspeichern.
+Dabei kann man sich vorstellen, dass der Funktionsaufruf nach dem die Funktion ausgeführt wurde durch den Rückgabewert ersetzt wird.
+Dies könnte für die Funktion \cppinline{my_func} folgendermaßen aussehen:
+
+\begin{center}
+	\cppinline{f(5.0 + f(3.0, 2), 3)} $\mapsto$ \cppinline{f(5.0 + 9.0, 3)} $\mapsto$ \cppinline{f(14.0, 3)} $\mapsto$ \cppinline{2744}
+\end{center}
+
+
+
 
 Funktionen werden beispielsweise benötigt, wenn bestimmte Programmteile häufiger mit verschiedenen Parametern ausgeführt werden sollen.
 Die Collatz-Vermutung\footnote{\url{https://de.wikipedia.org/wiki/Collatz-Vermutung}} besagt für die Folge:
@@ -59,33 +75,42 @@ Wenn nun die Frage aufkommt was die nächsten Folgenglieder von verschiedenen Za
 
 \inputcpp{funktion.cpp}
 
-\begin{praxis}\footnote{In dieser Lektion gibt es ein paar mehr Aufgaben als in anderen Lektionen, lasst euch davon nicht entmutigen!}
-	\begin{enumerate}
-		\item Verändert das Programm in \texttt{funktion.cpp} so, dass es nicht die einzelnen Zahlen \texttt{x1}, \texttt{x2} und \texttt{x3}, sondern die Summe dieser ausgibt.
-		      %Wirkt wie Kinderkram nicht zum Funktionskapitel, möchte aber nochmal den Unterschied zwischen Ausgabe und Rückgabe dadurch nochmal klarer machen
-		\item Kompiliert das angepasste Programm und lasst es im debugger Schritt für Schritt durchlaufen, setzt dafür wieder einen breakpoint für die \texttt{main}-Funktion.
-		      Sobald der debugger euch anzeigt, als nächstes die Funktion ausführen zu wollen, \texttt{step} statt \texttt{next} aufrufen, sodass der debugger in die Funktion hineinspringt.
-		\item Schreibt eine Funktion die ein \texttt{double} entgegen nimmt und das Quadrat davon zurück gibt.
-		      (Hierbei sollt ihr keine Pakete wie \texttt{math.h} oder \texttt{cmath} benutzen.)
-	\end{enumerate}
-\end{praxis}
+\textbf{Praxis:}\footnote{In dieser Lektion gibt es ein paar mehr Aufgaben als in anderen Lektionen, lasst euch davon nicht entmutigen!}
+\begin{enumerate}
+	\item Verändert das Programm in \texttt{funktion.cpp} so, dass es nicht die einzelnen Zahlen \texttt{x1}, \texttt{x2} und \texttt{x3}, sondern die Summe dieser ausgibt.
+%Wirkt wie Kinderkram nicht zum Funktionskapitel, möchte aber nochmal den Unterschied zwischen Ausgabe und Rückgabe dadurch nochmal klarer machen
+	\item Kompiliert das angepasste Programm und lasst es im debugger Schritt für Schritt durchlaufen, setzt dafür wieder einen breakpoint für die \texttt{main}-Funktion.
+	    Sobald der debugger euch anzeigt, als nächstes die Funktion ausführen zu wollen, \texttt{step} statt \texttt{next} aufrufen, sodass der debugger in die Funktion hineinspringt.
+	\item Schreibt eine Funktion die ein \texttt{double} entgegen nimmt und das Quadrat davon zurück gibt.
+	(Hierbei sollt ihr keine Pakete wie \texttt{math.h} oder \texttt{cmath} benutzen.)
+\end{enumerate}
 
 \begin{spiel}
-	\begin{enumerate}
-		\item Schreibt eine Funktion (nach der Funktion \texttt{collatz} und vor \texttt{main}), die einen \texttt{int} entgegen nimmt und die Anzahl der Schritte bestimmt bis die Folge bei der 1 angekommen ist und diese als \texttt{int} zurückgibt.
-		      (Die Funktion sollte also die Signatur \cppinline{int schritte(int x)} haben.)
-		      Probiert die Funktion aus.
-		\item Versucht jetzt zwei Zahlen von der Nutzerin entgegen zu nehmen und vergleicht mithilfe von der gerade geschriebenen Funktion, welche Zahl mehr Schritte bis zur 1 braucht.
-		\item Was passiert, wenn ihr in einer Funktion den \texttt{return}-Ausdruck vor dem Ende eurer Funktion benutzt?
-		\item Vertauscht in \texttt{funktion.cpp} die Funktion \texttt{collatz} mit der Funktion \texttt{main} (verschiebt also die gesamte Funktion \texttt{collatz} an das Ende der Datei).
-		      Versucht, die Datei zu kompilieren.
-		      Was ist die Fehlermeldung des Compilers?
-		\item Verschiebt die Funktion \texttt{collatz} \emph{in} die \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften Klammern, aber vor die dazu gehörige schließende).
-		      Versucht, die Datei zu kompilieren. Was ist die Fehlermeldung des Compilers?
-		\item Implementiert die Funktion, die $x^n$ umsetzt, ignoriert dabei zunächst negative Exponenten. \\
-		      (Wie in Praxis 3, sollt ihr auch hier keine vorgefertigten Pakete benutzen. \emph{Tipp:} Die Signatur ist bereits oben gegeben, für den Funktionsrumpf könnten sich Schleifen eignen.)
-		\item Eure Funktion kann sich auch selbst aufrufen. Versucht damit eure Funktion auf negative Exponenten zu erweitern, indem ihr benutzt, dass gilt $x^{-n} = \Bigl(\frac{1.0}{x}\Bigr)^n$.
-		\item Schaut euch eure bisherigen Lösungen an.
-		      Findet ihr noch häufiger Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern könnt?
-	\end{enumerate}
+\begin{enumerate}
+	\item Schreibt eine Funktion (nach der Funktion \texttt{collatz} und vor \texttt{main}), die einen \texttt{int} entgegen nimmt und die Anzahl der Schritte bestimmt bis die Folge bei der 1 angekommen ist und diese als \texttt{int} zurückgibt.
+	(Die Funktion sollte also die Signatur \cppinline{int schritte(int x)} haben.)
+	Probiert die Funktion aus.
+	\item Versucht jetzt zwei Zahlen von der Nutzerin entgegen zu nehmen und vergleicht mithilfe von der gerade geschriebenen Funktion, welche Zahl mehr Schritte bis zur 1 braucht.
+    \item Was passiert, wenn ihr in einer Funktion den \texttt{return}-Ausdruck vor dem Ende eurer Funktion benutzt?
+    \item Vertauscht in \texttt{funktion.cpp} die Funktion \texttt{collatz} mit der Funktion \texttt{main} (verschiebt also die gesamte Funktion \texttt{collatz} an das Ende der Datei).
+        Versucht, die Datei zu kompilieren.
+        Was ist die Fehlermeldung des Compilers?
+    \item Verschiebt die Funktion \texttt{collatz} \emph{in} die \texttt{main}-Funktion (also irgendwo nach der öffnenden geschweiften Klammern, aber vor die dazu gehörige schließende).
+        Versucht, die Datei zu kompilieren. Was ist die Fehlermeldung des Compilers?
+    \item Implementiert die Funktion, die $x^n$ umsetzt, ignoriert dabei zunächst negative Exponenten. \\
+        (Wie in Praxis 3, sollt ihr auch hier keine vorgefertigten Pakete benutzen. \emph{Tipp:} Die Signatur ist bereits oben gegeben, für den Funktionsrumpf könnten sich Schleifen eignen.)
+    \item Eure Funktion kann sich auch selbst aufrufen. Versucht damit eure Funktion auf negative Exponenten zu erweitern, indem ihr benutzt, dass gilt $x^{-n} = \Bigl(\frac{1.0}{x}\Bigr)^n$.
+    \item Schaut euch eure bisherigen Lösungen an.
+        Findet ihr noch häufiger Stellen, an denen ihr einzelne Teilprogramme in Funktionen auslagern könnt?
+\end{enumerate}
 \end{spiel}
+
+\textbf{Quiz 13}\\
+\textit{Welche Aussagen sind korrekt?}
+\begin{enumerate}[label=\alph*)]
+    \item Unabhängig von den Parametern geben Funktionen immer den gleichen Wert zurück
+    \item Rückgaben einer Funktion müssen erst in einer Variable gespeichert werden, bevor sie weiterverwendet werden
+    \item Der Rückgabetyp muss mit einem der Parametertypen übereinstimmen
+    \item Eine Funktion kann beliebig viele Parameter haben
+\end{enumerate}
+

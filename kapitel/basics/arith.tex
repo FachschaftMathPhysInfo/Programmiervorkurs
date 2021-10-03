@@ -9,7 +9,7 @@ aber wir wollen auch rechnen können, wir brauchen also mehr Typen für
 Variablen.
 
 \Cpp unterstützt eine Unmenge an Datentypen und hat auch die Möglichkeit,
-eigene zu definieren. Wir wollen uns hier nur mit den Wichtigsten beschäftigen.
+eigene zu definieren. Wir wollen uns hier nur mit den wichtigsten beschäftigen.
 
 Fangen wir mit dem wohl meist genutzten Datentyp an: Einem \texttt{int}, oder
 \texttt{integer}. Dieser speichert eine ganze Zahl (mit bestimmten Grenzen, an
@@ -67,15 +67,25 @@ diesem:
 \end{praxis}
 
 \begin{spiel}
-    \begin{enumerate}
-        \item Findet heraus, was die größte positive (und was die kleinste
-              negative) Zahl ist, die ihr in einem \texttt{int} speichern könnt.
-              Faulpelze nutzen Google, Lernbegierige versuchen sie experimentell zu
-              ermitteln. Was passiert, wenn ihr eine größere Zahl eingebt?
-        \item Wir arbeiten bisher nur mit \texttt{int}s für ganze Zahlen. Wenn  wir mit gebrochenen Zahlen rechnen wollen brauchen wir den Datentyp
-              \texttt{double}. Schreibt euer Mini Rechenprogramm so um, dass es statt
-              \texttt{int}s nur noch \texttt{double} benutzt und probiert es aus.
-              Achtet darauf, dass es Dezimalpunkte und Dezimalkommata gibt, wenn ihr
-              überraschende Ergebnisse erhaltet.
-    \end{enumerate}
+\begin{enumerate}
+    \item Findet heraus, was die größte positive (und was die kleinste
+        negative) Zahl ist, die ihr in einem \texttt{int} speichern könnt.
+        Faulpelze nutzen Google, Lernbegierige versuchen sie experimentell zu
+        ermitteln. Was passiert, wenn ihr eine größere Zahl eingebt?
+    \item Wir arbeiten bisher nur mit \texttt{int}s für ganze Zahlen. Wenn wir
+        mit gebrochenen Zahlen rechnen wollen brauchen wir den Datentyp
+        \texttt{double}. Schreibt euer Mini Rechenprogramm so um, dass es statt
+        \texttt{int}s nur noch \texttt{double} benutzt und probiert es aus.
+        Achtet darauf, dass es Dezimalpunkte und Dezimalkommata gibt, wenn ihr
+        überraschende Ergebnisse erhaltet.
+\end{enumerate}
 \end{spiel}
+
+\textbf{Quiz 7}\\
+\textit{Was passiert, wenn ihr \texttt{int} verwendet, aber eine Kommazahl eingebt?}
+\begin{enumerate}[label=\alph*)]
+    \item Alles hinter dem Komma wird abgeschnitten
+    \item Es tritt ein Fehler auf
+    \item Das Programm kompiliert nicht
+    \item statt \texttt{int} wird automatisch \texttt{double} genommen
+\end{enumerate}
