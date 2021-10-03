@@ -24,11 +24,11 @@ Die Datei `vorkurs.tex` enthält die grundlegenden Paket- und
 Befehlsdefinitionen sowie das Vorwort des Skripts. Die Datei `vorkurs.cls`
 enthält die zugrundeliegende Klasse für das Dokument.
 
-Im Ordner `basics` liegen die Texte für die einzelnen Lektionen. Diese werden
-in der Datei `intro.tex` eingebunden.
+Im Ordner `kapitel` liegen die Texte für die einzelnen Lektionen aufgeteilt in die jeweiligen Kapitel `basics`und `classes`.
+Diese werden jeweils in den Dateien `intro.tex` eingebunden.
 
-Im Ordner `files` liegen die cpp-Dateien, die zum einen ins Skript eingebunden
-werden, zum anderen genutzt werden um den `vorkurs`-Ordner anzulegen.
+Im Ordner `files` liegen die cpp-Dateien ebenfalls auch in die beiden Kapitel aufgeteilt.
+Die Dateien werden zum einen ins Skript eingebunden und zum anderen genutzt werden um den `vorkurs`-Ordner anzulegen.
 
 Folien
 ------
