@@ -13,7 +13,7 @@ jobs:
             apk add make
             apk add g++
             apk add zip
-            make vorkurs.pdf zip
+            make script zip
       - uses: actions/upload-artifact@v2
         with:
           name: PDF
