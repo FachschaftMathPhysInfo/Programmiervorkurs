@@ -1,4 +1,8 @@
 \lesson{Tic Tac Toe -- Teil 2}
+% only few compilations are needed, write these by hand
+\immediate\write\makefile{\mytab @g++ -c -o vorkurs/\dirname/lektion\twodigit{section}/frage_feld_nummer.o files/\dirname/ttt_closed/frage_feld_nummer.cpp}
+\immediate\write\makefile{\mytab @g++ -c -o vorkurs/\dirname/lektion\twodigit{section}/gewinnerin.o files/\dirname/ttt_closed/gewinnerin.cpp}
+\immediate\write\makefile{\mytab @g++ -c -o vorkurs/\dirname/lektion\twodigit{section}/gebe_feld_aus.o files/\dirname/ttt_closed/gebe_feld_aus.cpp}
 
 Dies ist die letzte Lektion des ersten Kapitels. In der vorletzten Lektion
 haben wir die grobe Struktur eines Tic Tac Toe Spiels implementiert, dafür
