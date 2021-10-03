@@ -1,0 +1,4 @@
+---
+# defaults file for pool-setup
+ssh_config_dir: ".ssh/"
+skript_remote_name: "vorkurs.pdf"

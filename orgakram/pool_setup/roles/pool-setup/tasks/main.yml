@@ -1,0 +1,60 @@
+---
+# tasks file for pool-setup
+
+- name: erstelle diverse ordner im homeverzeichnis
+  ansible.builtin.file:
+    path: "{{ (ansible_user_dir, item) | path_join }}"
+    state: directory
+  with_items:
+    - "{{ ssh_config_dir }}"
+    - "Desktop"
+    - ".config/dconf"
+    - ".config/xfce4/terminal"
+
+- name: trage die public keys ein
+  ansible.posix.authorized_key:
+    user: "{{ ansible_user }}"
+    state: present
+    key: '{{ item }}'
+  with_items: "{{ ssh_keys_tutoren }}"
+
+- name: kopiere das Programmiervorkursskript
+  copy:
+    src: "{{ programmiervorkursskript }}"
+    dest: "{{ (ansible_user_dir, skript_remote_name) | path_join }}"
+
+- name: kopiere die Quelldateien für die Programmierdinge (dauert ein Weilchen ...)
+  copy:
+    src: "{{ programmordner }}"
+    dest: "{{ ansible_user_dir }}"
+
+- name: verlinke beides auch auf den Desktop
+  ansible.builtin.file:
+    src: "{{ (ansible_user_dir, item) | path_join }}"
+    dest: "{{ (ansible_user_dir, 'Desktop', item) | path_join }}"
+    state: link
+    force: yes
+  with_items:
+    - "vorkurs"
+    - "vorkurs.pdf"
+
+- name: kopiere die MimeApps Liste (Standardanwendungen)
+  ansible.builtin.copy:
+    src: "mimeapps.list"
+    dest: "{{ (ansible_user_dir, '.config/mimeapps.list') | path_join }}"
+
+- name: kopiere die Dconf Einstellung
+  ansible.builtin.copy:
+    src: "user"
+    dest: "{{ (ansible_user_dir, '.config/dconf/user') | path_join }}"
+
+- name: setzte den compiler alias
+  lineinfile:
+    path: "{{ (ansible_user_dir, '.bashrc') | path_join }}"
+    line: "alias g++=\"g++ -std=c++17\""
+    create: yes
+
+- name: kopiere die Terminaleinstellungen
+  ansible.builtin.copy:
+    src: "terminalrc"
+    dest: "{{ (ansible_user_dir, '.config/xfce4/terminal/terminalrc') | path_join }}"

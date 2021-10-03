@@ -67,7 +67,7 @@ Wiederum sagt uns die erste Zeile, in welcher Datei und Funktion der Fehler
 aufgetreten ist. Die zweite Zeile sagt uns wo, nämlich in Zeile 5, direkt am
 Anfang. Die Beschwerde des Compilers ist, dass er ein Semikolon erwartet hat,
 aber eine geschlossene geschweifte Klammer gefunden hat. Der Grund dafür ist,
-dass in \Cpp erwartet wird, dass jede Anweisung mit einem Semikolon abgeslossen
+dass in \Cpp erwartet wird, dass jede Anweisung mit einem Semikolon abgeschlossen
 wird.  Wenn ihr euch die bisherigen Quellcodedateien anschaut, werdet ihr
 feststellen, dass hinter den allermeisten Zeilen ein solches Semikolon steht.
 Hier fehlt es allerdings nach der Ausgabe in Zeile 4. Sobald wir es hinzufügen,
@@ -81,31 +81,38 @@ der richtigen Zeilennummer nachschlagt, aber nicht wisst, wo dort der Fehler
 sein sollte, schaut vielleicht mal ein oder zwei Zeilen darüber, vielleicht
 wusste der Compiler es einfach nicht besser.
 
-\begin{praxis}
-    \begin{enumerate}
-        \item Versucht, folgende Dateien zu kompilieren und schaut euch die
-              Fehlermeldung an. In welcher Zeile, in welcher Spalte liegt der Fehler?
-              Was gibt euch der Compiler als Fehlermeldung aus?
-        \item Versucht, die aufgetretenen Fehler zu korrigieren. Bekommt ihr es
-              hin, dass der Compiler sich nicht mehr beschwert und das Programm
-              korrekt arbeitet (schaut euch ggf. die bisher gezeigten Quellcodes an)?
-    \end{enumerate}
+\textbf{Praxis:}
+\begin{enumerate}
+    \item Versucht, folgende Dateien zu kompilieren und schaut euch die
+        Fehlermeldung an. In welcher Zeile, in welcher Spalte liegt der Fehler?
+        Was gibt euch der Compiler als Fehlermeldung aus?
+    \item Versucht, die aufgetretenen Fehler zu korrigieren. Bekommt ihr es
+        hin, dass der Compiler sich nicht mehr beschwert und das Programm
+        korrekt arbeitet (schaut euch ggf. die bisher gezeigten Quellcodes an)?
+\end{enumerate}
 
-    \inputcpp{fehler3.cpp}
-
-    \inputcpp{fehler4.cpp}
-\end{praxis}
+\inputcpp{fehler3.cpp}
+\inputcpp{fehler4.cpp}
 
 \begin{spiel}
-    \begin{enumerate}
-        \item Das folgende Programm enthält mehrere Fehler. Bekommt ihr trotzdem
-              raus, welche das sind und könnt ihr sie beheben (Tipp: „c++ math“ zu
-              \href{http://lmgtfy.com/?q=c\%2B\%2B+math}{googlen} kann euch hier vielleicht weiter bringen)?
-        \item Wenn ihr in den Vergangen Lektionen ein bisschen gespielt habt und
-              vereinzelnd versucht habt, Dinge zu löschen, Werden euch viele
-              Fehlermeldungen begegnet sein, versucht, diese zu lesen und
-              interpretieren, was euch der compiler hier sagen will.
-    \end{enumerate}
-
-    \inputcpp{fehler5.cpp}
+\begin{enumerate}
+    \item Das folgende Programm enthält mehrere Fehler. Bekommt ihr trotzdem
+        raus, welche das sind und könnt ihr sie beheben (Tipp: „c++ math“ zu
+        \href{http://lmgtfy.com/?q=c\%2B\%2B+math}{googlen} kann euch hier vielleicht weiter bringen)?
+    \item Wenn ihr in den vergangenen Lektionen ein bisschen gespielt habt und
+        vereinzelt versucht habt, Dinge zu löschen, werden euch viele
+        Fehlermeldungen begegnet sein, versucht, diese zu lesen und
+        interpretiert, was euch der compiler hier sagen will.
+\end{enumerate}
 \end{spiel}
+
+\inputcpp{fehler5.cpp}
+
+\textbf{Quiz 4}\\
+\textit{Was hiervon sind Fehler, die dazu führen, dass eine Datei nicht kompiliert werden kann?}
+\begin{enumerate}[label=\alph*)]
+    \item Semikolon vergessen
+    \item include vergessen
+    \item return vergessen
+    \item Einrückung falsch
+\end{enumerate}
