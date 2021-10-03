@@ -3,7 +3,7 @@ all: script clean
 
 script: vorkurs.pdf
 
-vorkurs.pdf: title.tex vorkurs.tex vorkurs.cls kapitel/* files/*
+vorkurs.pdf: vorkurs.tex vorkurs.cls kapitel/* files/*
 	pdflatex -shell-escape vorkurs.tex
 	@echo "Running second time silently"
 	pdflatex -shell-escape vorkurs.tex > /dev/null
