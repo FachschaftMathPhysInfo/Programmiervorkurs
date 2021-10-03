@@ -8,7 +8,6 @@
 \usetikzlibrary{arrows,decorations.pathmorphing,decorations.footprints,fadings,calc,trees,mindmap,shadows,decorations.text,patterns,positioning,shapes,matrix,fit}
 \usepackage{enumitem}
 \usepackage{url}
-\usepackage{pdfpages}
 \usepackage{amssymb}
 \usepackage[
     pdftex,
@@ -34,7 +33,7 @@
 \begin{document}
 
 % Titelseite
-\includepdf{title.pdf}
+\maketitle
 
 % Präambel
 
@@ -165,7 +164,7 @@ nicht auf eurer Bewerbung angeben - für wen hetzt ihr euch also ab?
 
 \tableofcontents
 
-\input{basics/intro.tex}
-\input{classes/intro.tex}
+\input{kapitel/basics/intro.tex}
+\input{kapitel/classes/intro.tex}
 
 \end{document}

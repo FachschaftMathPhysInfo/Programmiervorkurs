@@ -1,4 +1,7 @@
-\lesson{Tic Tac Toe - Teil 1}
+\lesson{Tic Tac Toe -- Teil 1}
+\registerfile{tictactoe.cpp}
+% only few compilations are needed, write these by hand
+\immediate\write\makefile{\mytab @g++ -c -o vorkurs/\dirname/lektion\twodigit{section}/tictactoe.o files/\dirname/ttt_closed/tictactoe.cpp}
 
 Nachdem wir jetzt lange dröge und unspannende Lektionen und Beispiele hatten, wollen wir uns als Ende von
 Kapitel 1 einer ein wenig spannenderen Aufgabe widmen -- wir wollen ein
@@ -6,7 +9,7 @@ einfaches Spiel programmieren. Wir haben dazu Tic Tac Toe ausgewählt, da es
 relativ überschaubare Spiellogik besitzt. Ein- und Ausgabe, werden wir über die
 Konsole machen.
 
-In \texttt{vorkurs/lektion17} findet ihr eine Datei \texttt{tictactoe.o}. Diese
+In \texttt{vorkurs/basics/lektion17} findet ihr eine Datei \texttt{tictactoe.o}. Diese
 könnt ihr nicht in eurem Editor öffnen -- sie enthält von uns bereitgestellte,
 bereits vorkompilierte Funktionen, die ihr nutzen könnt, um einen Anfang zu
 haben. Wir werden sie später Stück für Stück ersetzen.

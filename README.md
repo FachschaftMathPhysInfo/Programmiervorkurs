@@ -10,9 +10,11 @@ Makefile
 
 Das Makefile stellt die folgenden Befehle bereit:
 
+    make all - Erstellt das Skript und räumt die temporären Dateien auf
     make script - Erstellt das Skript  
+    make folien - Erstellt die Folien für den Anfang und Ende des Kurses
     make clean - räumt mit allen temporären Dateien auf  
-    make dir - erstellt das Vorkurs-Verzeichnis  
+    make dir - erstellt das Vorkurs-Verzeichnis  (Skript wird gegebenenfalls vorher erstellt)
     make nodir - löscht das Vorkurs-Verzeichnis  
     make zip - erstellt ein zip-file um es online zu stellen  
 
@@ -22,11 +24,11 @@ Die Datei `vorkurs.tex` enthält die grundlegenden Paket- und
 Befehlsdefinitionen sowie das Vorwort des Skripts. Die Datei `vorkurs.cls`
 enthält die zugrundeliegende Klasse für das Dokument.
 
-Im Ordner `basics` liegen die Texte für die einzelnen Lektionen. Diese werden
-in der Datei `intro.tex` eingebunden.
+Im Ordner `kapitel` liegen die Texte für die einzelnen Lektionen aufgeteilt in die jeweiligen Kapitel `basics`und `classes`.
+Diese werden jeweils in den Dateien `intro.tex` eingebunden.
 
-Im Ordner `files` liegen die cpp-Dateien, die zum einen ins Skript eingebunden
-werden, zum anderen genutzt werden um den `vorkurs`-Ordner anzulegen.
+Im Ordner `files` liegen die cpp-Dateien ebenfalls auch in die beiden Kapitel aufgeteilt.
+Die Dateien werden zum einen ins Skript eingebunden und zum anderen genutzt werden um den `vorkurs`-Ordner anzulegen.
 
 Folien
 ------

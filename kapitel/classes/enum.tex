@@ -1,0 +1,47 @@
+\lesson{Enums}
+\registerfile{runden.cpp}
+\registerfile{runden2.cpp}
+
+Wir wollen jetzt mit unserem ersten eigenen Datentyp anfangen.
+Die einfachste Kategorie von Datentypen sind \emph{Enums}.
+Um einem Enum zu definieren, geben wir einfach alle möglichen Werte explizit an.
+Im Program können wir dann die möglichen Werte wie konstante Begriffe verwenden.
+Zum Beispiel könnten wir einen Enum \enquote{Frucht} definieren, der aus den möglichen Werten \enquote{Apfel}, \enquote{Birne} und \enquote{Banane} besteht.
+Wenn wir dann eine Variable mit unserem neuen Enum-Typen haben, ist dieser Variable einer dieser drei Werte zugeordnet.
+
+Sinnvoll wird das natürlich erst, wenn wir damit einen bestimmten Zweck verfolgen.
+In diesem Fall bietet es sich dafür an, in einem Programm verschiedene Fälle zu unterscheiden.
+Ein Beispiel bei dem wir zwischen verschiedenen Fällen unterscheiden wollen, ist das Runden von reellen Zahlen.
+Dort können wir beispielsweise kaufmännnisch Runden und Auf- oder Abrunden.
+Mit unseren bisherigen Mitteln könnten wir das lösen, indem wir jeder Möglichkeit eine Nummer zuweisen und dann mit \cppinline{if} und \cppinline{else} die richtige Rechnung durchführen.
+Das könnte dann beispielsweise so aussehen:
+
+\inputcpp{runden.cpp}
+
+Das ist eine sehr fehleranfällige Art, dieses Problem zu lösen.
+Eine andere Programmiererin weiß zum Beispiel nicht -- ohne den Code genau anzuschauen -- welcher \cppinline{mode} was tut und wie viele überhaupt existieren.
+Dies kann zu unnötigen Fehlern führen, wie man beim letzten Aufruf von \cppinline{runden} sieht.
+Natürlich könnte man für den \emph{mode} auch den Typ \cppinline{std::string} wählen, diese verbrauchen aber sehr viel Platz und sind damit völlige Verschwendung für diese Aufgabe.
+Besser lässt sich das mit einem Enum lösen:
+
+\inputcpp{runden2.cpp}
+
+In den geschweiften Klammer wird angegeben, welche Zustände der Datentyp annehmen kann.
+Im restlichen Code können dann einfach die möglichen Zustände wie echte Worte benutzt werden.
+
+Das Wort enum kommt vom englischen \enquote{enumerate} was so viel wie \enquote{aufzählen} bedeutet.
+Und das ist auch was der Compiler intern macht:
+Alle möglichen Werte von 0 beginnend durchnummeriert, wenn man einem bestimmten Zustand eine feste Zahl zuweisen will, kann man das mit einem \cppinline{=}-Zeichen machen.
+Dafür schreibt man einfach \cppinline{kaufmaennisch=5} und schon ist \cppinline{kaufmaennisch} intern durch die 5 repräsentiert.
+Das kann dafür benutzt werden, um Enums zu \cppinline{int}s umzuwandeln und andersrum, das funktioniert so
+\begin{center}
+    \cppinline{int x = (int) mode;} \qquad oder so \qquad \cppinline{Runden mode = (Runden) x;}   
+\end{center}
+Meistens ist es jedoch -- wie auch in unserem Beispiel -- unwichtig.
+
+\begin{praxis}
+    \begin{enumerate}
+        \item Erweitere \texttt{runden2.cpp} so, dass auch negative Eingaben richtig gerundet werden. Bei Abrunden sollte die Eingabe -1.4 also auf 2 und bei Aufrunden auf 1 gerundet werden.
+        \item Füge zwei weitere modes hinzu, die jeweils zur Null und von der Null weg runden.
+    \end{enumerate}
+\end{praxis}

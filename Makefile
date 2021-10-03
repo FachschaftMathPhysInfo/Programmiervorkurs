@@ -1,12 +1,14 @@
-
 all: script clean
+.PHONY: all clean dir nodir zip folien script
 
-title: title.tex
-	pdflatex title.tex
+script: vorkurs.pdf
 
-script: title vorkurs.tex vorkurs.cls
+vorkurs.pdf: vorkurs.tex vorkurs.cls kapitel/* files/*
 	pdflatex -shell-escape vorkurs.tex
-	pdflatex -shell-escape vorkurs.tex
+	@echo "Running second time silently"
+	pdflatex -shell-escape vorkurs.tex > /dev/null
+
+helper.mk: vorkurs.pdf
 
 clean:
 	rm -f vorkurs.aux
@@ -14,56 +16,27 @@ clean:
 	rm -f vorkurs.out
 	rm -f vorkurs.pyg
 	rm -f vorkurs.toc
-	rm -f basics/*.aux
-	rm -f basics/*.log
-	rm -f classes/*.aux
-	rm -f classes/*.log
+	rm -f kapitel/basics/*.aux
+	rm -f kapitel/basics/*.log
+	rm -f kapitel/classes/*.aux
+	rm -f kapitel/classes/*.log
 	rm -rf _minted-vorkurs
 	rm -f title.aux
 	rm -f title.log
 
+folien:
+	make -C folien/ all
+
 # Die Dateien in "files" werden ins Skript eingebunden und müssen den Erstis
 # im Verzeichnis "vorkurs" zur Verfügung gestellt werden.
-# Diese Aufgabe übernimmt "make dir".
-dir: files/*
-	@echo "Verzeichnis erstellen…"
-	@mkdir vorkurs > /dev/null
-	@for i in $(shell seq -w 1 19); do mkdir vorkurs/lektion$$i; done;
-	@echo "Dateien kopieren…"
-	@cp files/helloworld.cpp vorkurs/lektion01/. > /dev/null
-	@cp files/helloyou.cpp   vorkurs/lektion03/. > /dev/null
-	@cp files/fehler1.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/fehler2.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/fehler3.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/fehler4.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/fehler5.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/variablen.cpp  vorkurs/lektion05/. > /dev/null
-	@cp files/arith1.cpp     vorkurs/lektion07/. > /dev/null
-	@cp files/arith2.cpp     vorkurs/lektion07/. > /dev/null
-	@cp files/arith3.cpp     vorkurs/lektion07/. > /dev/null
-	@cp files/arith4.cpp     vorkurs/lektion08/. > /dev/null
-	@cp files/if.cpp         vorkurs/lektion08/. > /dev/null
-	@cp files/prim.cpp       vorkurs/lektion10/. > /dev/null
-	@cp files/whiletrue.cpp  vorkurs/lektion10/. > /dev/null
-	@cp files/debugger.cpp   vorkurs/lektion11/. > /dev/null
-	@cp files/faculty.cpp    vorkurs/lektion11/. > /dev/null
-	@cp files/fizzbuzz.cpp   vorkurs/lektion12/. > /dev/null
-	@cp files/funktion.cpp   vorkurs/lektion13/. > /dev/null
-	@cp files/namespaces.cpp vorkurs/lektion14/. > /dev/null
-	@cp files/vector.cpp     vorkurs/lektion15/. > /dev/null
-	@cp files/warnings.cpp   vorkurs/lektion16/. > /dev/null
-	@cp files/warnprim.cpp   vorkurs/lektion16/. > /dev/null
-	@cp files/tictactoe.cpp  vorkurs/lektion17/. > /dev/null
-	@cp files/assemble.cpp   vorkurs/lektion18/. > /dev/null
-	@echo "TTT-Dateien kompilieren…"
-	@g++ -c -o vorkurs/lektion17/tictactoe.o files/ttt_closed/tictactoe.cpp > /dev/null
-	@g++ -c -o vorkurs/lektion19/frage_feld_nummer.o files/ttt_closed/frage_feld_nummer.cpp > /dev/null
-	@g++ -c -o vorkurs/lektion19/gewinnerin.o files/ttt_closed/gewinnerin.cpp > /dev/null
-	@g++ -c -o vorkurs/lektion19/gebe_feld_aus.o files/ttt_closed/gebe_feld_aus.cpp > /dev/null
-	@echo "Vorkurs-Verzeichnis erstellt."
+# Diese Aufgabe übernimmt "make dir" in `helper.mk`.
+# `helper.mk` wird automatisch beim kompilieren des Skriptes erstellt,
+# damit die Dateien immer im richtigen Ordner landen.
+dir: helper.mk
+	make -f helper.mk dir
 	@echo "Wenn du das Verzeichnis überall hin kopiert hast, nutze "make nodir", um sicherzustellen, dass das Skript nächstes Jahr wieder funktioniert"
 
-nodir: vorkurs
+nodir:
 	@echo "Verzeichnis wird entfernt…"
 	@rm -rf vorkurs > /dev/null
 	@echo "Verzeichnis erfolgreich entfernt"
