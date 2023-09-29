@@ -7,7 +7,7 @@
 
 - name: kopiere das skript
   copy:
-    src: "{{ programmiervorkursskript }}/vorkurs.pdf"
+    src: "{{ programmordner }}/vorkurs.pdf"
     dest: /var/www/static/vorkurs/programmier
     group: users
 
