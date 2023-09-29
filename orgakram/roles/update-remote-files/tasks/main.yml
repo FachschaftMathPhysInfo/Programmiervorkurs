@@ -1,12 +1,18 @@
 ---
 - name: kopiere vorkurs cpp dateien
   copy:
-    src: "{{ programmordner }}/"
+    src: "{{ programmordner }}/vorkurs/"
     dest: /var/www/static/vorkurs/programmier/vorkurs
     group: users
 
 - name: kopiere das skript
   copy:
-    src: "{{ programmiervorkursskript }}"
+    src: "{{ programmiervorkursskript }}/vorkurs.pdf"
+    dest: /var/www/static/vorkurs/programmier
+    group: users
+
+- name: kopiere vorkurs.zip
+  copy:
+    src: "{{ programmordner }}/vorkurs.zip"
     dest: /var/www/static/vorkurs/programmier
     group: users
