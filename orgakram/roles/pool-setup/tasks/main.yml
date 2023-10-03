@@ -20,12 +20,12 @@
 
 - name: kopiere das Programmiervorkursskript
   copy:
-    src: "{{ programmiervorkursskript }}"
+    src: "{{ programmordner }}/vorkurs.pdf"
     dest: "{{ (ansible_user_dir, skript_remote_name) | path_join }}"
 
 - name: kopiere die Quelldateien für die Programmierdinge (dauert ein Weilchen ...)
   copy:
-    src: "{{ programmordner }}"
+    src: "{{ programmordner }}/vorkurs"
     dest: "{{ ansible_user_dir }}"
 
 - name: verlinke beides auch auf den Desktop

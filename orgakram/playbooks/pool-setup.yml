@@ -1,0 +1,4 @@
+---
+- hosts: poolrechner
+  roles:
+    - pool-setup
