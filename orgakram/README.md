@@ -16,7 +16,7 @@ Damit bei diesem alles Rund läuft muss man diesen _im Vorraus_ zum Stattfinden 
 - `group_vars/all.yml`:
     - Pfad zu den Source Files und SSH-Keys der Tutoren in `./group_vars/all.yml`
 - Die Configdateien in `./roles/pool-setup/files/` bei Bedarf!
-- Die Hostsdatei in `inventory/hosts.ini`, s.d. dort das vergebene Präfix und die Anzahl der Nutzer stimmt
+- Die Hostsdatei `hosts.ini`, s.d. dort das vergebene Präfix und die Anzahl der Nutzer stimmt
 
 ### Häufige Fehler
 
