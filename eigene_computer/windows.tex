@@ -11,10 +11,10 @@ In dieser werden wir dann die nötigen Tools installieren.
 	\item Das System startet danach einen Download, diesen durchlaufen lassen, und anschließend den PC neu starten.
 	\item Nach dem Neustart kann in den Programmen „Ubuntu“ gestartet werden. 
 		Wenn ihr an dieser Stelle „Ubuntu“ nicht auswählen könnt, dann ist die Installation unter Umständen noch nicht fertig.
-		Startet in diesem Fall die PowerShell erneut als Administrator und führt erneut \texttt{wsl -{}-install -d ubuntu} aus.
+		Startet in diesem Fall die PowerShell erneut als Administrator und führt erneut \texttt{wsl -{}-install} aus.
 	\item In dem erscheinenden Terminal wird zunächst um die Erstellung eines neuen Nutzers für die Linux-Umgebung gebeten. 
 		Hierbei könnt ihr Nutzername und Passwort frei wählen. Bitte notiert euch diese, da ihr sie noch braucht.\\
-		Hinweis zum setzen des Passworts: Anders als bei Windows werden hier bei der Eingabe keine Sternchen, oder ähnliche Symbole erscheinen, die als Platzhalter für bereits eingegebene Symbole erscheinen. 
+		\textbf{Hinweis zum setzen des Passworts:} Anders als bei Windows werden hier bei der Eingabe keine Sternchen, oder ähnliche Symbole erscheinen, die als Platzhalter für bereits eingegebene Symbole erscheinen. 
 		Das Passwort muss also „blind“ eingegeben werden. Um hier ein eventuelles Vertippen auszuschließen, muss das Passwort nach der ersten Eingabe erneut bestätigt werden.
 	\item Bevor ihr neue Tools installiert, solltet ihr euer System updaten. Gebt dazu ins Terminal folgende Befehle ein: \texttt{sudo apt update} und danach \texttt{sudo apt upgrade}. Im Allgemeinen empfiehlt es sich, diese Befehle im regelmäßigen Abstand auszuführen um euer System aktuell zu halten. Ihr werdet hier eventuell nach einem Passwort gefragt, ihr müsst hier das eben von euch gesetzte verwenden.
 	\item Im Anschluss müssen im Terminal mittels \texttt{sudo apt install gdb g++ unzip -y} die nötigen Tools installiert werden. 
