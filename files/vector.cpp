@@ -16,7 +16,7 @@ int main() {
     std::cout << "An Index 99 steht " << einvector[99] << std::endl;
 
     // und nun alle werte auf 42 setzen ;-)
-    i = 0;
+    int i = 0;
     while (i < einvector.size()) {
         einvector[i] = 42;
         i = i + 1;
