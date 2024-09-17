@@ -13,7 +13,6 @@ int main() {
         return 1;
     }
 
-    int i = 2;
     bool hat_teiler = false;
     // Äquivaltent zu while (i < n)
     for (int i = 2; i < n; i++) {
