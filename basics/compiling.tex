@@ -1,4 +1,4 @@
-\lesson{Compiler, Assembler, Linker}
+\lesson{Preprocessing, Compiler, Assembler, Linker}
 
 In der letzten Lektion klang es bereits an -- was der Befehl \texttt{g++}
 eigentlich tut, ist mehr, als nur Kompilieren im strengen Sinne des Wortes. Wir
@@ -11,8 +11,10 @@ vollständig verstehen.
 In Lektion 1 haben wir vereinfacht dargestellt, dass der Compiler eine
 Quelltextdatei mit der Endung \texttt{.cpp} nimmt und daraus direkt eine
 ausführbare Datei erstellt. Die Schritte, die hier eigentlich in einem Befehl
-durchgeführt werden, aber zu trennen sind, sind das \emph{Kompilieren}, das
+durchgeführt werden, aber zu trennen sind, sind das \emph{Preprocessing}, das \emph{Kompilieren}, das
 \emph{Assemblieren} und das \emph{Linken}.
+
+Beim Preprocessing werden alle \texttt{\#include}-Anweisungen aufgelöst und so etwas wie Makros ersetzt. Das ist der erste Schritt, der passiert, wenn wir \texttt{g++} aufrufen. Das Ergebnis des Preprocessings ist ein \Cpp-Programm, das nur noch die \Cpp-Features enthält, die wir auch wirklich benutzen. Das ist der Grund, warum wir in den bisherigen Lektionen immer \texttt{g++ -o helloworld helloworld.cpp} benutzt haben, obwohl wir in \texttt{helloworld.cpp} auch \texttt{\#include <iostream>} stehen haben -- der Compiler hat das schon für uns erledigt.
 
 Das Kompilieren übersetzt unseren \Cpp-Code in eine Zwischenform, so genannten
 \emph{Assembler}. In Lektion 1 haben wir den Maschinencode angesprochen, in der

@@ -39,10 +39,7 @@ Vereinfacht sieht der Prozess zur Programmerstellung also wie folgt aus:
 \textbf{Wie gehe ich dabei vor?}
 
 Um den Programmcode in eine Textdatei zu schreiben verwenden wir einen Texteditor.
-Dies kann mit fast jedem einfachen Texteditor bewerkstelligt werden. Wir verwenden beispielsweise im Vokurs gedit unter Ubuntu.
-Unter Windows kannst du den Editor oder notepad++ verwenden, unter MacOS Textedit. 
-In der fortgeschrittenen Programmierung werden intelligente Programmierumgebungen verwendet, die jedoch in diesem Kurs vernachlässigt werden.
-
+Dies kann mit fast jedem einfachen Texteditor bewerkstelligt werden. Populäre konsolenbasierte Editoren sind \texttt{vim} und \texttt{nano}. Es existieren aber auch grafische Editoren, die speziell für das Schreiben von Programmcode entwickelt wurden, wie \texttt{Visual Studio Code} oder \texttt{CLion}\footnote{https://www.jetbrains.com/community/education}.
 Um dem Compiler zusagen, welche Textdatei er in ein Programm übersetzen soll, verwenden wir die sogenannte Shell. Vorerst reicht uns zu wissen, dass die Shell
 ein Werkzeug ist, um dem Computer spezifisch zu sagen, was er machen soll (mehr dazu im folgenden Kapitel). In Ubuntu verwenden wir hierzu das Terminal, ebenso in MacOS,
 unter Windows CMD oder Powershell. Ein Befehl für \texttt{g++} (dem Compiler für \Cpp) sieht beispielsweise wie folgt aus:
@@ -65,7 +62,7 @@ erzeugt hat, können wir es zur Ausführung bringen. Dies kann im Terminal mit e
     \textbf{Erstes Programm in \Cpp schreiben}
 
     \begin{enumerate}
-        \item Öffne einen Texteditor (In Ubuntu unter „Zubehör“ den Editor gedit).
+        \item Erstelle eine neue, leere Datei in einem Editor deiner Wahl.
         
         \item Kopiere folgenden Programmcode in den Texteditor und speichere ihn in einer Datei mit dem Namen „helloworld.cpp“ ab. 
         Das nähere Verständnis des Programmcodes ist an dieser Stelle nicht notwendig. 
@@ -81,7 +78,7 @@ erzeugt hat, können wir es zur Ausführung bringen. Dies kann im Terminal mit e
               Was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2.
         \item In diesem Verzeichnis liegt nun eine Datei mit dem Namen \texttt{helloworld.cpp}.
               Benutzt \texttt{g++}, um diese zu einer Datei (in diesem Fall dem Programm) \texttt{hello} zu
-              kompilieren. Orientiert euch dazu an den folgenden Befehlen. 
+              kompilieren. Orientiert euch dazu an den folgenden Befehlen. (siehe Diagramm)
         \item Führt die Datei \texttt{hello} aus.
     \end{enumerate}
 \end{praxis}
@@ -90,7 +87,7 @@ erzeugt hat, können wir es zur Ausführung bringen. Dies kann im Terminal mit e
 Zur besseren Übersichtlichkeit hier der ganze Vorgang noch mal in einem
 Diagramm:
 
-% TODO: Buttugly, but well...
+% TODO: Buttugly, but well... - its gonna stay this way
 \begin{center}
     \resizebox{\textwidth}{!}{
         \begin{tikzpicture}
@@ -108,11 +105,8 @@ Diagramm:
 \begin{spiel}
 
 Ihr könnt nun versuchen, den Quellcode selbst zu verändern und damit ein wenig
-herumzuspielen. Öffnet dazu einen Editor (in den Anwendungen findet ihr z.B.
-unter „Zubehör“ den Editor gedit) und öffnet die Datei
-\texttt{vorkurs/lektion01/helloworld.cpp}\footnote{entweder mittels
-\glqq{}Datei/Öffnen\grqq{} in gedit oder über das Terminal mittels \texttt{gedit
-helloworld.cpp}}. Denkt daran, nach jeder Änderung die Datei zu speichern und
+herumzuspielen. Öffnet dazu einen Editor und öffnet die Datei
+\texttt{vorkurs/lektion01/helloworld.cpp}\footnote{am besten öffnet ihr in VSCode den gesamten Vorkurs-Ordner}. Denkt daran, nach jeder Änderung die Datei zu speichern und
 im Terminal neu zu kompilieren und auszuführen.
 
 Dinge, die ihr ausprobieren könntet sind zum Beispiel:

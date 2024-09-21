@@ -71,6 +71,22 @@ kennengelernt habt, um \emph{Turing-vollständig} programmieren zu können, d.h.
 ihr könnt alleine mit den Mitteln, die ihr bisher kennen gelernt habt,
 \emph{jede} mögliche Berechnung anstellen!
 
+Es gibt noch eine weitere Art von Schleifen, die \texttt{for}-Schleife.  Die for-Schleife hat folgende Struktur:
+\begin{center}
+      \texttt{for (Initialisierung; Bedingung; Inkrementierung) \{ Code-Fragment \}}
+\end{center}
+Die Initialisierung wird nur einmal ausgeführt, bevor die Schleife beginnt. Die Bedingung wird vor jedem Durchlauf der Schleife überprüft. Wenn die Bedingung wahr ist, wird das Code-Fragment ausgeführt. Nachdem das Code-Fragment ausgeführt wurde, wird die Inkrementierung ausgeführt. Danach wird die Bedingung erneut überprüft. Wenn die Bedingung nicht mehr wahr, also falsch ist, wird die Schleife beendet.
+
+Der Unterschied zwischen den beiden Schleifenarten liegt hauptsächlich in ihrer Struktur:
+\begin{itemize}
+    \item \texttt{for}-Schleife: Ideal, wenn du im Voraus weißt, wie oft die Schleife laufen soll. Sie hat eine eingebaute Zählervariable (oft i), eine Bedingung, die überprüft, ob der Zähler einen bestimmten Wert erreicht hat, und eine Inkrementierung, die den Zähler bei jedem Durchlauf erhöht.
+     \item \texttt{while}-Schleife: Flexibler, da sie für verschiedene Arten von Abbruchbedingungen verwendet werden kann. Sie läuft so lange, bis die angegebene Bedingung falsch wird.
+\end{itemize}
+
+Wie ihr später im Studium beweisen werdet, lassen sich die beiden Ausdrücke immer ineinander überführen. Sie sind also gleichmächtig, d.h. jede \texttt{for}-Schleife kann in eine \texttt{while}-Schleife umgewandelt werden und umgekehrt. Es ist also erst einmal egal, welche Schleife ihr verwendet, nutzt einfach die, die euch am meisten zusagt.\newline
+Die \texttt{while}-Schleife aus dem vorherigen Beispiel mit den Primzahlen könnte also auch so aussehen:
+\inputcpp{prim-for-loop.cpp}
+
 \begin{praxis}
       \begin{enumerate}
             \item Versucht, die Arbeitsweise des Programms zu simulieren. Geht selbst
@@ -79,9 +95,10 @@ ihr könnt alleine mit den Mitteln, die ihr bisher kennen gelernt habt,
                   Computer (bei Kontrollflussstrukturen) als nächstes springen würde.
             \item Warum funktioniert das Programm für den Fall $n = 2$?
             \item Schreibt selbst ein Programm, welches eine Zahl von der Nutzerin
-                  entgegennimmt und dann alle Zahlen bis zu dieser Zahl ausgibt.
+                  entgegennimmt und dann alle Zahlen bis zu dieser Zahl ausgibt. Nutz dafür eine \texttt{for}-Schleife.
+            \item Versucht nun das gleiche mit einer \texttt{while}-Schleife.
             \item Modifiziert euer Programm, sodass es von dieser Zahl bis zu 0
-                  hinunterzählt.
+                  hinunterzählt, jeweils wieder mit einer \texttt{while}-Schleife und mit einer \texttt{for}-Schleife.
       \end{enumerate}
 \end{praxis}
 
