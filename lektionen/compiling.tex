@@ -1,12 +1,10 @@
 \lesson{Preprocessing, Compiler, Assembler, Linker}
 
-In der letzten Lektion klang es bereits an -- was der Befehl \texttt{g++}
-eigentlich tut, ist mehr, als nur Kompilieren im strengen Sinne des Wortes. Wir
-wollen jetzt kurz erkunden, welche anderen Schritte in den Prozess vom
-Quellcode in die ausführbare Datei notwendig sind und wie sie geschehen. Das
-ist im Alltag nicht sehr wichtig, kann uns aber helfen, einige Fehlermeldungen
-besser zu verstehen. Von daher müsst ihr auch nicht alles hier beschriebene
-vollständig verstehen.
+In der letzten Lektion habt ihr bereits das erste mal ein Programm kompiliert,
+d.h. ihr habt eine für Menschen lesbare Datei in eine für Computer lesbare Datei 
+übersetzt. Jetzt wollen wir uns etwas genauer anschauen was dabei eigentlich passiert. 
+Ihr müsst dabei jetzt nicht jedes Detail vestehen, aber es ist praktisch zu
+wissen, wie der Compile Vorgang funktioniert um manche Fehlermeldungen zu verstehen.
 
 In Lektion 1 haben wir vereinfacht dargestellt, dass der Compiler eine
 Quelltextdatei mit der Endung \texttt{.cpp} nimmt und daraus direkt eine
@@ -14,9 +12,15 @@ ausführbare Datei erstellt. Die Schritte, die hier eigentlich in einem Befehl
 durchgeführt werden, aber zu trennen sind, sind das \emph{Preprocessing}, das \emph{Kompilieren}, das
 \emph{Assemblieren} und das \emph{Linken}.
 
-Beim Preprocessing werden alle \texttt{\#include}-Anweisungen aufgelöst und so etwas wie Makros ersetzt. Das ist der erste Schritt, der passiert, wenn wir \texttt{g++} aufrufen. Das Ergebnis des Preprocessings ist ein \Cpp-Programm, das nur noch die \Cpp-Features enthält, die wir auch wirklich benutzen. Das ist der Grund, warum wir in den bisherigen Lektionen immer \texttt{g++ -o helloworld helloworld.cpp} benutzt haben, obwohl wir in \texttt{helloworld.cpp} auch \texttt{\#include <iostream>} stehen haben -- der Compiler hat das schon für uns erledigt.
+Beim Preprocessing werden alle \texttt{\#include}-Anweisungen aufgelöst.
+Das ist der erste Schritt, der passiert, wenn wir \texttt{g++} 
+aufrufen. Das Ergebnis des Preprocessings ist ein erweitertes\Cpp-Programm, das nur noch die
+\Cpp-Features enthält, die wir auch wirklich benutzen. Das ist der Grund, warum wir
+in den bisherigen Lektionen immer \texttt{g++ -o helloworld helloworld.cpp} benutzt haben,
+obwohl wir in \texttt{helloworld.cpp} auch \texttt{\#include <iostream>} stehen haben
+-- der Compiler hat das schon für uns erledigt.
 
-Das Kompilieren übersetzt unseren \Cpp-Code in eine Zwischenform, so genannten
+Das Kompilieren übersetzt unseren erweiterten \Cpp-Code in eine Zwischenform, so genannten
 \emph{Assembler}. In Lektion 1 haben wir den Maschinencode angesprochen, in der
 Befehle und Parameter an Befehle in 1en und 0en dargestellt werden. Assembler
 ist quasi die nächst höhere Evolutionsstufe -- statt die Befehle binär zu
@@ -52,15 +56,15 @@ miteinander verbunden, zu einer ausführbaren Datei. Wenn in einer der
 Objectfiles eine \texttt{main}-Funktion existiert, wird diese als
 Eintrittspunkt für das Programm genommen, sonst gibt es einen
 \emph{Linkerfehler}. Ein Linkerfehler tritt auch auf, wenn wir versuchen, eine
-Funktion zu verwenden, die es nicht gibt (z.B. indem wir sie mittels
-\texttt{extern} deklarieren, ohne später das relevante Objectfile mit
-anzugeben). Linkerfehler deuten also darauf hin, dass wir vergessen haben, alle
+Funktion zu verwenden, die es nicht gibt (z.B. indem wir Funktionen aus einem 
+Headerfile benutzen ohne das Header-File mit \texttt{#include} auch tatsächlich einzubinden).
+Linkerfehler deuten also darauf hin, dass wir vergessen haben, alle
 relevanten Dateien auf der Kommandozeile anzugeben, oder dass eine
 \texttt{main}-Funktion fehlt, oder dass wir in mehren Dateien eine Funktion
 gleichen Namens haben, oder\dots
 
-Um das Diagramm aus der ersten Lektion zu ergänzen, dies ist der Weg, den euer
-Programm durch die verschiedenen Phasen geht:
+Wenn ihr das Programm aus der letzten Lektion kompiliert passiert im Prinzip also
+folgendes:
 
 \begin{tikzpicture}
     \tikzstyle{block} = [ shape=rectangle, rounded corners = 0.1cm, draw=black, inner xsep=0.5cm, inner ysep = 0.3cm ];
@@ -84,13 +88,8 @@ Parameter, was wir damit tun wollen. Er führt dann alle Schritte, um von
 unserer input-Datei zu der gewünschten zu kommen automatisch aus, wenn wir also
 \texttt{g++ -o helloworld helloworld.cpp} eingeben, dann weiß der Compiler,
 dass wir eine ausführbare Datei wünschen (da wir weder \texttt{-c} noch
-\texttt{-S} angegeben haben) und dass er dafür kompilieren, assemblieren und
-linken muss (da wir ihm eine \texttt{.cpp} Datei gegeben haben). Genauso konnte
-er in der vorigen Lektion raten, dass \texttt{g++ -o tictactoe tictactoe.cpp
-    tictactoe.o} heißt, dass wir eine ausführbare Datei wollen, die aus einem
-kompilierten und assemblierten \texttt{tictactoe.cpp} zusammen gelinkt mit
-\texttt{tictactoe.o} bestehen soll.
-
+\texttt{-S} angegeben haben) und dass er dafür preprocessen, kompilieren, assemblieren und
+linken muss (da wir ihm eine \texttt{.cpp} Datei gegeben haben).
 \begin{praxis}
     \begin{enumerate}
         \item \texttt{assemble.cpp} enthält ein kleines (ziemlich nutzloses)
