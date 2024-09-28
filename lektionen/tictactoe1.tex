@@ -1,0 +1,84 @@
+\lesson{Tic Tac Toe - Teil 1}
+
+Nachdem wir jetzt lange dröge und unspannende Lektionen und Beispiele hatten, wollen wir uns als Ende von
+Kapitel 1 einer ein wenig spannenderen Aufgabe widmen -- wir wollen ein
+einfaches Spiel programmieren. Wir haben dazu Tic Tac Toe ausgewählt, da es
+relativ überschaubare Spiellogik besitzt. Ein- und Ausgabe, werden wir über die
+Konsole machen.
+
+In \texttt{vorkurs/lektion17} findet ihr eine Datei \texttt{tictactoe.o}. Diese
+könnt ihr nicht in eurem Editor öffnen -- sie enthält von uns bereitgestellte,
+bereits vorkompilierte Funktionen, die ihr nutzen könnt, um einen Anfang zu
+haben. Wir werden sie später Stück für Stück ersetzen.
+
+Um die Funktionen zu nutzen, müsst ihr zwei Dinge tun: Ihr müsst sie einerseits
+in eurem Sourcecode \emph{deklarieren}, andererseits müsst ihr sie beim
+Kompilieren mit \emph{linken}.
+
+Die Deklaration erfolgt ganz ähnlich, wie ihr auch vorgehen würdet, wenn ihr
+die Funktion selbst schreiben würdet: Ihr schreibt Rückgabetyp, Namen und
+Parameter der Funktion auf. Statt des Funktionenkörpers in geschweiften
+Klammern, beendet ihr die Zeile mit einem Semikolon. Da wir die Funktion aus
+einer anderen Datei laden wollen, müssen wir noch ein \texttt{extern}
+voranstellen. In \texttt{tictactoe.cpp} ist dies am Beispiel von
+\texttt{frage\_feld\_nummer} vorgemacht.
+
+\texttt{tictactoe.o} definiert euch insgesamt folgende Funktionen:
+\begin{description}
+	\item[frage\_feld\_nummer]
+	      Nimmt einen Vektor mit 9 \texttt{int}s entgegen und gibt einen \texttt{int} zurück.
+
+	      Gibt auf der Konsole eine Frage nach der Feldnummer aus (durchnummeriert von 0 bis 8), liest eine Feldnummer von der Nutzerin ein und gibt diese zurück.
+	      Die Funktion stellt sicher, dass die Feldnummer zwischen 0 und 8 liegt und dass das Feld noch nicht besetzt ist (sonst wird noch einmal nachgefragt).
+	\item[gebe\_feld\_aus]
+	      Nimmt einen Vektor mit 9 \texttt{int}s entgegen und hat als Rückgabetyp \texttt{void} (was für „keine Rückgabe“ steht).
+
+	      Gibt das gegebene Feld auf der Konsole aus. Dabei werden die 9 Felder von oben links nach unten rechts von 0 beginnend durchnummeriert.
+	      Der 9-elementige Vektor stellt also das Feld dar.
+	      Eine 0 in einem Vektorelement bedeutet, dass das Feld leer ist, eine 1 bedeutet, dass sich dort ein \textbf{X} befindet und eine 2 bedeutet, dass sich ein \textbf{O} dort befindet.
+	      Andere Werte werden mit einem \textbf{?} dargestellt.
+	\item[gewinnerin]
+	      Nimmt einen Vektor mit 9 \texttt{int}s entgegen und hat als Rückgabetyp \texttt{int}.
+
+	      Prüft, ob in diesem Zustand des Feldes bereits eine der Spielerinnen gewonnen hat.
+	      Die Funktion gibt 0 zurück, wenn noch niemand gewonnen hat, 1, wenn die Spielerin \textbf{X} gewonnen hat und 2, wenn die Spielerin \textbf{O} gewonnen hat.
+	      Sollte das Spiel unentschieden ausgegangen sein, wird eine 3 zurück gegeben.
+\end{description}
+
+Der zweite Teil, den ihr zur Benutzung der Funktionen braucht ist das Linken (was genau das bedeutet, wird später noch erklärt).
+Dies ist fürs Erste sehr einfach: Ihr gebt einfach dem \texttt{g++} Befehl zusätzlich zu eurer \texttt{.cpp} Datei noch \texttt{tictactoe.o} als zusätzliche Inputdatei an.
+
+\inputcpp{tictactoe.cpp}
+
+\begin{praxis}
+	\begin{enumerate}
+		\item
+		      Ergänzt \texttt{tictactoe.cpp} um Deklarationen für die anderen beschriebenen Funktionen aus \texttt{tictactoe.o}.
+		      Einen Vektor als Parameter könnt ihr in genau der gleichen Notation angeben, wie ihr es euch in einer Funktion als Variable definieren würdet.
+		\item
+		      Das Grundgerüst eines Spiels ist die \emph{input-update-display}-loop.
+		      Dies ist eine Endlosschleife, in der zunächst der \emph{input} der Spielerin abgefragt wird.
+		      Anschließend wird der interne Spielzustand aktualisiert (\emph{update}).
+		      Zuletzt wird der neue Spielzustand angezeigt (\emph{display}).
+		      Der anfängliche Spielzustand wird vor dieser loop hergestellt (\emph{setup}).
+
+		      \texttt{tictactoe.cpp} zeigt dieses Grundgerüst.
+		      Ergänzt den input- und den display-Teil mithilfe der gegebenen Funktionen.
+		      Ergänzt auch den setup-Teil; ihr braucht für den Spielzustand einerseits den Vektor, welcher das Spielfeld fassen soll, andererseits eine Variable für die Spielerin, die gerade am Zug ist und eine Variable, die das im aktuellen Zug eingegebene Feld speichert.
+		      Vergesst auch nicht, dass ihr das Feld zu Beginn 9 0en enhalten muss.
+		\item
+		      Nun müssen wir noch den Update-Teil ergänzen.
+		      Hier solltet ihr in das von der aktuellen Spielerin gewählte Feld mit deren Nummer füllen, testen, ob jemand gewonnen hat und wenn ja, die Siegerin ausgeben und euer Programm beenden (denkt daran, dass das Spiel auch unentschieden ausgehen kann).
+		      Sonst sollte die aktuelle Spielerin gewechselt werden.
+	\end{enumerate}
+\end{praxis}
+
+\begin{spiel}
+	\begin{enumerate}
+		\item
+		      Okay, das ist nun wirklich nicht schwierig zu erraten oder?
+		      Wenn ihr dem obigen Rezept gefolgt seid, habt ihr jetzt ein funktionierendes Tic-Tac-Toe Spiel.
+		      Und ihr habt eine Sitznachbarin.
+		      Zählt eins und eins zusammen.
+	\end{enumerate}
+\end{spiel}

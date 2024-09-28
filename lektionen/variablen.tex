@@ -1,0 +1,48 @@
+\lesson{Variablen}
+
+Das Programm \texttt{variablen.cpp} erzählt von ihrem Tag.
+Compilier es und guck dir die Ausgabe an.
+
+\inputcpp{variablen.cpp}
+
+Da immer wieder das gleiche Wort \glqq{}wundervoll\grqq{} benutzt wird, wurde es in eine sogenannte \emph{Variable} ausgelagert.
+Eine Variable ist ein Wert der mit einem Namen benannt wird.
+Dabei findet die Zuweisung durch ein \cppinline{=} statt, dem Namen auf der linken Seite des Gleichheitszeichen wird der Wert auf der rechten Seite zugewiesen.
+Im Programm selbst ist es dann so, als würde der Wert an der Stelle des Namens stehen.
+
+Der Wert einer Variable kann sich im Laufe des Programmes verändern.
+Durch Hinzufügen der Zeile \cppinline{beschreibung = "langweilig";} wird hinter dieser Zeile anstelle von \glqq{}wundervoll\grqq{} nun \glqq{}langweilig\grqq{} ausgegeben.
+Ähnlich kann wie in \texttt{helloyou.cpp} der Wert von Variablen durch \cppinline{std::cin >> beschreibung} die Benutzerin eingeben werden.
+
+Variablen haben immer einen bestimmten \emph{Datentypen}.
+In unserem Beispiel handelt es sich um \cppinline{std::string}.
+Der Datentyp wird bei dem Erstellen -- also der ersten Zuweisung -- vor dem Namen angeben.
+Dieser wird benötigt, damit der Computer weiß, um was für eine Art Wert es sich handelt -- ein Text sollte anders behandelt werden als eine Zahl.
+Beispielsweise kann man zwei Zahlen miteinander multiplizieren, für Texte ergibt das allerdings keinen Sinn.
+In der Lektion Arithmetik lernen wir mehr über Zahlen und deren Eigenheiten.
+
+\begin{praxis}
+    \begin{enumerate}
+        \item Was passiert, wenn ihr \cppinline{beschreibung} in Zeile 5 ein anderes Wort zuweist?
+        \item Definiert eine weitere Variable und schreibt einen weiteren Satz.
+    \end{enumerate}
+\end{praxis}
+
+\begin{spiel}
+  \begin{enumerate}
+    \item Was passiert, wenn ihr euch im Namen einer Variable „vertippt“?
+    \item Definiert euch zwei Variablen, weist ihnen
+        irgendwelchen Text zu, versucht, sie zu addieren und das Ergebnis auszugeben.
+    \item Was passiert, wenn ihr eine Variable definiert,
+        ihr aber nichts zuweist und dann versucht, sie auszugeben?
+  \end{enumerate}
+\end{spiel}
+
+\textbf{Quiz 5}\\
+\textit{Wann wird eine Variable nicht mehr \glqq erkannt\grqq ?}
+\begin{enumerate}[label=\alph*)]
+    \item Wenn die Groß-/Kleinschreibung nicht mehr stimmt
+    \item Wenn ein Buchstabe vergessen wurde
+    \item Wenn ein Buchstabe zu viel verwendet wurde
+    \item Wenn der Variable ein neuer Wert zugewiesen wird
+\end{enumerate}

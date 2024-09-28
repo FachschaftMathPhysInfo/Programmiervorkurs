@@ -1,0 +1,96 @@
+\lesson{Der Debugger}
+
+\textbf{Fehlerklassen}
+
+Es ist wichtig, früh zu verstehen, dass es verschiedene Klassen von Fehlern in
+einem \Cpp Programm gibt, die sich alle zu unterschiedlichen Zeitpunkten
+auswirken. Die Hauptsächliche Klasse von Fehlern, die wir bisher betrachtet
+haben, sind \emph{Compilerfehler}. Sie treten -- wie der Name nahe legt -- zur
+Compilezeit auf, also wenn ihr euer Programm kompilieren wollt. Meistens
+handelt es sich hier um relativ einfach erkennbare Fehler in der Syntax (wie
+zum Beispiel ein vergessenes Semikolon, oder eine vergessene geschweifte
+Klammer), um fehlende header (wie die \verb|\#include <...>| heißen) oder um
+undefinierte Variablen.
+
+Eine andere, besonders fiese Klasse von Fehlern haben wir in der Lektion des Kontrollflusses gelernt.
+Wenn wir nämlich durch eine Variable teilen, und in
+dieser Variable erst beim Programmlauf (zur \emph{Laufzeit}) eine 0 steht, so
+tritt eine so genannte \emph{floating point exception} auf. Der Compiler hat
+hier keine Chance, diesen Fehler zu erkennen - er weiß ja nicht, was der
+Benutzer später hier eingibt! Da diese Klasse von Fehlern zur Laufzeit auftritt
+heißen sie Laufzeitfehler. Und sie sind immer ein Zeichen von fundamentalen
+Fehlern im Programm. Sie sind also die am schwersten aufzutreibenden Fehler, da
+es keine automatischen Tools gibt, die uns bei ihrer Suche helfen.
+
+\textbf{gdb}
+
+Wir haben zwar bereits bei einem so offensichtlichen Fehler bereits gelernt,
+wie wir diesen beheben können, dies ist allerdings nicht immer so einfach.
+Wir lernen nun ein wichtiges Tool kennen, um Laufzeitfehler auch bei komplexeren Programmen
+aufzuspüren, sodass wir wissen, wo wir mit der Lösung
+ansetzen müssen: Den \emph{GNU debugger}, oder kurz gdb.
+
+Der Debugger ist eine Möglichkeit, unser Programm in einer besonderen Umgebung
+laufen zu lassen, die es uns erlaubt es jederzeit anzuhalten. So kann man den Inhalt von
+Variablen untersuchen oder auch Anweisung für Anweisung das Programm durchgehen.
+
+Damit wir das können, braucht der Compiler ein paar zusätzliche
+Informationen über den Quellcode, die normalerweise verloren gehen. Wir müssen
+dem Compiler dafür ein paar zusätzliche Optionen mitgeben:
+\begin{minted}{bash}
+g++ -O0 -g3 -o debugger debugger.cpp
+\end{minted}
+(Beachtet, dass im ersten Parameter erst ein großer Buchstabe o, dann eine 0 stehen)
+
+\newpage
+
+\begin{praxis}
+
+    Wir möchten uns nun den Ablauf des Programms \texttt{debugger.cpp} anschauen.
+    \inputcpp{debugger.cpp}
+
+    \begin{enumerate}
+        \item Kompiliert das Programm mit den neuen Optionen für den debugger. Ihr
+              könnt es dann mittels \verb|gdb ./debugger| im gdb starten. Ihr solltet
+              nun ein wenig Text ausgegeben bekommen und einen anderen prompt
+              (\texttt{(gdb)}). Ihr könnt den debugger jederzeit wieder verlassen,
+              indem ihr \texttt{quit} eingebt (falls ihr gefragt werdet, ob ihr euch
+              sicher seid, gebt \texttt{y} ein und drückt enter)
+        \item Zu allererst müssen wir einen so genannten \emph{breakpoint} setzen,
+              das ist ein Punkt im Programmablauf, an dem es stoppen soll, damit wir
+              entscheiden können, was wir tun wollen. \texttt{main} ist für die
+              meisten unserer Programme eine sichere Wahl:
+              \mint{text}|break main|
+              Dann können wir das Programm mit \texttt{run} starten. Wir sollten die
+              erste Anweisung unseres Programmes angezeigt bekommen.
+        \item Der Debugger wird euch jetzt immer sagen, welches die nächste
+              Anweisung ist, die er ausführen möchte. Mit \texttt{next} könnt ihr sie
+              ausführen lassen, mit \texttt{print a} könnt ihr euch den Inhalt von
+              \texttt{a} zu diesem Zeitpunkt anschauen, mit \texttt{print b} den von
+              \texttt{b} und so weiter. Geht das Programm Schritt für Schritt durch
+              und lasst euch die Werte von \texttt{a}, \texttt{b} und \texttt{c} in
+              jedem Schritt ausgeben. Wenn der debugger euch sagt, dass euer Programm
+              beendet wurde, gebt \texttt{quit} ein und beendet ihn.
+    \end{enumerate}
+\end{praxis}
+
+\begin{spiel}
+\begin{enumerate}
+        \item Im folgenden Programm \texttt{factorial.cpp} haben sich zwei Fehler eingeschlichen. Versucht diese mit \texttt{gdb} zu finden und zu beheben.
+        
+        \inputcpp{factorial.cpp}
+        
+        \item Ihr habt nun schon einige Programme kennen gelernt. Kompiliert sie
+              für den Debugger neu und untersucht sie genauso wie obiges Programm,
+              solange ihr Lust habt.
+\end{enumerate}
+\end{spiel}
+
+\textbf{Quiz 11}\\
+\textit{Was kann der Debugger?}
+\begin{enumerate}[label=\alph*)]
+    \item Beim Fehler finden helfen
+    \item Fehler automatisch korrigieren
+    \item Das Programm Befehl für Befehl durchgehen
+    \item Dateien, die eigentlich einen Fehler werfen kompilieren
+\end{enumerate}

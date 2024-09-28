@@ -1,0 +1,79 @@
+\lesson{Vektor}
+
+Als nächstes wichtiges Konzept in \Cpp werden wir uns \emph{Vektoren} anschauen.
+Vektoren sind eine Möglichkeit, mehrere Elemente des gleichen Typs zusammen zu fassen.
+Statt also einer Stelle im Speicher, an der ein \texttt{int} liegt, habt ihr einen ganzen Speicherbereich, in dem 100 (oder eine beliebige andere Anzahl an) \texttt{int}s liegen.
+
+Die Elemente in einem Vektor sind durchnummeriert, man nennt die Nummer eines Vektorelements seinen \emph{Index}.
+Das erste Element hat den Index 0, das zweite den Index 1 und das 100te hat den Index 99 -- Vorsicht also, der höchste Index in einem Vektor mit 100 Elementen ist 99, nicht 100!
+Um einen Vektor zu definieren, schreibt ihr:
+\begin{center}
+	\cppinline{std::vector<}\emph{Datentyp}\cppinline{> einvektor;}
+\end{center}
+um den Datentypen schreibt ihr also noch \cppinline{std::vector<}\dots\cppinline{>}.
+Um ein Element am Ende einzufügen gibt es
+\begin{center}
+	\cppinline{einvektor.push_back(}\emph{Element}\cppinline{);}
+\end{center}
+und auf ein bestimmtes Vektorelement zugreifen könnt ihr indem ihr seinen Index in eckigen Klammern hinter den Namen schreibt.
+\begin{center}
+	\cppinline{einvektor[}\emph{Index}\cppinline{]}
+\end{center}
+Wenn ihr die Größe eines Vektors wissen wollt könnt ihr
+\begin{center}
+	\cppinline{einvektor.size()}
+\end{center}
+verwenden.
+
+Folgendes Programm macht hoffentlich die Syntax klar:
+
+\inputcpp{vector.cpp}
+
+Es gibt einige Dinge, zu beachten, wenn ihr mit Vektoren arbeitet.
+Das wichtigste ist oben schon genannt -- lasst euch nicht davon verwirren, dass Indizes bei 0 anfangen.
+Aus Versehen über den Vektor hinaus zu schreiben oder zu lesen ist ein so häufiger Fehler, dass er seinen eigenen Namen bekommen hat: \emph{Off-by-one} error.
+Wichtig ist, dass der Compiler diesen Zugriff nicht verhindern wird!
+Das ist von daher eine sehr fiese Sache, als dass dieser Fehler auch beim Ausführen nicht immer Probleme machen wird -- aber manchmal lässt er auch euer Programm spontan abstürzen in einem so genannten \emph{segmentation fault}.
+
+\begin{praxis}
+
+	Wir wollen die Seite \url{http://www.ich-kann-mich-nicht-entscheiden.de/} nachmachen und eine Entscheidungshilfe programmieren, die aus mehreren von der Nutzerin gegebenen Möglichkeiten eine per Zufall auswählt.
+
+	\begin{enumerate}
+		\item
+		      Schreibt zunächst ein Programm, welches einen Vektor aus 10 Strings erstellt und die Nutzerin 10 mal nach einer Antwortmöglichkeit fragt und die gegebenen Antworten nacheinander in den Vektor schreibt.
+		\item
+		      Fügt nun die Möglichkeit zu, weniger Antworten anzugeben.
+		      Dazu könnt ihr zum Beispiel zuerst fragen, wie viele Antwortmöglichkeiten es geben soll und dann so oft fragen.
+		\item
+		      Ihr könnt dann (so wie in dem Programm oben) eine Zufallszahl erzeugen.
+		      Um sicher zu gehen, dass sie nicht zu groß wird, könnt ihr den Rest bei Teilung durch Anzahl der eingegebenen Antworten nehmen (sind z.B. 7 Antworten angegeben und die Zufallszahl ist 25778, so wäre der resultierende Index \texttt{25778 \% 7 == 4}).
+		      Gebt dann die Antwortmöglichkeit aus, die dem zufallsgeneriertem Index entspricht.
+	\end{enumerate}
+\end{praxis}
+
+Sollte euer Programm einmal nicht korrekt kompilieren, denkt daran die Fehlermeldung sorgfältig zu lesen, damit sie euch Aufschluss über die Fehlerursache gibt.\\
+Sollte euer Programm zwar kompilieren, sich dann aber komisch verhalten, denkt daran, den Debugger zu benutzen und es Schritt für Schritt durchzugehen, um die Fehlerquelle zu finden. Solltet ihr trotz alledem nicht weiter kommen, oder nicht wissen, was von euch erwartet wird, fragt einen von uns.
+
+
+\begin{spiel}
+\begin{enumerate}
+	\item
+		Schreibt ein Progamm, welches einen Vektor mit einer beliebigen Anzahl an Elementen befüllt und dann auf einen Index weit über der tatsächlichen Größe schreibt.
+		Was beobachtet ihr?\footnote{Es wird natürlich Quark sein was dabei rauskommt, es geht hier haupsächlich darum das ihr seht was für einen Fehler das gibt}
+	\item 
+		Überlegt euch wie ihr verhindern könnt, dass über den Rand des Vektors hinaus geschrieben oder gelesen wird. 
+	\item
+		Implementiert das \emph{Sieb des Eratosthenes}\footnote{\url{https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes}}, wenn ihr noch nicht ausgelastet seid.
+		Denkt daran, es initial zu befüllen und denkt euch eine clevere Möglichkeit aus, das „Streichen“ zu realisieren.
+\end{enumerate}
+\end{spiel}
+
+\textbf{Quiz 15}\\
+\textit{Welche Aussagen über Vektoren sind falsch?}
+\begin{enumerate}[label=\alph*)]
+    \item Vektoren haben immer die Größe 3
+    \item Vektoren können nur mit Elementen eines einzigen Datentyps befüllt werden
+    \item Der Index startet bei 0
+    \item Der letzte Index ist immer die Größe - 1
+\end{enumerate}
