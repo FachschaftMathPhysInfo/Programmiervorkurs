@@ -1,0 +1,126 @@
+\lesson{Schleifen}
+
+Wir können mit bedingten Anweisungen den Kontrollfluss schon hilfreich
+beeinflussen. Aber nicht alle Dinge, die wir unseren Computer anweisen wollen
+zu tun, können wir alleine mit bedingten Anweisungen ausdrücken. Wir können
+zwar zum Beispiel testen, ob eine Zahl, eine andere teilt. Was aber, wenn wir
+testen wollen, ob eine Zahl eine Primzahl ist? Wir könnten jetzt beginnen, jede
+Menge bedingter Anweisungen zu machen, „ist die Zahl durch 2 teilbar, wenn ja,
+dann ist es keine, sonst teste, ob sie durch 3 teilbar ist, wenn ja, dann ist
+es keine, sonst teste, ob sie durch 5 teilbar ist, wenn ja, dann ist es
+keine\dots“, aber es sollte offensichtlich sein, dass wir so nur endlich viele
+Teilbarkeiten überprüfen können. Wir müssen zwar für jede Zahl nur endlich
+viele Teiler überprüfen, aber wenn die Zahl von der Nutzerin eingegeben wird,
+wissen wir im Voraus nicht, wie viele das sind!
+
+Für solche Aufgaben wurden Schleifen erfunden. Sie sind ein Mittel, um eine
+Menge von Anweisungen häufig auszuführen, solange eine von uns fest gelegte
+Bedingung erfüllt ist. Wenn wir zum Beispiel testen wollen, ob eine Zahl eine
+Primzahl ist, wäre ein einfacher Algorithmus die so genannte Probedivision:
+Gehe von 2 aufwärts alle Zahlen (die kleiner sind, als die Eingabe) durch,
+teste, ob sie die Eingabe teilen -- wenn ja, merken wir uns, dass die Zahl
+einen Teiler hat. Haben wir alle Zahlen durchprobiert handelt es sich um
+eine Primzahl genau dann, wenn wir keinen Teiler gefunden haben. Dafür
+benötigen wir einen neuen Datentyp nämlich \texttt{bool}, dieser hat genau
+zwei Zustände \texttt{true} und \texttt{false}. Damit können wir uns also
+merken, ob wir einen Teiler gefunden haben. Wir können die Probedivision wieder in einem Kontrollflussdiagramm ausdrücken ($n$ ist dabei die zu testende Zahl, $i$
+ist der Teiler, den wir gerade testen wollen und \texttt{hat\_teiler} gibt
+an, ob wir schon einen Teiler gefunden haben):
+
+\begin{center}
+      \begin{tikzpicture}[auto, node distance=3cm,>=latex']
+            \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
+            \tikzstyle{border} = [very thick, dashed, red]
+
+            \node [block, align=center] (start) {$i = 2$ \\ \texttt{hat\_teiler} $=$ \texttt{false}};
+            \node [block, right of=start, node distance=4cm] (cond) {$i < n$?};
+            \node [block, right of=cond, node distance=3.5cm] (if) {$i\mid n$?};
+            \node [block, right of=if, node distance=4cm] (teiler) {\texttt{hat\_teiler} $\leftarrow$ \texttt{true}};
+            \node [block, above of=if, node distance=2cm] (incr) {$i \leftarrow i+1$};
+            \node [block, below of=cond, node distance=3cm] (prim?) {\texttt{hat\_teiler}?};
+            \node [block, below of=teiler, node distance=3cm] (yipp) {$n$ Primzahl};
+            \node [block, below of=yipp, node distance=1.5cm] (nope) {$n$ keine Primzahl};
+
+            \draw [border] ($(cond) + (-1.5, 0)$) |- ($(if) + (0, -1)$) -| ($(teiler) + (2, 0)$) |- ($(incr) + (0, 1)$) -| cycle;
+            \node [border] at ($(cond) + (-.8, 3.3)$) {Schleife};
+
+            \draw [->] (start) -- node {} (cond);
+            \draw [->] (cond) -- node {ja} (if);
+            \draw [->] (cond) -- node [near end] {nein} (prim?);
+            \draw [->] (prim?) -- node {nein} (yipp);
+            \draw [->] (if) -- node {ja} (teiler);
+            \draw [->] (if) -- node {nein} (incr);
+            \draw [->] (incr) -| node {} (cond);
+            \draw [->] (teiler) |- (incr);
+            \draw [->] (prim?) |- node [near end] {ja} (nope);
+      \end{tikzpicture}
+\end{center}
+Das Besondere an Schleifen ist, dass sie geschlossene Kreise zum
+Kontrollflussdiagramm hinzufügen. Das erlaubt es uns, die gleiche Anweisung
+beliebig oft zu wiederholen.
+
+Wenn wir dieses Kontrollflussdiagramm in \Cpp gießen, sieht dies so aus:
+\inputcpp{prim.cpp}
+
+Wie wir sehen, sind Schleifen auch nicht viel schwieriger zu handhaben, als
+bedingte Anweisungen. Statt \texttt{if} schreiben wir nun \texttt{while}, sonst
+ändert sich am Quellcode nicht viel. Ebenso wie bei bedingten Anweisungen sollte der Inhalt einer Schleife als logischer Block eingerückt werden, um sofort zu erkennen, dass dieser wiederholt ausgeführt wird, mehr dazu in Lektion \ref{sec:codingstyle}.
+
+Als kleine Nebenbemerkung sei hier gestattet, dass ihr hiermit nun alle Dinge
+kennengelernt habt, um \emph{Turing-vollständig} programmieren zu können, d.h.
+ihr könnt alleine mit den Mitteln, die ihr bisher kennen gelernt habt,
+\emph{jede} mögliche Berechnung anstellen!
+
+Es gibt noch eine weitere Art von Schleifen, die \texttt{for}-Schleife.  Die for-Schleife hat folgende Struktur:
+\begin{center}
+      \texttt{for (Initialisierung; Bedingung; Inkrementierung) \{ Code-Fragment \}}
+\end{center}
+Die Initialisierung wird nur einmal ausgeführt, bevor die Schleife beginnt. Die Bedingung wird vor jedem Durchlauf der Schleife überprüft. Wenn die Bedingung wahr ist, wird das Code-Fragment ausgeführt. Nachdem das Code-Fragment ausgeführt wurde, wird die Inkrementierung ausgeführt. Danach wird die Bedingung erneut überprüft. Wenn die Bedingung nicht mehr wahr, also falsch ist, wird die Schleife beendet.
+
+Der Unterschied zwischen den beiden Schleifenarten liegt hauptsächlich in ihrer Struktur:
+\begin{itemize}
+    \item \texttt{for}-Schleife: Ideal, wenn du im Voraus weißt, wie oft die Schleife laufen soll. Sie hat eine eingebaute Zählervariable (oft i), eine Bedingung, die überprüft, ob der Zähler einen bestimmten Wert erreicht hat, und eine Inkrementierung, die den Zähler bei jedem Durchlauf erhöht.
+     \item \texttt{while}-Schleife: Flexibler, da sie für verschiedene Arten von Abbruchbedingungen verwendet werden kann. Sie läuft so lange, bis die angegebene Bedingung falsch wird.
+\end{itemize}
+
+Wie ihr später im Studium beweisen werdet, lassen sich die beiden Ausdrücke immer ineinander überführen. Sie sind also gleichmächtig, d.h. jede \texttt{for}-Schleife kann in eine \texttt{while}-Schleife umgewandelt werden und umgekehrt. Es ist also erst einmal egal, welche Schleife ihr verwendet, nutzt einfach die, die euch am meisten zusagt.\newline
+Die \texttt{while}-Schleife aus dem vorherigen Beispiel mit den Primzahlen könnte also auch so aussehen:
+\inputcpp{prim-for-loop.cpp}
+
+\begin{praxis}
+      \begin{enumerate}
+            \item Versucht, die Arbeitsweise des Programms zu simulieren. Geht selbst
+                  den Quellcode Zeile für Zeile durch. Überlegt euch hierbei, was die Zeile tut
+                  und welchen Inhalt die Variablen haben. Überlegt euch dann, wohin der
+                  Computer (bei Kontrollflussstrukturen) als nächstes springen würde.
+            \item Warum funktioniert das Programm für den Fall $n = 2$?
+            \item Schreibt selbst ein Programm, welches eine Zahl von der Nutzerin
+                  entgegennimmt und dann alle Zahlen bis zu dieser Zahl ausgibt. Nutz dafür eine \texttt{for}-Schleife.
+            \item Versucht nun das gleiche mit einer \texttt{while}-Schleife.
+            \item Modifiziert euer Programm, sodass es von dieser Zahl bis zu 0
+                  hinunterzählt, jeweils wieder mit einer \texttt{while}-Schleife und mit einer \texttt{for}-Schleife.
+      \end{enumerate}
+\end{praxis}
+
+\begin{spiel}
+      \begin{enumerate}
+            \item Das Programm funktioniert noch nicht korrekt, wenn man 1 eingibt
+                  (denn 1 ist keine Primzahl). Modifiziert es, sodass es auch für 1
+                  funktioniert.
+            \item Kompiliert \texttt{whiletrue.cpp} und führt es aus. Was beobachtet
+                  ihr? Warum? (Ihr könnt das Programm abbrechen, indem ihr
+                  \texttt{Strg+C} drückt)
+      \end{enumerate}
+      
+      \inputcpp{whiletrue.cpp}
+
+\end{spiel}
+
+\textbf{Quiz 10}\\
+\textit{Was kann bei der Verwendung von Schleifen passieren?}
+\begin{enumerate}[label=\alph*)]
+    \item Die Schleife wiederholt sich endlos oft
+    \item Die Schleife endet
+    \item Die Schleife bricht nach einer gewissen Anzahl Durchläufe immer von allein ab
+    \item Am Ende der Schleife werden alle Variablenänderungen durch die Schleife rückgängig gemacht
+\end{enumerate}
