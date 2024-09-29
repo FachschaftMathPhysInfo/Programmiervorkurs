@@ -1,15 +1,15 @@
 #include <iostream>
 #include <array>
 
-int frage_feld_nummer(std::array<9, int> feld){
+int frage_feld_nummer(std::array<int ,9> feld){
   // Hier wird die Funktion implementiert
 }
 
-void gebe_feld_aus(std::array<9, int){
+void gebe_feld_aus(std::array<int ,9>){
   // Hier wird die Funktion implementiert
 }
 
-int gewinnerin(std::array<9, int){
+int gewinnerin(std::array<int ,9>){
   //Hier wird die Funktion implementiert
 }
 
