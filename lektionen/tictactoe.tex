@@ -1,29 +1,21 @@
-\lesson{Tic Tac Toe - Teil 1}
+\lesson{Tic Tac Toe - Teil}
 
-Nachdem wir jetzt lange dröge und unspannende Lektionen und Beispiele hatten, wollen wir uns als Ende von
-Kapitel 1 einer ein wenig spannenderen Aufgabe widmen -- wir wollen ein
+Nachdem wir jetzt lange dröge und unspannende Lektionen und Beispiele hatten, wollen wir uns jetzt einer
+ein wenig spannenderen Aufgabe widmen -- wir wollen ein
 einfaches Spiel programmieren. Wir haben dazu Tic Tac Toe ausgewählt, da es
 relativ überschaubare Spiellogik besitzt. Ein- und Ausgabe, werden wir über die
 Konsole machen.
 
-In \texttt{vorkurs/lektion17} findet ihr eine Datei \texttt{tictactoe.o}. Diese
-könnt ihr nicht in eurem Editor öffnen -- sie enthält von uns bereitgestellte,
-bereits vorkompilierte Funktionen, die ihr nutzen könnt, um einen Anfang zu
-haben. Wir werden sie später Stück für Stück ersetzen.
+In \texttt{vorkurs/lektion14} findet ihr eine Datei \texttt{tictactoe.cpp}. 
+\inputcpp{tictactoe.cpp}
 
-Um die Funktionen zu nutzen, müsst ihr zwei Dinge tun: Ihr müsst sie einerseits
-in eurem Sourcecode \emph{deklarieren}, andererseits müsst ihr sie beim
-Kompilieren mit \emph{linken}.
+Das Spielfeld stellen wir intern als Array mit 9 Integern dar. Der Wert des Integers beschreibt wem das Feld gehört. 
+Wenn das Feld Spieler 1 gehört, steht dort eine 1, gehört es Spieler 2 steht dort eine 2 und gehört es noch niemandem, 
+dann steht da eine 0.
 
-Die Deklaration erfolgt ganz ähnlich, wie ihr auch vorgehen würdet, wenn ihr
-die Funktion selbst schreiben würdet: Ihr schreibt Rückgabetyp, Namen und
-Parameter der Funktion auf. Statt des Funktionenkörpers in geschweiften
-Klammern, beendet ihr die Zeile mit einem Semikolon. Da wir die Funktion aus
-einer anderen Datei laden wollen, müssen wir noch ein \texttt{extern}
-voranstellen. In \texttt{tictactoe.cpp} ist dies am Beispiel von
-\texttt{frage\_feld\_nummer} vorgemacht.
+Um das Spiel zu implementieren benutzen wir uns erstmal 3 Hilfsfunktionen die wichtige Teile der Spiellogik für uns
+implementieren.
 
-\texttt{tictactoe.o} definiert euch insgesamt folgende Funktionen:
 \begin{description}
 	\item[frage\_feld\_nummer]
 	      Nimmt einen Vektor mit 9 \texttt{int}s entgegen und gibt einen \texttt{int} zurück.
@@ -45,18 +37,30 @@ voranstellen. In \texttt{tictactoe.cpp} ist dies am Beispiel von
 	      Sollte das Spiel unentschieden ausgegangen sein, wird eine 3 zurück gegeben.
 \end{description}
 
-Der zweite Teil, den ihr zur Benutzung der Funktionen braucht ist das Linken (was genau das bedeutet, wird später noch erklärt).
-Dies ist fürs Erste sehr einfach: Ihr gebt einfach dem \texttt{g++} Befehl zusätzlich zu eurer \texttt{.cpp} Datei noch \texttt{tictactoe.o} als zusätzliche Inputdatei an.
 
-\inputcpp{tictactoe.cpp}
 
 \begin{praxis}
 	\begin{enumerate}
-		\item
-		      Ergänzt \texttt{tictactoe.cpp} um Deklarationen für die anderen beschriebenen Funktionen aus \texttt{tictactoe.o}.
-		      Einen Vektor als Parameter könnt ihr in genau der gleichen Notation angeben, wie ihr es euch in einer Funktion als Variable definieren würdet.
-		\item
-		      Das Grundgerüst eines Spiels ist die \emph{input-update-display}-loop.
+    \item Implementiert \texttt{frage\_feld\_nummer}. Ihr solltet darauf
+          achten, dass ihr in dieser Funktion auch testen müsst, ob ein gültiges
+          Feld eingegeben wurde und ob das angegebene Feld leer ist.
+
+    \item Implementiert \texttt{gebe\_feld\_aus}. Ihr könnt euch selbst
+          aussuchen, wie ihr die Ausgabe gestalten wollt.
+          Wikipedia\footnote{\url{http://en.wikipedia.org/wiki/Box-drawing_character}}
+          kann euch z.B. helfen, ein schöneres Feld auszugeben. Fangt am Besten
+          mit einer einfachen Ausgabe an und macht sie dann immer „fancier“.
+
+    \item Implementiert \texttt{gewinnerin}. Bedenkt, dass ihr alle
+          Möglichkeiten testet, auf die ein Gewinn möglich ist -- also 3
+          Möglichkeiten, eine Reihe zu bilden, 3 Möglichkeiten, eine Spalte zu
+          bilden und 2 Möglichkeiten für Diagonalen. Überlegt euch zunächst, wie
+          ihr zwischen Feldnummer (0-8) und Reihen- bzw. Spaltennummer hin- und
+          herrechnen könnt. Beachtet auch, dass es ein Unentschieden gibt, wenn
+          alle Felder belegt sind, aber keine von beiden Spielerinnen gewonnen
+          hat.
+    \item
+		      Das Grundgerüst des Spiels ist die \emph{input-update-display}-loop.
 		      Dies ist eine Endlosschleife, in der zunächst der \emph{input} der Spielerin abgefragt wird.
 		      Anschließend wird der interne Spielzustand aktualisiert (\emph{update}).
 		      Zuletzt wird der neue Spielzustand angezeigt (\emph{display}).
