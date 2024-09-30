@@ -47,7 +47,7 @@ void gebe_feld_aus(std::array<int, 9> feld){
 }
 
 int gewinnerin(std::array<int, 9> feld){
-   // Prüfe reihen und Spalten
+   // Prüfe Reihen und Spalten
     for (int i = 0; i < 3; i++) {
         int a = feld[3*i] & feld[3*i+1] & feld[3*i+2];
         int b = feld[3*i] | feld[3*i+1] | feld[3*i+2];
