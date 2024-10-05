@@ -53,13 +53,8 @@ dir: files/*
 	@cp files/vector.cpp     vorkurs/lektion15/. > /dev/null
 	@cp files/warnings.cpp   vorkurs/lektion16/. > /dev/null
 	@cp files/warnprim.cpp   vorkurs/lektion16/. > /dev/null
-	@cp files/tictactoe.cpp  vorkurs/lektion17/. > /dev/null
+	@cp files/tictactoe.cpp  vorkurs/lektion14/. > /dev/null
 	@cp files/assemble.cpp   vorkurs/lektion18/. > /dev/null
-	@echo "TTT-Dateien kompilieren…"
-	@g++ -c -o vorkurs/lektion17/tictactoe.o files/ttt_closed/tictactoe.cpp > /dev/null
-	@g++ -c -o vorkurs/lektion19/frage_feld_nummer.o files/ttt_closed/frage_feld_nummer.cpp > /dev/null
-	@g++ -c -o vorkurs/lektion19/gewinnerin.o files/ttt_closed/gewinnerin.cpp > /dev/null
-	@g++ -c -o vorkurs/lektion19/gebe_feld_aus.o files/ttt_closed/gebe_feld_aus.cpp > /dev/null
 	@echo "Vorkurs-Verzeichnis erstellt."
 	@echo "Wenn du das Verzeichnis überall hin kopiert hast, nutze "make nodir", um sicherzustellen, dass das Skript nächstes Jahr wieder funktioniert"
 
