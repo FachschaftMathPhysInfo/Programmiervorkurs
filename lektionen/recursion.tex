@@ -1,0 +1,33 @@
+\lesson{Rekursion}
+
+Wir wollen uns nun dem Konzept der \textbf{Rekursion} widmen. In einem vorherigen Kapitel haben wir bereits über Schleifen geredet, besonders im Kontext der \textbf{Iteration}, jedoch gibt es manche Probleme die wir nicht mit iterativen Verfahren lösen können. 
+
+\textbf{Was genau ist Rekursion?}
+Rekursion beschreibt einen Prozess, welcher sich selbst immer wieder aufruft. Das heißt wir arbeiten uns in einem "Top-Down" Verfahren vom vollständigen Problem, zu seinem kleinstem "Subproblem" runter. Man kann es mit dem "Divide-and-Conquer" Prinzip vergleichen, das manchen von euch schon was sagen könnte.
+
+Schauen wir uns das Prinzip an einem Beispiel erstmals an. Wir betrachten die Funktion \texttt{factorial(n)}, welche einen \texttt{integer} als Input hat, mit der Fakultät von \texttt{n} als Output.
+
+\inputcpp{recursive-factorial.cpp}
+
+\begin{center}
+
+\begin{tikzpicture}[node distance=2cm and 2cm, >=Stealth]
+
+\node[draw, rectangle] (f3) {factorial(3)};
+\node[draw, rectangle, below right=of f3] (f2) {factorial(2)};
+\node[draw, rectangle, below right=of f2] (f1) {factorial(1)};
+\node[draw, rectangle, below right=of f1] (f0) {factorial(0)};
+
+\draw[->] (-1.5,0) to (f3) node[left=50pt,fill=white]{\texttt{n=3}};
+\draw[->] (f3) to[out=270, in=180] (f2) node[left=70pt, fill=white] {calls \texttt{3 * factorial(3-1);}};
+\draw[->] (f2) to[out=270, in=180] (f1) node[left=70pt, fill=white] {calls \texttt{2 * factorial(2-1);}};
+\draw[->] (f1) to[out=270, in=180] (f0) node[left=70pt, fill=white] {calls \texttt{1 * factorial(1-1);}};
+\draw[->] (f0) to[in=20, out=80] (f1) node[right=90pt, fill=white] {\texttt{returns 1;}};
+\draw[->] (f1) to[in=20, out=80] (f2) node[right=90pt, fill=white] {\texttt{returns 1;}};
+\draw[->] (f2) to[in=20, out=80] (f3) node[right=90pt, fill=white] {\texttt{returns 2;}};
+\draw[->] (f3) to ++(0,1.5) node[right=10pt, fill=white] {\texttt{returns 6;}};
+
+\end{tikzpicture}
+\end{center}
+
+
