@@ -9,13 +9,13 @@ Eine Funktion in \Cpp besteht aus zwei Teilen: der \emph{Signatur} und dem \emph
 Die Kombination von Parametertypen und Rückgabetyp bildet die Signatur einer Funktion.
 Parameter sind Werte, die der Funktion übergeben werden, zum Beispiel das $x$ in $f(x)$.
 Für eine Funktion \cppinline{my_func}, die  $x^n$ berechnen soll, könnte eine Signatur so aussehen:
-\[
-	\smashoperator{\mathop{\underbrace{\text{\cppinline{double}}}}_{\text{Rückgabetyp}}}\quad
-	\smashoperator{\mathop{\overbrace{\text{\cppinline{my_func}}}}^{\text{Name}}}
-	(\smashoperator{\mathop{\underbrace{\text{\cppinline{double x}}}}_{\text{Parameter 1}}},\
-	\smashoperator{\mathop{\overbrace{\text{\cppinline{int n}}}^{\text{Parameter 2}}}})
-\]
-%sorry etwas hässlich
+%\[
+%	\smashoperator{\mathop{\underbrace{\text{\cppinline{double}}}}_{\text{Rückgabetyp}}}\quad
+%	\smashoperator{\mathop{\overbrace{\text{\cppinline{my_func}}}}^{\text{Name}}}
+%	(\smashoperator{\mathop{\underbrace{\text{\cppinline{double x}}}}_{\text{Parameter 1}}},\
+%	\smashoperator{\mathop{\overbrace{\text{\cppinline{int n}}}^{\text{Parameter 2}}}})
+%\]
+% This structure currently causes the workflow to crash. It will need to be addressed in the future.
 
 \begin{itemize}
 	\item Rückgabetyp: Bestimmt welchen Datentyp die Rückgabe der Funktion hat
