@@ -6,9 +6,10 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - uses: xu-cheng/texlive-action/full@v2
-        with:
+        uses: actions/checkout@v4
+      - uses: xu-cheng/texlive-action@v2
+        with: 
+          scheme: full
           run: |
             apk add make
             apk add g++
