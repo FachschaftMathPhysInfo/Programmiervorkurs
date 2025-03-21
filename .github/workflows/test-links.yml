@@ -15,23 +15,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug - List Workflow Runs
-        run: |
-          gh run list --workflow="build.yml" --json databaseId,status,conclusion,artifacts -q '.[] | {id: .databaseId, status: .status, conclusion: .conclusion, artifacts: .artifacts}'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Debug - List files (before download)
-        run: ls -la
-
       - name: Download compiled PDF
         uses: actions/download-artifact@v4
         with:
           name: PDF
           path: .
-
-      - name: Debug - List files (after download)
-        run: ls -la
 
       - name: Install pdfgrep
         run: sudo apt-get update && sudo apt-get install -y pdfgrep
