@@ -22,7 +22,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: PDF
-          path: .
+          path: vorkurs.pdf
 
       - name: Extract and Check URLs
         run: |
