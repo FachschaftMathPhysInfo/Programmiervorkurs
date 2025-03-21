@@ -23,8 +23,8 @@ jobs:
 
       - name: Change file ownership to runner
         run: |
-            chown runner:docker vorkurs.pdf
-            chown runner:docker vorkurs.zip
+            sudo chown runner:docker vorkurs.pdf
+            sudo chown runner:docker vorkurs.zip
 
       - name: Debug - List files (after build)
         run: ls -la
