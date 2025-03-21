@@ -1,11 +1,28 @@
-name: Check Links
+name: Run Tests
 
 on:
-  workflow_run:
-    workflows: ["build"]
-    types:
-      - completed
+  push: {}    
   workflow_dispatch: {}
+
+jobs:
+ build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: xu-cheng/texlive-action@v2
+        with: 
+          scheme: full
+          run: |
+            apk add make
+            apk add g++
+            apk add zip
+            make script zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PDF_Test
+          path: vorkurs.pdf
 
 jobs:
   check-links:
@@ -18,7 +35,7 @@ jobs:
       - name: Download compiled PDF
         uses: actions/download-artifact@v4
         with:
-          name: PDF
+          name: PDF_Test
           path: .
 
       - name: Install pdfgrep
