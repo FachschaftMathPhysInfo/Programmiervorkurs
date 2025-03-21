@@ -18,7 +18,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y pdfgrep
 
       - name: Download compiled PDF
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: PDF
           path: .
