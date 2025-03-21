@@ -1,18 +1,18 @@
 name: Build and Run Tests
 
 on:
-  push: {}    
+  push: {}
   workflow_dispatch: {}
 
 jobs:
- build:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - uses: xu-cheng/texlive-action@v2
-        with: 
+        with:
           scheme: full
           run: |
             apk add make
@@ -24,12 +24,11 @@ jobs:
           name: PDF_Test
           path: vorkurs.pdf
 
-jobs:
   check-links:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }} # allow manual runs after failed build for testing
+    needs: build  # This is crucial: check-links runs AFTER build
     steps:
-      - name: Checkout code
+      - name: Checkout code  # Not strictly necessary, but good practice
         uses: actions/checkout@v4
 
       - name: Download compiled PDF
@@ -57,8 +56,8 @@ jobs:
 
             # Explicitly check for HTTPS
             if [[ ! "$url" =~ ^https:// ]]; then
-                echo "ERROR: URL is not HTTPS: $url"
-                error_count=$((error_count+1))
+              echo "ERROR: URL is not HTTPS: $url"
+              error_count=$((error_count + 1))
             fi
           done
 
