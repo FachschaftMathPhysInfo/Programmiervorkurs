@@ -17,3 +17,6 @@ vorkurs/
 vorkurs.zip
 pool_setup/poolpw
 title.pdf
+.vscode/
+.DS_Store
+*.dSYM
