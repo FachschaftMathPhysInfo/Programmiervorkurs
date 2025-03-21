@@ -17,7 +17,7 @@ jobs:
 
       - name: Debug - List Workflow Runs
         run: |
-          gh run list --workflow="build.yml" --json databaseId,status,conclusion,artifacts -q '.[] | {id: .databaseId, status: .status, conclusion: .conclusion, artifacts: .artifacts}'
+          gh run view --workflow="build.yml" --json databaseId,status,conclusion,artifacts -q '.[] | {id: .databaseId, status: .status, conclusion: .conclusion, artifacts: .artifacts}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
