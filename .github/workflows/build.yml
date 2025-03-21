@@ -21,6 +21,11 @@ jobs:
             apk add zip
             make script zip
 
+      - name: Change file ownership to runner
+        run: |
+            chown runner:docker vorkurs.pdf
+            chown runner:docker vorkurs.zip
+
       - name: Debug - List files (after build)
         run: ls -la
 
