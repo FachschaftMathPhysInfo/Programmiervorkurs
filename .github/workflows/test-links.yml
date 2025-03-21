@@ -5,6 +5,7 @@ on:
     workflows: ["build"]
     types:
       - completed
+  workflow_dispatch: {}
 
 jobs:
   check-links:
