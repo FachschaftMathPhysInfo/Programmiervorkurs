@@ -1,27 +1,44 @@
-name: Check Links
+nname: Build and Run Tests
 
 on:
-  workflow_run:
-    workflows: ["build"]
-    types:
-      - completed
+  push: {}
+  workflow_dispatch: {}
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            apk add make
+            apk add g++
+            apk add zip
+            make script zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PDF_Test
+          path: vorkurs.pdf
+
   check-links:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: build  # This is crucial: check-links runs AFTER build
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout code  # Not strictly necessary, but good practice
+        uses: actions/checkout@v4
+
+      - name: Download compiled PDF
+        uses: actions/download-artifact@v4
+        with:
+          name: PDF_Test
+          path: .
 
       - name: Install pdfgrep
         run: sudo apt-get update && sudo apt-get install -y pdfgrep
-
-      - name: Download compiled PDF
-        uses: actions/download-artifact@v3
-        with:
-          name: PDF
-          path: .
 
       - name: Extract and Check URLs
         run: |
@@ -39,8 +56,8 @@ jobs:
 
             # Explicitly check for HTTPS
             if [[ ! "$url" =~ ^https:// ]]; then
-                echo "ERROR: URL is not HTTPS: $url"
-                error_count=$((error_count+1))
+              echo "ERROR: URL is not HTTPS: $url"
+              error_count=$((error_count + 1))
             fi
           done
 
