@@ -41,9 +41,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y pdfgrep
 
       - name: Install required python package
-	run: |
-	  pip install urllib3
+        run: pip install urllib3
 
       - name: Run Link Checker
-	run: |
-	  python /.github/workflows/test_scripts/check_links.py
+        run: python /.github/workflows/test_scripts/check_links.py
