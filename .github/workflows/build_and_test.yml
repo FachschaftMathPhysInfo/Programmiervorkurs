@@ -40,41 +40,10 @@ jobs:
       - name: Install pdfgrep
         run: sudo apt-get update && sudo apt-get install -y pdfgrep
 
-      - name: Extract and Check URLs
-        run: |
-          urls=$(pdfgrep -o -P 'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)' vorkurs.pdf | sort -u)
-          error_count=0
+      - name: Install required python package
+	run: |
+	  pip install urllib3
 
-          for url in $urls; do
-            echo "Checking URL: $url"
-
-            if [[ ! "$url" =~ ^https:// ]]; then
-              echo "ERROR: URL is not HTTPS: $url"
-              error_count=$((error_count + 1))
-              continue
-            fi
-
-            if ! curl -Isf --fail-early --connect-timeout 10 "$url" > /dev/null 2>&1; then
-              curl_error=$(curl -Isf --fail-early --connect-timeout 10 "$url" 2>&1 > /dev/null)
-              if [[ $curl_error == *"Failed to connect"* ]]; then
-                echo "ERROR: Connection failed: $url"
-              elif [[ $curl_error == *"Could not resolve host"* ]]; then
-                echo "ERROR: DNS resolution failed: $url"
-              elif [[ $curl_error == *"SSL certificate problem"* ]]; then
-                 echo "ERROR: Initial SSL certificate problem: $url"
-              else
-                echo "ERROR: Failed to access: $url (curl error: $curl_error)"
-              fi
-              if ! openssl s_client -connect "$(echo "$url" | sed 's/https\?:\/\///' | cut -d/ -f1):443" -servername "$(echo "$url" | sed 's/https\?:\/\///' | cut -d/ -f1)" 2>/dev/null </dev/null | openssl x509 -noout; then
-                 echo "  -> CERTIFICATE ERROR DETECTED!"
-              fi
-
-              error_count=$((error_count + 1))
-            fi
-          done
-
-          if [ "$error_count" -gt 0 ]; then
-            echo "::error::Found $error_count broken or insecure links!"
-            exit 1
-          fi
-        shell: bash
+      - name: Run Link Checker
+	run: |
+	  python /.github/workflows/test_scripts/check_links.py
