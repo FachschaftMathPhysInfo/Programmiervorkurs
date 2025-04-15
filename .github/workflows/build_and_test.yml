@@ -45,3 +45,6 @@ jobs:
 
       - name: Run Link Checker
         run: python .github/workflows/test_scripts/check_links.py
+
+      - name: Run compilability checker
+        run: python .github/workflows/test_scripts/check_compilability.py
