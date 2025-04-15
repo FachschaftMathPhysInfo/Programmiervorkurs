@@ -24,7 +24,7 @@ jobs:
           name: PDF_Test
           path: vorkurs.pdf
 
-  test:
+  check-links:
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -45,6 +45,13 @@ jobs:
 
       - name: Run Link Checker
         run: python .github/workflows/test_scripts/check_links.py
+
+  check-compilability:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Run compilability checker
         run: python .github/workflows/test_scripts/check_compilability.py
