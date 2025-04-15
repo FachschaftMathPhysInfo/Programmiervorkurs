@@ -6,7 +6,7 @@ BASE_PATH = "vorkurs/"
 
 
 def find_all_cpp_files(findWorking):
-    vorkurs_path = pathlib.Path("/home/jan/Coding/Ende/Programmiervorkurs/vorkurs")
+    vorkurs_path = pathlib.Path(BASE_PATH)
     broken_cpp_files = set(vorkurs_path.rglob("*broken.cpp"))
 
     if not findWorking:
