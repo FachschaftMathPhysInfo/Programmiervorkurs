@@ -20,12 +20,21 @@ def test_single_cpp_file(file_path):
         print(f"Error in file {file_path}:\n")
         print(compile_status)
         print(20*"="+"\n")
+        return False
+
+    return True
 
 def main():
+    error_count = 0
     working_cpp_files = find_all_cpp_files()
 
     for cpp_file in working_cpp_files:
-        test_single_cpp_file(cpp_file)
+        if not test_single_cpp_file(cpp_file): 
+            error_count += 1 
+
+    if error_count >= 0: 
+        print(f"::error::Found {error_count} non compiling files")
+        exit(1)
 
 if __name__ == "__main__":
     main()
