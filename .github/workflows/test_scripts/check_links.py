@@ -5,7 +5,7 @@ import socket
 from urllib.parse import urlparse
 
 def extract_urls(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='latin-1') as file:
         content = file.read()
     url_pattern = re.compile(r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)')
     urls = url_pattern.findall(content)
