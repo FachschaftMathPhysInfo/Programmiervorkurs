@@ -18,15 +18,18 @@ def find_all_cpp_files(findWorking):
 
 
 def test_single_cpp_file(file_path, shouldCompile):
-    compile_status = subprocess.getoutput(f"g++ {file_path}")
+    compile_status = subprocess.getoutput(f"g++ {file_path} -w")
 
-    if (compile_status != "" and shouldCompile) or (
-        compile_status == "" and not shouldCompile
-    ):
+    if compile_status != "" and shouldCompile:
         print("\n" + 20 * "=")
         print(f"Error in file {file_path}:\n")
         print(compile_status)
         print(20 * "=" + "\n")
+        return False
+    elif compile_status == "" and not shouldCompile:
+        print("\n" + 20 * "=")
+        print(f"File {file_path} compiles, but should be broken")
+        print("\n" + 20 * "=")
         return False
 
     return True
