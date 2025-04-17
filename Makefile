@@ -33,7 +33,7 @@ dir: files/*
 	@cp files/helloworld.cpp vorkurs/lektion01/. > /dev/null
 	@cp files/helloyou.cpp   vorkurs/lektion03/. > /dev/null
 	@cp files/noImport_broken.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/noSemicolon_broken.cpp    vorkurs/lektion04/. > /dev/null
+	@cp files/noSemicolon2_broken.cpp    vorkurs/lektion04/. > /dev/null
 	@cp files/noBracket_broken.cpp    vorkurs/lektion04/. > /dev/null
 	@cp files/wrongDirection_broken.cpp    vorkurs/lektion04/. > /dev/null
 	@cp files/noSemicolon2_broken.cpp    vorkurs/lektion04/. > /dev/null
