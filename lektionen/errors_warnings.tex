@@ -18,19 +18,22 @@ Fehlers zu finden.
 
 Nehmen wir z.B. mal folgendes Programm:
 
-\inputcpp{fehler1.cpp}
+\inputcpp{noImport\string_broken.cpp}
 
 Wenn wir versuchen, dieses zu kompilieren, gibt uns \texttt{g++} folgendes aus:
 
-\begin{textcode*}{label=g++ -o fehler1 fehler1.cpp}
-    fehler1.cpp: In function 'int main()':
-    fehler1.cpp:2:5: error: 'cout' is not a member of 'std'
-    fehler1.cpp:2:35: error: 'endl' is not a member of 'std'
+\begin{textcode*}{label=g++ -o fehler1 noImport\_broken.cpp}
+    noImport\_broken.cpp: In function 'int main()':
+    noImport\_broken.cpp:2:5: error: 'cout' is not a member of 'std'
+    noImport\_broken.cpp:2:35: error: 'endl' is not a member of 'std'
 \end{textcode*}
+
+Je nach Compiler und Betriebssystem kann die Nachricht abweichen, im generellen ist der Fehler
+aber immer auf das \texttt{std} bzw \texttt{cout} und \texttt{endl} zurückzuführen.
 
 Wenn wir diese Fehlermeldung verstehen wollen, fangen wir immer ganz oben an,
 egal wie viel Text uns der Compiler ausspucken mag. In diesem Fall sagt uns die
-erste Zeile, in welcher Datei (\texttt{fehler1.cpp}) der Fehler aufgetreten ist
+erste Zeile, in welcher Datei (\texttt{noImport\string_broken.cpp}) der Fehler aufgetreten ist
 und in welcher Funktion (\texttt{int main()}). Die beiden Zeilen
 danach sind sogar noch spezifischer: Sie enthalten zu Beginn den Dateinamen,
 dann einen Doppelpunkt, gefolgt von einer Zeilennummer, gefolgt von einer
@@ -50,14 +53,14 @@ output machen wollen, da es die Definitionen von \texttt{cout}, \texttt{cin},
 
 Der nächste sehr häufig vorkommende Fehler ist subtiler:
 
-\inputcpp{fehler2.cpp}
+\inputcpp{noSemicolon\string_broken.cpp}
 
 Wenn wir versuchen, dies zu kompilieren, bekommen wir vom Compiler
 entgegengespuckt:
 
-\begin{textcode*}{label=g++ -o fehler2 fehler2.cpp}
-    fehler2.cpp: In function 'int main()':
-    fehler2.cpp:5:1: error: expected ';' before '}' token
+\begin{textcode*}{label=g++ -o fehler2 noSemicolon\_broken.cpp}
+    noSemicolon\_broken.cpp: In function 'int main()':
+    noSemicolon\_broken.cpp:5:1: error: expected ';' before '\}' token
 \end{textcode*}
 
 Wiederum sagt uns die erste Zeile, in welcher Datei und Funktion der Fehler
@@ -88,8 +91,8 @@ wusste der Compiler es einfach nicht besser.
         korrekt arbeitet (schaut euch ggf. die bisher gezeigten Quellcodes an)?
 \end{enumerate}
 
-\inputcpp{fehler3.cpp}
-\inputcpp{fehler4.cpp}
+\inputcpp{noBracket\string_broken.cpp}
+\inputcpp{wrongDirection\string_broken.cpp}
 
 \begin{spiel}
 \begin{enumerate}
@@ -103,7 +106,7 @@ wusste der Compiler es einfach nicht besser.
 \end{enumerate}
 \end{spiel}
 
-\inputcpp{fehler5.cpp}
+\inputcpp{noSemicolon2\string_broken.cpp}
 
 \textbf{Quiz 4}\\
 \textit{Was hiervon sind Fehler, die dazu führen, dass eine Datei nicht kompiliert werden kann?}

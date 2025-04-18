@@ -32,11 +32,11 @@ dir: files/*
 	@echo "Dateien kopieren…"
 	@cp files/helloworld.cpp vorkurs/lektion01/. > /dev/null
 	@cp files/helloyou.cpp   vorkurs/lektion03/. > /dev/null
-	@cp files/fehler1.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/fehler2.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/fehler3.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/fehler4.cpp    vorkurs/lektion04/. > /dev/null
-	@cp files/fehler5.cpp    vorkurs/lektion04/. > /dev/null
+	@cp files/noImport_broken.cpp    vorkurs/lektion04/. > /dev/null
+	@cp files/noSemicolon2_broken.cpp    vorkurs/lektion04/. > /dev/null
+	@cp files/noBracket_broken.cpp    vorkurs/lektion04/. > /dev/null
+	@cp files/wrongDirection_broken.cpp    vorkurs/lektion04/. > /dev/null
+	@cp files/noSemicolon2_broken.cpp    vorkurs/lektion04/. > /dev/null
 	@cp files/variablen.cpp  vorkurs/lektion05/. > /dev/null
 	@cp files/arith1.cpp     vorkurs/lektion07/. > /dev/null
 	@cp files/arith2.cpp     vorkurs/lektion07/. > /dev/null
