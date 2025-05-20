@@ -1,9 +1,9 @@
 #include <iostream>
 
 int main() {
-    int a;
-    int b;
-    int c;
+    int a{};
+    int b{};
+    int c{};
 
     std::cout << "Gebe eine Zahl ein: ";
     std::cin >> a;

@@ -1,8 +1,8 @@
 #include <iostream>
 
 int main() {
-    int a;
-    int b;
+    int a{};
+    int b{};
 
     std::cout << "Gebe eine Zahl ein: ";
     std::cin >> a;
