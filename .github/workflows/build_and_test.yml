@@ -65,8 +65,8 @@ jobs:
         with:
           scheme: full
           run: |
-            apk add --no-cache perl perl-yaml-tiny perl-file-homedir perl-file-find-rule
-            cpan -i Unicode::GCString
+            apk add --no-cache perl perl-app-cpanminus perl-yaml-tiny perl-file-homedir perl-file-find-rule
+            cpanm Unicode::GCString
             find . -name "*.tex" | while read file; do
               perl $(kpsewhich latexindent.pl) "$file" > "$file.formatted"
               if ! diff -q "$file" "$file.formatted" > /dev/null; then
