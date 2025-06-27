@@ -64,7 +64,8 @@ jobs:
       - name: Install TeX Live and latexindent dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive texlive-latex-extra perl libyaml-tiny-perl libfile-homedir-perl libunicode-gcstring-perl libfile-find-rule-perl
+          sudo apt-get install -y texlive texlive-latex-extra perl libyaml-tiny-perl libfile-homedir-perl libfile-find-rule-perl
+          sudo cpan -i Unicode::GCString
 
       - name: Check formatting of all .tex files
         run: |
