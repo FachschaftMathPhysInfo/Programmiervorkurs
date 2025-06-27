@@ -55,3 +55,23 @@ jobs:
 
       - name: Run compilability checker
         run: python .github/workflows/test_scripts/check_compilability.py
+
+  latexindent-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            apk add --no-cache perl perl-app-cpanminus perl-yaml-tiny perl-file-homedir perl-file-find-rule
+            cpanm Unicode::GCString
+            find . -name "*.tex" | while read file; do
+              perl $(kpsewhich latexindent.pl) "$file" > "$file.formatted"
+              if ! diff -q "$file" "$file.formatted" > /dev/null; then
+                echo "::error file=$file::File is not properly formatted. Run 'make format' locally."
+                exit 1
+              fi
+              rm "$file.formatted"
+            done

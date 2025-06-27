@@ -69,4 +69,8 @@ zip: dir
 	@zip -r vorkurs.zip vorkurs vorkurs.pdf
 	@echo "Zip-File erstellt. Fertig zum hochladen."
 
+format: 
+	@echo "Formatieren des LaTeX-Projekts…"
+	@bash scripts/format_latex.sh
+	@echo "Fertig."
 

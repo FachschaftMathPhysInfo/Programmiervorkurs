@@ -20,3 +20,6 @@ title.pdf
 .vscode/
 .DS_Store
 *.dSYM
+_minted/
+*synctex.gz
+*.bak*
