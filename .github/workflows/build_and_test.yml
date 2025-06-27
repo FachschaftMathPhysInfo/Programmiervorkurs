@@ -65,9 +65,8 @@ jobs:
         with:
           scheme: full
           run: |
-            sudo apt-get update
-            sudo apt-get install -y perl libyaml-tiny-perl libfile-homedir-perl libfile-find-rule-perl
-            sudo cpan -i Unicode::GCString
+            apk add --no-cache perl perl-yaml-tiny perl-file-homedir perl-file-find-rule
+            cpan -i Unicode::GCString
             find . -name "*.tex" | while read file; do
               perl $(kpsewhich latexindent.pl) "$file" > "$file.formatted"
               if ! diff -q "$file" "$file.formatted" > /dev/null; then
