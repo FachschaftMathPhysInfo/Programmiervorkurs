@@ -6,11 +6,11 @@ einfaches Spiel programmieren. Wir haben dazu Tic Tac Toe ausgewählt, da es
 relativ überschaubare Spiellogik besitzt. Ein- und Ausgabe, werden wir über die
 Konsole machen.
 
-In \texttt{vorkurs/lektion14} findet ihr eine Datei \texttt{tictactoe.cpp}. 
+In \texttt{vorkurs/lektion14} findet ihr eine Datei \texttt{tictactoe.cpp}.
 \inputcpp{tictactoe.cpp}
 
-Das Spielfeld stellen wir intern als Array mit 9 Integern dar. Der Wert des Integers beschreibt wem das Feld gehört. 
-Wenn das Feld Spieler 1 gehört, steht dort eine 1, gehört es Spieler 2 steht dort eine 2 und gehört es noch niemandem, 
+Das Spielfeld stellen wir intern als Array mit 9 Integern dar. Der Wert des Integers beschreibt wem das Feld gehört.
+Wenn das Feld Spieler 1 gehört, steht dort eine 1, gehört es Spieler 2 steht dort eine 2 und gehört es noch niemandem,
 dann steht da eine 0.
 
 Wir strukturieren die Spieleimplementierung, indem wir drei Hilfsfunktionen einführen. Diese übernehmen jeweils spezifische Aufgaben innerhalb der Spiellogik.
@@ -40,25 +40,25 @@ Wir strukturieren die Spieleimplementierung, indem wir drei Hilfsfunktionen einf
 
 \begin{praxis}
 	\begin{enumerate}
-    \item Implementiert \texttt{frage\_feld\_nummer}. Ihr solltet darauf
-          achten, dass ihr in dieser Funktion auch testet, ob ein gültiges
-          Feld eingegeben wurde und ob das angegebene Feld leer ist.
+		\item Implementiert \texttt{frage\_feld\_nummer}. Ihr solltet darauf
+		      achten, dass ihr in dieser Funktion auch testet, ob ein gültiges
+		      Feld eingegeben wurde und ob das angegebene Feld leer ist.
 
-    \item Implementiert \texttt{gebe\_feld\_aus}. Ihr könnt euch selbst
-          aussuchen, wie ihr die Ausgabe gestalten wollt.
-          Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Box-drawing_character}}
-          kann euch z.B. helfen, ein schöneres Feld auszugeben. Fangt am Besten
-          mit einer einfachen Ausgabe an und macht sie dann immer „fancier“.
+		\item Implementiert \texttt{gebe\_feld\_aus}. Ihr könnt euch selbst
+		      aussuchen, wie ihr die Ausgabe gestalten wollt.
+		      Wikipedia\footnote{\url{https://en.wikipedia.org/wiki/Box-drawing_character}}
+		      kann euch z.B. helfen, ein schöneres Feld auszugeben. Fangt am Besten
+		      mit einer einfachen Ausgabe an und macht sie dann immer „fancier“.
 
-    \item Implementiert \texttt{gewinnerin}. Denkt daran, dass ihr alle
-          Möglichkeiten testet, die mit einem Gewinnen enden - also 3
-          Möglichkeiten, eine Reihe zu bilden, 3 Möglichkeiten, eine Spalte zu
-          bilden und 2 Möglichkeiten für Diagonalen. Überlegt euch zunächst, wie
-          ihr zwischen Feldnummer (0-8) und Reihen- bzw. Spaltennummer hin- und
-          herrechnen könnt. Beachtet auch, dass es ein Unentschieden gibt, wenn
-          alle Felder belegt sind, aber keine von beiden Spielerinnen gewonnen
-          hat.
-    \item
+		\item Implementiert \texttt{gewinnerin}. Denkt daran, dass ihr alle
+		      Möglichkeiten testet, die mit einem Gewinnen enden - also 3
+		      Möglichkeiten, eine Reihe zu bilden, 3 Möglichkeiten, eine Spalte zu
+		      bilden und 2 Möglichkeiten für Diagonalen. Überlegt euch zunächst, wie
+		      ihr zwischen Feldnummer (0-8) und Reihen- bzw. Spaltennummer hin- und
+		      herrechnen könnt. Beachtet auch, dass es ein Unentschieden gibt, wenn
+		      alle Felder belegt sind, aber keine von beiden Spielerinnen gewonnen
+		      hat.
+		\item
 		      Das Grundgerüst des Spiels ist die \emph{input-update-display}-loop.
 		      Dies ist eine Endlosschleife, in der zunächst der \emph{input} der Spielerin abgefragt wird.
 		      Anschließend wird der interne Spielzustand aktualisiert (\emph{update}).

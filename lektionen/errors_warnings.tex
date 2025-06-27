@@ -23,9 +23,9 @@ Nehmen wir z.B. mal folgendes Programm:
 Wenn wir versuchen, dieses zu kompilieren, gibt uns \texttt{g++} folgendes aus:
 
 \begin{textcode*}{label=g++ -o fehler1 noImport\_broken.cpp}
-    noImport\_broken.cpp: In function 'int main()':
-    noImport\_broken.cpp:2:5: error: 'cout' is not a member of 'std'
-    noImport\_broken.cpp:2:35: error: 'endl' is not a member of 'std'
+	noImport\_broken.cpp: In function 'int main()':
+	noImport\_broken.cpp:2:5: error: 'cout' is not a member of 'std'
+	noImport\_broken.cpp:2:35: error: 'endl' is not a member of 'std'
 \end{textcode*}
 
 Je nach Compiler und Betriebssystem kann die Nachricht abweichen, im generellen ist der Fehler
@@ -59,8 +59,8 @@ Wenn wir versuchen, dies zu kompilieren, bekommen wir vom Compiler
 entgegengespuckt:
 
 \begin{textcode*}{label=g++ -o fehler2 noSemicolon\_broken.cpp}
-    noSemicolon\_broken.cpp: In function 'int main()':
-    noSemicolon\_broken.cpp:5:1: error: expected ';' before '\}' token
+	noSemicolon\_broken.cpp: In function 'int main()':
+	noSemicolon\_broken.cpp:5:1: error: expected ';' before '\}' token
 \end{textcode*}
 
 Wiederum sagt uns die erste Zeile, in welcher Datei und Funktion der Fehler
@@ -83,27 +83,27 @@ wusste der Compiler es einfach nicht besser.
 
 \textbf{Praxis:}
 \begin{enumerate}
-    \item Versucht, folgende Dateien zu kompilieren und schaut euch die
-        Fehlermeldung an. In welcher Zeile, in welcher Spalte liegt der Fehler?
-        Was gibt euch der Compiler als Fehlermeldung aus?
-    \item Versucht, die aufgetretenen Fehler zu korrigieren. Bekommt ihr es
-        hin, dass der Compiler sich nicht mehr beschwert und das Programm
-        korrekt arbeitet (schaut euch ggf. die bisher gezeigten Quellcodes an)?
+	\item Versucht, folgende Dateien zu kompilieren und schaut euch die
+	      Fehlermeldung an. In welcher Zeile, in welcher Spalte liegt der Fehler?
+	      Was gibt euch der Compiler als Fehlermeldung aus?
+	\item Versucht, die aufgetretenen Fehler zu korrigieren. Bekommt ihr es
+	      hin, dass der Compiler sich nicht mehr beschwert und das Programm
+	      korrekt arbeitet (schaut euch ggf. die bisher gezeigten Quellcodes an)?
 \end{enumerate}
 
 \inputcpp{noBracket\string_broken.cpp}
 \inputcpp{wrongDirection\string_broken.cpp}
 
 \begin{spiel}
-\begin{enumerate}
-    \item Das folgende Programm enthält mehrere Fehler. Bekommt ihr trotzdem
-        raus, welche das sind und könnt ihr sie beheben (Tipp: „c++ math“ zu
-        \href{https://lmgtfy.com/?q=c\%2B\%2B+math}{googlen} kann euch hier vielleicht weiter bringen)?
-    \item Wenn ihr in den vergangenen Lektionen ein bisschen gespielt habt und
-        vereinzelt versucht habt, Dinge zu löschen, werden euch viele
-        Fehlermeldungen begegnet sein, versucht, diese zu lesen und
-        interpretiert, was euch der compiler hier sagen will.
-\end{enumerate}
+	\begin{enumerate}
+		\item Das folgende Programm enthält mehrere Fehler. Bekommt ihr trotzdem
+		      raus, welche das sind und könnt ihr sie beheben (Tipp: „c++ math“ zu
+		      \href{https://lmgtfy.com/?q=c\%2B\%2B+math}{googlen} kann euch hier vielleicht weiter bringen)?
+		\item Wenn ihr in den vergangenen Lektionen ein bisschen gespielt habt und
+		      vereinzelt versucht habt, Dinge zu löschen, werden euch viele
+		      Fehlermeldungen begegnet sein, versucht, diese zu lesen und
+		      interpretiert, was euch der compiler hier sagen will.
+	\end{enumerate}
 \end{spiel}
 
 \inputcpp{noSemicolon2\string_broken.cpp}
@@ -111,8 +111,8 @@ wusste der Compiler es einfach nicht besser.
 \textbf{Quiz 4}\\
 \textit{Was hiervon sind Fehler, die dazu führen, dass eine Datei nicht kompiliert werden kann?}
 \begin{enumerate}[label=\alph*)]
-    \item Semikolon vergessen
-    \item include vergessen
-    \item return vergessen
-    \item Einrückung falsch
+	\item Semikolon vergessen
+	\item include vergessen
+	\item return vergessen
+	\item Einrückung falsch
 \end{enumerate}

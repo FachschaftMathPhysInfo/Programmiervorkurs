@@ -7,22 +7,22 @@ Wie der Name bereits vermuten lässt, erlaubt es das WSL, eine Linux-Umgebung un
 In dieser werden wir dann die nötigen Tools installieren.
 \begin{enumerate}
 	\item Zunächst muss mittels PowerShell das WSL aktiviert werden. Dafür kann man im Suchfeld des Windows-Desktops einfach nach „PowerShell“ suchen.
-	Durch einen Rechtsklick kann diese als Administrator gestartet werden, was für die Aktivierung notwendig ist.
+	      Durch einen Rechtsklick kann diese als Administrator gestartet werden, was für die Aktivierung notwendig ist.
 	\item Hat man die PowerShell als Administrator geöffnet, kann das WSL durch den Befehl \texttt{wsl -{}-install} aktivieren.
 	\item Das System startet danach einen Download, diesen durchlaufen lassen, und anschließend den PC neu starten.
-	\item Nach dem Neustart kann in den Programmen „Ubuntu“ gestartet werden. 
-		Wenn ihr an dieser Stelle „Ubuntu“ nicht auswählen könnt, dann ist die Installation unter Umständen noch nicht fertig.
-		Startet in diesem Fall die PowerShell erneut als Administrator und führt erneut \texttt{wsl -{}-install} aus.
-	\item In dem erscheinenden Terminal wird zunächst um die Erstellung eines neuen Nutzers für die Linux-Umgebung gebeten. 
-		Hierbei könnt ihr Nutzername und Passwort frei wählen. Bitte notiert euch diese, da ihr sie noch braucht.\\
-		\textbf{Hinweis zum setzen des Passworts:} Anders als bei Windows werden hier bei der Eingabe keine Sternchen, oder ähnliche Symbole erscheinen, die als Platzhalter für bereits eingegebene Symbole erscheinen. 
-		Das Passwort muss also „blind“ eingegeben werden. Um hier ein eventuelles Vertippen auszuschließen, muss das Passwort nach der ersten Eingabe erneut bestätigt werden.
+	\item Nach dem Neustart kann in den Programmen „Ubuntu“ gestartet werden.
+	      Wenn ihr an dieser Stelle „Ubuntu“ nicht auswählen könnt, dann ist die Installation unter Umständen noch nicht fertig.
+	      Startet in diesem Fall die PowerShell erneut als Administrator und führt erneut \texttt{wsl -{}-install} aus.
+	\item In dem erscheinenden Terminal wird zunächst um die Erstellung eines neuen Nutzers für die Linux-Umgebung gebeten.
+	      Hierbei könnt ihr Nutzername und Passwort frei wählen. Bitte notiert euch diese, da ihr sie noch braucht.\\
+	      \textbf{Hinweis zum setzen des Passworts:} Anders als bei Windows werden hier bei der Eingabe keine Sternchen, oder ähnliche Symbole erscheinen, die als Platzhalter für bereits eingegebene Symbole erscheinen.
+	      Das Passwort muss also „blind“ eingegeben werden. Um hier ein eventuelles Vertippen auszuschließen, muss das Passwort nach der ersten Eingabe erneut bestätigt werden.
 	\item Bevor ihr neue Tools installiert, solltet ihr euer System updaten. Gebt dazu ins Terminal folgende Befehle ein: \texttt{sudo apt update} und danach \texttt{sudo apt upgrade}. Im Allgemeinen empfiehlt es sich, diese Befehle im regelmäßigen Abstand auszuführen um euer System aktuell zu halten. Ihr werdet hier eventuell nach einem Passwort gefragt, ihr müsst hier das eben von euch gesetzte verwenden.
-	\item Im Anschluss müssen im Terminal mittels \texttt{sudo apt install gdb g++ unzip -y} die nötigen Tools installiert werden. 
-		Der Start des Vorgangs muss dabei wieder mit dem vorhin gesetzten Passwort bestätigt werden. 
-		(Auch hier werden keine Sternchen oder Ähnliches für bereits eingegeben Symbole angezeigt)
+	\item Im Anschluss müssen im Terminal mittels \texttt{sudo apt install gdb g++ unzip -y} die nötigen Tools installiert werden.
+	      Der Start des Vorgangs muss dabei wieder mit dem vorhin gesetzten Passwort bestätigt werden.
+	      (Auch hier werden keine Sternchen oder Ähnliches für bereits eingegeben Symbole angezeigt)
 	\item Jetzt könnt ihr die Dateien des Kurses mittels \\
-		\texttt{wget https://mathphys.info/vorkurs/pvk/vorkurs.zip} herunterladen.
+	      \texttt{wget https://mathphys.info/vorkurs/pvk/vorkurs.zip} herunterladen.
 	\item Abschließend könnt ihr das Archiv mit \texttt{unzip vorkurs.zip} entpacken.
 	\item Die Dateien des Vorkurses können nun mittels \texttt{code vorkurs} über das Terminal geöffnet werden.
 \end{enumerate}

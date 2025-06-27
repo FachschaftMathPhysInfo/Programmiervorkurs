@@ -1,61 +1,61 @@
 \chapter{Visual Studio Code: Einstieg und Tipps}
 \label{sec:vscode}
 
-Visual Studio Code (VS Code) ist ein moderner, kostenloser Editor, der besonders für Programmieranfänger:innen viele Vorteile bietet. 
+Visual Studio Code (VS Code) ist ein moderner, kostenloser Editor, der besonders für Programmieranfänger:innen viele Vorteile bietet.
 In diesem Abschnitt zeigen wir, wie ihr VS Code installiert, sinnvoll einrichtet und für den Vorkurs nutzt.
 
 \section{Installation}
 \begin{enumerate}
-    \item Ladet VS Code von \url{https://code.visualstudio.com/Download} herunter und installiert es.
-    \item Öffnet VS Code nach der Installation.
+	\item Ladet VS Code von \url{https://code.visualstudio.com/Download} herunter und installiert es.
+	\item Öffnet VS Code nach der Installation.
 \end{enumerate}
 
 \section{Empfohlene Erweiterungen}
 \begin{itemize}
-    \item \textbf{C/C++} (Microsoft): Syntax-Highlighting, Autovervollständigung und Debugging für C++.
-    \item \textbf{CodeLLDB} oder \textbf{C/C++ Extension Pack}: Für erweitertes Debugging.
-    \item \textbf{Remote - WSL} (nur Windows): Für die Verbindung zu WSL (Windows Subsystem for Linux).
-    \item \textbf{Better Comments}, \textbf{Bracket Pair Colorizer}, \textbf{GitLens}: Für mehr Übersicht und Komfort.
+	\item \textbf{C/C++} (Microsoft): Syntax-Highlighting, Autovervollständigung und Debugging für C++.
+	\item \textbf{CodeLLDB} oder \textbf{C/C++ Extension Pack}: Für erweitertes Debugging.
+	\item \textbf{Remote - WSL} (nur Windows): Für die Verbindung zu WSL (Windows Subsystem for Linux).
+	\item \textbf{Better Comments}, \textbf{Bracket Pair Colorizer}, \textbf{GitLens}: Für mehr Übersicht und Komfort.
 \end{itemize}
 
 \section{VS Code mit WSL verbinden (nur Windows)}
 \begin{enumerate}
-    \item Installiert das Windows-Subsystem für Linux (siehe Kapitel \ref{sec:windows}).
-    \item Installiert die Erweiterung \textbf{Remote - WSL} in VS Code.
-    \item Öffnet die WSL-Konsole und gebt \texttt{code .} ein, um das aktuelle Verzeichnis in VS Code zu öffnen.
-    \item VS Code erkennt automatisch, dass ihr im WSL arbeitet.
+	\item Installiert das Windows-Subsystem für Linux (siehe Kapitel \ref{sec:windows}).
+	\item Installiert die Erweiterung \textbf{Remote - WSL} in VS Code.
+	\item Öffnet die WSL-Konsole und gebt \texttt{code .} ein, um das aktuelle Verzeichnis in VS Code zu öffnen.
+	\item VS Code erkennt automatisch, dass ihr im WSL arbeitet.
 \end{enumerate}
 
 \section{Debugger einrichten}
 \begin{enumerate}
-    \item Öffnet die Datei, die ihr debuggen wollt.
-    \item Klickt links auf das Symbol für „Run and Debug“ (\texttt{Play}-Button mit Käfer).
-    \item Wählt „C++ (GDB/LLDB)“ oder „C++ (Windows)“ aus.
-    \item Erstellt ggf. eine \texttt{launch.json} (VS Code bietet eine automatische Konfiguration an).
-    \item Setzt Breakpoints durch Klick auf die Zeilennummer.
-    \item Startet das Debugging mit F5.
+	\item Öffnet die Datei, die ihr debuggen wollt.
+	\item Klickt links auf das Symbol für „Run and Debug“ (\texttt{Play}-Button mit Käfer).
+	\item Wählt „C++ (GDB/LLDB)“ oder „C++ (Windows)“ aus.
+	\item Erstellt ggf. eine \texttt{launch.json} (VS Code bietet eine automatische Konfiguration an).
+	\item Setzt Breakpoints durch Klick auf die Zeilennummer.
+	\item Startet das Debugging mit F5.
 \end{enumerate}
 
 \section{Nützliche Shortcuts}
 Eine vollständige Übersicht findet ihr im Anhang \ref{sec:cheatsheet-shortcuts}. Hier die wichtigsten:
 \begin{itemize}
-    \item \texttt{Strg + P}: Datei schnell öffnen
-    \item \texttt{Strg + Shift + P}: Befehlspalette öffnen
-    \item \texttt{Strg + \textasciigrave}: Terminal öffnen/schließen
-    \item \texttt{F5}: Debugging starten
-    \item \texttt{F9}: Breakpoint setzen/entfernen
+	\item \texttt{Strg + P}: Datei schnell öffnen
+	\item \texttt{Strg + Shift + P}: Befehlspalette öffnen
+	\item \texttt{Strg + \textasciigrave}: Terminal öffnen/schließen
+	\item \texttt{F5}: Debugging starten
+	\item \texttt{F9}: Breakpoint setzen/entfernen
 \end{itemize}
 
 \section{Weitere Tipps}
 \begin{itemize}
-    \item Ihr könnt mehrere Terminals gleichzeitig öffnen (z.B. Bash und PowerShell).
-    \item Die integrierte Git-Unterstützung hilft beim Versionsmanagement.
-    \item Mit \texttt{settings.json} könnt ihr VS Code individuell anpassen.
+	\item Ihr könnt mehrere Terminals gleichzeitig öffnen (z.B. Bash und PowerShell).
+	\item Die integrierte Git-Unterstützung hilft beim Versionsmanagement.
+	\item Mit \texttt{settings.json} könnt ihr VS Code individuell anpassen.
 \end{itemize}
 
 \section{Fehlerbehebung}
 \begin{itemize}
-    \item Prüft, ob alle benötigten Erweiterungen installiert sind.
-    \item Bei Problemen mit WSL: VS Code und WSL neu starten.
-    \item Compiler-Fehler erscheinen im „Problems“-Tab unten.
+	\item Prüft, ob alle benötigten Erweiterungen installiert sind.
+	\item Bei Problemen mit WSL: VS Code und WSL neu starten.
+	\item Compiler-Fehler erscheinen im „Problems“-Tab unten.
 \end{itemize}

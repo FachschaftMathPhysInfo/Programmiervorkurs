@@ -29,21 +29,21 @@ Verhaltens eines Programms von den Eingaben, bezeichnen wir als
 \emph{Kontrollfluss}, man kann das mit einem Diagramm verdeutlichen:
 
 \begin{center}
-      \begin{tikzpicture}[auto, node distance=3cm,>=latex']
-            \tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
+	\begin{tikzpicture}[auto, node distance=3cm,>=latex']
+		\tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=3em, minimum width=6em]
 
-            \node [block] (start) {Input};
-            \node [block, right of=start] (if) { $a=0$? };
-            \node [block, right of=if, node distance=4cm] (fehler) { Gib Fehler aus };
-            \node [block, below of=fehler,node distance =  2cm] (quotient) { Gib Quotient aus };
-            \node [block, right of=fehler, node distance = 3.5cm] (ende) { Ende };
+		\node [block] (start) {Input};
+		\node [block, right of=start] (if) { $a=0$? };
+		\node [block, right of=if, node distance=4cm] (fehler) { Gib Fehler aus };
+		\node [block, below of=fehler,node distance =  2cm] (quotient) { Gib Quotient aus };
+		\node [block, right of=fehler, node distance = 3.5cm] (ende) { Ende };
 
-            \draw [->] (start) -- node {} (if);
-            \draw [->] (if) -- node {\texttt{ja}} (fehler);
-            \draw [->] (if.south) |- node [above, near end] {\texttt{nein}} (quotient);
-            \draw [->] (quotient) -| node {} (ende);
-            \draw [->] (fehler) -- node {} (ende);
-      \end{tikzpicture}
+		\draw [->] (start) -- node {} (if);
+		\draw [->] (if) -- node {\texttt{ja}} (fehler);
+		\draw [->] (if.south) |- node [above, near end] {\texttt{nein}} (quotient);
+		\draw [->] (quotient) -| node {} (ende);
+		\draw [->] (fehler) -- node {} (ende);
+	\end{tikzpicture}
 \end{center}
 
 Die einfachste Möglichkeit, den Kontrollfluss zu ändern, besteht in so
@@ -61,36 +61,36 @@ Gleichheitszeichen bedeuten Vergleich („sind diese beiden gleich?“), ein
 einfaches Gleichheitszeichen bedeutet Zuweisung („mache diese beiden gleich!“).
 
 \begin{praxis}
-      \begin{enumerate}
-            \item Nutzt Google, um herauszufinden, welche anderen Vergleichsoperatoren
-                  es in \Cpp noch gibt. Versucht, das Programm so zu verändern, dass es
-                  auf Ungleichheit testet, statt auf Gleichheit (sich sonst aber genauso
-                  verhält).
-            
-            \item Wie würdet ihr testen, ob zwei Zahlen durch einander teilbar sind
-                  (Tipp: Ihr kennt bereits die Division mit Rest in \Cpp (modulo))?
-                  Schreibt ein Programm, welches zwei Zahlen von der Nutzerin entgegen
-                  nimmt und ausgibt, ob die zweite Zahl die erste teilt.
-      \end{enumerate}
+	\begin{enumerate}
+		\item Nutzt Google, um herauszufinden, welche anderen Vergleichsoperatoren
+		      es in \Cpp noch gibt. Versucht, das Programm so zu verändern, dass es
+		      auf Ungleichheit testet, statt auf Gleichheit (sich sonst aber genauso
+		      verhält).
+
+		\item Wie würdet ihr testen, ob zwei Zahlen durch einander teilbar sind
+		      (Tipp: Ihr kennt bereits die Division mit Rest in \Cpp (modulo))?
+		      Schreibt ein Programm, welches zwei Zahlen von der Nutzerin entgegen
+		      nimmt und ausgibt, ob die zweite Zahl die erste teilt.
+	\end{enumerate}
 \end{praxis}
 
 \begin{spiel}
-\begin{enumerate}
-    \item Testet mit verschiedenen Eingaben, was passiert, wenn ihr in
-        \texttt{if.cpp} statt zwei Gleichheitszeichen nur eines benutzt.
+	\begin{enumerate}
+		\item Testet mit verschiedenen Eingaben, was passiert, wenn ihr in
+		      \texttt{if.cpp} statt zwei Gleichheitszeichen nur eines benutzt.
 
-    \item Schreibt ein Programm, welches die Benutzerin fragt, wie sie heißt.
-        Gibt sie euren eigenen Namen ein, soll das Programm begeistert über die
-        Namensgleichheit sein, sonst sie einfach begrüßen.
-\end{enumerate}
+		\item Schreibt ein Programm, welches die Benutzerin fragt, wie sie heißt.
+		      Gibt sie euren eigenen Namen ein, soll das Programm begeistert über die
+		      Namensgleichheit sein, sonst sie einfach begrüßen.
+	\end{enumerate}
 \end{spiel}
 
 \textbf{Quiz 8}\\
 \textit{Welche Aussagen sind korrekt?}
 \begin{enumerate}[label=\alph*)]
-    \item Mit \texttt{=} vergleicht man.
-    \item Es darf immer nur ein \texttt{if} vor einem \texttt{else} kommen.
-    \item Es darf nur ein else pro Fallunterscheidung geben
-    \item Bei falscher Einrückung funktioniert das Programm nicht
+	\item Mit \texttt{=} vergleicht man.
+	\item Es darf immer nur ein \texttt{if} vor einem \texttt{else} kommen.
+	\item Es darf nur ein else pro Fallunterscheidung geben
+	\item Bei falscher Einrückung funktioniert das Programm nicht
 \end{enumerate}
 

@@ -29,11 +29,11 @@ benutzen wollen, heißt \texttt{g++}.
 Vereinfacht sieht der Prozess zur Programmerstellung also wie folgt aus:
 
 \begin{tikzpicture}
-    \node (1) at (0,0) [rectangle, draw] {Programmcode schreiben (Hochsprache)};
-    \node (2) at (6,0) [rectangle, draw] {Kompilieren};
-    \node (3) at (9,0) [rectangle, draw] {Ausführen};
-    \draw[->, blue!50, very thick] (1) to (2);
-    \draw[->, blue!50, very thick] (2) to (3);
+	\node (1) at (0,0) [rectangle, draw] {Programmcode schreiben (Hochsprache)};
+	\node (2) at (6,0) [rectangle, draw] {Kompilieren};
+	\node (3) at (9,0) [rectangle, draw] {Ausführen};
+	\draw[->, blue!50, very thick] (1) to (2);
+	\draw[->, blue!50, very thick] (2) to (3);
 \end{tikzpicture} \\
 
 \textbf{Wie gehe ich dabei vor?}
@@ -45,42 +45,42 @@ ein Werkzeug ist, um dem Computer spezifisch zu sagen, was er machen soll (mehr 
 unter Windows CMD oder Powershell. Ein Befehl für \texttt{g++} (dem Compiler für \Cpp) sieht beispielsweise wie folgt aus:
 
 \begin{center}
-    \texttt{g++ -o outputDatei zuKompilierendeDatei.cpp}
+	\texttt{g++ -o outputDatei zuKompilierendeDatei.cpp}
 \end{center}
 Hierbei legen wir mit dem Parameter \texttt{-o} (o für output) und dem ersten darauf folgenden Argument den Namen der Ausgabedatei fest.
 
 Nachdem \texttt{g++} uns also ein Maschinencodefile -- die \texttt{outputDatei} --
 erzeugt hat, können wir es zur Ausführung bringen. Dies kann im Terminal mit einem Punkt und einem Slash vor dem Dateinamen geschehen. Also:
 \begin{center}
-    \texttt{./outputDatei}
+	\texttt{./outputDatei}
 \end{center}
 
 
 
 \begin{praxis}
 
-    \textbf{Erstes Programm in \Cpp schreiben}
+	\textbf{Erstes Programm in \Cpp schreiben}
 
-    \begin{enumerate}
-        \item Erstelle eine neue, leere Datei in einem Editor deiner Wahl.
-        
-        \item Kopiere folgenden Programmcode in den Texteditor und speichere ihn in einer Datei mit dem Namen „helloworld.cpp“ ab. 
-        Das nähere Verständnis des Programmcodes ist an dieser Stelle nicht notwendig. 
-    \end{enumerate}    
+	\begin{enumerate}
+		\item Erstelle eine neue, leere Datei in einem Editor deiner Wahl.
 
-    \inputcpp{helloworld.cpp}
+		\item Kopiere folgenden Programmcode in den Texteditor und speichere ihn in einer Datei mit dem Namen „helloworld.cpp“ ab.
+		      Das nähere Verständnis des Programmcodes ist an dieser Stelle nicht notwendig.
+	\end{enumerate}
 
-    \textbf{\Cpp-Code komplieren und Programm erstellen }
-  
-    \begin{enumerate}
-        \item Öffne ein Terminal (Konsole), ihr findet das Terminal unter Ubuntu oben links unter „Applications“ als „Terminal“ oder mittig unten als das zweite Symbol von links.
-        \item Wechselt mit dem Befehl \texttt{cd [PFAD]} in das Verzeichnis (Ordner), indem ihr eure Textdatei erstellt habt (\texttt{[PFAD]} muss hierbei durch den Speicherort der Datei ersetzt werden).
-              Was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2.
-        \item In diesem Verzeichnis liegt nun eine Datei mit dem Namen \texttt{helloworld.cpp}.
-              Benutzt \texttt{g++}, um diese zu einer Datei (in diesem Fall dem Programm) \texttt{hello} zu
-              kompilieren. Orientiert euch dazu an den folgenden Befehlen. (siehe Diagramm)
-        \item Führt die Datei \texttt{hello} aus.
-    \end{enumerate}
+	\inputcpp{helloworld.cpp}
+
+	\textbf{\Cpp-Code komplieren und Programm erstellen }
+
+	\begin{enumerate}
+		\item Öffne ein Terminal (Konsole), ihr findet das Terminal unter Ubuntu oben links unter „Applications“ als „Terminal“ oder mittig unten als das zweite Symbol von links.
+		\item Wechselt mit dem Befehl \texttt{cd [PFAD]} in das Verzeichnis (Ordner), indem ihr eure Textdatei erstellt habt (\texttt{[PFAD]} muss hierbei durch den Speicherort der Datei ersetzt werden).
+		      Was dieser Befehl genau tut und wie er funktioniert, erfahrt ihr in Lektion 2.
+		\item In diesem Verzeichnis liegt nun eine Datei mit dem Namen \texttt{helloworld.cpp}.
+		      Benutzt \texttt{g++}, um diese zu einer Datei (in diesem Fall dem Programm) \texttt{hello} zu
+		      kompilieren. Orientiert euch dazu an den folgenden Befehlen. (siehe Diagramm)
+		\item Führt die Datei \texttt{hello} aus.
+	\end{enumerate}
 \end{praxis}
 
 
@@ -89,45 +89,45 @@ Diagramm:
 
 % TODO: Buttugly, but well... - its gonna stay this way
 \begin{center}
-    \resizebox{\textwidth}{!}{
-        \begin{tikzpicture}
-            \node (nHelloWorldCpp) [ shape=rectangle, rounded corners = 0.1cm, draw=black, inner xsep=0.5cm, inner ysep = 0.3cm ] {\texttt{helloworld.cpp}};
-            \node (nHello) [ right of = nHelloWorldCpp, node distance = 9.5cm, shape=rectangle, rounded corners = 0.1cm, draw = black, inner xsep = 0.5cm, inner ysep = 0.3cm ] {\texttt{hello}};
-            \draw [->, thick, shorten >= 2pt, shorten <= 2pt ] (nHelloWorldCpp) -- (nHello) node [ midway, above, font = \small ] { \texttt{g++ -o hello helloworld.cpp}} ;
-            \node (nOutput) [ right of = nHello, node distance = 5cm, shape=rectangle ] {\texttt{"Hallo Welt!"}};
-            \draw [->, thick, shorten <= 2pt] (nHello) -- (nOutput) node [ midway, above ] {\texttt{./hello}};
-        \end{tikzpicture}
-    }
+	\resizebox{\textwidth}{!}{
+		\begin{tikzpicture}
+			\node (nHelloWorldCpp) [ shape=rectangle, rounded corners = 0.1cm, draw=black, inner xsep=0.5cm, inner ysep = 0.3cm ] {\texttt{helloworld.cpp}};
+			\node (nHello) [ right of = nHelloWorldCpp, node distance = 9.5cm, shape=rectangle, rounded corners = 0.1cm, draw = black, inner xsep = 0.5cm, inner ysep = 0.3cm ] {\texttt{hello}};
+			\draw [->, thick, shorten >= 2pt, shorten <= 2pt ] (nHelloWorldCpp) -- (nHello) node [ midway, above, font = \small ] { \texttt{g++ -o hello helloworld.cpp}} ;
+			\node (nOutput) [ right of = nHello, node distance = 5cm, shape=rectangle ] {\texttt{"Hallo Welt!"}};
+			\draw [->, thick, shorten <= 2pt] (nHello) -- (nOutput) node [ midway, above ] {\texttt{./hello}};
+		\end{tikzpicture}
+	}
 \end{center}
 
 \newpage
 
 \begin{spiel}
 
-Ihr könnt nun versuchen, den Quellcode selbst zu verändern und damit ein wenig
-herumzuspielen. Öffnet dazu einen Editor und öffnet die Datei
-\texttt{vorkurs/lektion01/helloworld.cpp}\footnote{am besten öffnet ihr in VSCode den gesamten Vorkurs-Ordner}. Denkt daran, nach jeder Änderung die Datei zu speichern und
-im Terminal neu zu kompilieren und auszuführen.
+	Ihr könnt nun versuchen, den Quellcode selbst zu verändern und damit ein wenig
+	herumzuspielen. Öffnet dazu einen Editor und öffnet die Datei
+	\texttt{vorkurs/lektion01/helloworld.cpp}\footnote{am besten öffnet ihr in VSCode den gesamten Vorkurs-Ordner}. Denkt daran, nach jeder Änderung die Datei zu speichern und
+	im Terminal neu zu kompilieren und auszuführen.
 
-Dinge, die ihr ausprobieren könntet sind zum Beispiel:
-\begin{enumerate}
-    \item Was passiert, wenn ihr „Hello world!“ in etwas anderes ändert?
-    \item Was passiert, wenn ihr die erste Zeile löscht (der Originalquellcode
-        ist in diesem pdf enthalten, ihr könnt sie also später wieder
-        herstellen)?
-    \item Was passiert, wenn ihr das „\verb|<< std::endl|“ löscht?
-    \item Wie könnte man mehrere Sätze ausgeben? Wie könnte man mehrere Zeilen
-        ausgeben?
-\end{enumerate}
+	Dinge, die ihr ausprobieren könntet sind zum Beispiel:
+	\begin{enumerate}
+		\item Was passiert, wenn ihr „Hello world!“ in etwas anderes ändert?
+		\item Was passiert, wenn ihr die erste Zeile löscht (der Originalquellcode
+		      ist in diesem pdf enthalten, ihr könnt sie also später wieder
+		      herstellen)?
+		\item Was passiert, wenn ihr das „\verb|<< std::endl|“ löscht?
+		\item Wie könnte man mehrere Sätze ausgeben? Wie könnte man mehrere Zeilen
+		      ausgeben?
+	\end{enumerate}
 \end{spiel}
 
 \textbf{Quiz 1}\\
 \textit{Was passiert, wenn ihr \texttt{Hello world} durch etwas anderes ersetzt?}
 \begin{enumerate}[label=\alph*)]
-    \item Das andere wird ausgegeben
-    \item Es gibt einen Fehler
-    \item Das Programm tut garnichts mehr
-    \item Das Programm gibt trotzdem \texttt{Hello world} aus
+	\item Das andere wird ausgegeben
+	\item Es gibt einen Fehler
+	\item Das Programm tut garnichts mehr
+	\item Das Programm gibt trotzdem \texttt{Hello world} aus
 \end{enumerate}
 
 \lesson{Input und Output}
@@ -157,32 +157,32 @@ sich nicht die Mühe gemacht, extra eine grafische Oberfläche zu entwickeln.
 Nun aber direkt zur Praxis:
 
 \begin{praxis}
-    \begin{enumerate}
-        \item Öffnet die Datei \texttt{vorkurs/lektion03/helloyou.cpp} in eurem Texteditor
-        \item Öffnet ein Terminal und wechselt in das Verzeichnis \texttt{vorkurs/lektion03}
-        \item Kompiliert im Terminal die Datei (\texttt{g++ -o helloyou
-                  helloyou.cpp}) und führt sie aus (\texttt{./helloyou})
-        \item Versucht verschiedene Eingaben an das Programm und beobachtet, was passiert
-    \end{enumerate}
+	\begin{enumerate}
+		\item Öffnet die Datei \texttt{vorkurs/lektion03/helloyou.cpp} in eurem Texteditor
+		\item Öffnet ein Terminal und wechselt in das Verzeichnis \texttt{vorkurs/lektion03}
+		\item Kompiliert im Terminal die Datei (\texttt{g++ -o helloyou
+			      helloyou.cpp}) und führt sie aus (\texttt{./helloyou})
+		\item Versucht verschiedene Eingaben an das Programm und beobachtet, was passiert
+	\end{enumerate}
 
-    \inputcpp{helloyou.cpp}
+	\inputcpp{helloyou.cpp}
 \end{praxis}
 
 \begin{spiel}
-\begin{enumerate}
-    \item Versucht, zu verstehen, was die einzelnen Teile des Programms tun. An
-        welcher Stelle erfolgt die Eingabe? Was passiert dann damit?
-    \item Erweitert das Programm um eigene Fragen und Ausgaben. Vergesst nicht,
-        dass ihr das Programm nach jeder Änderung neu kompilieren und testen
-        müsst.
-\end{enumerate}
+	\begin{enumerate}
+		\item Versucht, zu verstehen, was die einzelnen Teile des Programms tun. An
+		      welcher Stelle erfolgt die Eingabe? Was passiert dann damit?
+		\item Erweitert das Programm um eigene Fragen und Ausgaben. Vergesst nicht,
+		      dass ihr das Programm nach jeder Änderung neu kompilieren und testen
+		      müsst.
+	\end{enumerate}
 \end{spiel}
 
 \textbf{Quiz 3}\\
 \textit{Was passiert, wenn \texttt{std::cin >> eingabe;} vor \texttt{std::string eingabe;} steht?}
 \begin{enumerate}[label=\alph*)]
-    \item Das Programm funktioniert ganz normal
-    \item Es wird \texttt{eingabe} ausgegeben
-    \item Es wird \texttt{Hello} ausgegeben
-    \item Das Programm kann nicht kompiliert werden
+	\item Das Programm funktioniert ganz normal
+	\item Es wird \texttt{eingabe} ausgegeben
+	\item Es wird \texttt{Hello} ausgegeben
+	\item Das Programm kann nicht kompiliert werden
 \end{enumerate}
