@@ -64,20 +64,15 @@ jobs:
       - uses: xu-cheng/texlive-action@v2
         with:
           scheme: full
-
-      - name: Install Perl dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y perl libyaml-tiny-perl libfile-homedir-perl libfile-find-rule-perl
-          sudo cpan -i Unicode::GCString
-
-      - name: Check formatting of all .tex files
-        run: |
-          find . -name "*.tex" | while read file; do
-            perl $(kpsewhich latexindent.pl) "$file" > "$file.formatted"
-            if ! diff -q "$file" "$file.formatted" > /dev/null; then
-              echo "::error file=$file::File is not properly formatted. Run 'make format' locally."
-              exit 1
-            fi
-            rm "$file.formatted"
-          done
+          run: |
+            sudo apt-get update
+            sudo apt-get install -y perl libyaml-tiny-perl libfile-homedir-perl libfile-find-rule-perl
+            sudo cpan -i Unicode::GCString
+            find . -name "*.tex" | while read file; do
+              perl $(kpsewhich latexindent.pl) "$file" > "$file.formatted"
+              if ! diff -q "$file" "$file.formatted" > /dev/null; then
+                echo "::error file=$file::File is not properly formatted. Run 'make format' locally."
+                exit 1
+              fi
+              rm "$file.formatted"
+            done
