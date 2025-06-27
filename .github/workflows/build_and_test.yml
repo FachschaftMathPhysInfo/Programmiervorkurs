@@ -57,11 +57,15 @@ jobs:
         run: python .github/workflows/test_scripts/check_compilability.py
 
   latexindent-check:
-    runs-on: xu-cheng/texlive-action@v2
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install latexindent dependencies
+      - uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+
+      - name: Install Perl dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y perl libyaml-tiny-perl libfile-homedir-perl libfile-find-rule-perl
