@@ -55,3 +55,24 @@ jobs:
 
       - name: Run compilability checker
         run: python .github/workflows/test_scripts/check_compilability.py
+
+  latexindent-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install TeX Live and latexindent dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive texlive-latex-extra perl libyaml-tiny-perl libfile-homedir-perl libunicode-gcstring-perl libfile-find-rule-perl
+
+      - name: Check formatting of all .tex files
+        run: |
+          find . -name "*.tex" | while read file; do
+            latexindent "$file" > "$file.formatted"
+            if ! diff -q "$file" "$file.formatted" > /dev/null; then
+              echo "::error file=$file::File is not properly formatted. Run 'make format' locally."
+              exit 1
+            fi
+            rm "$file.formatted"
+          done
